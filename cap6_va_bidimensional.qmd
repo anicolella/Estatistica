@@ -23,9 +23,6 @@ execute:
 
 
 
-
-# Variáveis Aleatórias Bidimensionais
-
 ## Introdução
 
 Até o momento nos interessou observar apenas uma característica de um experimento. Por exemplo, a altura média dos alunos do curso de estatística. Podemos também estar interessados em mais uma característica adicional, como o peso dos alunos do curso de estatística.
