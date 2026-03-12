@@ -1,0 +1,51 @@
+project:
+  type: book
+  output-dir: docs
+
+book:
+  title: "Inferência Estatística Aplicada à Economia"
+  subtitle: "Notas de Aula"
+  navbar:
+    background: "#283747"
+    search: true
+    left:
+      - text: "Home"
+        file: index.qmd
+      #- intro.qmd
+      #- summary.qmd
+      #- pesquisa.qmd
+      #- interpretando.qmd
+    right:
+      - icon: github
+        href: https://github.com/
+        aria-label: GitHub
+  sidebar:
+    background: "#F4F6F6"
+    search: true
+  image: usp.png
+  page-navigation: true
+  author:
+  - name: "Alexandre Nicolella"
+    affiliation: "Unversidade de São Paulo (USP)"
+  date: "12/03/2026"
+  chapters:
+      - index.qmd
+      #- intro.qmd
+      - cap1_autores.qmd
+      - cap2_summary.qmd
+      #- cap3_int_R.qmd
+      #- cap4_googledrive.qmd
+      #- cap5_int_estatistica.qmd
+      - cap6_va_bidimensional.qmd
+
+bibliography: references.bib
+
+format:
+  html:
+    theme: cosmo
+  pdf:
+    documentclass: scrreprt
+
+
+editor: visual
+
