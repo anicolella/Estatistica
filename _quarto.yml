@@ -36,7 +36,7 @@ book:
       - cap/cap2_summary.qmd
       #- cap3_int_R.qmd
       #- cap4_googledrive.qmd
-      #- cap5_int_estatistica.qmd
+      - cap/cap5_estatistica.qmd
       - cap/cap6_va_bidimensional.qmd
 
 bibliography: references.bib
