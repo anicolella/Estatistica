@@ -4,14 +4,11 @@ subtitle: "Conceitos Inciciais"
 author:
 - Alexandre Nicolella
 date: "12/03/2026"
-filters:
-  - caixas.lua
 format: 
   html:
     toc: true
     fig-align: center
     #df-print: paged
-    css: estilos.css
 knitr:
   opts_chunk:
     out.width: "70%"
@@ -41,17 +38,20 @@ $$\begin{array}{ccc}
 p(x_{i},y_{j})=P(X=x_{i},Y=y_{j})=1/36 
 \end{array}$$
 
-para i=1,...,6 e j=1,...6.
+para $i=1,...,6$ e $j=1,...6$.
 
 Assim como no caso unidimensional pode-se construir um histograma. Com base no exemplo acima, podemos fazer o seguinte histograma tridimensional para o par de dados $X$ e $Y$, ou seja, a distribuição conjunta de $(X,Y)$:
 
 ```{r}
 #| echo: false
 #| fig-cap: "Distribuição conjunta uniforme discreta"
+#| fig-width: 5
+#| fig-height: 5
+#| out-width: "45%"
 
 library(plot3D)
 prob_matrix <- matrix(1/36, nrow = 6, ncol = 6)
-par(mar = c(0, 0, 0, 0))
+par(mar = c(2,2,1,1))
 hist3D(x = 1:6, y = 1:6, z = prob_matrix,
        space = 0,             
        border = "black",      
@@ -66,33 +66,35 @@ hist3D(x = 1:6, y = 1:6, z = prob_matrix,
        zlim = c(0, 0.05))
 ```
 
+
+
+
 Com base nessa ideia podemos fazer a seguinte definição:
 
-::: {.definicao}
+::: {.callout-note  icon="false" title="DEFINIÇÃO"}
 Seja $\epsilon$ um experimento, $\Omega$ um espaço amostral, $X = X(\omega)$ e $Y = Y(\omega)$, para $\omega \in \Omega$, $(X,Y)$ será uma variável aleatória bidimensional (ou vetor aleatório).
 :::
 
 Agora possuímos não mais um espaço unidimensaional $R_{x}$ como anteriormente visto, mas sim bidimensional, ou seja, o contradomínio da variável aleatória será $R_{xy}$ e cada resultado $X = X(\omega)$ e $Y = Y(\omega)$ pode ser representado como um ponto $(x,y)$ no plano euclidiano. Podemos dividir os resultado de um experimento em dois tipos, os discretos e os contínuos. Vejamos abaixo esses dois tipos de resultados.
 
-## Variáveis Aleatórias Discretas
+## Distribuição de Probabilidade
+### Variáveis Aleatórias Discretas
 
 São variáveis que conseguimos colocar em lista, seja ela finita ou infinita. Assim, o vetor (X,Y) será uma variável aleatória discreta bidimensional ou vetor aleatório bidimensional se os valores possíveis puderem ser representados por $(x_{i},y_{i})$, $i=1,...,n,...$; e $j=1,2,...,m,...$
 
 Como no caso unidimensional tem-se, podemos definir a distribuição de probabilidade conjunta de $(X,Y)$
 
-::: {.definicao}
+::: {.callout-note  icon="false" title="DEFINIÇÃO"}
 A cada valor possível da variável aleatória bidimensional $(X,Y)$, $(x_{i},y_{j})$, associamos uma probabilidade $p(x_{i},y_{j})$, $P (X=x_{i},Y=y_{i})$, e irá satisfazer:
 
-
 i) $p(x_{i},y_{j}) \geq 0$ para todo $(x,y)$
-
 
 ii) $\sum_{i} \sum_{j} p(x_{i},y_{j})=1$
 :::
 
 Com base na definição anterior podemos definir agora o que seria a função distribuição conjunto, ou seja:
 
-::: {.definicao}
+::: {.callout-note  icon="false" title="DEFINIÇÃO"}
 **Função de probabilidade conjunta de (X,Y)** (ou bivariada):
 
 
@@ -106,31 +108,32 @@ $p(x_{i},y_{j})= P(X=x_{i},Y=y_{j})$ para $-\infty < x_{i}< \infty$ e $-\infty <
 $[x_{i},y_{j},p(x_{i},y_{j})]$
 :::
 
+
 Para fixarmos as definições apresentadas acimas, e colocarmos os conceitos em prática, vamos realizar dois exemplos.
 
-::: {.exemplo}
+::: {.callout-tip  icon="false" title="EXEMPLO"}
 Considere o experimento de jogar dois dados simultaneamente. Considere a função de distribuição conjunta e calcule a probabilidade conjunta de $P(5\leq X \leq 6, 1 \leq Y \leq 2)$
-
----
-
-**Resposta:**
-
-$P(5\leq X \leq 6, 1 \leq Y \leq 2)= p(5,1)+p(5,2) + p(6,1)+p(6,2) = 4 * 1/6= 1/9$
 :::
 
-::: {.exemplo}
+::: {.callout-caution  icon="false" collapse="true" title="RESPOSTA"}
+
+$P(5\leq X \leq 6, 1 \leq Y \leq 2)= p(5,1)+p(5,2) + p(6,1)+p(6,2) = 4 * 1/36= 1/9$
+:::
+
+
+
+::: {.callout-tip  icon="false" title="EXEMPLO"}
 Um supermercado possui três caixas operando. Dois consumidores chegam aos caixas, que estão vazios, em momentos distintos do tempo. Cada consumidor escolhe um caixa de forma aleatória e independente do outro. Seja X o número de consumidores que escolhem o caixa 1 e Y os que escolhem o caixa 2. Qual a distribuição conjunta de X e Y?
+:::
 
----
 
-**Resposta:**
-
+::: {.callout-caution  icon="false" collapse="true" title="RESPOSTA"}
 O espaço amostral do experimento será dado pelo par ordenado $\{ i,j \}$, onde o primeiro consumidor escolhe o caixa i e o segundo escolhe $j$, tal que $i=1,2,3$ e $j=1,2,3$. Assim, cada ponto amostral tem a mesma probabilidade e o espaço amostral pode ser representado como :
 
 $$\Omega = { \{(1,1),(1,2),(1,3),...,(3,3)\} } $$
 
 A distribuição conjunta de X e Y será conforme descrito na tabela abaixo. Para construir essa tabela note que, por exemplo, $P(X=0,Y=0)=P(\{(3,3)\})=1/9$ e que $P(X=0,Y=1)=P(\{(2,3),(3,2)\})=2/9$
-:::
+
 
 | y (cx2) | x=0 (cx1) | x=1 (cx1) | x= 2 (cx1) |
 |---------|-----------|-----------|------------|
@@ -138,7 +141,9 @@ A distribuição conjunta de X e Y será conforme descrito na tabela abaixo. Par
 | y=1     | 2/9       | 2/9       | 0          |
 | y=2     | 1/9       | 0         | 0          |
 
-### Visualização gráfica
+:::
+
+#### <u>Visualização Gráfica</u>
 
 Vejamos agora alguns gráficos de variáveis aleaórias bidimensionais:
 
@@ -149,6 +154,7 @@ Considere a variável aleatória $(X,Y)$ com distribuição binomial e a probabi
 ```{r}
 #| echo = FALSE,
 #| fig.cap = "Distribuição conjunta Binomial"
+
 library (intoo)
 library (barsurf)
 library (bivariate)
@@ -164,6 +170,7 @@ Considere a variável aleatória $(X,Y)$ com distribuição de poisson e o valor
 ```{r}
 #| echo = FALSE,
 #| fig.cap = "Distribuição conjunta de Poisson"
+
 library (intoo)
 library (barsurf)
 library (bivariate)
@@ -173,11 +180,11 @@ f <- pbvpmf.2 (7,4, 3)
 plot (f, TRUE, zlim=c(0,0.02), zlab="p(x,y)" )
 ```
 
-## Variáveis Aleatórias Contínuas
+### Variáveis Aleatórias Contínuas
 
 São variáveis que não conseguimos listar, pois existem infinitos valores entre dois pontos. Assim,o vetor $(X,Y)$ será uma variável aleatória contínua se puder tomar todos os valores em algum conjunto não enumerável no plano euclediano
 
-::: {.definicao}
+::: {.callout-note  icon="false" title="DEFINIÇÃO"}
 Sendo $(X,Y)$ variável aleatória contínua bidimensional. A função densidade de probabilidade conjunta, $f(x,y)$, irá satisfazer:
 
 i) $f(x,y) \geq 0$
@@ -191,11 +198,13 @@ $$\begin{array}{ccc}
 P(B)=P\{ [X(\omega),Y(\omega)] \in B \}= P\{\omega | [X(\omega),Y(\omega)] \in B \}
 \end{array}$$
 
-Para o caso discreto: $$\begin{array}{ccc}
+Para o caso discreto: 
+$$\begin{array}{ccc}
 P(B)=\sum \sum_{B} p(x_{i},y_{j})
 \end{array}$$
 
-Para o caso contínuo: $$\begin{array}{ccc}
+Para o caso contínuo: 
+$$\begin{array}{ccc}
 P(B)=\iint_{B} f(x,y)dxdy
 \end{array}$$
 
@@ -207,7 +216,7 @@ $$\begin{array}{ccc}
  P(a \leq X \leq b, c\leq Y \leq d)  = \int_{c}^{d}\int_{a}^{b} f(x,y)dxdy
 \end{array}$$
 
-::: {.exemplo}
+::: {.callout-tip  icon="false" title="EXEMPLO"}
 Suponha que uma partícula é aleatoriamente alocada em um quadrado com lados iguais a 1. Assim, se duas áreas de mesma dimensão forem consideradas a partícula tem a mesma probabilidade de estar em qualquer uma das duas áreas. Seja X e Y as coordenadas da localização da partícula. A função de densidade conjunta de X e Y será:
 
 \begin{array}{ccc}
@@ -222,38 +231,36 @@ Assim:
 a. Esboce a função densidade de probabilidade conjunta 
 
 b. Encontre $P(0 \leq X \leq 0.2, 0\leq Y \leq 0.4)$
+::: 
+
+
+
+::: {.callout-caution  icon="false" collapse="true" title="RESPOSTA"}
+Resposta a: 
+
+<center>
+
+![Função densidade de probabilidade conjunta \label{figParticula}](../figuras/capitulos/Imagem4.png){width="40%"}
+
+</center>
 
 ---
-
-**Resposta:**
-
-Ver figura abaixo. 
+Resposta b: 
 
 \begin{array}{ccc}
 
 P(0 \leq X  \leq 0.2,0 \leq Y  \leq 0.4)= \int_{0}^{0.4}\int_{0}^{0.2}f(x,y)dxdy \\
-
 =\int_{0}^{0.4}\int_{0}^{0.2}1dxdy=\int_{0}^{0.4}(\int_{0}^{0.2}1dx)dy \\
-
 =\int_{0}^{0.4}(x\Big|_{0}^{0.2})dy 
-
-
 =(0.2-0)\int_{0}^{0.4}dy = (0.2-0).(y\Big|_{0}^{0.4}) \\
-
 =(0.2-0)(0.4-0)=0.08 \\
-
-
 P(0 \leq X  \leq 0.2,0 \leq Y \leq 0.4)=0.08
 \end{array}
 :::
 
-<center>
 
-![Função densidade de probabilidade conjunta \label{figParticula}](Material Quarto/Completa_files/Outras/Imagem4.png){width="50%"}
 
-</center>
-
-### Visualização gráfica: Var. Contínuas
+#### <u>Visualização Gráfica</u>
 
 Vejamos agora alguns gráficos de variáveis aleaórias bidimensionais:
 
@@ -264,6 +271,7 @@ Considere a variável aleatória $(X,Y)$ com distribuição normal bivariada com
 ```{r}
 #| echo = FALSE,
 #| fig.cap = "Distribuição conjunta normal bivariada"
+
 library (intoo)
 library (barsurf)
 library (bivariate)
@@ -280,6 +288,7 @@ Considere a variável aleatória $(X,Y)$ com distribuição normal bivariada pad
 ```{r}
 #| echo = FALSE,
 #| fig.cap = "Distribuição conjunta normal padrão bivariada"
+
 library (intoo)
 library (barsurf)
 library (bivariate)
@@ -289,13 +298,13 @@ f <- nbvpdf (0, 0, 1, 1, 0)
 plot (f, TRUE, zlim=c(0,0.1), zlab="p(x,y)" )
 ```
 
-## Função Distribuição Acumulada
+## Distribuição Acumulada
 
 Como no caso univariado a distinção entre variável aleatória conjunta contínua e conjunta discreta pode ser feita em termos de sua função distribuição conjunta acumulada.
 
-### Caso discreto
+### Variável Aleatória Discreta
 
-::: {.definicao}
+::: {.callout-note  icon="false" title="DEFINIÇÃO"}
 A função distribuição conjunta acumulada, F, da variável aleatória bidimensional (X,Y) é definida por:
 $$\begin{array}{ccc}
  F(x,y)= P(X \leq x, Y \leq y) \ para \ -\infty < x_{i} < \infty \ e \ -\infty < y_{i} < \infty
@@ -308,16 +317,14 @@ $$\begin{array}{ccc}
  F(x,y)=\sum_{f1=- \infty }^{x} \sum_{f2=- \infty }^{y}p(t_{1},t_{2})
 \end{array}$$
 
-Retomando os exemplos anteriores temos as seguintes funcÕes de distribuição conjunta acumuladas discretas:
+Retomando os exemplos anteriores temos as seguintes funções de distribuição conjunta acumuladas discretas:
 
-::: {.exemplo}
+::: {.callout-tip  icon="false" title="EXEMPLO"}
 Para o caso dos dois dados apresentados anteriormente temos que:
 
+$F(2,3)=P(X\leq 2, Y \leq 3)=p(1,1)+p(1,2)+p(1,3)+p(2,1)+p(2,2)+p(2,3)$
 
-$$F(2,3)=P(X\leq 2, Y \leq 3)=p(1,1)+p(1,2)+p(1,3)+p(2,1)+p(2,2)+p(2,3) $$
-
-
-$$F(2,3)=P(X\leq 2, Y \leq 3)=6/36=1/6 $$
+$F(2,3)=P(X\leq 2, Y \leq 3)=6/36=1/6$
 
 O gráfico segue abaixo.
 :::
@@ -325,7 +332,7 @@ O gráfico segue abaixo.
 ```{r}
 #| echo: false
 #| fig-cap: "Distribuição acumulada conjunta uniforme discreta"
-
+#| out-width: "45%"
 library(plot3D)
 cdf_matrix <- outer(1:6, 1:6, "*") / 36
 par(mar = c(0, 0, 0, 0))
@@ -343,23 +350,21 @@ hist3D(x = 1:6, y = 1:6, z = cdf_matrix,
        zlim = c(0, 1))
 ```
 
-::: {.exemplo}
+::: {.callout-tip  icon="false" title="EXEMPLO"}
 Para o exemplo anterior (caixa do supermercado) encontre F(-1,2) e F(1.5,2)
 
----
-
-$$F(-1,2) = P(X \leq -1, Y \leq 2)= P(\emptyset)=0$$
+$F(-1,2) = P(X \leq -1, Y \leq 2)= P(\emptyset)=0$
 
 *Note que é impossível no exemplo do caixa o valor assumir -1, portanto, temos a probabilidade de um conjunto vazio, que será zero.
 
 
-\begin{aligned}
+$$\begin{aligned}
 F(1.5,2) &= P(X \leq 1.5, Y \leq 2) \\
          &= p(0,0)+p(0,1)+p(0,2)+p(1,0)+p(1,1)+p(1,2)=8/9
-\end{aligned}
+\end{aligned}$$
 :::
 
-### Visualização gráfica
+#### <u>Visualização Gráfica</u>
 
 **BINOMIAL:**
 
@@ -368,6 +373,7 @@ Considere a variável aleatória $(X,Y)$ com distribuição binomial e a probabi
 ```{r}
 #| echo: false
 #| fig-cap: "Distribuição conjunta Binomial"
+#| out-width: "45%"
 library(plot3D)
 n <- 10
 p1 <- 0.75
@@ -397,6 +403,7 @@ Considere a variável aleatória $(X,Y)$ com distribuição de poisson e o valor
 ```{r}
 #| echo: false
 #| fig-cap: "Distribuição conjunta de Poisson"
+#| out-width: "45%"
 library(plot3D)
 l1 <- 7
 l2 <- 4
@@ -435,7 +442,7 @@ hist3D(x = x_vals, y = y_vals, z = cdf_poisson,
        zlim = c(0, 1))
 ```
 
-### Caso Contínuo
+### Variável Aleatória Contínua
 
 Seja X e Y duas variáveis aleatórias contínuas com função distribuição conjunta $F(x,y)$. Se existir uma função densidade de probabilidade conjunta $f(x,y)$ não negativa, assim a **função distribuição conjunta acumulada de X e Y** será:
 
@@ -443,13 +450,12 @@ $$\begin{array}{ccc}
  F(x,y) = \int_{-\infty}^{x}\int_{- \infty}^{y} f(t_{1},t_{2})dt_{1}dt_{2} \ para \ -\infty < x_{i} < \infty \ e \ -\infty < y_{i} < \infty 
 \end{array}$$
 
-::: {.exemplo}
+::: {.callout-tip  icon="false" title="EXEMPLO"}
 Para o exemplo anterior da partícula, encontre F(0.4, 0.4):
+:::
 
----
 
-**Resposta:**
-
+::: {.callout-caution  icon="false" collapse="true" title="RESPOSTA"}
 Ver figura abaixo. 
 $$\begin{array}{ccc}
 P(X \leq 0.4 ,Y \leq 0.4)= \int_{0}^{0.4}\int_{0}^{0.4}f(x,y)dxdy
@@ -463,7 +469,7 @@ P(X  \leq 0.4,Y \leq 0.4)=0.016
 \end{array}$$
 :::
 
-::: {.teorema}
+::: {.callout-note  icon="false" title="TEOREMA"}
 
 Seja $X$ e $Y$ duas variáveis aleatórias contínuas com função distribuição conjunta $F(x,y)$ então:
 
@@ -482,7 +488,7 @@ $$\begin{array}{ccc}
 
 :::
 
-### Visualização gráfica
+#### <u>Visualização Gráfica</u>
 
 Vejamos agora alguns gráficos de variáveis aleaórias bidimensionais:
 
@@ -493,6 +499,7 @@ Considere a variável aleatória $(X,Y)$ com distribuição normal bivariada com
 ```{r}
 #| echo: false
 #| fig-cap: "Distribuição acumulada conjunta normal"
+#| out-width: "45%"
 library(plot3D)
 library(pbivnorm)
 x_vals <- seq(1, 19, length.out = 40)
@@ -518,6 +525,7 @@ Considere a variável aleatória $(X,Y)$ com distribuição normal bivariada pad
 ```{r}
 #| echo: false
 #| fig-cap: "Distribuição acumulada conjunta normal padrão"
+#| out-width: "45%"
 library(plot3D)
 library(pbivnorm)
 x_vals <- seq(-3, 3, length.out = 40)

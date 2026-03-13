@@ -6,7 +6,7 @@ book:
   title: "Inferência Estatística Aplicada à Economia"
   subtitle: "Notas de Aula"
   navbar:
-    background: "#283747"
+    background: "#818f81"
     search: true
     left:
       - text: "Home"
@@ -22,7 +22,8 @@ book:
   sidebar:
     background: "#F4F6F6"
     search: true
-  image: usp.png
+    style: "docked"
+  image: figuras/usp.png
   page-navigation: true
   author:
   - name: "Alexandre Nicolella"
@@ -31,20 +32,22 @@ book:
   chapters:
       - index.qmd
       #- intro.qmd
-      - cap1_autores.qmd
-      - cap2_summary.qmd
+      - cap/cap1_autores.qmd
+      - cap/cap2_summary.qmd
       #- cap3_int_R.qmd
       #- cap4_googledrive.qmd
       #- cap5_int_estatistica.qmd
-      - cap6_va_bidimensional.qmd
+      - cap/cap6_va_bidimensional.qmd
 
 bibliography: references.bib
 
 format:
   html:
     theme: cosmo
-  pdf:
-    documentclass: scrreprt
+    fontsize: 16px
+    #linestretch: 1.7
+  #pdf:
+    #documentclass: scrreprt
 
 
 editor: visual

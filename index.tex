@@ -108,6 +108,22 @@
 
 \KOMAoption{captions}{tableheading}
 \makeatletter
+\@ifpackageloaded{tcolorbox}{}{\usepackage[skins,breakable]{tcolorbox}}
+\@ifpackageloaded{fontawesome5}{}{\usepackage{fontawesome5}}
+\definecolor{quarto-callout-color}{HTML}{909090}
+\definecolor{quarto-callout-note-color}{HTML}{0758E5}
+\definecolor{quarto-callout-important-color}{HTML}{CC1914}
+\definecolor{quarto-callout-warning-color}{HTML}{EB9113}
+\definecolor{quarto-callout-tip-color}{HTML}{00A047}
+\definecolor{quarto-callout-caution-color}{HTML}{FC5300}
+\definecolor{quarto-callout-color-frame}{HTML}{acacac}
+\definecolor{quarto-callout-note-color-frame}{HTML}{4582ec}
+\definecolor{quarto-callout-important-color-frame}{HTML}{d9534f}
+\definecolor{quarto-callout-warning-color-frame}{HTML}{f0ad4e}
+\definecolor{quarto-callout-tip-color-frame}{HTML}{02b875}
+\definecolor{quarto-callout-caution-color-frame}{HTML}{fd7e14}
+\makeatother
+\makeatletter
 \@ifpackageloaded{bookmark}{}{\usepackage{bookmark}}
 \makeatother
 \makeatletter
@@ -208,12 +224,12 @@ Como é o método de ensino
 
 \bookmarksetup{startatroot}
 
-\chapter{Sobre o Autor}\label{sobre-o-autor}
+\chapter{Sobre os Autores}\label{sobre-os-autores}
 
 \section{\texorpdfstring{\textbf{Alexandre
 Nicolella}}{Alexandre Nicolella}}\label{alexandre-nicolella}
 
-\includegraphics[width=1.45833in,height=1.45833in]{figuras/alexandre.jpg}
+\includegraphics[width=1.45833in,height=1.45833in]{cap/../figuras/alexandre.jpg}
 
 Professor de Economia da FEA-RP/USP, com formação em Economia Aplicada e
 experiência em microeconometria, avaliação de projetos e análise de
@@ -707,11 +723,6 @@ Conceitos Inciciais
 
 \hfill\break
 
-\bookmarksetup{startatroot}
-
-\chapter{Variáveis Aleatórias
-Bidimensionais}\label{variuxe1veis-aleatuxf3rias-bidimensionais}
-
 \section{Introdução}\label{introduuxe7uxe3o}
 
 Até o momento nos interessou observar apenas uma característica de um
@@ -741,7 +752,7 @@ ocorrência de 1/36. Assim, a função de \textbf{probabilidade bivariada}
 p(x_{i},y_{j})=P(X=x_{i},Y=y_{j})=1/36 
 \end{array}\]
 
-para i=1,\ldots,6 e j=1,\ldots6.
+para \(i=1,...,6\) e \(j=1,...6\).
 
 Assim como no caso unidimensional pode-se construir um histograma. Com
 base no exemplo acima, podemos fazer o seguinte histograma
@@ -750,7 +761,7 @@ distribuição conjunta de \((X,Y)\):
 
 \begin{figure}[H]
 
-{\centering \includegraphics[width=0.7\linewidth,height=\textheight,keepaspectratio]{cap6_va_bidimensional_files/figure-pdf/unnamed-chunk-1-1.pdf}
+{\centering \includegraphics[width=0.45\linewidth,height=\textheight,keepaspectratio]{cap/cap6_va_bidimensional_files/figure-pdf/unnamed-chunk-1-1.pdf}
 
 }
 
@@ -760,10 +771,14 @@ distribuição conjunta de \((X,Y)\):
 
 Com base nessa ideia podemos fazer a seguinte definição:
 
+\begin{tcolorbox}[enhanced jigsaw, bottomrule=.15mm, colbacktitle=quarto-callout-note-color!10!white, colback=white, toptitle=1mm, colframe=quarto-callout-note-color-frame, breakable, arc=.35mm, opacitybacktitle=0.6, titlerule=0mm, title={DEFINIÇÃO}, left=2mm, bottomtitle=1mm, coltitle=black, rightrule=.15mm, leftrule=.75mm, toprule=.15mm, opacityback=0]
+
 Seja \(\epsilon\) um experimento, \(\Omega\) um espaço amostral,
 \(X = X(\omega)\) e \(Y = Y(\omega)\), para \(\omega \in \Omega\),
 \((X,Y)\) será uma variável aleatória bidimensional (ou vetor
 aleatório).
+
+\end{tcolorbox}
 
 Agora possuímos não mais um espaço unidimensaional \(R_{x}\) como
 anteriormente visto, mas sim bidimensional, ou seja, o contradomínio da
@@ -773,7 +788,10 @@ euclidiano. Podemos dividir os resultado de um experimento em dois
 tipos, os discretos e os contínuos. Vejamos abaixo esses dois tipos de
 resultados.
 
-\section{Variáveis Aleatórias
+\section{Distribuição de
+Probabilidade}\label{distribuiuxe7uxe3o-de-probabilidade}
+
+\subsection{Variáveis Aleatórias
 Discretas}\label{variuxe1veis-aleatuxf3rias-discretas}
 
 São variáveis que conseguimos colocar em lista, seja ela finita ou
@@ -784,6 +802,8 @@ puderem ser representados por \((x_{i},y_{i})\), \(i=1,...,n,...\); e
 
 Como no caso unidimensional tem-se, podemos definir a distribuição de
 probabilidade conjunta de \((X,Y)\)
+
+\begin{tcolorbox}[enhanced jigsaw, bottomrule=.15mm, colbacktitle=quarto-callout-note-color!10!white, colback=white, toptitle=1mm, colframe=quarto-callout-note-color-frame, breakable, arc=.35mm, opacitybacktitle=0.6, titlerule=0mm, title={DEFINIÇÃO}, left=2mm, bottomtitle=1mm, coltitle=black, rightrule=.15mm, leftrule=.75mm, toprule=.15mm, opacityback=0]
 
 A cada valor possível da variável aleatória bidimensional \((X,Y)\),
 \((x_{i},y_{j})\), associamos uma probabilidade \(p(x_{i},y_{j})\),
@@ -797,8 +817,12 @@ A cada valor possível da variável aleatória bidimensional \((X,Y)\),
   \(\sum_{i} \sum_{j} p(x_{i},y_{j})=1\)
 \end{enumerate}
 
+\end{tcolorbox}
+
 Com base na definição anterior podemos definir agora o que seria a
 função distribuição conjunto, ou seja:
+
+\begin{tcolorbox}[enhanced jigsaw, bottomrule=.15mm, colbacktitle=quarto-callout-note-color!10!white, colback=white, toptitle=1mm, colframe=quarto-callout-note-color-frame, breakable, arc=.35mm, opacitybacktitle=0.6, titlerule=0mm, title={DEFINIÇÃO}, left=2mm, bottomtitle=1mm, coltitle=black, rightrule=.15mm, leftrule=.75mm, toprule=.15mm, opacityback=0]
 
 \textbf{Função de probabilidade conjunta de (X,Y)} (ou bivariada):
 
@@ -811,18 +835,26 @@ e \(-\infty < y_{j}< \infty\)
 
 \([x_{i},y_{j},p(x_{i},y_{j})]\)
 
+\end{tcolorbox}
+
 Para fixarmos as definições apresentadas acimas, e colocarmos os
 conceitos em prática, vamos realizar dois exemplos.
+
+\begin{tcolorbox}[enhanced jigsaw, bottomrule=.15mm, colbacktitle=quarto-callout-tip-color!10!white, colback=white, toptitle=1mm, colframe=quarto-callout-tip-color-frame, breakable, arc=.35mm, opacitybacktitle=0.6, titlerule=0mm, title={EXEMPLO}, left=2mm, bottomtitle=1mm, coltitle=black, rightrule=.15mm, leftrule=.75mm, toprule=.15mm, opacityback=0]
 
 Considere o experimento de jogar dois dados simultaneamente. Considere a
 função de distribuição conjunta e calcule a probabilidade conjunta de
 \(P(5\leq X \leq 6, 1 \leq Y \leq 2)\)
 
-\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+\end{tcolorbox}
 
-\textbf{Resposta:}
+\begin{tcolorbox}[enhanced jigsaw, bottomrule=.15mm, colbacktitle=quarto-callout-caution-color!10!white, colback=white, toptitle=1mm, colframe=quarto-callout-caution-color-frame, breakable, arc=.35mm, opacitybacktitle=0.6, titlerule=0mm, title={RESPOSTA}, left=2mm, bottomtitle=1mm, coltitle=black, rightrule=.15mm, leftrule=.75mm, toprule=.15mm, opacityback=0]
 
-\(P(5\leq X \leq 6, 1 \leq Y \leq 2)= p(5,1)+p(5,2) + p(6,1)+p(6,2) = 4 * 1/6= 1/9\)
+\(P(5\leq X \leq 6, 1 \leq Y \leq 2)= p(5,1)+p(5,2) + p(6,1)+p(6,2) = 4 * 1/36= 1/9\)
+
+\end{tcolorbox}
+
+\begin{tcolorbox}[enhanced jigsaw, bottomrule=.15mm, colbacktitle=quarto-callout-tip-color!10!white, colback=white, toptitle=1mm, colframe=quarto-callout-tip-color-frame, breakable, arc=.35mm, opacitybacktitle=0.6, titlerule=0mm, title={EXEMPLO}, left=2mm, bottomtitle=1mm, coltitle=black, rightrule=.15mm, leftrule=.75mm, toprule=.15mm, opacityback=0]
 
 Um supermercado possui três caixas operando. Dois consumidores chegam
 aos caixas, que estão vazios, em momentos distintos do tempo. Cada
@@ -830,9 +862,9 @@ consumidor escolhe um caixa de forma aleatória e independente do outro.
 Seja X o número de consumidores que escolhem o caixa 1 e Y os que
 escolhem o caixa 2. Qual a distribuição conjunta de X e Y?
 
-\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+\end{tcolorbox}
 
-\textbf{Resposta:}
+\begin{tcolorbox}[enhanced jigsaw, bottomrule=.15mm, colbacktitle=quarto-callout-caution-color!10!white, colback=white, toptitle=1mm, colframe=quarto-callout-caution-color-frame, breakable, arc=.35mm, opacitybacktitle=0.6, titlerule=0mm, title={RESPOSTA}, left=2mm, bottomtitle=1mm, coltitle=black, rightrule=.15mm, leftrule=.75mm, toprule=.15mm, opacityback=0]
 
 O espaço amostral do experimento será dado pelo par ordenado
 \(\{ i,j \}\), onde o primeiro consumidor escolhe o caixa i e o segundo
@@ -859,7 +891,10 @@ y=1 & 2/9 & 2/9 & 0 \\
 y=2 & 1/9 & 0 & 0 \\
 \end{longtable}
 
-\subsection{Visualização gráfica}\label{visualizauxe7uxe3o-gruxe1fica}
+\end{tcolorbox}
+
+\subsubsection{Visualização
+Gráfica}\label{visualizauxe7uxe3o-gruxe1fica}
 
 Vejamos agora alguns gráficos de variáveis aleaórias bidimensionais:
 
@@ -871,7 +906,7 @@ com 10 rodadas:
 
 \begin{figure}[H]
 
-{\centering \includegraphics[width=0.7\linewidth,height=\textheight,keepaspectratio]{cap6_va_bidimensional_files/figure-pdf/unnamed-chunk-2-1.pdf}
+{\centering \includegraphics[width=0.7\linewidth,height=\textheight,keepaspectratio]{cap/cap6_va_bidimensional_files/figure-pdf/unnamed-chunk-2-1.pdf}
 
 }
 
@@ -886,7 +921,7 @@ valor esperado de \(X\) igual a 7, de \(Y\) igual a 4 e a covariância é
 
 \begin{figure}[H]
 
-{\centering \includegraphics[width=0.7\linewidth,height=\textheight,keepaspectratio]{cap6_va_bidimensional_files/figure-pdf/unnamed-chunk-3-1.pdf}
+{\centering \includegraphics[width=0.7\linewidth,height=\textheight,keepaspectratio]{cap/cap6_va_bidimensional_files/figure-pdf/unnamed-chunk-3-1.pdf}
 
 }
 
@@ -894,13 +929,15 @@ valor esperado de \(X\) igual a 7, de \(Y\) igual a 4 e a covariância é
 
 \end{figure}%
 
-\section{Variáveis Aleatórias
+\subsection{Variáveis Aleatórias
 Contínuas}\label{variuxe1veis-aleatuxf3rias-contuxednuas}
 
 São variáveis que não conseguimos listar, pois existem infinitos valores
 entre dois pontos. Assim,o vetor \((X,Y)\) será uma variável aleatória
 contínua se puder tomar todos os valores em algum conjunto não
 enumerável no plano euclediano
+
+\begin{tcolorbox}[enhanced jigsaw, bottomrule=.15mm, colbacktitle=quarto-callout-note-color!10!white, colback=white, toptitle=1mm, colframe=quarto-callout-note-color-frame, breakable, arc=.35mm, opacitybacktitle=0.6, titlerule=0mm, title={DEFINIÇÃO}, left=2mm, bottomtitle=1mm, coltitle=black, rightrule=.15mm, leftrule=.75mm, toprule=.15mm, opacityback=0]
 
 Sendo \((X,Y)\) variável aleatória contínua bidimensional. A função
 densidade de probabilidade conjunta, \(f(x,y)\), irá satisfazer:
@@ -913,6 +950,8 @@ densidade de probabilidade conjunta, \(f(x,y)\), irá satisfazer:
   \(\int \int_{R} f(x,y)dxdy= 1\) se f(x,y)=0 para
   \((x,y)\notin R \rightarrow \int_{- \infty}^{\infty}\int_{- \infty}^{\infty} f(x,y)=1\)
 \end{enumerate}
+
+\end{tcolorbox}
 
 Importante notar que \(f(x,y)\) não representa a probabilidade. Assim
 para um evento B em \(R_{xy}\):
@@ -941,6 +980,8 @@ calculada como:
  P(a \leq X \leq b, c\leq Y \leq d)  = \int_{c}^{d}\int_{a}^{b} f(x,y)dxdy
 \end{array}\]
 
+\begin{tcolorbox}[enhanced jigsaw, bottomrule=.15mm, colbacktitle=quarto-callout-tip-color!10!white, colback=white, toptitle=1mm, colframe=quarto-callout-tip-color-frame, breakable, arc=.35mm, opacitybacktitle=0.6, titlerule=0mm, title={EXEMPLO}, left=2mm, bottomtitle=1mm, coltitle=black, rightrule=.15mm, leftrule=.75mm, toprule=.15mm, opacityback=0]
+
 Suponha que uma partícula é aleatoriamente alocada em um quadrado com
 lados iguais a 1. Assim, se duas áreas de mesma dimensão forem
 consideradas a partícula tem a mesma probabilidade de estar em qualquer
@@ -964,32 +1005,15 @@ Assim:
   Encontre \(P(0 \leq X \leq 0.2, 0\leq Y \leq 0.4)\)
 \end{enumerate}
 
-\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+\end{tcolorbox}
 
-\textbf{Resposta:}
+\begin{tcolorbox}[enhanced jigsaw, bottomrule=.15mm, colbacktitle=quarto-callout-caution-color!10!white, colback=white, toptitle=1mm, colframe=quarto-callout-caution-color-frame, breakable, arc=.35mm, opacitybacktitle=0.6, titlerule=0mm, title={RESPOSTA}, left=2mm, bottomtitle=1mm, coltitle=black, rightrule=.15mm, leftrule=.75mm, toprule=.15mm, opacityback=0]
 
-Ver figura abaixo.
-
-\begin{array}{ccc}
-
-P(0 \leq X  \leq 0.2,0 \leq Y  \leq 0.4)= \int_{0}^{0.4}\int_{0}^{0.2}f(x,y)dxdy \\
-
-=\int_{0}^{0.4}\int_{0}^{0.2}1dxdy=\int_{0}^{0.4}(\int_{0}^{0.2}1dx)dy \\
-
-=\int_{0}^{0.4}(x\Big|_{0}^{0.2})dy 
-
-
-=(0.2-0)\int_{0}^{0.4}dy = (0.2-0).(y\Big|_{0}^{0.4}) \\
-
-=(0.2-0)(0.4-0)=0.08 \\
-
-
-P(0 \leq X  \leq 0.2,0 \leq Y \leq 0.4)=0.08
-\end{array}
+Resposta a:
 
 \begin{figure}[H]
 
-{\centering \includegraphics[width=0.5\linewidth,height=\textheight,keepaspectratio]{Material Quarto/Completa_files/Outras/Imagem4.png}
+{\centering \includegraphics[width=0.4\linewidth,height=\textheight,keepaspectratio]{cap/../figuras/capitulos/Imagem4.png}
 
 }
 
@@ -998,8 +1022,24 @@ P(0 \leq X  \leq 0.2,0 \leq Y \leq 0.4)=0.08
 
 \end{figure}%
 
-\subsection{Visualização gráfica: Var.
-Contínuas}\label{visualizauxe7uxe3o-gruxe1fica-var.-contuxednuas}
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+Resposta b:
+
+\begin{array}{ccc}
+
+P(0 \leq X  \leq 0.2,0 \leq Y  \leq 0.4)= \int_{0}^{0.4}\int_{0}^{0.2}f(x,y)dxdy \\
+=\int_{0}^{0.4}\int_{0}^{0.2}1dxdy=\int_{0}^{0.4}(\int_{0}^{0.2}1dx)dy \\
+=\int_{0}^{0.4}(x\Big|_{0}^{0.2})dy 
+=(0.2-0)\int_{0}^{0.4}dy = (0.2-0).(y\Big|_{0}^{0.4}) \\
+=(0.2-0)(0.4-0)=0.08 \\
+P(0 \leq X  \leq 0.2,0 \leq Y \leq 0.4)=0.08
+\end{array}
+
+\end{tcolorbox}
+
+\subsubsection{Visualização
+Gráfica}\label{visualizauxe7uxe3o-gruxe1fica-1}
 
 Vejamos agora alguns gráficos de variáveis aleaórias bidimensionais:
 
@@ -1012,7 +1052,7 @@ correlação de 0.7 (veremos mais a frente esse conceito).
 
 \begin{figure}[H]
 
-{\centering \includegraphics[width=0.7\linewidth,height=\textheight,keepaspectratio]{cap6_va_bidimensional_files/figure-pdf/unnamed-chunk-4-1.pdf}
+{\centering \includegraphics[width=0.7\linewidth,height=\textheight,keepaspectratio]{cap/cap6_va_bidimensional_files/figure-pdf/unnamed-chunk-4-1.pdf}
 
 }
 
@@ -1028,7 +1068,7 @@ desvio-padrões iguais a 1 e sem covariancia.
 
 \begin{figure}[H]
 
-{\centering \includegraphics[width=0.7\linewidth,height=\textheight,keepaspectratio]{cap6_va_bidimensional_files/figure-pdf/unnamed-chunk-5-1.pdf}
+{\centering \includegraphics[width=0.7\linewidth,height=\textheight,keepaspectratio]{cap/cap6_va_bidimensional_files/figure-pdf/unnamed-chunk-5-1.pdf}
 
 }
 
@@ -1036,19 +1076,23 @@ desvio-padrões iguais a 1 e sem covariancia.
 
 \end{figure}%
 
-\section{Função Distribuição
-Acumulada}\label{funuxe7uxe3o-distribuiuxe7uxe3o-acumulada}
+\section{Distribuição Acumulada}\label{distribuiuxe7uxe3o-acumulada}
 
 Como no caso univariado a distinção entre variável aleatória conjunta
 contínua e conjunta discreta pode ser feita em termos de sua função
 distribuição conjunta acumulada.
 
-\subsection{Caso discreto}\label{caso-discreto}
+\subsection{Variável Aleatória
+Discreta}\label{variuxe1vel-aleatuxf3ria-discreta}
+
+\begin{tcolorbox}[enhanced jigsaw, bottomrule=.15mm, colbacktitle=quarto-callout-note-color!10!white, colback=white, toptitle=1mm, colframe=quarto-callout-note-color-frame, breakable, arc=.35mm, opacitybacktitle=0.6, titlerule=0mm, title={DEFINIÇÃO}, left=2mm, bottomtitle=1mm, coltitle=black, rightrule=.15mm, leftrule=.75mm, toprule=.15mm, opacityback=0]
 
 A função distribuição conjunta acumulada, F, da variável aleatória
 bidimensional (X,Y) é definida por: \[\begin{array}{ccc}
  F(x,y)= P(X \leq x, Y \leq y) \ para \ -\infty < x_{i} < \infty \ e \ -\infty < y_{i} < \infty
 \end{array}\]
+
+\end{tcolorbox}
 
 Seja X e Y duas variáveis aleatórias discretas com função distribuição
 conjunta \(F(x,y)\), a função distribuição conjunta acumulada de X e Y
@@ -1058,20 +1102,24 @@ será:
  F(x,y)=\sum_{f1=- \infty }^{x} \sum_{f2=- \infty }^{y}p(t_{1},t_{2})
 \end{array}\]
 
-Retomando os exemplos anteriores temos as seguintes funcÕes de
+Retomando os exemplos anteriores temos as seguintes funções de
 distribuição conjunta acumuladas discretas:
+
+\begin{tcolorbox}[enhanced jigsaw, bottomrule=.15mm, colbacktitle=quarto-callout-tip-color!10!white, colback=white, toptitle=1mm, colframe=quarto-callout-tip-color-frame, breakable, arc=.35mm, opacitybacktitle=0.6, titlerule=0mm, title={EXEMPLO}, left=2mm, bottomtitle=1mm, coltitle=black, rightrule=.15mm, leftrule=.75mm, toprule=.15mm, opacityback=0]
 
 Para o caso dos dois dados apresentados anteriormente temos que:
 
-\[F(2,3)=P(X\leq 2, Y \leq 3)=p(1,1)+p(1,2)+p(1,3)+p(2,1)+p(2,2)+p(2,3) \]
+\(F(2,3)=P(X\leq 2, Y \leq 3)=p(1,1)+p(1,2)+p(1,3)+p(2,1)+p(2,2)+p(2,3)\)
 
-\[F(2,3)=P(X\leq 2, Y \leq 3)=6/36=1/6 \]
+\(F(2,3)=P(X\leq 2, Y \leq 3)=6/36=1/6\)
 
 O gráfico segue abaixo.
 
+\end{tcolorbox}
+
 \begin{figure}[H]
 
-{\centering \includegraphics[width=0.7\linewidth,height=\textheight,keepaspectratio]{cap6_va_bidimensional_files/figure-pdf/unnamed-chunk-6-1.pdf}
+{\centering \includegraphics[width=0.45\linewidth,height=\textheight,keepaspectratio]{cap/cap6_va_bidimensional_files/figure-pdf/unnamed-chunk-6-1.pdf}
 
 }
 
@@ -1079,22 +1127,25 @@ O gráfico segue abaixo.
 
 \end{figure}%
 
+\begin{tcolorbox}[enhanced jigsaw, bottomrule=.15mm, colbacktitle=quarto-callout-tip-color!10!white, colback=white, toptitle=1mm, colframe=quarto-callout-tip-color-frame, breakable, arc=.35mm, opacitybacktitle=0.6, titlerule=0mm, title={EXEMPLO}, left=2mm, bottomtitle=1mm, coltitle=black, rightrule=.15mm, leftrule=.75mm, toprule=.15mm, opacityback=0]
+
 Para o exemplo anterior (caixa do supermercado) encontre F(-1,2) e
 F(1.5,2)
 
-\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
-
-\[F(-1,2) = P(X \leq -1, Y \leq 2)= P(\emptyset)=0\]
+\(F(-1,2) = P(X \leq -1, Y \leq 2)= P(\emptyset)=0\)
 
 *Note que é impossível no exemplo do caixa o valor assumir -1, portanto,
 temos a probabilidade de um conjunto vazio, que será zero.
 
-\begin{aligned}
+\[\begin{aligned}
 F(1.5,2) &= P(X \leq 1.5, Y \leq 2) \\
          &= p(0,0)+p(0,1)+p(0,2)+p(1,0)+p(1,1)+p(1,2)=8/9
-\end{aligned}
+\end{aligned}\]
 
-\subsection{Visualização gráfica}\label{visualizauxe7uxe3o-gruxe1fica-1}
+\end{tcolorbox}
+
+\subsubsection{Visualização
+Gráfica}\label{visualizauxe7uxe3o-gruxe1fica-2}
 
 \textbf{BINOMIAL:}
 
@@ -1104,7 +1155,7 @@ com 10 rodadas, sua função distribuição acumulada será:
 
 \begin{figure}[H]
 
-{\centering \includegraphics[width=0.7\linewidth,height=\textheight,keepaspectratio]{cap6_va_bidimensional_files/figure-pdf/unnamed-chunk-7-1.pdf}
+{\centering \includegraphics[width=0.45\linewidth,height=\textheight,keepaspectratio]{cap/cap6_va_bidimensional_files/figure-pdf/unnamed-chunk-7-1.pdf}
 
 }
 
@@ -1120,7 +1171,7 @@ acumulada será:
 
 \begin{figure}[H]
 
-{\centering \includegraphics[width=0.7\linewidth,height=\textheight,keepaspectratio]{cap6_va_bidimensional_files/figure-pdf/unnamed-chunk-8-1.pdf}
+{\centering \includegraphics[width=0.45\linewidth,height=\textheight,keepaspectratio]{cap/cap6_va_bidimensional_files/figure-pdf/unnamed-chunk-8-1.pdf}
 
 }
 
@@ -1128,7 +1179,8 @@ acumulada será:
 
 \end{figure}%
 
-\subsection{Caso Contínuo}\label{caso-contuxednuo}
+\subsection{Variável Aleatória
+Contínua}\label{variuxe1vel-aleatuxf3ria-contuxednua}
 
 Seja X e Y duas variáveis aleatórias contínuas com função distribuição
 conjunta \(F(x,y)\). Se existir uma função densidade de probabilidade
@@ -1139,11 +1191,13 @@ conjunta acumulada de X e Y} será:
  F(x,y) = \int_{-\infty}^{x}\int_{- \infty}^{y} f(t_{1},t_{2})dt_{1}dt_{2} \ para \ -\infty < x_{i} < \infty \ e \ -\infty < y_{i} < \infty 
 \end{array}\]
 
+\begin{tcolorbox}[enhanced jigsaw, bottomrule=.15mm, colbacktitle=quarto-callout-tip-color!10!white, colback=white, toptitle=1mm, colframe=quarto-callout-tip-color-frame, breakable, arc=.35mm, opacitybacktitle=0.6, titlerule=0mm, title={EXEMPLO}, left=2mm, bottomtitle=1mm, coltitle=black, rightrule=.15mm, leftrule=.75mm, toprule=.15mm, opacityback=0]
+
 Para o exemplo anterior da partícula, encontre F(0.4, 0.4):
 
-\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+\end{tcolorbox}
 
-\textbf{Resposta:}
+\begin{tcolorbox}[enhanced jigsaw, bottomrule=.15mm, colbacktitle=quarto-callout-caution-color!10!white, colback=white, toptitle=1mm, colframe=quarto-callout-caution-color-frame, breakable, arc=.35mm, opacitybacktitle=0.6, titlerule=0mm, title={RESPOSTA}, left=2mm, bottomtitle=1mm, coltitle=black, rightrule=.15mm, leftrule=.75mm, toprule=.15mm, opacityback=0]
 
 Ver figura abaixo. \[\begin{array}{ccc}
 P(X \leq 0.4 ,Y \leq 0.4)= \int_{0}^{0.4}\int_{0}^{0.4}f(x,y)dxdy
@@ -1155,6 +1209,10 @@ P(X \leq 0.4 ,Y \leq 0.4)= \int_{0}^{0.4}\int_{0}^{0.4}f(x,y)dxdy
 \\
 P(X  \leq 0.4,Y \leq 0.4)=0.016
 \end{array}\]
+
+\end{tcolorbox}
+
+\begin{tcolorbox}[enhanced jigsaw, bottomrule=.15mm, colbacktitle=quarto-callout-note-color!10!white, colback=white, toptitle=1mm, colframe=quarto-callout-note-color-frame, breakable, arc=.35mm, opacitybacktitle=0.6, titlerule=0mm, title={TEOREMA}, left=2mm, bottomtitle=1mm, coltitle=black, rightrule=.15mm, leftrule=.75mm, toprule=.15mm, opacityback=0]
 
 Seja \(X\) e \(Y\) duas variáveis aleatórias contínuas com função
 distribuição conjunta \(F(x,y)\) então:
@@ -1171,7 +1229,10 @@ No caso univariado tem-se: \[\begin{array}{ccc}
  f(x,y) = \frac{\partial^{2}F(x,y) }{\partial x \partial y} 
 \end{array}\]
 
-\subsection{Visualização gráfica}\label{visualizauxe7uxe3o-gruxe1fica-2}
+\end{tcolorbox}
+
+\subsubsection{Visualização
+Gráfica}\label{visualizauxe7uxe3o-gruxe1fica-3}
 
 Vejamos agora alguns gráficos de variáveis aleaórias bidimensionais:
 
@@ -1185,7 +1246,7 @@ distribuição acumulada conjunta terá o seguinte formato:
 
 \begin{figure}[H]
 
-{\centering \includegraphics[width=0.7\linewidth,height=\textheight,keepaspectratio]{cap6_va_bidimensional_files/figure-pdf/unnamed-chunk-9-1.pdf}
+{\centering \includegraphics[width=0.45\linewidth,height=\textheight,keepaspectratio]{cap/cap6_va_bidimensional_files/figure-pdf/unnamed-chunk-9-1.pdf}
 
 }
 
@@ -1201,7 +1262,7 @@ seguinte formato:
 
 \begin{figure}[H]
 
-{\centering \includegraphics[width=0.7\linewidth,height=\textheight,keepaspectratio]{cap6_va_bidimensional_files/figure-pdf/unnamed-chunk-10-1.pdf}
+{\centering \includegraphics[width=0.45\linewidth,height=\textheight,keepaspectratio]{cap/cap6_va_bidimensional_files/figure-pdf/unnamed-chunk-10-1.pdf}
 
 }
 
