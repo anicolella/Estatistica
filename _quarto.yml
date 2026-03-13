@@ -7,6 +7,7 @@ book:
   subtitle: "Notas de Aula"
   navbar:
     background: "#818f81"
+    logo: figuras/usp.png
     search: true
     left:
       - text: "Home"
@@ -23,12 +24,11 @@ book:
     background: "#F4F6F6"
     search: true
     style: "docked"
-  image: figuras/usp.png
   page-navigation: true
   author:
   - name: "Alexandre Nicolella"
     affiliation: "Unversidade de São Paulo (USP)"
-  date: "12/03/2026"
+  date: "03/13/2026"
   chapters:
       - index.qmd
       #- intro.qmd
@@ -44,6 +44,7 @@ bibliography: references.bib
 format:
   html:
     theme: cosmo
+    toc: true
     fontsize: 16px
     #linestretch: 1.7
   #pdf:
