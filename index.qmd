@@ -1,17 +1,113 @@
 # Prefácio
 
-## **Motivação**
+## Bem-vindos ao curso
 
-Colocar Motivação.
+Este curso introduz os fundamentos de **probabilidade e inferência estatística** aplicados à análise econômica. A disciplina fornece a base conceitual necessária para compreender métodos quantitativos utilizados em economia, econometria e análise de dados.
 
-## **A quem se Destina**
+Ao longo do semestre, desenvolveremos as ferramentas estatísticas que permitem **transformar dados em evidência empírica**, elemento central na pesquisa acadêmica e na tomada de decisão em organizações públicas e privadas.
 
-Perfil do Interessado.
+---
 
-## **Objetivo**
+## Motivação
 
-O que vc ganha fazendo esse curso.
+::: {.grid}
+::: {.g-col-12 .g-col-md-6}
 
-## **Abordagem**
+<span style="font-size:20px; font-weight:bold;">Por que estudar estatística?</span>  📊
 
-Como é o método de ensino
+A economia moderna é profundamente baseada em **dados e métodos quantitativos**.  
+Grande parte da produção científica em economia utiliza técnicas estatísticas e econométricas para:
+
+- testar teorias econômicas  
+- analisar mercados  
+- avaliar políticas públicas  
+- orientar decisões estratégicas
+
+:::
+
+::: {.g-col-12 .g-col-md-6}
+
+<span style="font-size:20px; font-weight:bold;">O papel desta disciplina</span> 🎯 
+
+Este curso fornece a **base estatística necessária** para que o aluno avance em disciplinas quantitativas mais avançadas, especialmente **econometria** e análise empírica em economia.
+
+:::
+:::
+
+---
+
+## A quem se destina
+
+::: {.grid}
+::: {.g-col-12 .g-col-md-4}
+
+<span style="font-size:20px; font-weight:bold;">Estudantes de Economia e Finanças</span> 👨‍🎓 
+
+Alunos que desejam desenvolver **capacidade analítica quantitativa** para pesquisa ou mercado de trabalho.
+
+:::
+
+::: {.g-col-12 .g-col-md-4}
+
+<span style="font-size:20px; font-weight:bold;">Analistas e futuros pesquisadores</span> 📈 
+
+Interessados em compreender como **inferir características de populações a partir de amostras**.
+
+:::
+
+::: {.g-col-12 .g-col-md-4}
+
+<span style="font-size:20px; font-weight:bold;">Usuários de métodos empíricos</span> 💻 
+
+Quem pretende utilizar **estatística e econometria em análise aplicada**.
+
+:::
+:::
+
+---
+
+## Objetivos do curso
+
+Ao final da disciplina, o estudante deverá ser capaz de:
+
+- compreender o papel das **variáveis aleatórias e distribuições de probabilidade**
+- interpretar **momentos estatísticos como esperança e variância**
+- entender os fundamentos da **teoria das grandes amostras**
+- realizar **estimação pontual e por intervalo**
+- conduzir **testes de hipótese**
+- interpretar resultados estatísticos no contexto de problemas econômicos
+
+Essas competências constituem a base para a utilização posterior de **modelos econométricos e análise empírica aplicada**.
+
+---
+
+## Abordagem do curso
+
+::: {.grid}
+::: {.g-col-12 .g-col-md-6}
+
+<span style="font-size:20px; font-weight:bold;">Estrutura</span> 📚 
+
+A disciplina está organizada em **15 semanas**, combinando:
+
+- aulas teóricas
+- exercícios práticos
+- atividades semanais
+- momentos específicos para dúvidas
+
+:::
+
+::: {.g-col-12 .g-col-md-6}
+
+<span style="font-size:20px; font-weight:bold;">Método de aprendizagem</span> 🧠 
+
+O curso enfatiza:
+
+- resolução de problemas
+- compreensão conceitual da inferência estatística
+- prática contínua por meio de exercícios
+
+:::
+:::
+
+O objetivo é que o aluno desenvolva **capacidade analítica e autonomia no uso de métodos quantitativos**.

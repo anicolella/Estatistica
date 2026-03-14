@@ -171,6 +171,18 @@ ul.task-list li input[type="checkbox"] {
  <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Maipulando os Dados</span></span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./cap/cap3_1_dplyr.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">O Dplyr</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./cap/cap4_googledrive.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Google Drive</span></span></a>
+  </div>
+</li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
@@ -185,13 +197,13 @@ ul.task-list li input[type="checkbox"] {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./cap/cap5_estatistica.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Uma Introdução à Estatística</span></span></a>
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Uma Introdução à Estatística</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./cap/cap6_va_bidimensional.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Variáveis Aleatórias Multidimensionais</span></span></a>
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Variáveis Aleatórias Multidimensionais</span></span></a>
   </div>
 </li>
       </ul>
@@ -225,10 +237,11 @@ ul.task-list li input[type="checkbox"] {
   <ul>
   <li><a href="#prefácio" id="toc-prefácio" class="nav-link active" data-scroll-target="#prefácio"><span class="header-section-number">1</span> Prefácio</a>
   <ul class="collapse">
-  <li><a href="#motivação" id="toc-motivação" class="nav-link" data-scroll-target="#motivação"><span class="header-section-number">1.1</span> <strong>Motivação</strong></a></li>
-  <li><a href="#a-quem-se-destina" id="toc-a-quem-se-destina" class="nav-link" data-scroll-target="#a-quem-se-destina"><span class="header-section-number">1.2</span> <strong>A quem se Destina</strong></a></li>
-  <li><a href="#objetivo" id="toc-objetivo" class="nav-link" data-scroll-target="#objetivo"><span class="header-section-number">1.3</span> <strong>Objetivo</strong></a></li>
-  <li><a href="#abordagem" id="toc-abordagem" class="nav-link" data-scroll-target="#abordagem"><span class="header-section-number">1.4</span> <strong>Abordagem</strong></a></li>
+  <li><a href="#bem-vindos-ao-curso" id="toc-bem-vindos-ao-curso" class="nav-link" data-scroll-target="#bem-vindos-ao-curso"><span class="header-section-number">1.1</span> Bem-vindos ao curso</a></li>
+  <li><a href="#motivação" id="toc-motivação" class="nav-link" data-scroll-target="#motivação"><span class="header-section-number">1.2</span> Motivação</a></li>
+  <li><a href="#a-quem-se-destina" id="toc-a-quem-se-destina" class="nav-link" data-scroll-target="#a-quem-se-destina"><span class="header-section-number">1.3</span> A quem se destina</a></li>
+  <li><a href="#objetivos-do-curso" id="toc-objetivos-do-curso" class="nav-link" data-scroll-target="#objetivos-do-curso"><span class="header-section-number">1.4</span> Objetivos do curso</a></li>
+  <li><a href="#abordagem-do-curso" id="toc-abordagem-do-curso" class="nav-link" data-scroll-target="#abordagem-do-curso"><span class="header-section-number">1.5</span> Abordagem do curso</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -277,21 +290,92 @@ ul.task-list li input[type="checkbox"] {
 
 <section id="prefácio" class="level1" data-number="1">
 <h1 data-number="1"><span class="header-section-number">1</span> Prefácio</h1>
-<section id="motivação" class="level2" data-number="1.1">
-<h2 data-number="1.1" class="anchored" data-anchor-id="motivação"><span class="header-section-number">1.1</span> <strong>Motivação</strong></h2>
-<p>Colocar Motivação.</p>
+<section id="bem-vindos-ao-curso" class="level2" data-number="1.1">
+<h2 data-number="1.1" class="anchored" data-anchor-id="bem-vindos-ao-curso"><span class="header-section-number">1.1</span> Bem-vindos ao curso</h2>
+<p>Este curso introduz os fundamentos de <strong>probabilidade e inferência estatística</strong> aplicados à análise econômica. A disciplina fornece a base conceitual necessária para compreender métodos quantitativos utilizados em economia, econometria e análise de dados.</p>
+<p>Ao longo do semestre, desenvolveremos as ferramentas estatísticas que permitem <strong>transformar dados em evidência empírica</strong>, elemento central na pesquisa acadêmica e na tomada de decisão em organizações públicas e privadas.</p>
+<hr>
 </section>
-<section id="a-quem-se-destina" class="level2" data-number="1.2">
-<h2 data-number="1.2" class="anchored" data-anchor-id="a-quem-se-destina"><span class="header-section-number">1.2</span> <strong>A quem se Destina</strong></h2>
-<p>Perfil do Interessado.</p>
+<section id="motivação" class="level2" data-number="1.2">
+<h2 data-number="1.2" class="anchored" data-anchor-id="motivação"><span class="header-section-number">1.2</span> Motivação</h2>
+<div class="grid">
+<div class="g-col-12 g-col-md-6">
+<p><span style="font-size:20px; font-weight:bold;">Por que estudar estatística?</span> 📊</p>
+<p>A economia moderna é profundamente baseada em <strong>dados e métodos quantitativos</strong>.<br>
+Grande parte da produção científica em economia utiliza técnicas estatísticas e econométricas para:</p>
+<ul>
+<li>testar teorias econômicas<br>
+</li>
+<li>analisar mercados<br>
+</li>
+<li>avaliar políticas públicas<br>
+</li>
+<li>orientar decisões estratégicas</li>
+</ul>
+</div>
+<div class="g-col-12 g-col-md-6">
+<p><span style="font-size:20px; font-weight:bold;">O papel desta disciplina</span> 🎯</p>
+<p>Este curso fornece a <strong>base estatística necessária</strong> para que o aluno avance em disciplinas quantitativas mais avançadas, especialmente <strong>econometria</strong> e análise empírica em economia.</p>
+</div>
+</div>
+<hr>
 </section>
-<section id="objetivo" class="level2" data-number="1.3">
-<h2 data-number="1.3" class="anchored" data-anchor-id="objetivo"><span class="header-section-number">1.3</span> <strong>Objetivo</strong></h2>
-<p>O que vc ganha fazendo esse curso.</p>
+<section id="a-quem-se-destina" class="level2" data-number="1.3">
+<h2 data-number="1.3" class="anchored" data-anchor-id="a-quem-se-destina"><span class="header-section-number">1.3</span> A quem se destina</h2>
+<div class="grid">
+<div class="g-col-12 g-col-md-4">
+<p><span style="font-size:20px; font-weight:bold;">Estudantes de Economia e Finanças</span> 👨‍🎓</p>
+<p>Alunos que desejam desenvolver <strong>capacidade analítica quantitativa</strong> para pesquisa ou mercado de trabalho.</p>
+</div>
+<div class="g-col-12 g-col-md-4">
+<p><span style="font-size:20px; font-weight:bold;">Analistas e futuros pesquisadores</span> 📈</p>
+<p>Interessados em compreender como <strong>inferir características de populações a partir de amostras</strong>.</p>
+</div>
+<div class="g-col-12 g-col-md-4">
+<p><span style="font-size:20px; font-weight:bold;">Usuários de métodos empíricos</span> 💻</p>
+<p>Quem pretende utilizar <strong>estatística e econometria em análise aplicada</strong>.</p>
+</div>
+</div>
+<hr>
 </section>
-<section id="abordagem" class="level2" data-number="1.4">
-<h2 data-number="1.4" class="anchored" data-anchor-id="abordagem"><span class="header-section-number">1.4</span> <strong>Abordagem</strong></h2>
-<p>Como é o método de ensino</p>
+<section id="objetivos-do-curso" class="level2" data-number="1.4">
+<h2 data-number="1.4" class="anchored" data-anchor-id="objetivos-do-curso"><span class="header-section-number">1.4</span> Objetivos do curso</h2>
+<p>Ao final da disciplina, o estudante deverá ser capaz de:</p>
+<ul>
+<li>compreender o papel das <strong>variáveis aleatórias e distribuições de probabilidade</strong></li>
+<li>interpretar <strong>momentos estatísticos como esperança e variância</strong></li>
+<li>entender os fundamentos da <strong>teoria das grandes amostras</strong></li>
+<li>realizar <strong>estimação pontual e por intervalo</strong></li>
+<li>conduzir <strong>testes de hipótese</strong></li>
+<li>interpretar resultados estatísticos no contexto de problemas econômicos</li>
+</ul>
+<p>Essas competências constituem a base para a utilização posterior de <strong>modelos econométricos e análise empírica aplicada</strong>.</p>
+<hr>
+</section>
+<section id="abordagem-do-curso" class="level2" data-number="1.5">
+<h2 data-number="1.5" class="anchored" data-anchor-id="abordagem-do-curso"><span class="header-section-number">1.5</span> Abordagem do curso</h2>
+<div class="grid">
+<div class="g-col-12 g-col-md-6">
+<p><span style="font-size:20px; font-weight:bold;">Estrutura</span> 📚</p>
+<p>A disciplina está organizada em <strong>15 semanas</strong>, combinando:</p>
+<ul>
+<li>aulas teóricas</li>
+<li>exercícios práticos</li>
+<li>atividades semanais</li>
+<li>momentos específicos para dúvidas</li>
+</ul>
+</div>
+<div class="g-col-12 g-col-md-6">
+<p><span style="font-size:20px; font-weight:bold;">Método de aprendizagem</span> 🧠</p>
+<p>O curso enfatiza:</p>
+<ul>
+<li>resolução de problemas</li>
+<li>compreensão conceitual da inferência estatística</li>
+<li>prática contínua por meio de exercícios</li>
+</ul>
+</div>
+</div>
+<p>O objetivo é que o aluno desenvolva <strong>capacidade analítica e autonomia no uso de métodos quantitativos</strong>.</p>
 
 
 </section>

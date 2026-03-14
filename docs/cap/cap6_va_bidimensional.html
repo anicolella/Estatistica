@@ -9,7 +9,7 @@
 <meta name="author" content="Alexandre Nicolella">
 <meta name="dcterms.date" content="2026-12-03">
 
-<title>7&nbsp; Variáveis Aleatórias Multidimensionais – Inferência Estatística Aplicada à Economia</title>
+<title>8&nbsp; Variáveis Aleatórias Multidimensionais – Inferência Estatística Aplicada à Economia</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -147,7 +147,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../cap/cap5_estatistica.html">Motivando e Relembrando</a></li><li class="breadcrumb-item"><a href="../cap/cap6_va_bidimensional.html"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Variáveis Aleatórias Multidimensionais</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../cap/cap5_estatistica.html">Motivando e Relembrando</a></li><li class="breadcrumb-item"><a href="../cap/cap6_va_bidimensional.html"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Variáveis Aleatórias Multidimensionais</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -206,6 +206,12 @@ window.Quarto = {
  <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">O Dplyr</span></span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../cap/cap4_googledrive.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Google Drive</span></span></a>
+  </div>
+</li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
@@ -220,13 +226,13 @@ window.Quarto = {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../cap/cap5_estatistica.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Uma Introdução à Estatística</span></span></a>
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Uma Introdução à Estatística</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../cap/cap6_va_bidimensional.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Variáveis Aleatórias Multidimensionais</span></span></a>
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Variáveis Aleatórias Multidimensionais</span></span></a>
   </div>
 </li>
       </ul>
@@ -258,16 +264,16 @@ window.Quarto = {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#introdução" id="toc-introdução" class="nav-link active" data-scroll-target="#introdução"><span class="header-section-number">7.1</span> Introdução</a></li>
-  <li><a href="#distribuição-de-probabilidade" id="toc-distribuição-de-probabilidade" class="nav-link" data-scroll-target="#distribuição-de-probabilidade"><span class="header-section-number">7.2</span> Distribuição de Probabilidade</a>
+  <li><a href="#introdução" id="toc-introdução" class="nav-link active" data-scroll-target="#introdução"><span class="header-section-number">8.1</span> Introdução</a></li>
+  <li><a href="#distribuição-de-probabilidade" id="toc-distribuição-de-probabilidade" class="nav-link" data-scroll-target="#distribuição-de-probabilidade"><span class="header-section-number">8.2</span> Distribuição de Probabilidade</a>
   <ul class="collapse">
-  <li><a href="#variáveis-aleatórias-discretas" id="toc-variáveis-aleatórias-discretas" class="nav-link" data-scroll-target="#variáveis-aleatórias-discretas"><span class="header-section-number">7.2.1</span> Variáveis Aleatórias Discretas</a></li>
-  <li><a href="#variáveis-aleatórias-contínuas" id="toc-variáveis-aleatórias-contínuas" class="nav-link" data-scroll-target="#variáveis-aleatórias-contínuas"><span class="header-section-number">7.2.2</span> Variáveis Aleatórias Contínuas</a></li>
+  <li><a href="#variáveis-aleatórias-discretas" id="toc-variáveis-aleatórias-discretas" class="nav-link" data-scroll-target="#variáveis-aleatórias-discretas"><span class="header-section-number">8.2.1</span> Variáveis Aleatórias Discretas</a></li>
+  <li><a href="#variáveis-aleatórias-contínuas" id="toc-variáveis-aleatórias-contínuas" class="nav-link" data-scroll-target="#variáveis-aleatórias-contínuas"><span class="header-section-number">8.2.2</span> Variáveis Aleatórias Contínuas</a></li>
   </ul></li>
-  <li><a href="#distribuição-acumulada" id="toc-distribuição-acumulada" class="nav-link" data-scroll-target="#distribuição-acumulada"><span class="header-section-number">7.3</span> Distribuição Acumulada</a>
+  <li><a href="#distribuição-acumulada" id="toc-distribuição-acumulada" class="nav-link" data-scroll-target="#distribuição-acumulada"><span class="header-section-number">8.3</span> Distribuição Acumulada</a>
   <ul class="collapse">
-  <li><a href="#variável-aleatória-discreta" id="toc-variável-aleatória-discreta" class="nav-link" data-scroll-target="#variável-aleatória-discreta"><span class="header-section-number">7.3.1</span> Variável Aleatória Discreta</a></li>
-  <li><a href="#variável-aleatória-contínua" id="toc-variável-aleatória-contínua" class="nav-link" data-scroll-target="#variável-aleatória-contínua"><span class="header-section-number">7.3.2</span> Variável Aleatória Contínua</a></li>
+  <li><a href="#variável-aleatória-discreta" id="toc-variável-aleatória-discreta" class="nav-link" data-scroll-target="#variável-aleatória-discreta"><span class="header-section-number">8.3.1</span> Variável Aleatória Discreta</a></li>
+  <li><a href="#variável-aleatória-contínua" id="toc-variável-aleatória-contínua" class="nav-link" data-scroll-target="#variável-aleatória-contínua"><span class="header-section-number">8.3.2</span> Variável Aleatória Contínua</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -275,9 +281,9 @@ window.Quarto = {
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../cap/cap5_estatistica.html">Motivando e Relembrando</a></li><li class="breadcrumb-item"><a href="../cap/cap6_va_bidimensional.html"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Variáveis Aleatórias Multidimensionais</span></a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../cap/cap5_estatistica.html">Motivando e Relembrando</a></li><li class="breadcrumb-item"><a href="../cap/cap6_va_bidimensional.html"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Variáveis Aleatórias Multidimensionais</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Variáveis Aleatórias Multidimensionais</span></h1>
+<h1 class="title"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Variáveis Aleatórias Multidimensionais</span></h1>
 <p class="subtitle lead">Conceitos Inciciais</p>
 </div>
 
@@ -307,8 +313,8 @@ window.Quarto = {
 </header>
 
 
-<section id="introdução" class="level2" data-number="7.1">
-<h2 data-number="7.1" class="anchored" data-anchor-id="introdução"><span class="header-section-number">7.1</span> Introdução</h2>
+<section id="introdução" class="level2" data-number="8.1">
+<h2 data-number="8.1" class="anchored" data-anchor-id="introdução"><span class="header-section-number">8.1</span> Introdução</h2>
 <p>Até o momento nos interessou observar apenas uma característica de um experimento. Por exemplo, a altura média dos alunos do curso de estatística. Podemos também estar interessados em mais uma característica adicional, como o peso dos alunos do curso de estatística.</p>
 <p>Portanto, queremos observar duas características de forma simultânea dos alunos: altura e peso. Ou seja, duas características simultaneamente do mesmo experimento <span class="math inline">\(\epsilon\)</span>.</p>
 <p>Considere o experimento de jogar dois dados não viciados de forma simultânea. Define-se duas variáveis aleatórias: <span class="math inline">\(X\)</span> o número que aparece no dado 1 e <span class="math inline">\(Y\)</span> o número que aparece no dado 2. Assim, temos o seguinte espaço amostral com 36 elementos (6x6):</p>
@@ -347,10 +353,10 @@ p(x_{i},y_{j})=P(X=x_{i},Y=y_{j})=1/36
 </div>
 <p>Agora possuímos não mais um espaço unidimensaional <span class="math inline">\(R_{x}\)</span> como anteriormente visto, mas sim bidimensional, ou seja, o contradomínio da variável aleatória será <span class="math inline">\(R_{xy}\)</span> e cada resultado <span class="math inline">\(X = X(\omega)\)</span> e <span class="math inline">\(Y = Y(\omega)\)</span> pode ser representado como um ponto <span class="math inline">\((x,y)\)</span> no plano euclidiano. Podemos dividir os resultado de um experimento em dois tipos, os discretos e os contínuos. Vejamos abaixo esses dois tipos de resultados.</p>
 </section>
-<section id="distribuição-de-probabilidade" class="level2" data-number="7.2">
-<h2 data-number="7.2" class="anchored" data-anchor-id="distribuição-de-probabilidade"><span class="header-section-number">7.2</span> Distribuição de Probabilidade</h2>
-<section id="variáveis-aleatórias-discretas" class="level3" data-number="7.2.1">
-<h3 data-number="7.2.1" class="anchored" data-anchor-id="variáveis-aleatórias-discretas"><span class="header-section-number">7.2.1</span> Variáveis Aleatórias Discretas</h3>
+<section id="distribuição-de-probabilidade" class="level2" data-number="8.2">
+<h2 data-number="8.2" class="anchored" data-anchor-id="distribuição-de-probabilidade"><span class="header-section-number">8.2</span> Distribuição de Probabilidade</h2>
+<section id="variáveis-aleatórias-discretas" class="level3" data-number="8.2.1">
+<h3 data-number="8.2.1" class="anchored" data-anchor-id="variáveis-aleatórias-discretas"><span class="header-section-number">8.2.1</span> Variáveis Aleatórias Discretas</h3>
 <p>São variáveis que conseguimos colocar em lista, seja ela finita ou infinita. Assim, o vetor (X,Y) será uma variável aleatória discreta bidimensional ou vetor aleatório bidimensional se os valores possíveis puderem ser representados por <span class="math inline">\((x_{i},y_{i})\)</span>, <span class="math inline">\(i=1,...,n,...\)</span>; e <span class="math inline">\(j=1,2,...,m,...\)</span></p>
 <p>Como no caso unidimensional tem-se, podemos definir a distribuição de probabilidade conjunta de <span class="math inline">\((X,Y)\)</span></p>
 <div class="callout callout-style-default callout-note no-icon callout-titled" title="DEFINIÇÃO">
@@ -479,8 +485,8 @@ p(x_{i},y_{j})=P(X=x_{i},Y=y_{j})=1/36
 </div>
 </div>
 </div>
-<section id="visualização-gráfica" class="level4" data-number="7.2.1.1">
-<h4 data-number="7.2.1.1" class="anchored" data-anchor-id="visualização-gráfica"><span class="header-section-number">7.2.1.1</span> <u>Visualização Gráfica</u></h4>
+<section id="visualização-gráfica" class="level4" data-number="8.2.1.1">
+<h4 data-number="8.2.1.1" class="anchored" data-anchor-id="visualização-gráfica"><span class="header-section-number">8.2.1.1</span> <u>Visualização Gráfica</u></h4>
 <p>Vejamos agora alguns gráficos de variáveis aleaórias bidimensionais:</p>
 <p><strong>BINOMIAL:</strong></p>
 <p>Considere a variável aleatória <span class="math inline">\((X,Y)\)</span> com distribuição binomial e a probabilidade de sucesso de <span class="math inline">\(X\)</span> é igual a 0.75 e de <span class="math inline">\(Y\)</span> igual a 0.25 com 10 rodadas:</p>
@@ -508,8 +514,8 @@ Considere a variável aleatória <span class="math inline">\((X,Y)\)</span> com 
 </div>
 </section>
 </section>
-<section id="variáveis-aleatórias-contínuas" class="level3" data-number="7.2.2">
-<h3 data-number="7.2.2" class="anchored" data-anchor-id="variáveis-aleatórias-contínuas"><span class="header-section-number">7.2.2</span> Variáveis Aleatórias Contínuas</h3>
+<section id="variáveis-aleatórias-contínuas" class="level3" data-number="8.2.2">
+<h3 data-number="8.2.2" class="anchored" data-anchor-id="variáveis-aleatórias-contínuas"><span class="header-section-number">8.2.2</span> Variáveis Aleatórias Contínuas</h3>
 <p>São variáveis que não conseguimos listar, pois existem infinitos valores entre dois pontos. Assim,o vetor <span class="math inline">\((X,Y)\)</span> será uma variável aleatória contínua se puder tomar todos os valores em algum conjunto não enumerável no plano euclediano</p>
 <div class="callout callout-style-default callout-note no-icon callout-titled" title="DEFINIÇÃO">
 <div class="callout-header d-flex align-content-center">
@@ -602,8 +608,8 @@ P(0 \leq X  \leq 0.2,0 \leq Y \leq 0.4)=0.08
 </div>
 </div>
 </div>
-<section id="visualização-gráfica-1" class="level4" data-number="7.2.2.1">
-<h4 data-number="7.2.2.1" class="anchored" data-anchor-id="visualização-gráfica-1"><span class="header-section-number">7.2.2.1</span> <u>Visualização Gráfica</u></h4>
+<section id="visualização-gráfica-1" class="level4" data-number="8.2.2.1">
+<h4 data-number="8.2.2.1" class="anchored" data-anchor-id="visualização-gráfica-1"><span class="header-section-number">8.2.2.1</span> <u>Visualização Gráfica</u></h4>
 <p>Vejamos agora alguns gráficos de variáveis aleaórias bidimensionais:</p>
 <p><strong>NORMAL BIVARIADA:</strong></p>
 <p>Considere a variável aleatória <span class="math inline">\((X,Y)\)</span> com distribuição normal bivariada com a esperança de <span class="math inline">\(X\)</span> igual a 10, de <span class="math inline">\(Y\)</span> igual a 4, o desvio-padrões iguais a 3 e 2 respectivamente. Aqui consideremaos a correlação de 0.7 (veremos mais a frente esse conceito).</p>
@@ -632,11 +638,11 @@ P(0 \leq X  \leq 0.2,0 \leq Y \leq 0.4)=0.08
 </section>
 </section>
 </section>
-<section id="distribuição-acumulada" class="level2" data-number="7.3">
-<h2 data-number="7.3" class="anchored" data-anchor-id="distribuição-acumulada"><span class="header-section-number">7.3</span> Distribuição Acumulada</h2>
+<section id="distribuição-acumulada" class="level2" data-number="8.3">
+<h2 data-number="8.3" class="anchored" data-anchor-id="distribuição-acumulada"><span class="header-section-number">8.3</span> Distribuição Acumulada</h2>
 <p>Como no caso univariado a distinção entre variável aleatória conjunta contínua e conjunta discreta pode ser feita em termos de sua função distribuição conjunta acumulada.</p>
-<section id="variável-aleatória-discreta" class="level3" data-number="7.3.1">
-<h3 data-number="7.3.1" class="anchored" data-anchor-id="variável-aleatória-discreta"><span class="header-section-number">7.3.1</span> Variável Aleatória Discreta</h3>
+<section id="variável-aleatória-discreta" class="level3" data-number="8.3.1">
+<h3 data-number="8.3.1" class="anchored" data-anchor-id="variável-aleatória-discreta"><span class="header-section-number">8.3.1</span> Variável Aleatória Discreta</h3>
 <div class="callout callout-style-default callout-note no-icon callout-titled" title="DEFINIÇÃO">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -702,8 +708,8 @@ F(1.5,2) &amp;= P(X \leq 1.5, Y \leq 2) \\
 \end{aligned}\]</span></p>
 </div>
 </div>
-<section id="visualização-gráfica-2" class="level4" data-number="7.3.1.1">
-<h4 data-number="7.3.1.1" class="anchored" data-anchor-id="visualização-gráfica-2"><span class="header-section-number">7.3.1.1</span> <u>Visualização Gráfica</u></h4>
+<section id="visualização-gráfica-2" class="level4" data-number="8.3.1.1">
+<h4 data-number="8.3.1.1" class="anchored" data-anchor-id="visualização-gráfica-2"><span class="header-section-number">8.3.1.1</span> <u>Visualização Gráfica</u></h4>
 <p><strong>BINOMIAL:</strong></p>
 <p>Considere a variável aleatória <span class="math inline">\((X,Y)\)</span> com distribuição binomial e a probabilidade de sucesso de <span class="math inline">\(X\)</span> é igual a 0.75 e de <span class="math inline">\(Y\)</span> igual a 0.25 com 10 rodadas, sua função distribuição acumulada será:</p>
 <div class="cell">
@@ -730,8 +736,8 @@ Considere a variável aleatória <span class="math inline">\((X,Y)\)</span> com 
 </div>
 </section>
 </section>
-<section id="variável-aleatória-contínua" class="level3" data-number="7.3.2">
-<h3 data-number="7.3.2" class="anchored" data-anchor-id="variável-aleatória-contínua"><span class="header-section-number">7.3.2</span> Variável Aleatória Contínua</h3>
+<section id="variável-aleatória-contínua" class="level3" data-number="8.3.2">
+<h3 data-number="8.3.2" class="anchored" data-anchor-id="variável-aleatória-contínua"><span class="header-section-number">8.3.2</span> Variável Aleatória Contínua</h3>
 <p>Seja X e Y duas variáveis aleatórias contínuas com função distribuição conjunta <span class="math inline">\(F(x,y)\)</span>. Se existir uma função densidade de probabilidade conjunta <span class="math inline">\(f(x,y)\)</span> não negativa, assim a <strong>função distribuição conjunta acumulada de X e Y</strong> será:</p>
 <p><span class="math display">\[\begin{array}{ccc}
 F(x,y) = \int_{-\infty}^{x}\int_{- \infty}^{y} f(t_{1},t_{2})dt_{1}dt_{2} \ para \ -\infty &lt; x_{i} &lt; \infty \ e \ -\infty &lt; y_{i} &lt; \infty
@@ -796,8 +802,8 @@ f(x,y) = \frac{\partial^{2}F(x,y) }{\partial x \partial y}
 \end{array}\]</span></p>
 </div>
 </div>
-<section id="visualização-gráfica-3" class="level4" data-number="7.3.2.1">
-<h4 data-number="7.3.2.1" class="anchored" data-anchor-id="visualização-gráfica-3"><span class="header-section-number">7.3.2.1</span> <u>Visualização Gráfica</u></h4>
+<section id="visualização-gráfica-3" class="level4" data-number="8.3.2.1">
+<h4 data-number="8.3.2.1" class="anchored" data-anchor-id="visualização-gráfica-3"><span class="header-section-number">8.3.2.1</span> <u>Visualização Gráfica</u></h4>
 <p>Vejamos agora alguns gráficos de variáveis aleaórias bidimensionais:</p>
 <p><strong>NORMAL BIVARIADA:</strong></p>
 <p>Considere a variável aleatória <span class="math inline">\((X,Y)\)</span> com distribuição normal bivariada com a esperança de <span class="math inline">\(X\)</span> igual a 10, de <span class="math inline">\(Y\)</span> igual a 4, o desvio-padrões iguais a 3 e 2 respectivamente. Aqui consideremaos a correlação de 0.7 (veremos mais a frente esse conceito). Assim a função distribuição acumulada conjunta terá o seguinte formato:</p>
@@ -1232,7 +1238,7 @@ f(x,y) = \frac{\partial^{2}F(x,y) }{\partial x \partial y}
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
       <a href="../cap/cap5_estatistica.html" class="pagination-link" aria-label="Uma Introdução à Estatística">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Uma Introdução à Estatística</span></span>
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Uma Introdução à Estatística</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
