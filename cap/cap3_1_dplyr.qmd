@@ -2,8 +2,8 @@
 title: "O Dplyr"
 subtitle: "Manipulando dados de forma eficiente"
 author:
-- José Jesus, Alexandre Nicolella
-date: "03/12/2024"
+- Alexandre Nicolella
+date: "03/03/2026"
 format: html
 ---
 
@@ -47,7 +47,7 @@ library(dplyr)
 
 ### Operador pipe
 
-O operador pipe (`%>%`) é uma ferramenta poderosa em R, especialmente quando combinada com o pacote `dplyr`. Ele permite encadear várias operações de forma mais legível e eficiente, evitando a necessidade de criar variáveis intermediárias. Vamos explicar o uso do pipe em conjunto com o `dplyr`.
+O operador pipe (`%>%` ou `|>`) é uma ferramenta poderosa em R, especialmente quando combinada com o pacote `dplyr`. Ele permite encadear várias operações de forma mais legível e eficiente, evitando a necessidade de criar variáveis intermediárias. Vamos explicar o uso do pipe em conjunto com o `dplyr`.
 
 **1. Encadeamento de Operações:**
 
@@ -79,7 +79,7 @@ Usar o pipe evita a necessidade de criar variáveis intermediárias para armazen
 Continuaremos a utilizar o mesmo banco de dados sobre feminicídio da seção de manipulação.
 
 ```{r}
-final_fem_22 <- read.csv("C:/Users/Alexandre_Nicolella/Aulas/FEA-RP/Jurimetria/jurimetria/final_fem_22.csv", head=T ,sep=";")
+final_fem_22 <- read.csv("C:/Users/Alexandre_Nicolella/Aulas/FEA-RP/EstatisticaII/web_estatistica/Estatistica/dados/final_fem_22.csv", head=T ,sep=";")
 
 ```
 

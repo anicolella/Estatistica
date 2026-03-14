@@ -6,8 +6,10 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="Alexandre Nicolella">
+<meta name="dcterms.date" content="2026-03-03">
 
-<title>2&nbsp; Sobre o Autor – Inferência Estatística Aplicada à Economia</title>
+<title>6&nbsp; Google Drive – Inferência Estatística Aplicada à Economia</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,6 +22,41 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -30,8 +67,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
-<link href="../cap/cap2_summary.html" rel="next">
-<link href="../index.html" rel="prev">
+<link href="../cap/cap5_estatistica.html" rel="next">
+<link href="../cap/cap3_1_dplyr.html" rel="prev">
 <script src="../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
@@ -117,7 +154,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../cap/cap1_autores.html"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Sobre o Autor</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../cap/cap3_int_R.html">Manipulando os Dados</a></li><li class="breadcrumb-item"><a href="../cap/cap4_googledrive.html"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Google Drive</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -145,7 +182,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../cap/cap1_autores.html" class="sidebar-item-text sidebar-link active">
+  <a href="../cap/cap1_autores.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Sobre o Autor</span></span></a>
   </div>
 </li>
@@ -170,6 +207,18 @@ ul.task-list li input[type="checkbox"] {
  <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Maipulando os Dados</span></span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../cap/cap3_1_dplyr.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">O Dplyr</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../cap/cap4_googledrive.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Google Drive</span></span></a>
+  </div>
+</li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
@@ -184,13 +233,13 @@ ul.task-list li input[type="checkbox"] {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../cap/cap5_estatistica.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Uma Introdução à Estatística</span></span></a>
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Uma Introdução à Estatística</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../cap/cap6_va_bidimensional.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Variáveis Aleatórias Multidimensionais</span></span></a>
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Variáveis Aleatórias Multidimensionais</span></span></a>
   </div>
 </li>
       </ul>
@@ -222,23 +271,40 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#alexandre-nicolella" id="toc-alexandre-nicolella" class="nav-link active" data-scroll-target="#alexandre-nicolella"><span class="header-section-number">2.1</span> <strong>Alexandre Nicolella</strong></a></li>
+  <li><a href="#introdução" id="toc-introdução" class="nav-link active" data-scroll-target="#introdução"><span class="header-section-number">6.1</span> Introdução</a>
+  <ul class="collapse">
+  <li><a href="#encontrando-o-id" id="toc-encontrando-o-id" class="nav-link" data-scroll-target="#encontrando-o-id"><span class="header-section-number">6.1.1</span> Encontrando o ID</a></li>
+  <li><a href="#fazendo-o-download" id="toc-fazendo-o-download" class="nav-link" data-scroll-target="#fazendo-o-download"><span class="header-section-number">6.1.2</span> Fazendo o download</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default">
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../cap/cap3_int_R.html">Manipulando os Dados</a></li><li class="breadcrumb-item"><a href="../cap/cap4_googledrive.html"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Google Drive</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Sobre o Autor</span></h1>
+<h1 class="title"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Google Drive</span></h1>
+<p class="subtitle lead">Importanto os dados</p>
 </div>
 
 
 
 <div class="quarto-title-meta">
 
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Alexandre Nicolella </p>
+          </div>
+  </div>
     
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">March 3, 2026</p>
+    </div>
+  </div>
   
     
   </div>
@@ -248,20 +314,45 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<div class="container" style="display: flex; flex-direction: column; gap: 2rem;">
-<div class="autor" style="display: flex; align-items: center; gap: 1.5rem; flex-wrap: wrap;">
-<section id="alexandre-nicolella" class="level2 bio" data-number="2.1">
-<h2 data-number="2.1" class="anchored" data-anchor-id="alexandre-nicolella"><span class="header-section-number">2.1</span> <strong>Alexandre Nicolella</strong></h2>
-<p><img src="../figuras/alexandre.jpg" style="border-radius: 50%; object-fit: cover; box-shadow: 0 4px 8px rgba(0,0,0,0.15);" width="140" height="140"></p>
-<p>É professor de Economia na Universidade de São Paulo, atuando na Faculdade de Economia, Administração e Contabilidade de Ribeirão Preto (FEA-RP). Possui doutorado em Economia Aplicada pela mesma universidade, com períodos de pesquisa como professor visitante na University of Kent (Reino Unido) e na University of Illinois (EUA). Sua atuação recente tem se concentrado nas áreas de economia social e ambiental, com projetos financiados por instituições internacionais como IFPRI, Banco Mundial, GIZ e BID, além de agências nacionais como CAPES, FAPESP, MEC, INEP e BNDES. Leciona disciplinas de Estatística na graduação e Avaliação de Políticas Públicas na pós-graduação em Economia. Tem experiência consolidada na aplicação de métodos quantitativos à análise de questões sociais e na avaliação de impacto de políticas públicas.</p>
-<p>📘 <a href="https://lattes.cnpq.br/1375868138002604">Currículo Lattes</a> •</p>
-<p>🔗 <a href="https://orcid.org/0000-0002-1006-6527">ORCID</a></p>
-<p>🐙 <a href="https://github.com/anicolella">GitHub</a></p>
+<section id="introdução" class="level2" data-number="6.1">
+<h2 data-number="6.1" class="anchored" data-anchor-id="introdução"><span class="header-section-number">6.1</span> Introdução</h2>
+<p>Vamos aqui importar os dados de arquivos compartilhados o Google Drive. Vamos usar arquivos que não precisam de autenticação. São aqueles que <em>” qualquer um com o link”</em> podem acessar. Para isso terá que utilizar o pacote <code>googledrive</code>.</p>
+<section id="encontrando-o-id" class="level3" data-number="6.1.1">
+<h3 data-number="6.1.1" class="anchored" data-anchor-id="encontrando-o-id"><span class="header-section-number">6.1.1</span> Encontrando o ID</h3>
+<p>Primeiramente precisa ter acesso ao link de compartilhamento. Vejamos o link de compartilhamento do arquivo <code>cjpg.rds</code></p>
+<p><code>https://drive.google.com/file/d/1kHMnLjY8siz0vUbiO-G0oQg5RIF8Z4xf/view?usp=sharing</code></p>
+<p>O <strong>ID</strong> é a seguinte parte do endereço: <code>1kHMnLjY8siz0vUbiO-G0oQg5RIF8Z4xf</code></p>
+<p>Com esse string podemos fazer o download do arquivo</p>
 </section>
-</div>
+<section id="fazendo-o-download" class="level3" data-number="6.1.2">
+<h3 data-number="6.1.2" class="anchored" data-anchor-id="fazendo-o-download"><span class="header-section-number">6.1.2</span> Fazendo o download</h3>
+<p>Primeiramente vamos excluir a autenticação com o comando <code>drive_deauth()</code>. Poderá checar a exclusão com o comando <code>drive_user()</code>, ele mostrará que não existe usuário logado ou autenticado.</p>
+<p>Depois indicaremos o caminho do arquivo no google drive e com o caminho indicado ele fará o download na pasta do seu computador indicada na parte superior da aba <em>Console</em>. Depois é só fazer a leitura para transformar o arquivo em <code>.Rdata</code>. Vejamos:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># IMPORTANTO: final_fem_22</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(googledrive)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">drive_deauth</span>()</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="fu">drive_user</span>() </span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>final_fem_public <span class="ot">&lt;-</span> <span class="fu">drive_get</span>(<span class="fu">as_id</span>(<span class="st">"1kHMnLjY8siz0vUbiO-G0oQg5RIF8Z4xf"</span>))</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="fu">drive_download</span>(</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>  final_fem_public,</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>  <span class="at">path =</span> <span class="st">"dados/final_fem_22.csv"</span>,</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>  <span class="at">overwrite =</span> <span class="cn">TRUE</span></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>final_fem_22 <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(</span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>  <span class="st">"dados/final_fem_22.csv"</span>,</span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>  <span class="at">header =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>  <span class="at">sep =</span> <span class="st">";"</span></span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 
 
+</section>
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -666,13 +757,13 @@ ul.task-list li input[type="checkbox"] {
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../index.html" class="pagination-link" aria-label="Prefácio">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Prefácio</span></span>
+      <a href="../cap/cap3_1_dplyr.html" class="pagination-link" aria-label="O Dplyr">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">O Dplyr</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../cap/cap2_summary.html" class="pagination-link" aria-label="Sumário">
-        <span class="nav-page-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Sumário</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../cap/cap5_estatistica.html" class="pagination-link" aria-label="Uma Introdução à Estatística">
+        <span class="nav-page-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Uma Introdução à Estatística</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

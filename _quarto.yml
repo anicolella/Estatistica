@@ -36,9 +36,9 @@ book:
 
     - part: "Manipulando os Dados"
       chapters:
-        - cap/cap2_summary.qmd
-        #- cap/cap3_int_R.qmd
-        #- cap/cap4_googledrive.qmd
+        - cap/cap3_int_R.qmd
+        - cap/cap3_1_dplyr.qmd
+        - cap/cap4_googledrive.qmd
 
     - part: "Motivando e Relembrando"
       chapters:

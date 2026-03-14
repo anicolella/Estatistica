@@ -3,7 +3,7 @@ title: "Maipulando os Dados"
 subtitle: "Uma Breve Introdução ao R"
 author:
 - Alexandre Nicolella
-date: "03/12/2024"
+date: "03/03/2026"
 format: html
 ---
 
@@ -314,12 +314,12 @@ rm(comb1)
 
 Disponibilizamos dois banco de dados, um contendo os homicídios e feminicídios por estado e outro com as tentativas. Esses arquivos estão em formato csv (comma separated values).
 
-Para leitura desse arquivo em csv o seguinte comando é necessário `read.csv`, indicado que possui cabeçalho e que o separador é ";"
+Para leitura desse arquivo em csv o seguinte comando é necessário `read.csv`, indicado que possui cabeçalho e que o separador é ";". Observe que vc tem que indicar o caminho correto. 
 
 ```{r}
-df_feminic22<-read.csv("C:/Users/Alexandre_Nicolella/Aulas/FEA-RP/Jurimetria/dados_feminic.csv", head=TRUE,sep=";")
+df_feminic22<-read.csv("C:/Users/Alexandre_Nicolella/Aulas/FEA-RP/EstatisticaII/web_estatistica/Estatistica/dados/dados_feminic.csv", head=TRUE,sep=";")
 
-df_t_feminic22<-read.csv("C:/Users/Alexandre_Nicolella/Aulas/FEA-RP/Jurimetria/dados_tent_feminic.csv", head=TRUE,sep=";")
+df_t_feminic22<-read.csv("C:/Users/Alexandre_Nicolella/Aulas/FEA-RP/EstatisticaII/web_estatistica/Estatistica/dados/dados_tent_feminic.csv", head=TRUE,sep=";")
 
 ```
 
@@ -343,7 +343,7 @@ O R usa o formato americano de separação numérica. Usa ponto ao invés da ví
 Podemos exportar os dados em diferentes formatos. Alguns exemplos são csv, texto delimitado, excel, stata. Vejamos em csv:
 
 ```{r,eval=F}
-write.table(df_feminic22, "C:/Users/Alexandre_Nicolella/Aulas/FEA-RP/Jurimetria/export_feminic.csv", sep=";")
+write.table(df_feminic22, "C:/Users/Alexandre_Nicolella/Aulas/FEA-RP/EstatisticaII/web_estatistica/Estatistica/dados/export_feminic.csv", sep=";")
 ```
 
 Para exportar em Stata utilize os seguintes comandos:
@@ -532,7 +532,7 @@ library(reshape)
 final_fem_22 <- rename(final_fem_22, c(regiao.x="regiao"))
 
 save(final_fem_22, file = "dados.RData")
-write.table(final_fem_22, "C:/Users/Alexandre_Nicolella/Aulas/FEA-RP/Jurimetria/jurimetria/final_fem_22.csv", sep=";")
+write.table(final_fem_22, "C:/Users/Alexandre_Nicolella/Aulas/FEA-RP/EstatisticaII/web_estatistica/Estatistica/dados/final_fem_22.csv", sep=";")
 ```
 
 **Selecionando Variáveis**:
