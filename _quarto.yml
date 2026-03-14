@@ -30,14 +30,25 @@ book:
     affiliation: "Unversidade de São Paulo (USP)"
   date: "03/13/2026"
   chapters:
-      - index.qmd
-      #- intro.qmd
-      - cap/cap1_autores.qmd
-      - cap/cap2_summary.qmd
-      #- cap3_int_R.qmd
-      #- cap4_googledrive.qmd
-      - cap/cap5_estatistica.qmd
-      - cap/cap6_va_bidimensional.qmd
+    - index.qmd
+    - cap/cap1_autores.qmd
+    - cap/cap2_summary.qmd
+
+    - part: "Manipulando os Dados"
+      chapters:
+        - cap/cap2_summary.qmd
+        #- cap/cap3_int_R.qmd
+        #- cap/cap4_googledrive.qmd
+
+    - part: "Motivando e Relembrando"
+      chapters:
+        - cap/cap5_estatistica.qmd
+        - cap/cap6_va_bidimensional.qmd
+
+    - part: "Inferência Estatística"
+      chapters:
+        - cap/cap2_summary.qmd
+        #- cap/cap7_inferencia.qmd
 
 bibliography: references.bib
 
