@@ -1,0 +1,184 @@
+[
+  {
+    "objectID": "slides_var_dimensional.html#introdução",
+    "href": "slides_var_dimensional.html#introdução",
+    "title": "Variáveis Aleatórias Bidimensionais; Distribuição de Probabilidade Marginal e Condicional",
+    "section": "Introdução",
+    "text": "Introdução"
+  },
+  {
+    "objectID": "slides_var_dimensional.html#variáveis-aleatórias-discretas",
+    "href": "slides_var_dimensional.html#variáveis-aleatórias-discretas",
+    "title": "Variáveis Aleatórias Bidimensionais; Distribuição de Probabilidade Marginal e Condicional",
+    "section": "Variáveis Aleatórias Discretas",
+    "text": "Variáveis Aleatórias Discretas"
+  },
+  {
+    "objectID": "slides_var_dimensional.html#variáveis-aleatórias-contínuas",
+    "href": "slides_var_dimensional.html#variáveis-aleatórias-contínuas",
+    "title": "Variáveis Aleatórias Bidimensionais; Distribuição de Probabilidade Marginal e Condicional",
+    "section": "Variáveis Aleatórias Contínuas",
+    "text": "Variáveis Aleatórias Contínuas"
+  },
+  {
+    "objectID": "slides_var_dimensional.html#função-distribuição-acumulada",
+    "href": "slides_var_dimensional.html#função-distribuição-acumulada",
+    "title": "Variáveis Aleatórias Bidimensionais; Distribuição de Probabilidade Marginal e Condicional",
+    "section": "Função Distribuição Acumulada",
+    "text": "Função Distribuição Acumulada"
+  },
+  {
+    "objectID": "slides_var_dimensional.html#introdução-4",
+    "href": "slides_var_dimensional.html#introdução-4",
+    "title": "Variáveis Aleatórias Bidimensionais; Distribuição de Probabilidade Marginal e Condicional",
+    "section": "Introdução",
+    "text": "Introdução\n\nDada a variável aleatória bidimensional \\((X,Y)\\) podemos estar interessados em \\(X\\) ou \\(Y\\) individualmente.\nCom base na distribuição conjunta da renda e consumo, por exemplo, quero saber somente como a renda se distribui."
+  },
+  {
+    "objectID": "slides_var_dimensional.html#caso-discreto",
+    "href": "slides_var_dimensional.html#caso-discreto",
+    "title": "Variáveis Aleatórias Bidimensionais; Distribuição de Probabilidade Marginal e Condicional",
+    "section": "Caso discreto",
+    "text": "Caso discreto"
+  },
+  {
+    "objectID": "slides_var_dimensional.html#caso-contínuo",
+    "href": "slides_var_dimensional.html#caso-contínuo",
+    "title": "Variáveis Aleatórias Bidimensionais; Distribuição de Probabilidade Marginal e Condicional",
+    "section": "Caso Contínuo",
+    "text": "Caso Contínuo"
+  },
+  {
+    "objectID": "slides_var_dimensional.html#introdução-5",
+    "href": "slides_var_dimensional.html#introdução-5",
+    "title": "Variáveis Aleatórias Bidimensionais; Distribuição de Probabilidade Marginal e Condicional",
+    "section": "Introdução",
+    "text": "Introdução"
+  },
+  {
+    "objectID": "slides_var_dimensional.html#caso-discreto-1",
+    "href": "slides_var_dimensional.html#caso-discreto-1",
+    "title": "Variáveis Aleatórias Bidimensionais; Distribuição de Probabilidade Marginal e Condicional",
+    "section": "Caso discreto:",
+    "text": "Caso discreto:"
+  },
+  {
+    "objectID": "slides_var_dimensional.html#caso-contínuo-1",
+    "href": "slides_var_dimensional.html#caso-contínuo-1",
+    "title": "Variáveis Aleatórias Bidimensionais; Distribuição de Probabilidade Marginal e Condicional",
+    "section": "Caso contínuo",
+    "text": "Caso contínuo"
+  },
+  {
+    "objectID": "slides_var_dimensional.html#introdução-7",
+    "href": "slides_var_dimensional.html#introdução-7",
+    "title": "Variáveis Aleatórias Bidimensionais; Distribuição de Probabilidade Marginal e Condicional",
+    "section": "Introdução",
+    "text": "Introdução"
+  },
+  {
+    "objectID": "slides_var_dimensional.html#caso-discreto-2",
+    "href": "slides_var_dimensional.html#caso-discreto-2",
+    "title": "Variáveis Aleatórias Bidimensionais; Distribuição de Probabilidade Marginal e Condicional",
+    "section": "Caso discreto",
+    "text": "Caso discreto"
+  },
+  {
+    "objectID": "slides_var_dimensional.html#caso-contínuo-2",
+    "href": "slides_var_dimensional.html#caso-contínuo-2",
+    "title": "Variáveis Aleatórias Bidimensionais; Distribuição de Probabilidade Marginal e Condicional",
+    "section": "Caso Contínuo",
+    "text": "Caso Contínuo"
+  },
+  {
+    "objectID": "slides_var_dimensional.html#um-pouco-mais-sobre-independência",
+    "href": "slides_var_dimensional.html#um-pouco-mais-sobre-independência",
+    "title": "Variáveis Aleatórias Bidimensionais; Distribuição de Probabilidade Marginal e Condicional",
+    "section": "Um pouco mais sobre Independência",
+    "text": "Um pouco mais sobre Independência"
+  },
+  {
+    "objectID": "slides_var_dimensional.html#introdução-9",
+    "href": "slides_var_dimensional.html#introdução-9",
+    "title": "Variáveis Aleatórias Bidimensionais; Distribuição de Probabilidade Marginal e Condicional",
+    "section": "Introdução",
+    "text": "Introdução"
+  },
+  {
+    "objectID": "slides_var_dimensional.html#a-covariância",
+    "href": "slides_var_dimensional.html#a-covariância",
+    "title": "Variáveis Aleatórias Bidimensionais; Distribuição de Probabilidade Marginal e Condicional",
+    "section": "A Covariância",
+    "text": "A Covariância"
+  },
+  {
+    "objectID": "slides_var_dimensional.html#propriedades-do-coef.-de-correlação",
+    "href": "slides_var_dimensional.html#propriedades-do-coef.-de-correlação",
+    "title": "Variáveis Aleatórias Bidimensionais; Distribuição de Probabilidade Marginal e Condicional",
+    "section": "Propriedades do Coef. de Correlação",
+    "text": "Propriedades do Coef. de Correlação"
+  },
+  {
+    "objectID": "Slides_distr.html#a-distribuição-de-probabilidade-normal",
+    "href": "Slides_distr.html#a-distribuição-de-probabilidade-normal",
+    "title": "Alguns Modelos para Variáveis Aleatórias Contínuas",
+    "section": "A Distribuição de Probabilidade Normal",
+    "text": "A Distribuição de Probabilidade Normal"
+  },
+  {
+    "objectID": "Slides_distr.html#normal-padronizada",
+    "href": "Slides_distr.html#normal-padronizada",
+    "title": "Alguns Modelos para Variáveis Aleatórias Contínuas",
+    "section": "Normal Padronizada",
+    "text": "Normal Padronizada"
+  },
+  {
+    "objectID": "Slides_distr.html#a-densidade-de-probabilidade-exponencial",
+    "href": "Slides_distr.html#a-densidade-de-probabilidade-exponencial",
+    "title": "Alguns Modelos para Variáveis Aleatórias Contínuas",
+    "section": "A Densidade de Probabilidade Exponencial",
+    "text": "A Densidade de Probabilidade Exponencial"
+  },
+  {
+    "objectID": "Slides_distr.html#aproximação-da-normal-pela-binomial",
+    "href": "Slides_distr.html#aproximação-da-normal-pela-binomial",
+    "title": "Alguns Modelos para Variáveis Aleatórias Contínuas",
+    "section": "Aproximação da Normal pela Binomial",
+    "text": "Aproximação da Normal pela Binomial"
+  },
+  {
+    "objectID": "Slides_distr.html#outras-distribuições-importantes",
+    "href": "Slides_distr.html#outras-distribuições-importantes",
+    "title": "Alguns Modelos para Variáveis Aleatórias Contínuas",
+    "section": "Outras Distribuições importantes:",
+    "text": "Outras Distribuições importantes:"
+  },
+  {
+    "objectID": "Slides_distr.html#distribuição-gamma",
+    "href": "Slides_distr.html#distribuição-gamma",
+    "title": "Alguns Modelos para Variáveis Aleatórias Contínuas",
+    "section": "Distribuição Gamma",
+    "text": "Distribuição Gamma"
+  },
+  {
+    "objectID": "Slides_distr.html#distribuição-qui-quadrado",
+    "href": "Slides_distr.html#distribuição-qui-quadrado",
+    "title": "Alguns Modelos para Variáveis Aleatórias Contínuas",
+    "section": "Distribuição Qui-Quadrado",
+    "text": "Distribuição Qui-Quadrado"
+  },
+  {
+    "objectID": "Slides_distr.html#distribuição-t-student",
+    "href": "Slides_distr.html#distribuição-t-student",
+    "title": "Alguns Modelos para Variáveis Aleatórias Contínuas",
+    "section": "Distribuição t-student",
+    "text": "Distribuição t-student"
+  },
+  {
+    "objectID": "Slides_distr.html#distribuição-f",
+    "href": "Slides_distr.html#distribuição-f",
+    "title": "Alguns Modelos para Variáveis Aleatórias Contínuas",
+    "section": "Distribuição F",
+    "text": "Distribuição F"
+  }
+]

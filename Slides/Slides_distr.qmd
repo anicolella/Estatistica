@@ -1,0 +1,1015 @@
+---
+title: "Alguns Modelos para Variáveis Aleatórias Contínuas"
+author: "Alexandre Nicolella"
+date: "2026-03-16"
+---
+
+# Modelos para Variáveis Aleatórias Contínuas  
+## A Distribuição de Probabilidade Normal
+
+### O Modelo
+Um dos principais modelos de probabilidade. É essencial para inferência estatística (distribuição Gaussiana).
+  
+::: {.callout-note icon="false" title="DEFINIÇÃO"}
+A variável aleatória $X$ tem distribuição normal com Média $\mu$  e Variância $\sigma^{2}$, onde $-\infty<\mu<+\infty$ e $0< \sigma^{2}< \infty$.
+Sua densidade é dada por:
+
+$$\begin{array}{ccc}
+f(x;\mu, \sigma^{2})=\frac{1}{\sigma \sqrt{2 \pi }} e^{\frac{-(x-\mu)^{2}}{2 \sigma^{2}}} 
+\end{array}$$
+
+Onde $-\infty<x<+\infty$
+:::
+
+
+### Representação Gráfica:
+
+Uma Distribuição Normal com parâmetros $\mu$ e $\sigma^{2}$  pode ser representada graficamente como: 
+
+```{r echo = FALSE, fig.cap= "Distribuição Normal",fig.height = 3.0, fig.width = 5}
+x<-seq(-3,3,0.1)
+fdnorm<-dnorm(x = x, mean = 0, sd=1)  
+fdanorm<-pnorm(q = x, mean = 0, sd=1)
+curve(dnorm(x,0,1),xlim=c(-3,3),main='',xaxt="n",xlab="z", ylab="f(x)",
+      col="darkblue",cex.axis=0.65, cex.lab=0.8) 
+axis(1,at=c(-1, 0, 1),labels =
+       c("-DP(X)","E(x)","DP(x)"),cex.axis=0.65, cex.lab=0.8) 
+lines(x=c(0,0),y=c(0,fdnorm[x==0]),lty=2, col="black") 
+lines(x=c(1,1),y=c(0,fdnorm[x==1]),lty=2, col="black")
+lines(x=c(-1,-1),y=c(0,fdnorm[x==-1]),lty=2, col="black")
+
+```
+
+### Desvios e probabilidade no Modelo Normal
+
+- Para entender melhor a distribuição Normal e a relação entre a média e o desvio padrão $\sigma$ (- lembrando que $\sigma=\sqrt{variância}$)  é interessante notar a proporção nos intervalos de desvio-padrão. 
+
+### Desvios e probabilidade no Modelo Normal
+
+- Ou seja, a fração da área abaixo da curva $f(x)$ quando temos as seguintes amplitudes,tabela 1,  da variável x na distribuição:
+
+<center>
+|   Amplitude   | Proporção |
+|:-------------:|:---------:|
+| $\mu\pm\sigma$ |   $68,3\%$  |
+| $\mu\pm2\sigma$ |  $95,5\%$   |
+| $\mu\pm3\sigma$ |   $99,7\%$   |
+</center>
+
+
+### Representação gráfica
+
+- Considere 3 distribuições normais, $X~N(10,9)$, $Y~N(200,100)$ e $Z~N(0,1)$. 
+
+- Chance de estar entre $\mu$ e $\sigma$, ou seja, entre 10 e 13 para X, entre 200 e 210 para Y e entre 0 e 1 para Z, é de 34,15\%. 
+
+### Representação gráfica
+
+- Isso vale para qualquer intervalo de desvio (-1,+1); (-1.3,+1.3); (-3,+3) !!!!
+
+![Relação entre o desvio padrão e amplitude da Normal](../figuras/capitulos/Imagem2.png){fig-align="center" width="50%"}
+
+### Os Momentos:
+
+Os primeiros dois momentos da distribuição normal são:
+
+::: {.callout-note icon="false" title="DEFINIÇÃO"}
+Esperança: $E(X)=\mu$
+
+---
+
+Variância:$Var(X)=\sigma^{2}$
+:::
+
+### Os Momentos:
+
+Dessa forma para a distribuição normal as seguintes características são verdadeiras:
+
+- Se X é normalmente distribuída então $X \sim N(\mu ,\sigma ^{2})$
+
+- Como pode ser visto na figura 1, a densidade da distribuição é simétrica. Ou seja, para todo $x$ real é verdade que: 
+
+$$\begin{array}{ccc}
+f(\mu + x; \mu, \sigma ^{2}) = f(\mu - x; \mu, \sigma ^{2})
+\end{array}$$
+
+
+
+## Normal Padronizada 
+### O Modelo Normal Padrão
+  
+Um caso especial da distribuição normal é aquela que possui média 0 e desvio padrão igual a 1. Recebe até um nome diferenciado, distribuição normal padrão.
+
+::: {.callout-note icon="false" title="DEFINIÇÃO"}
+Uma variável Z normal padrão (ou reduzida) é uma distribuição Normal com parâmetros $\mu=0$ e $\sigma=1$, tal que $Z \sim N(0 ,1)$. 
+
+Assim, essa variável aleatória Z, possui a seguinte f.d.p.: 
+$$\begin{array}{ccc}
+\phi(Z)= \frac{1}{\sqrt{2\pi}} e^{\frac{-z^{2} }{2}}
+\end{array}$$
+
+$-\infty < Z < \infty$
+
+:::
+
+
+
+### Graficamente
+
+A figura abaixo representa graficamente a Distribuição Normal Padrão:
+
+```{r echo = FALSE, fig.cap= "Distribuição Normal",fig.height = 3, fig.width = 5}
+x<-seq(-3,3,0.1)
+fdnorm<-dnorm(x = x, mean = 0, sd=1)  
+fdanorm<-pnorm(q = x, mean = 0, sd=1)
+curve(dnorm(x,0,1),xlim=c(-3,3),main='',xaxt="n",xlab="z", ylab="f(x)",
+      col="darkblue",cex.axis=0.65, cex.lab=0.8) 
+axis(1,at=c(-3,-2,-1, 0, 1, 2, 3),labels =
+       c(-3,-2,-1,0,1,2,3),cex.axis=0.65, cex.lab=0.8) 
+lines(x=c(0,0),y=c(0,fdnorm[x==0]),lty=2, col="black") 
+lines(x=c(1,1),y=c(0,fdnorm[x==1]),lty=2, col="black") 
+lines(x=c(-1,-1),y=c(0,fdnorm[x==-1]),lty=2, col="black") 
+lines(x=c(2,2),y=c(0,fdnorm[x==2]),lty=2, col="black") 
+lines(x=c(-2,-2),y=c(0,fdnorm[x==-2]),lty=2, col="black") 
+lines(x=c(3,3),y=c(0,fdnorm[x==3]),lty=2, col="black") 
+lines(x=c(-3,-3),y=c(0,fdnorm[x==-3]),lty=2, col="black") 
+```
+
+
+
+### Padronização
+
+::: {.callout-note icon="false" title="TEOREMA"}
+Seja $X$ uma variável distribuída normalmente, tal que $X \sim N(\mu ,\sigma ^{2})$ então temos uma variável $Z$ padronizada a partir de $X$ tal que:
+
+$$\begin{array}{ccc}
+Z=\frac{X-\mu}{\sigma}
+\end{array}$$
+
+E a variável $Z$ terá os seguintes momentos: $E(Z)=0$ e $Var(Z)=1$
+:::
+
+### Padronização
+
+::: {.callout-note icon="false" title="TEOREMA"}
+
+**Prova:**
+
+I.  Média:
+
+$$\begin{array}{ccc}
+E(Z)=E(\frac{X-\mu}{\sigma}) 
+\\
+=\frac{1}{\sigma} E(X-\mu)
+\\
+=\frac{1}{\sigma} [E(X)-E(\mu)]
+\\
+=\frac{1}{\sigma} [E(\mu)-E(\mu)] =0
+\end{array}$$
+
+:::
+
+### Padronização
+
+::: {.callout-note icon="false" title="TEOREMA"}
+
+II. Variância:
+
+$$\begin{array}{ccc}
+Var(Z)=E(Z ^{2})-E(Z) ^{2}
+\end{array}$$
+
+Note que:
+
+$$\begin{array}{ccc}
+E(Z ^{2}) = \frac{1}{\sigma^{2}}[E(x-\mu)]^{2}
+\end{array}$$
+$$\begin{array}{ccc}
+=\frac{\sigma^{2}}{\sigma^{2}}
+\end{array}$$
+$$\begin{array}{ccc}
+=1
+\end{array}$$
+
+E encontramos acima que $E(Z)=0$. Portanto:
+
+$$\begin{array}{ccc}
+Var(Z)=E(Z ^{2})-E(Z) ^{2}
+= 1 -0
+= 1
+\end{array}$$
+
+:::
+
+
+
+### Função Distribuição Acumulada
+
+::: {.callout-note icon="false" title="DEFINIÇÃO"}
+A f.d.a. $F(y)$ de uma v.a. normalmente distribuída $X$ com média $\mu$ e variância $\sigma^{2}$ é:
+
+$$\begin{array}{ccc}
+F(y)=\int_{-\infty}^{y} f(x;\mu,\sigma^{2})dx\ \ \ \ \ y \in \mathbb{R}
+\end{array}$$
+
+Onde $f()$ é a função de densidade de probabilidade. 
+
+\
+
+Para a normal padrão temos a seguinte f.d.a:
+
+$$\begin{array}{ccc}
+\Phi(y)=\int_{-\infty}^{y} \phi(Z)= \frac{1}{\sqrt{2\pi}}\int_{-\infty}^{y} e^{\frac{-z^{2} }{2}}dz 
+\end{array}$$
+
+Onde $\phi(Z)$ é a função de densidade de probabilidade. 
+
+:::
+
+
+
+### Função Distribuição Acumulada
+
+A figura abaixo representa a área entre $-\infty$ e $y$ (figura à esquerda) de uma normal padrão com função de densidade $\phi()$ . Já a figura à direita representa a densidade acumulada $\Phi()$. 
+
+```{r echo = FALSE, fig.cap= "Função Distribuição de Probabilidade Normal e Função Distribuição Acumulada Normal",fig.height = 3, fig.width = 7}
+x<-seq(-3,3,0.1) 
+fdnorm<-dnorm(x = x, mean = 0, sd=1)   
+fdanorm<-pnorm(q = x, mean = 0, sd=1)
+par(mfrow=c(1,2))
+regiao=seq(-3,1.5,0.01)
+cord.x <- c(min(regiao),regiao,max(regiao))
+cord.y <- c(0,dnorm(regiao),0) 
+curve(dnorm(x,0,1),xlim=c(-3,3),main='f.d.p',xlab="z",type="l",
+      col="darkblue",lwd=2, ylab="f(z)",xaxt="n",cex.axis=0.65, cex.lab=0.8 ) 
+axis(1,at=c(-3,-2,-1, 0, 1, 1.5,2, 3),labels =
+       c(-3,-2,-1,0,1,"y",2, 3),cex.axis=0.65, cex.lab=0.8) 
+polygon(cord.x,cord.y,col='lightgray')
+
+regiao=seq(-3,1.5,0.01)
+cord.x <- c(min(regiao),regiao,max(regiao))
+cord.y <- c(0,pnorm(regiao),0) 
+curve(pnorm(x,0,1),xlim=c(-3,3),main='f.d.a.',xlab="z",type="l",
+      col="darkblue",lwd=2, ylab="F(z)",xaxt="n",cex.axis=0.65, cex.lab=0.8 ) 
+axis(1,at=c(-3,-2,-1, 0, 1, 1.5,2, 3),labels =
+       c(-3,-2,-1,0,1,"y",2, 3),cex.axis=0.65, cex.lab=0.8) 
+polygon(cord.x,cord.y,col='lightgray')
+```
+
+
+### Calculando as probabilidades para a Distribuição Normal
+
+- Suponha que $X \sim N(\mu ,\sigma ^{2})$ e queremos calcular: $P(a<X<b)=\int_{a}^{b}f(x) dx$. Sendo $f(x)$ a f.d.p. da Dist. Normal. 
+
+```{r echo = FALSE, fig.cap= "Calculando a probabilidade para a Distribuição Normal",fig.height = 3, fig.width = 4}
+x<-seq(0,20,0.1) 
+fdnorm<-dnorm(x = x, mean = 10, sd=3)   
+regiao=seq(12,15,0.1)
+cord.x <- c(min(regiao),regiao,max(regiao))
+cord.y <- c(0,dnorm(regiao, mean=10, sd=3),0) 
+curve(dnorm(x,10,3),xlim=c(0,20),xlab="x",type="l", 
+      col="darkblue",lwd=2, ylab="f(x)",xaxt="n",
+      cex.axis=0.65, cex.lab=0.8, cex.main=0.7 ) 
+axis(1,at=c(0,7, 10, 12,13, 15,20),labels =
+       c(0, 7, 10, "a",13,"b",20),cex.axis=0.65, cex.lab=0.8) 
+polygon(cord.x, cord.y, col='lightgray')
+```
+
+
+
+### Calculando as probabilidades para a Distribuição Normal
+
+- É importante ressaltar que o cálculo da área só pode ser obtido por integração numérica. Para cada distribuição, com seu $\mu$ e $\sigma$ próprios, teríamos que calcular qual a $P(a<X<b)$.
+
+- Então, para simplificar o problema, transformamos a distribuição em uma Normal Padrão, a qual temos as probabilidades calculadas e disponibilizadas na tabela da Normal Padrão. 
+
+### Calculando as probabilidades para a Distribuição Normal
+
+- Ou seja, após a transformação em Normal padrão, passamos do cálculo da $P(a<X<b)$ para a $P(a*<Z<b*)$, onde $Z \sim N(0 , 1)$
+
+- Assim, podemos consultar o valor da $P(a*<Z<b*)$ já calculado e reportado na tabela da Normal Padrão. 
+
+
+
+### Calculando as probabilidades para a Distribuição Normal
+
+```{r echo = FALSE, fig.cap= "Relação entre as Distribuições Normais e a Normal Padrão",fig.height = 5, fig.width = 4.5}
+par(mfrow=c(2,1))
+x<-seq(0,20,0.1) 
+fdnorm<-dnorm(x = x, mean = 10, sd=3)   
+regiao=seq(12,15,0.1)
+cord.x <- c(min(regiao),regiao,max(regiao))
+cord.y <- c(0,dnorm(regiao, mean=10, sd=3),0) 
+curve(dnorm(x,10,3),xlim=c(0,20),xlab="x",type="l", 
+      col="darkblue",lwd=2, ylab="f(x)",xaxt="n",main="P(a<X<b)",
+      cex.axis=0.65, cex.lab=0.8, cex.main=0.7 ) 
+axis(1,at=c(0,7, 10, 12,13, 15,20),labels =
+       c(0, 7, 10, "a",13,"b",20),cex.axis=0.65, cex.lab=0.8) 
+polygon(cord.x, cord.y, col='lightgray')
+
+z<-seq(-3,3,0.1) 
+fdnorm<-dnorm(x = x, mean = 0, sd=1)   
+regiao=seq(0.66,1.66,0.1)
+cord.x <- c(min(regiao),regiao,max(regiao))
+cord.y <- c(0,dnorm(regiao, mean=0, sd=1),0) 
+curve(dnorm(x,0,1),xlim=c(-3,3),xlab="z",type="l", 
+      col="darkblue",lwd=2, ylab="f(z)",xaxt="n",main="P(a'<Z<b')",
+      cex.axis=0.65, cex.lab=0.8, cex.main=0.7 ) 
+axis(1,at=c(-3,1, 0, 0.66 ,1, 1.66, 3),labels =
+       c(-3, 1, 0, "a'",1,"b'",3),cex.axis=0.65, cex.lab=0.8) 
+polygon(cord.x, cord.y, col='lightgray')
+```
+
+### Um Exemplo
+
+::: {.callout-tip icon="false" title="EXEMPLO"}
+
+Calcule a $P(0\leq Z \leq z_c)$ para $z_c=1,73$
+
+:::
+
+::: {.callout-caution .fragment icon="false" title="RESPOSTA"}
+
+Consultando a tabela da Normal Padrão: 
+
+
+$P(0\leq Z \leq 1,73)=0,45818$ 
+
+
+A Figura a seguir mostra como consultamos tal valor na tabela Normal Padrão.
+
+:::
+
+### Tabela Normal
+
+![Consulta à tabela Normal Padrão para o exemplo apresentado](../figuras/capitulos/Imagem8.jpeg){fig-align="center" width="70%"}
+
+### Mais um exemplo
+
+::: {.callout-tip icon="false" title="EXEMPLO"}
+
+Depósitos no Banco Ribeirão em janeiro (x) são distribuídos normalmente com média 10000,00 e d.p. 1500,00
+
+Seleciona-se um depósito ao acaso, qual a probabilidade de o depósito ser de:
+
+a. 10 000 ou menos
+
+b. Um valor entre 12 000 e 15 000
+
+c. Maior que 20 000
+
+:::
+
+::: {.callout-caution .fragment icon="false" title="RESPOSTA"}
+
+a. 
+$$\begin{array}{ccc}
+P(X<10000)=P(Z \leq \frac{10000-10000}{15000})=P(Z\leq 0) = 0,5
+\end{array}$$
+Portanto, a probabilidade é de $50\%$
+
+:::
+
+### Mais um exemplo
+
+::: {.callout-tip icon="false" title="EXEMPLO"}
+
+b. 
+$$\begin{array}{ccc}
+P(12000<X<15000)=P(\frac{12000-10000}{15000} < Z < \frac{10000-10000}{15000})
+\end{array}$$
+$$\begin{array}{ccc}
+= P(\frac{4}{3} < Z < \frac{10}{3})
+\end{array}$$
+$$\begin{array}{ccc}
+=P(1,33<Z<3,333) 
+\end{array}$$
+$$\begin{array}{ccc}
+=0,49957 - 0,40824 = 0,09133
+\end{array}$$
+Portanto, a probabilidade é de $9,1\%$
+
+c. 
+$$\begin{array}{ccc}
+P(X>20000)=P( Z > \frac{20000-10000}{15000})
+\end{array}$$
+$$\begin{array}{ccc}
+= P(Z>6,67) \cong 0
+\end{array}$$
+Portanto, a probabilidade é praticamente zero.
+:::
+
+
+### Mais um exemplo
+
+- No R: 
+```{r echo = TRUE, fig.cap= "Distribuição de probabilidade exponecial e Distribuição exponencial acumulada",fig.height = 3, fig.width = 5}
+pnorm(10000,mean=10000,sd=1500)
+pnorm(15000,mean=10000,sd=1500)-pnorm(12000,mean=10000,sd=1500)
+1-pnorm(20000,mean=10000,sd=1500)
+```
+
+### Um terceiro exemplo
+
+::: {.callout-tip icon="false" title="EXEMPLO"}
+A altura de 10000 alunos tem distribuição normal com $\mu=170$ cm e $\sigma=5$ cm.
+
+a) Qual o número esperado de alunos com altura superior a 165 cm?
+
+b) Qual é o intervalo simétrico ao redor da média que contém 75\% dos alunos?
+
+:::
+
+::: {.callout-caution .fragment icon="false" title="RESPOSTA"}
+
+a)
+
+\begin{array}{ccc}
+P(X>165)= P(Z>\frac{165-170}{5})
+\\
+= P(Z>-1)
+\\
+=P(Z<1) = 0,34134 + 0,5 = 0,84134
+\end{array}
+Portanto, o número espero de alunos é de 8413 (84,13\% de 10000)
+
+:::
+
+### Um terceiro exemplo
+
+::: {.callout-tip icon="false" title="EXEMPLO"}
+
+b) 
+
+\begin{array}{ccc}
+P(-a<Z<a)=0,75
+\\
+P(Z<a)=0,375
+\\
+a=1,15
+\end{array}
+
+Disto segue que:
+
+\begin{array}{ccc}
+1,15= \frac{X-170}{5}
+\\
+X_1= 175,75 \ e \ X_2=164,25
+\end{array}
+
+:::
+
+
+
+## A Densidade de Probabilidade Exponencial
+### O Modelo
+
+Útil nas aplicações de contabilidade de sistemas.
+
+::: {.callout-note icon="false" title="DEFINIÇÃO"}
+A v.a T tem distribuição exponencial com parâmetros $\beta>0$ se sua f.d.p. tem a seguinte forma
+
+\begin{array}{ccc}
+f(t,\beta)=\left\{\begin{matrix} \frac{1}{\beta}e^{\frac{-t}{\beta}}, \ se\ t\geq 0
+\\ 0 , \ se\ t< 0
+
+\end{matrix}\right.
+\end{array}
+
+Tal que $T \sim Exp(\beta )$
+:::
+
+### Os Momentos
+  
+::: {.callout-note icon="false" title="DEFINIÇÃO"}
+
+Esperança:
+
+$E(T)=\beta$
+
+---
+
+Variância:
+
+$Var(T)=\beta^{2}$
+:::
+
+
+### Graficamente
+
+Considere a distribuição Exponencial para $\beta=1$ e $\beta=4$, ou seja, as esperanças. 
+\
+```{r echo = FALSE, fig.cap= "Distribuição de probabilidade exponecial e Distribuição exponencial acumulada",fig.height = 3, fig.width = 5}
+par(mfrow=c(1,2))
+curve(dexp(x,1),xlim=c(0,5),main="f.d.p para X~exponencial(1)",
+      xlab="x",type="l", col="darkblue",lwd=2, ylab="f(x)",
+      cex.axis=0.65, cex.lab=0.8, cex.main=0.7)
+curve(dexp(x,4),xlim=c(0,5),main="f.d.p para X~exponencial(4)",
+      xlab="x",type="l", col="darkblue",lwd=2, ylab="f(x)",
+      cex.axis=0.65, cex.lab=0.8, cex.main=0.7)
+```
+
+
+### Função Distribuição Acumulada
+
+::: {.callout-note icon="false" title="DEFINIÇÃO"}
+
+A Distribuição Exponencial possui a seguinte F.d.a.
+
+\begin{array}{ccc}
+F(t)=\left\{\begin{matrix} 1 - e^{\frac{-t}{\beta}} , \ se\ t\geq 0
+\\ 0 , \ se\ t< 0
+
+\end{matrix}\right.
+\end{array}
+
+:::
+
+### Um Exemplo
+  
+::: {.callout-tip icon="false" title="EXEMPLO"}
+
+O tempo de vida de uma bactéria é uma v.a. com distribuição exponecial com parâmetro $\beta=500$, portanto, E(T)=500. Qual a probabilidade de que uma bactéria viva acima da média?
+:::
+
+::: {.callout-caution .fragment icon="false" title="RESPOSTA"}
+
+$$
+\begin{aligned}
+P(T > 500) &= \int_{500}^{\infty} f(t) \, dt = \frac{1}{500} \int_{500}^{\infty} e^{\frac{-t}{500}} \, dt \\
+&= \frac{1}{500} \left[ -500e^{\frac{-t}{500}} \right]^{\infty}_{500} = e^{-1} = 0,3678
+\end{aligned}
+$$
+
+Portanto, a probabilidade é de 36,7\%
+
+:::
+
+
+### Um Exemplo
+- No R:
+```{r echo = TRUE, fig.cap= "Distribuição de probabilidade exponecial e Distribuição exponencial acumulada",fig.height = 3, fig.width = 5.5}
+1-pexp(500,rate=1/500)
+```
+
+
+## Aproximação da Normal pela Binomial
+### Relembrando a Dist Binomial
+
+::: {.callout-tip icon="false" title="EXEMPLO"}
+Considere uma moeda honesta tal que sair cara indica sucesso e coroa indica fracasso. Lançando a moeda 3 vezes, qual a probabilidade de 2 sucessos?
+:::
+
+::: {.callout-caution .fragment icon="false" title="RESPOSTA"}
+
+Temos as seguintes possibilidades:
+
+$$\begin{array}{ccc}
+A =\{SSF, SFS, FSS\}
+\end{array}$$
+
+Então segue que:
+
+$$\begin{array}{ccc}
+P(SSF)= \frac{1}{2}. \frac{1}{2}. \frac{1}{2} = \frac{1}{8}
+\\
+= p p . q = p^{2}. q
+\end{array}$$
+
+Logo $P(A)=\frac{3}{8} = 3 p^{2}. q$
+
+:::
+
+### Relembrando a Dist Binomial
+
+A tabela abaixo contém o cálculo da probabilidade do problema acima:
+
+<center>
+| Sucessos | Prob | p=1/2 |
+|----------|------|-------|
+|   0       |  $q^{3}$    |  1/8     |
+|    1      |  $3pq^{2}$    | 3/8      |
+|     2     |  $3p^{2}q$    |   3/8    |
+|      3    |  $p^{3}$  |     1/8  |
+</center>
+
+### Momentos:
+
+::: {.callout-note icon="false" title="DEFINIÇÃO"}
+
+A distribuição binomial possui os seguintes Momentos:
+
+Esperança: $E(x)=n. p$
+
+---
+
+Variância: $Var(x)=n.p.q$
+
+E temos que:
+
+\begin{array}{ccc}
+P(x=k)=\begin{pmatrix} n
+\\  k
+\end{pmatrix} p ^{k} q ^{n-k}
+\end{array}
+
+:::
+
+### Aproximação Normal à Binomial
+
+Suponha uma variável Y distribuída pela binomial com parâmetros $n=10$ e $p=\frac{1}{2}$ . Suponha que queremos calcular $P(Y \geq 7)$. Isso equivale a calcular:
+
+<center>
+| Sucessos | Prob | p=1/2 |
+|----------|------|-------|
+|   7      |  $\binom{10}{7}p^{7}q^{3}$    |  0,11718  |
+|    8      |  $\binom{10}{8}p^{8}q^{2}$     | 0,04394  |
+|     9     |  $\binom{10}{9}p^{9}q^{1}$    | 0,00977  |
+|      10    |  $\binom{10}{10}p^{10}$   | 0,00098  |
+</center>
+
+
+### Aproximação Normal à Binomial
+* Note que :
+
+\begin{array}{ccc}
+\binom{10}{7}=\frac{10!}{7! 3!}= \frac{10.9.8}{6}=120
+\\
+P(X=7)=120 . \frac{1}{2}^{7}\frac{1}{2}^{3}=0,117
+\end{array}
+
+### Aproximação Normal à Binomial
+
+* Aproximando, temos que:
+
+\begin{array}{ccc}
+ n=10
+ \\
+ \\
+ \mu=n.p=10 . \frac{1}{2}=5
+ \\
+ \\
+ \sigma^{2}=n.p (1-p)=10 \frac{1}{2} \frac{1}{2}=2,5
+\end{array}
+
+### Aproximação Graficamente
+
+```{r echo = FALSE, fig.cap= "Aproximação da Binomial pela Normal",fig.height = 3, fig.width = 5.5}
+barplot(height = dbinom(0:10,size=10,prob = 1/2),col = "white",ylim=c(0,0.3), 
+        ylab="f(x), p(x)", cex.lab=0.8,cex.main=0.7)
+par(new=T)
+barplot(height = c(rep(0,7),dbinom(7:10,size=10,prob = 1/2)),ylim=c(0,0.3),
+        border=c(rep(NA,7),rep("black",4)), col = c(rep(NA,7),rep("gray",4)))
+par(new=T)
+curve(dnorm(x,mean=5, sd=sqrt(2.5)),xlim=c(-0.8,10.8),ylim=c(0.0,0.3),xaxs="i",yaxs="i",ylab="") 
+
+```
+
+
+### Exemplo
+
+- Sendo X uma v.a. com distribuição normal então:
+
+$$\begin{array}{ccc}
+P(Y \geq 7) \cong P(X \geq 6,5)= P(\frac{x-\mu}{\sigma}\geq \frac{6,5-\mu}{\sigma})
+\\
+\\
+P(Z \geq \frac{6,5-\mu}{\sigma})= P(Z \geq 0,94) = 0,1714
+\end{array}$$
+
+onde $Z \sim N(0,1)$
+
+### Exemplo
+
+- A probabilidade encontrada pela Normal é de 0,172 enquanto pela aproximação encontramos que é de 0,1714. 
+
+- Formalmente, justifica-se tal aproximação pelo Teorema do Limite Central.
+
+### Exemplo
+- No R:
+$P(Y \geq 7)$ 
+```{r echo = TRUE}
+1-pbinom(6,size=10,prob=1/2)
+```
+
+$P(X \geq 6.5)$
+```{r echo = TRUE}
+1-pnorm(6.5,mean=5,sd=sqrt(2.5))
+```
+
+
+### Um outro exemplo
+  
+::: {.callout-tip icon="false" title="EXEMPLO"}
+De um lote de produtos manufaturados, sorteamos 100 itens ao acaso. Sabemos que 10\% dos itens produzidos possuem defeitos. Qual a chance que dos 100 sorteados 12 sejam defeituosos? Use a aproximação pela normal.
+
+:::
+
+::: {.callout-caution .fragment icon="false" title="RESPOSTA"}
+
+$X \sim b(100;0,)$
+
+Considere p= número de defeituosos. Pela aproximação pela Normal temos que $E (x)=100.0,1=10$ e $Var(x)=100. 0,1 . 0,9 =9$. Disto segue que:
+
+$$\begin{array}{ccc}
+P(x-12)=\binom{100}{12}. (0,1)^{12} (0,9)^{88}
+=\frac{100!}{12! 88!}(0,1)^{12} (0,9)^{88}= 0,0987
+\end{array}$$
+
+:::
+
+### Um outro exemplo
+  
+::: {.callout-tip icon="false" title="EXEMPLO"}
+
+Portanto, aproximando pela Normal temos a distribuição:
+
+$Y \sim N(10;9)$
+
+$$\begin{array}{ccc}
+P(Y=12)=P(11,5\leq X \leq 12,5)
+\\
+=P(\frac{11,5-10}{9}\leq Z \leq \frac{12,5-10}{9})
+\\
+=P(0,5 \leq Z \leq 0,83) 
+\\
+=0,29673-0,19146=0,1052
+\end{array}$$
+
+Portanto, a probabilidade é de 10,5\%
+
+:::
+
+## Outras Distribuições importantes: 
+
+## Distribuição Gamma
+
+### O Modelo Gamma
+
+::: {.callout-note icon="false" title="DEFINIÇÃO"}
+Uma variável aleatória contínua X que assume valores positivos tem distribuição Gama, com parâmetros $\alpha \geq 1$ e $\beta>0$, com f.d.p. dada por: 
+
+$$
+\begin{array}{ccc}
+f(x;\beta,\alpha)=\left\{\begin{matrix} \frac{1}{\Gamma (\alpha)\beta^{\alpha}}x^{\alpha -1} e^{\frac{-x}{\beta}} \ , \ x>0
+\\ 
+\\
+0 \  \ \ \ \ \ \ \ \ , \ x \leq 0
+\end{matrix}\right.
+\\
+\Gamma(x) \rightarrow Função \ Gama 
+\\
+\Gamma(x)=\int_{0}^{\infty}e^{-x}x^{\alpha-1}.dx \ 
+\\
+\alpha >0
+\end{array}
+$$
+:::
+
+
+### Graficamente
+
+O gráfico abaixo mostra como a distribuição muda com a alteração dos parâmetros $\alpha$ e para $\beta=1$: \
+
+```{r echo = FALSE, fig.cap= "Distribuição Gamma, para Beta=1 e Alfa variando",fig.height = 3, fig.width = 5.5}
+col <- rainbow(3)
+a <- c(1,2,5)
+plot(0,0,xlab="x",ylab="Dist. de Prob. Gamma",
+     xlim = c(0,8),ylim = c(0,1),
+      cex.axis=0.65, cex.lab=0.8, cex.main=0.7)
+for (i in 1:3)
+{
+  lines(seq(0,8,by=0.01),dgamma(seq(0,8,by=0.01),a[i],1),col = col[i])
+}
+legend(1, 1, legend=c("alfa=1", "alfa=2", "alfa=5"),
+       col=c("red", "green", "blue"), lty=1:1, cex=0.8)
+```
+
+### Momentos
+  
+::: {.callout-note icon="false" title="DEFINIÇÃO"}
+Se $X \sim Gama(\alpha, \beta)$ então possui os seguintes momentos:
+
+
+Esperança:
+$E(X)=\alpha \beta$
+
+---
+
+Variância:
+$Var(X)=\alpha \beta^{2}$
+
+:::
+  
+  
+  
+## Distribuição Qui-Quadrado 
+
+### O Modelo
+  
+::: {.callout-note icon="false" title="DEFINIÇÃO"}
+Uma variável aleatória contínua Y que assume valores positivos tem distribuição Qui-Quadrado com v graus de liberdade - $\chi^ {2}(v)$ - e possui a seguinte f.d.p.:  
+
+\begin{array}{ccc}
+f(x;\beta,\alpha)=\left\{\begin{matrix} \frac{1}{\Gamma (v/2) 2^{v/2}}y^{(v/2) -1} e^{\frac{-y}{2}} \ , \ y>0
+\\ 
+\\
+0 \  \ \ \ \ \ \ \ \ , \ y\leq 0
+\end{matrix}\right.
+\end{array}
+:::
+  
+
+### Graficamente
+
+Abaixo temos a representação gráfica da Qui-Quadrado com diversos graus de liberdade (d.f.):
+
+
+
+```{r echo = FALSE, fig.cap= "Distribuição Qui-Quadrado para diferentes graus de liberdade (gl)",fig.height = 3, fig.width = 6}
+par(mfrow=c(1,3))
+curve(dchisq(x,df=1),xlim=c(0,20),xlab="x", ylab="Dist. Prob. Qui-Quadrado", 
+      main="(a) df=2", col="darkblue",lwd=3,
+      cex.axis=0.65, cex.lab=0.8, cex.main=0.7)
+curve(dchisq(x,df=4),xlim=c(0,20),xlab="x", ylab="", 
+      main="(a) df=4", col="darkblue",lwd=3,
+      cex.axis=0.65, cex.lab=0.8, cex.main=0.7)
+curve(dchisq(x,df=6),xlim=c(0,20),xlab="x", ylab="", 
+      main="(a) df=6", col="darkblue",lwd=3,
+      cex.axis=0.65, cex.lab=0.8, cex.main=0.7)
+
+
+```
+  
+### Momentos 
+
+::: {.callout-note icon="false" title="DEFINIÇÃO"}
+A distribuição Qui-Quadrado com $v$ graus de liberdade possui os seguintes momentos:
+
+Esperança:
+$E(Y)=v$
+
+---
+
+Variância:
+$Var(Y)=2v$
+:::
+
+### Momentos 
+
+- Existem tabelas para obter uma probabilidade $P(Y>y_0)$ quando Y é uma variável com distribuição Qui-Quadrado.
+
+- Com $v>30$ podemos utilizar a aproximação normal para a distribuição Qui-Quadrado. 
+
+- Temos dois resultados importantes que serão definidos a seguir:
+
+  
+### Resultados importantes 
+  
+::: {.callout-note icon="false" title="DEFINIÇÃO"}
+(1) O quadrado de uma v.a. com distribuição normal padrão é uma v.a. com distribuição $\chi^{2}(1)$
+
+---
+
+(2) Uma variável aleatória $\chi^{2}(v)$ é equivalente à soma de $v$ normais padrões ao quadrado
+:::
+
+
+
+## Distribuição t-student
+### O Modelo
+  
+::: {.callout-note icon="false" title="DEFINIÇÃO"}
+Sejam as v.a. independentes $X \sim N(0,1)$ e $Y \sim \chi^{2}(v)$. Considere T:
+
+\begin{array}{ccc}
+T =\frac{X}{\sqrt{\frac{Y}{v}}}
+\end{array}
+
+Então T tem distribuição t-student com $v$ graus de liberdade. Então, uma variável aleatória contínua com distribuição T tem a seguinte f.d.p.:
+
+\begin{array}{ccc}
+f(t,;v)= \frac{\Gamma((v+1)/2) }{\Gamma(v/2)\sqrt{\pi v}} (1+ t^{2}/v)^{\frac{-(v+1)}{2}}
+
+\end{array}
+$\infty < t < \infty$
+:::
+
+### Graficamente
+
+
+Para $v$ suficientemente grande, a densidade de $t$ aproxima-se da $N(0,1)$. Vejamos: 
+\
+
+```{r echo = FALSE, fig.cap= "Distribuição t-student para diferentes graus de liberdade (gl)",fig.height = 3, fig.width = 5.5}
+curve(dnorm(x),ylim=c(0,0.4),xlim=c(-3,3),xlab="x",col="darkred",ylab="Dist. Prob. t-student",lwd=3)
+par(new=TRUE)
+curve(dt(x,df=1),ylim=c(0,0.4),xlim=c(-3,3),xlab="",col="orange",lty=1,ylab="")
+par(new=TRUE)
+curve(dt(x,df=3),ylim=c(0,0.4),xlim=c(-3,3),xlab="",col="darkgreen",lty=1,ylab="")
+par(new=TRUE)
+curve(dt(x,df=15),ylim=c(0,0.4),xlim=c(-3,3),xlab="",col="blue",lty=1,ylab="")
+legend(-3,0.4,lty=c(1,1,1,1), col=c("darkred","orange","darkgreen","blue"),
+       legend=c("normal padrão", "t-gl=1","t-gl=3", "t-gl=15"),bty="n",lwd=c(2,2,2,2),cex=0.75)
+```
+
+Observe que quanto maior o grau de liberdade, gl, mais próximo à normal padrão a distribuição de t-student se encontra.
+
+
+
+### Os Momentos
+
+::: {.callout-note icon="false" title="DEFINIÇÃO"}
+A distribuição t-student com $v$ graus de liberdade possui os seguintes momentos:
+
+Esperança:
+$E(t)=0$
+
+---
+
+Variância:
+$Var(t)=\frac{v}{v-2}$
+:::
+
+
+
+## Distribuição F
+
+### O Modelo
+
+::: {.callout-note icon="false" title="DEFINIÇÃO"}
+Sejam U e V duas v.a. independentes, cada uma com distribuição qui-quadrado com $v_1$ e $v_2$ graus de liberdade. Então a v.a.
+
+$$\begin{array}{ccc}
+W=\frac{U/v_1}{V/v_2}
+\end{array}$$
+
+possui distribuição F com $v_1$ e $v_2$  graus de liberdade, tal que $W \sim F(v_1,v_2)$. 
+Dessa forma, uma variável aleatória contínua com distribuição F tem a seguinte f.d.p.:
+
+$$\begin{array}{ccc}
+f(t,;v)= \frac{\Gamma((v_1+v_2)/2) }{\Gamma(v_1/2)\Gamma(v_2/2) } {(\frac{v_1}{v_2})}^{v1/2}\frac{w^{(v_1-2)/2}}{(1+v_1w/v_2)^{(v_1+v_2)/2}} 
+\end{array}$$
+Para $w>0$
+
+:::
+
+
+
+### Os Momentos
+
+::: {.callout-note icon="false" title="DEFINIÇÃO"}
+A distribuição F possui os seguites momentos:
+
+Esperança:
+\begin{array}{ccc}
+E(W)=\frac{v_1}{v_1-v_2}
+\end{array}
+
+---
+
+Variância:
+\begin{array}{ccc}
+Var(W)=\frac{2 v_2^{2}(v_1+v_2-2)}{v_1(v_2-2)^{2}(v_2-4)}
+\end{array}
+:::
+
+
+### Graficamente
+
+Gráficos da distribuição para diferentes combinações de $v_1$ e $v_2$. 
+```{r echo = FALSE, fig.cap= "Distribuição de Probabilidade F",fig.height = 3, fig.width = 5.5}
+x<-seq(0,10,0.1) 
+curve(df(x,df1=2, df2=2),ylim=c(0,1),xlim=c(0,4),xlab="x",col="orange",lty=1,ylab="Distribuição de Prob. F")
+par(new=TRUE)
+curve(df(x,df1=5, df2=7),ylim=c(0,1),xlim=c(0,4),xlab="",col="darkblue",lty=1,ylab="")
+par(new=TRUE)
+curve(df(x,df1=20, df2=20),ylim=c(0,1),xlim=c(0,4),xlab="",col="darkgreen",lty=1,ylab="")
+legend(2,1,lty=c(1,1,1,1), col=c("orange","darkblue","darkgreen"),
+       legend=c("gl1=2; gl2=2", "gl1=5; gl2=7","gl1=20; gl2=20"),bty="n",lwd=c(2,2,2,2),cex=0.75)
+```
+
+### Um Exemplo
+
+::: {.callout-tip icon="false" title="EXEMPLO"}
+
+Seja $W \sim F(5,7)$.Calcule o valor de $F_{\alpha}$ tal que: 
+
+\
+
+$P(F>F_{\alpha})=0,05$ e $P(F \leq F_{\alpha})=0,95$ 
+
+:::
+
+::: {.callout-caution .fragment icon="false" title="RESPOSTA"}
+
+Consultando a tabela para a distribuição F representada abaixo temos que: 
+
+\
+
+$P(F>F_{\alpha})=0,05$ e $P(F \leq F_{\alpha})=0,95$  para $F_{\alpha}=3,97$
+:::
+
+### Tabela da Distribuição F
+
+![Tabela da Distribuição F](../figuras/capitulos/Imagem14.jpeg){fig-align="center" width="80%"}
