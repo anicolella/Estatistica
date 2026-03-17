@@ -542,3 +542,48 @@ persp3D(x = x_vals, y = y_vals, z = z_matrix2,
         bty = "b", phi = 30, theta = -40, zlim = c(0, 1))
 ```
 
+## Links 
+
+::: {.grid}
+
+::: {.g-col-3}
+🎞️ <span style="font-size:20px; font-weight:bold;">SLIDES</span>  
+
+[Slides VA Multidi](https://drive.google.com/file/d/1LmwZ2DJQ1EF0awGGthYC1nYTBPiOBysM/view?usp=sharing)
+
+[Slides Marg. e Cond.](https://drive.google.com/file/d/1AeRgvXxchfQ91fwPS5APN2BAYZLLbPd1/view?usp=sharing)
+
+[Slides Correlação](https://drive.google.com/file/d/1qWVvjy75q6ABd31vl-8KE7LYdiYOeFuz/view?usp=sharing)
+
+
+Arquivos em HTML (zip) das aulas.
+:::
+
+::: {.g-col-3}
+📊 <span style="font-size:20px; font-weight:bold;">MATERIAL APLICADO</span>  
+
+[Acessar Material](https://docs.google.com/spreadsheets/d/1ho_UZXTqqTCUp2NGSMCfd6su5eIlEx7Z/edit?usp=sharing&ouid=113043354924613672342&rtpof=true&sd=true)
+
+Bases de dados e exercícios em Excel.
+:::
+
+::: {.g-col-3}
+💻 <span style="font-size:20px; font-weight:bold;">SCRIPT R</span>  
+
+[Acessar Scripts R](https://SEU_LINK_R)
+
+Códigos utilizados nas aulas em R.
+:::
+
+::: {.g-col-3}
+🐍 <span style="font-size:20px; font-weight:bold;">SCRIPT PYTHON</span>  
+
+[Acessar Scripts Python](https://SEU_LINK_PYTHON)
+
+Códigos utilizados nas aulas em Python.
+:::
+
+:::
+
+## Exercícios
+

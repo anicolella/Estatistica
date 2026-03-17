@@ -1,0 +1,356 @@
+---
+title: "Variáveis Aleatórias Multidimensionais "
+subtitle: "Distribuição de Probabilidade Marginal e Condicional"
+format: 
+  revealjs:
+    menu: true
+    theme: serif
+    highlight: zenburn
+    incremental: false
+    center: true
+    slide-number: c/t
+    width: 1200
+    height: 800
+    controlsLayout: edges
+    controls: true
+    progress: true
+    history: true
+    mouseWheel: true
+    transition: 'slide'
+    hash: true
+    scrollable: true
+    mathjax: true
+    mathjax-config: TeX-AMS-MML_HTMLorMML
+    embed-resources: true
+author:
+  - name: Alexandre Nicolella
+    orcid: 0000-0002-1006-6527
+    email: nicolella@usp.br
+    affiliations: FEARP/USP
+date: last-modified
+---
+
+# Distribuições de Probabilidade Condicionais e Marginais e Independência {background-color="#87806b"}
+
+# Distribuição de Probabilidade Marginal {background-color="#4c6073"}
+## Distribuição  Marginal 
+- Dada a variável aleatória bidimensional $(X,Y)$ podemos estar interessados em $X$ ou $Y$ individualmente. 
+- Com base na distribuição conjunta da renda e consumo, por exemplo, quero saber somente como a renda se distribui. 
+
+# Caso Discreto {background-color="#4c6073"}
+ 
+## Definindo 📖
+
+Para o caso discreto, temos a seguinte **distribuição marginal de X**:
+
+$$
+\begin{array}{ccc}
+p(x_{i})=P(X=x_{i})=P(X=x_i, Y=y_i \ ou \ X=x_i,Y=y_2 ....) 
+\\
+p(x_i)=\sum_j p(x_i,y_j)
+\end{array}
+$$
+
+Onde $p$ é a função distribuição marginal de $X$. Podemos pensar em $Y$ de forma análoga. 
+
+A intuição aqui é que se queremos a marginal de $X$ temos que empilhar (ou somar) na direção de $Y$, assim o eixo $y$ irá sumir. Vejamos graficamente.
+
+# VA Discretas: Graficamente {background-color="#4c6073"}
+
+## Distribuições Marginais Discretas
+Vejamos um exemplo extraído de Inouye,D.I. et al.(2017): 
+
+![Distribuição marginal de Poisson](../../figuras/capitulos/marginal.png){fig-align="center" width="25%"}
+
+Veja que se quisermos a distribuiçao marginal de $X$, apresentada a esquerda, temos que somar as barras ou empilha-las na direção de $Y$. 
+
+
+# Caso Contínuo {background-color="#4c6073"} 
+
+## Definindo 📖
+
+O caso contínuo é similar ao discreto. No contínuo, a **função densidade marginal de X** será:
+
+$$
+\begin{array}{ccc}
+g(x)=\int_{-\infty}^{\infty}f(x,y)dy
+\end{array}
+$$
+
+
+E a **função densidade marginal de y** será:
+
+$$
+\begin{array}{ccc}
+h(y)=\int_{-\infty}^{\infty}f(x,y)dx
+\end{array}
+$$
+
+# EXEMPLO {background-color="#6a918b"} 
+## Exemplo Geral
+
+::: {.callout-tip icon="false" title="EXEMPLO"}
+Suponha que $(X,Y)$ seja uma variável aleatória bidimensional. Gostariamos de saber somente qual a probabilidade de encontrarmos valores de $x$ entre c e d. Assim:
+
+---
+
+$$
+P(c\leq x \leq d)=P[c\leq X \leq d, -\infty < Y < \infty] 
+$$
+
+$$
+P(c\leq x \leq d)=\int_{c}^{d}\int_{-\infty}^{\infty}f(x,y)dydx 
+$$
+
+$$
+P(c\leq x \leq d)=\int_{c}^{d}g(x)dx 
+$$
+:::
+
+# VA Contínuas: Graficamente {background-color="#4c6073"}
+
+## Distribuições Marginais Contínuas
+
+Vejamos um exemplo extraído de Selvan, R.(2015):
+
+![Distribuição marginal contínua](../../figuras/capitulos/marginalcont.png){fig-align="center" width="65%"}
+
+## Distribuições Marginais Contínuas
+
+Veja que se quisermos a distribuiçao marginal de $X$, apresentada ao fundo, temos que somar as barras ou empilha-las na direção de $Y$. 
+
+
+
+
+
+# Distribuição de Probabilidade Condicional {background-color="#4c6073"}
+## Introdução
+
+Na distribuição marginal, tinhamos a distribuição conjunta entre renda e consumo e estavamos interessados somente na renda. 
+
+Agora querendo saber qual a distribuição da renda para certa faixa de consumo, ou o contrário, qual a distribuição do consumo para dada faixa de renda. 
+
+# Caso Discreto {background-color="#4c6073"}
+ 
+## Definindo 📖
+
+Para variáveis discretas temos o seguinte: 
+
+$$
+\begin{array}{ccc}
+P(x_i|y_j)=P(X=x_i|Y=y_j)
+\end{array}
+$$
+
+$$
+\begin{array}{ccc}
+P(x_i|y_j)= \frac{P(x_i,y_j)}{q(y_{j})}
+\end{array}
+$$
+
+Note que $P(x_i|y_j)\geq 0$ e $\sum_iP(x_i|y_j)=1$ 
+
+
+# VA Discretas: Graficamente {background-color="#4c6073"}
+
+## Distribuições Condicionais Discretas
+
+Vejamos um exemplo extraído de Inouye,D.I. et al.(2017): 
+
+![Distribuição condicional de Poisson](../../figuras/capitulos/condicionaldisc.png){fig-align="center" width="50%"}
+
+## Distribuições Condicionais Discretas
+  - Veja que se quisermos a distribuição condicional de $X$ dado um certo valor de $Y$, por exemplo, $Y=2$ temos que considerar as barras marcadas e repondera-las pela chance de $Y=2$ acontecer. 
+
+  - Ou seja, agora $Y=2$ será o total. 
+ 
+
+# Caso Contínuo {background-color="#4c6073"}
+ 
+## Definindo 📖
+
+Para o caso contínuo a f.d.p. de $X$ condicionada a um dado $Y=y$ é:
+
+$$
+\begin{array}{ccc}
+g(x|y)= \frac{f(x,y)}{h(y)}
+\end{array}
+$$
+
+De forma análoga para $Y$:
+
+
+$$
+\begin{array}{ccc}
+h(y|x)= \frac{f(x,y)}{g(x)}
+\end{array}
+$$
+
+## Definindo 📖
+
+Note que $g(x|y)\geq 0$ e 
+
+$$
+\int_{-\infty}^{\infty}g(x|y)dx=\int_{-\infty}^{\infty} \frac {f(x,y)}{h(y)}dx=\frac{h(y)}{h(y)}=1
+$$ 
+
+
+# VA Contínuas: Graficamente {background-color="#4c6073"}
+
+## Distribuições Condicionais Contínuas
+
+Vejamos um exemplo extraído de Neuper,M. e Ehret,U. (2019): 
+
+![Distribuição condicional normal](../../figuras/capitulos/condicionalcont.png){fig-align="center" width="50%"}
+
+## Distribuições Condicionais Contínuas
+
+Veja que se quisermos a distribuição condicional de $X$ dado um certo valor de $Y$, por exemplo, $Y=-2$.
+
+Temos que considerar a linha marcada e novamente reponderar todos os elementos pela chance de $Y=-2$ acontecer. 
+
+Ou seja, agora $Y=-2$ será o total. 
+
+
+# Variáveis Aleatórias Independentes {background-color="#4c6073"}
+## Introdução
+
+- Independência se conecta ao conceito de informação e quanto essa informação recebida muda sua opinião do que irá acontecer com o caso em estudo.
+
+- Podemos dar uma informação sobre renda e perguntarmos sobre o consumo desse parte da população. 
+
+- Quando os resultados de $X$ influenciam o resultado de $Y$ dizemos que as variáveis são dependentes. 
+
+- Caso a informação sobre $X$ não afeta de meneira nenhuma os resultados de $Y$, dizemos que são independentes. 
+
+
+# Caso Discreto {background-color="#4c6073"}
+
+## Definindo 📖
+
+::: {.callout-note icon="false" title="DEFINIÇÃO"}
+Para a variábel bidimensional discreta $(X,Y)$, $X$ e $Y$ serão independentes se 
+$$
+\begin{array}{ccc}
+p(x_i,y_j)=p(x_i)p(y_j)
+\end{array}
+$$
+
+---
+
+Ou, de outra maneira:
+$$
+\begin{array}{ccc}
+P(x_i|y_j)= \frac{P(x_i,y_j)}{q(y_i)}= \frac{P(x_i)q(y_j)}{q(y_i)}=P(x_i)
+\end{array}
+$$
+:::
+
+# Caso Contínuo {background-color="#4c6073"}
+
+## Definindo 📖
+
+::: {.callout-note icon="false" title="DEFINIÇÃO"}
+Para a variábel bidimensional contínua $(X,Y)$, $X$ e $Y$ serão independentes se:
+$$
+\begin{array}{ccc}
+f(x,y)=g(x)h(y)
+\end{array}
+$$
+
+---
+
+Ou, de outra maneira:
+$$
+\begin{array}{ccc}
+g(x|y)= \frac{f(x,y)}{h(y)}= \frac{g(x)h(y)}{h(y)}=g(x)
+\end{array}
+$$
+:::
+
+
+## Um pouco mais sobre Independência
+  
+- Com base nessas definições podemos agora apresentar o seguinte teorema que conecta o que viram em probabilidade com variáveis aleatórias multidimesionais. 
+
+::: {.callout-note icon="false" title="TEOREMA"}
+Se $(X,Y)$ uma variável aleatória bidimensional e A e B dois eventos que dependem de $X$ e $Y$, respectivamente. Então, se $X$ e $Y$ forem independentes: 
+$$
+\begin{array}{ccc}
+P(A \cap B)= P(A) P(B)
+\end{array}
+$$
+:::
+
+## Definindo 📖
+
+  
+::: {.callout-note icon="false" title="TEOREMA"}
+
+**Prova:**
+$$
+\begin{array}{ccc}
+P(A \cap B)= {\int_{}^{}\int_{}^{}}_{P(A \cap B)}f(x,y)dxdy\\
+\\
+= {\int_{}^{}\int_{}^{}}_{P(A \cap B)}g(x)h(y)dxdy\\ 
+\\
+={\int_{A}^{}g(x)dx\int_{B}^{}h(y)dy}\\
+\\
+=P(A)P(B)
+\end{array}
+$$
+:::
+
+# EXEMPLO {background-color="#6a918b"} 
+
+## Exemplo Geral 
+
+::: {.callout-tip icon="false" title="EXEMPLO"}
+Suponha uma f.d.p. conjunta da variábel aleatória bidimensional $(X,Y)$:
+$$
+\begin{array}{ccc}
+f(x,y)=\left\{\begin{matrix} x^{2}+ \frac{xy}{3} \ para \ 0<x<1,0<y<2
+\\ 0,\ caso\ contrário
+\end{matrix}\right.
+\end{array}
+$$
+
+Calcule a $P(Y<X)$:
+:::
+
+## Exemplo Geral 
+
+::: {.callout-tip icon="false" title="EXEMPLO"}
+**Resposta:**
+
+$$
+\begin{array}{ccc}
+P(Y<X)=\int_{0}^{1}\int_{0}^{x} x^{2}+ \frac{xy}{3} dydx 
+\end{array}
+$$
+
+$$
+\begin{array}{ccc}
+P(Y<X)=\int_{0}^{1} [x^{2}y+ \frac{xy^{2}}{6}]_0^{x} dy 
+\end{array}
+$$
+
+$$
+\begin{array}{ccc}
+P(Y<X)=\int_{0}^{1} [x^{3}+ \frac{x^{3}}{3}] dy 
+\end{array}
+$$
+
+$$
+\begin{array}{ccc}
+P(Y<X)= [\frac{x^{4}}{4}+ \frac{x^{4}}{24}]_0^{1} 
+\end{array}
+$$
+
+$$
+\begin{array}{ccc}
+P(Y<X)= \frac{1}{4}+\frac{1}{24}=\frac{7}{24}
+\end{array}
+$$
+:::
+

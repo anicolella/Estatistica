@@ -180,5 +180,628 @@
     "title": "Alguns Modelos para Variáveis Aleatórias Contínuas",
     "section": "Distribuição F",
     "text": "Distribuição F"
+  },
+  {
+    "objectID": "va_multidi/slides_var_dimensional.html#introdução",
+    "href": "va_multidi/slides_var_dimensional.html#introdução",
+    "title": "Variáveis Aleatórias Multidimensionais",
+    "section": "Introdução",
+    "text": "Introdução\n\nAté o momento: observar apenas uma característica de um experimento -renda, altura, peso, consumo.\nPodemos observar varias caracteristicas ao mesmo tempo: renda e consumo, peso e altura.\nNesta aula, vamos observar duas características de forma simultânea do mesmo experimento \\(\\epsilon\\)."
+  },
+  {
+    "objectID": "va_multidi/slides_var_dimensional.html#variáveis-aleatórias-discretas",
+    "href": "va_multidi/slides_var_dimensional.html#variáveis-aleatórias-discretas",
+    "title": "Variáveis Aleatórias Multidimensionais",
+    "section": "Variáveis Aleatórias Discretas",
+    "text": "Variáveis Aleatórias Discretas"
+  },
+  {
+    "objectID": "va_multidi/slides_var_dimensional.html#variáveis-aleatórias-contínuas",
+    "href": "va_multidi/slides_var_dimensional.html#variáveis-aleatórias-contínuas",
+    "title": "Variáveis Aleatórias Multidimensionais",
+    "section": "Variáveis Aleatórias Contínuas",
+    "text": "Variáveis Aleatórias Contínuas"
+  },
+  {
+    "objectID": "va_multidi/slides_var_dimensional.html#função-distribuição-acumulada",
+    "href": "va_multidi/slides_var_dimensional.html#função-distribuição-acumulada",
+    "title": "Variáveis Aleatórias Multidimensionais",
+    "section": "Função Distribuição Acumulada",
+    "text": "Função Distribuição Acumulada"
+  },
+  {
+    "objectID": "va_multidi/slides_var_dimensional.html#introdução-3",
+    "href": "va_multidi/slides_var_dimensional.html#introdução-3",
+    "title": "Variáveis Aleatórias Multidimensionais",
+    "section": "Introdução",
+    "text": "Introdução\n\nSão variáveis que não conseguimos listar, pois existem infinitos valores entre dois pontos.\nAssim,o vetor \\((X,Y)\\) será uma variável aleatória contínua se puder tomar todos os valores em algum conjunto não enumerável no plano euclediano"
+  },
+  {
+    "objectID": "va_multidi/slides_var_dimensional.html#caso-discreto",
+    "href": "va_multidi/slides_var_dimensional.html#caso-discreto",
+    "title": "Variáveis Aleatórias Multidimensionais",
+    "section": "Caso discreto",
+    "text": "Caso discreto"
+  },
+  {
+    "objectID": "va_multidi/slides_var_dimensional.html#caso-contínuo",
+    "href": "va_multidi/slides_var_dimensional.html#caso-contínuo",
+    "title": "Variáveis Aleatórias Multidimensionais",
+    "section": "Caso Contínuo",
+    "text": "Caso Contínuo"
+  },
+  {
+    "objectID": "va_multidi/slides_var_dimensional.html#introdução-4",
+    "href": "va_multidi/slides_var_dimensional.html#introdução-4",
+    "title": "Variáveis Aleatórias Multidimensionais",
+    "section": "Introdução",
+    "text": "Introdução\n\nDada a variável aleatória bidimensional \\((X,Y)\\) podemos estar interessados em \\(X\\) ou \\(Y\\) individualmente.\nCom base na distribuição conjunta da renda e consumo, por exemplo, quero saber somente como a renda se distribui."
+  },
+  {
+    "objectID": "va_multidi/slides_var_dimensional.html#caso-discreto-1",
+    "href": "va_multidi/slides_var_dimensional.html#caso-discreto-1",
+    "title": "Variáveis Aleatórias Multidimensionais",
+    "section": "Caso discreto:",
+    "text": "Caso discreto:"
+  },
+  {
+    "objectID": "va_multidi/slides_var_dimensional.html#caso-contínuo-1",
+    "href": "va_multidi/slides_var_dimensional.html#caso-contínuo-1",
+    "title": "Variáveis Aleatórias Multidimensionais",
+    "section": "Caso contínuo",
+    "text": "Caso contínuo"
+  },
+  {
+    "objectID": "va_multidi/slides_var_dimensional.html#introdução-6",
+    "href": "va_multidi/slides_var_dimensional.html#introdução-6",
+    "title": "Variáveis Aleatórias Multidimensionais",
+    "section": "Introdução",
+    "text": "Introdução"
+  },
+  {
+    "objectID": "va_multidi/slides_var_dimensional.html#caso-discreto-2",
+    "href": "va_multidi/slides_var_dimensional.html#caso-discreto-2",
+    "title": "Variáveis Aleatórias Multidimensionais",
+    "section": "Caso discreto",
+    "text": "Caso discreto"
+  },
+  {
+    "objectID": "va_multidi/slides_var_dimensional.html#caso-contínuo-2",
+    "href": "va_multidi/slides_var_dimensional.html#caso-contínuo-2",
+    "title": "Variáveis Aleatórias Multidimensionais",
+    "section": "Caso Contínuo",
+    "text": "Caso Contínuo"
+  },
+  {
+    "objectID": "va_multidi/slides_var_dimensional.html#um-pouco-mais-sobre-independência",
+    "href": "va_multidi/slides_var_dimensional.html#um-pouco-mais-sobre-independência",
+    "title": "Variáveis Aleatórias Multidimensionais",
+    "section": "Um pouco mais sobre Independência",
+    "text": "Um pouco mais sobre Independência"
+  },
+  {
+    "objectID": "va_multidi/slides_var_dimensional.html#introdução-8",
+    "href": "va_multidi/slides_var_dimensional.html#introdução-8",
+    "title": "Variáveis Aleatórias Multidimensionais",
+    "section": "Introdução",
+    "text": "Introdução"
+  },
+  {
+    "objectID": "va_multidi/slides_var_dimensional.html#a-covariância",
+    "href": "va_multidi/slides_var_dimensional.html#a-covariância",
+    "title": "Variáveis Aleatórias Multidimensionais",
+    "section": "A Covariância",
+    "text": "A Covariância"
+  },
+  {
+    "objectID": "va_multidi/slides_var_dimensional.html#propriedades-do-coef.-de-correlação",
+    "href": "va_multidi/slides_var_dimensional.html#propriedades-do-coef.-de-correlação",
+    "title": "Variáveis Aleatórias Multidimensionais",
+    "section": "Propriedades do Coef. de Correlação",
+    "text": "Propriedades do Coef. de Correlação"
+  },
+  {
+    "objectID": "va_multidi/slides_var_dimensional.html#introdução-1",
+    "href": "va_multidi/slides_var_dimensional.html#introdução-1",
+    "title": "Variáveis Aleatórias Multidimensionais",
+    "section": "Introdução",
+    "text": "Introdução\n\nAté o momento: observar apenas uma característica de um experimento -renda, altura, peso, consumo.\nPodemos observar varias caracteristicas ao mesmo tempo: renda e consumo, peso e altura.\nNesta aula, vamos observar duas características de forma simultânea do mesmo experimento \\(\\epsilon\\)."
+  },
+  {
+    "objectID": "va_multidi/slides_var_dimensional.html#jogando-dados",
+    "href": "va_multidi/slides_var_dimensional.html#jogando-dados",
+    "title": "Variáveis Aleatórias Multidimensionais",
+    "section": "Jogando Dados 🎲",
+    "text": "Jogando Dados 🎲\n\nO experimento: jogar dois dados não viciados de forma simultânea. Define-se duas variáveis aleatórias: \\(X\\) o número que aparece no dado 1 e \\(Y\\) o número que aparece no dado 2. Assim, temos o seguinte espaço amostral com 36 elementos (6x6):\n\n\\[\n\\begin{array}{ccc}\n\\Omega = { \\{(1,1),(1,2),(1,3),...,(6,6)\\} }\n\\end{array}\n\\]"
+  },
+  {
+    "objectID": "va_multidi/slides_var_dimensional.html#jogando-dados-1",
+    "href": "va_multidi/slides_var_dimensional.html#jogando-dados-1",
+    "title": "Variáveis Aleatórias Multidimensionais",
+    "section": "Jogando Dados 🎲",
+    "text": "Jogando Dados 🎲\nComo o dado é não viciado cada evento (x,y) tem a mesma probabilidade de ocorrência de 1/36. Assim, a função de probabilidade bivariada é:\n\\[\n\\begin{array}{ccc}\np(x_{i},y_{j})=P(X=x_{i},Y=y_{j})=1/36\n\\end{array}\n\\]\npara i=1,…,6 e j=1,…6."
+  },
+  {
+    "objectID": "va_multidi/slides_var_dimensional.html#jogando-dados-2",
+    "href": "va_multidi/slides_var_dimensional.html#jogando-dados-2",
+    "title": "Variáveis Aleatórias Multidimensionais",
+    "section": "Jogando Dados 🎲",
+    "text": "Jogando Dados 🎲\nAssim como no caso unidimensional pode-se construir um histograma. Com base no exemplo acima, podemos fazer o seguinte histograma tridimensional para o par de dados \\(X\\) e \\(Y\\), ou seja, a distribuição conjunta de \\((X,Y)\\):\n\nDistribuição conjunta uniforme discreta"
+  },
+  {
+    "objectID": "va_multidi/slides_var_dimensional.html#introdução-5",
+    "href": "va_multidi/slides_var_dimensional.html#introdução-5",
+    "title": "Variáveis Aleatórias Multidimensionais",
+    "section": "Introdução",
+    "text": "Introdução"
+  },
+  {
+    "objectID": "va_multidi/slides_var_dimensional.html#introdução-7",
+    "href": "va_multidi/slides_var_dimensional.html#introdução-7",
+    "title": "Variáveis Aleatórias Multidimensionais",
+    "section": "Introdução",
+    "text": "Introdução"
+  },
+  {
+    "objectID": "va_multidi/slides_var_dimensional.html#introdução-9",
+    "href": "va_multidi/slides_var_dimensional.html#introdução-9",
+    "title": "Variáveis Aleatórias Multidimensionais",
+    "section": "Introdução",
+    "text": "Introdução"
+  },
+  {
+    "objectID": "va_multidi/slides_var_dimensional.html#definindo",
+    "href": "va_multidi/slides_var_dimensional.html#definindo",
+    "title": "Variáveis Aleatórias Multidimensionais",
+    "section": "Definindo 📖",
+    "text": "Definindo 📖\nCom base nessa ideia podemos fazer a seguinte definição:\n\n\n\n\nDEFINIÇÃO\n\n\nSeja \\(\\epsilon\\) um experimento, \\(\\Omega\\) um espaço amostral, \\(X = X(\\omega)\\) e \\(Y = Y(\\omega)\\), para \\(\\omega \\in \\Omega\\), \\((X,Y)\\) será uma variável aleatória bidimensional (ou vetor aleatório)."
+  },
+  {
+    "objectID": "va_multidi/slides_var_dimensional.html#o-vetor-aleatório",
+    "href": "va_multidi/slides_var_dimensional.html#o-vetor-aleatório",
+    "title": "Variáveis Aleatórias Multidimensionais",
+    "section": "O Vetor Aleatório",
+    "text": "O Vetor Aleatório\n\nAgora possuímos não mais um espaço unidimensaional \\(R_{x}\\) como anteriormente visto, mas sim bidimensional;\nOu seja, o contradomínio da variável aleatória será \\(R_{xy}\\) e cada resultado \\(X = X(\\omega)\\) e \\(Y = Y(\\omega)\\) pode ser representado como um ponto \\((x,y)\\) no plano euclidiano;\nPodemos dividir os resultado de um experimento em dois tipos, os discretos e os contínuos. Vejamos a seguir esses dois tipos resultados."
+  },
+  {
+    "objectID": "va_multidi/slides_var_dimensional.html#introdução-2",
+    "href": "va_multidi/slides_var_dimensional.html#introdução-2",
+    "title": "Variáveis Aleatórias Multidimensionais",
+    "section": "Introdução",
+    "text": "Introdução\n\nSão variáveis que conseguimos colocar em lista, seja ela finita ou infinita.\nAssim, o vetor (X,Y) será uma variável aleatória discreta bidimensional ou vetor aleatório bidimensional se os valores possíveis puderem ser representados por \\((x_{i},y_{i})\\), \\(i=1,...,n,...\\); e \\(j=1,2,...,m,...\\)\nComo no caso unidimensional, podemos definir a distribuição de probabilidade conjunta de \\((X,Y)\\)"
+  },
+  {
+    "objectID": "va_multidi/slides_var_dimensional.html#definindo-1",
+    "href": "va_multidi/slides_var_dimensional.html#definindo-1",
+    "title": "Variáveis Aleatórias Multidimensionais",
+    "section": "Definindo 📖",
+    "text": "Definindo 📖\n\n\n\n\nDEFINIÇÃO\n\n\nA cada valor possível da variável aleatória bidimensional \\((X,Y)\\), \\((x_{i},y_{j})\\), associamos uma probabilidade \\(p(x_{i},y_{j})\\), \\(P (X=x_{i},Y=y_{i})\\), e irá satisfazer:\n\n\\(p(x_{i},y_{j}) \\geq 0\\) para todo \\((x,y)\\)\n\\(\\sum_{i} \\sum_{j} p(x_{i},y_{j})=1\\)"
+  },
+  {
+    "objectID": "va_multidi/slides_var_dimensional.html#definindo-2",
+    "href": "va_multidi/slides_var_dimensional.html#definindo-2",
+    "title": "Variáveis Aleatórias Multidimensionais",
+    "section": "Definindo 📖",
+    "text": "Definindo 📖\n\nPodemos definir agora a função distribuição conjunto, ou seja:\n\n\n\n\n\nDEFINIÇÃO\n\n\nFunção de probabilidade conjunta de (X,Y) (ou bivariada):\n\\(p(x_{i},y_{j})= P(X=x_{i},Y=y_{j})\\) para \\(-\\infty &lt; x_{i}&lt; \\infty\\) e \\(-\\infty &lt; y_{j}&lt; \\infty\\)\n\nDistribuição de probabilidade conjunta de (X,Y) (ou bivariada): \\([x_{i},y_{j},p(x_{i},y_{j})]\\)\n\n\n\n\n\nPara fixarmos as definições apresentadas acimas, e colocarmos os conceitos em prática, vamos realizar dois exemplos."
+  },
+  {
+    "objectID": "va_multidi/slides_var_dimensional.html#jogando-dados-3",
+    "href": "va_multidi/slides_var_dimensional.html#jogando-dados-3",
+    "title": "Variáveis Aleatórias Multidimensionais",
+    "section": "Jogando Dados 🎲",
+    "text": "Jogando Dados 🎲\n\n\n\n\nEXEMPLO\n\n\nConsidere o experimento de jogar dois dados simultaneamente.\nConsidere a função de distribuição conjunta e calcule a probabilidade conjunta de \\(P(5\\leq X \\leq 6, 1 \\leq Y \\leq 2)\\)\n\n\n\n\n\n\n\n\nRESPOSTA\n\n\n\\[\n\\begin{aligned}\nP(5\\leq X \\leq 6, 1 \\leq Y \\leq 2) &= p(5,1)+p(5,2) + p(6,1)+p(6,2) \\\\\n&= 4 \\cdot \\frac{1}{36} = \\frac{1}{9}\n\\end{aligned}\n\\]"
+  },
+  {
+    "objectID": "va_multidi/slides_var_dimensional.html#caixa-de-supermercado",
+    "href": "va_multidi/slides_var_dimensional.html#caixa-de-supermercado",
+    "title": "Variáveis Aleatórias Multidimensionais",
+    "section": "Caixa de Supermercado 🛒",
+    "text": "Caixa de Supermercado 🛒\nUm supermercado possui três caixas operando. Dois consumidores chegam aos caixas, que estão vazios, em momentos distintos do tempo. Cada consumidor escolhe um caixa de forma aleatória e independente do outro. Seja X o número de consumidores que escolhem o caixa 1 e Y os que escolhem o caixa 2. Qual a distribuição conjunta de X e Y?\n\n\n\n\nRESPOSTA\n\n\nO espaço amostral do experimento será dado pelo par ordenado \\(\\{ i,j \\}\\), onde o primeiro consumidor escolhe o caixa \\(i\\) e o segundo escolhe \\(j\\), tal que \\(i=1,2,3\\) e \\(j=1,2,3\\). Assim, cada ponto amostral tem a mesma probabilidade e o espaço amostral pode ser representado como :"
+  },
+  {
+    "objectID": "va_multidi/slides_var_dimensional.html#caixa-de-supermercado-1",
+    "href": "va_multidi/slides_var_dimensional.html#caixa-de-supermercado-1",
+    "title": "Variáveis Aleatórias Multidimensionais",
+    "section": "Caixa de Supermercado 🛒",
+    "text": "Caixa de Supermercado 🛒\n\n\n\n\nEXEMPLO\n\n\nContinuação Resposta:\n\\[\n\\Omega = { \\{(1,1),(1,2),(1,3),...,(3,3)\\} }\n\\]\nA distribuição conjunta de X e Y será conforme descrito na tabela abaixo. Para construir essa tabela note que, por exemplo, \\(P(X=0,Y=0)=P(\\{(3,3)\\})=1/9\\) e que \\(P(X=0,Y=1)=P(\\{(2,3),(3,2)\\})=2/9\\)\n\n\n\n\n\n\n\n\ny (cx2)\nx=0 (cx1)\nx=1 (cx1)\nx= 2 (cx1)\n\n\n\n\ny=0\n1/9\n2/9\n1/9\n\n\ny=1\n2/9\n2/9\n0\n\n\ny=2\n1/9\n0\n0"
+  },
+  {
+    "objectID": "va_multidi/slides_var_dimensional.html#binomial",
+    "href": "va_multidi/slides_var_dimensional.html#binomial",
+    "title": "Variáveis Aleatórias Multidimensionais",
+    "section": "BINOMIAL:",
+    "text": "BINOMIAL:\n\nConsidere a variável aleatória \\((X,Y)\\) com distribuição binomial e a probabilidade de sucesso de \\(X\\) é igual a 0.75 e de \\(Y\\) igual a 0.25 com 10 rodadas:\n\n\nDistribuição conjunta Binomial"
+  },
+  {
+    "objectID": "va_multidi/slides_var_dimensional.html#poisson",
+    "href": "va_multidi/slides_var_dimensional.html#poisson",
+    "title": "Variáveis Aleatórias Multidimensionais",
+    "section": "POISSON",
+    "text": "POISSON\n\nConsidere a variável aleatória \\((X,Y)\\) com distribuição de poisson e o valor esperado de \\(X\\) iual a 7, de \\(Y\\) igual a 4 e a covariância é 3 (a frente veremos esse conceito):\n\n\nDistribuição conjunta de Poisson"
+  },
+  {
+    "objectID": "va_multidi/slides_var_dimensional.html#definindo-3",
+    "href": "va_multidi/slides_var_dimensional.html#definindo-3",
+    "title": "Variáveis Aleatórias Multidimensionais",
+    "section": "Definindo 📖",
+    "text": "Definindo 📖\n\n\n\n\nDEFINIÇÃO\n\n\nSendo \\((X,Y)\\) variável aleatória contínua bidimensional. A função densidade de probabilidade conjunta, \\(f(x,y)\\), irá satisfazer:\n\n\\(f(x,y) \\geq 0\\)\n\\(\\iint_{R} f(x,y)dxdy= 1\\) se f(x,y)=0 para \\((x,y)\\notin R \\rightarrow \\int_{- \\infty}^{\\infty}\\int_{- \\infty}^{\\infty} f(x,y)=1\\)\n\n\n\n\n\nImportante notar que \\(f(x,y)\\) não representa a probabilidade."
+  },
+  {
+    "objectID": "va_multidi/slides_var_dimensional.html#para-um-evento-qualquer",
+    "href": "va_multidi/slides_var_dimensional.html#para-um-evento-qualquer",
+    "title": "Variáveis Aleatórias Multidimensionais",
+    "section": "Para um evento qualquer…",
+    "text": "Para um evento qualquer…\nAssim para um evento B em \\(R_{xy}\\):\n\\[\n\\begin{array}{ccc}\nP(B)=P\\{ [X(\\omega),Y(\\omega)] \\in B \\}= P\\{\\omega | [X(\\omega),Y(\\omega)] \\in B \\}\n\\end{array}\n\\]\nPara o caso discreto: \\[\n\\begin{array}{ccc}\nP(B)=\\sum \\sum_{B} p(x_{i},y_{j})\n\\end{array}\n\\]\nPara o caso contínuo: \\[\n\\begin{array}{ccc}\nP(B)=\\iint_{B}f(x,y)dxdy\n\\end{array}\n\\]"
+  },
+  {
+    "objectID": "va_multidi/slides_var_dimensional.html#para-um-evento-qualquer-1",
+    "href": "va_multidi/slides_var_dimensional.html#para-um-evento-qualquer-1",
+    "title": "Variáveis Aleatórias Multidimensionais",
+    "section": "Para um evento qualquer…",
+    "text": "Para um evento qualquer…\n\nReinterpretando o evento B, análogo ao caso unidimensional, o caso bidimensional o volume sob a função densidade de probabilidade conjunta representa a probabilidade.\nAssim, uma probabilidade \\(P(a \\leq X \\leq b, c\\leq Y \\leq d)\\) é calculada como:\n\n\\[\n\\begin{array}{ccc}\nP(a \\leq X \\leq b, c\\leq Y \\leq d)  = \\int_{c}^{d}\\int_{a}^{b} f(x,y)dxdy\n\\end{array}\n\\]"
+  },
+  {
+    "objectID": "va_multidi/slides_var_dimensional.html#partícula-no-quadrado",
+    "href": "va_multidi/slides_var_dimensional.html#partícula-no-quadrado",
+    "title": "Variáveis Aleatórias Multidimensionais",
+    "section": "Partícula no Quadrado ⚛️",
+    "text": "Partícula no Quadrado ⚛️\n\n\n\n\nEXEMPLO\n\n\nSuponha que uma partícula é aleatoriamente alocada em um quadrado com lados iguais a 1. Assim, se duas áreas de mesma dimensão forem consideradas a partícula tem a mesma probabilidade de estar em qualquer uma das duas áreas. Seja \\(X\\) e \\(Y\\) as coordenadas da localização da partícula. A função de densidade conjunta de \\(X\\) e \\(Y\\) será:\n\\[\n\\begin{array}{ccc}\nf(x,y)=\\left\\{\\begin{matrix} 1,\\ 0\\ \\leq x \\leq 1, \\ 0\\ \\leq y \\leq 1\n\\\\\n0,\\ caso\\ contrário\n\\end{matrix}\\right.\n\\end{array}\n\\]"
+  },
+  {
+    "objectID": "va_multidi/slides_var_dimensional.html#partícula-no-quadrado-1",
+    "href": "va_multidi/slides_var_dimensional.html#partícula-no-quadrado-1",
+    "title": "Variáveis Aleatórias Multidimensionais",
+    "section": "Partícula no Quadrado ⚛️",
+    "text": "Partícula no Quadrado ⚛️\n\n\n\n\nEXEMPLO\n\n\n\nEsboce a função densidade de probabilidade conjunta\nEncontre \\(P(0 \\leq X \\leq 0.2, 0\\leq Y \\leq 0.4)\\)\n\n\n\n\n\n\n\n\n\nRESPOSTA\n\n\nVer figura abaixo. \\[\n\\begin{array}{ccc}\nP(0 \\leq X  \\leq 0.2,0 \\leq Y  \\leq 0.4)= \\int_{0}^{0.4}\\int_{0}^{0.2}f(x,y)dxdy\n\\\\\n=\\int_{0}^{0.4}\\int_{0}^{0.2}1dxdy=\\int_{0}^{0.4}(\\int_{0}^{0.2}1dx)dy=\\int_{0}^{0.4}(x\\Big|_{0}^{0.2})dy\n\\\\\n=(0.2-0)\\int_{0}^{0.4}1dy=(0.2-0).(y\\Big|_{0}^{0.4})=(0.2-0)(0.4-0)=0.08\n\\\\\nP(0 \\leq X  \\leq 0.2,0 \\leq Y  \\leq 0.4)=0.08\n\\end{array}\n\\]"
+  },
+  {
+    "objectID": "va_multidi/slides_var_dimensional.html#partícula-no-quadrado-2",
+    "href": "va_multidi/slides_var_dimensional.html#partícula-no-quadrado-2",
+    "title": "Variáveis Aleatórias Multidimensionais",
+    "section": "Partícula no Quadrado ⚛️",
+    "text": "Partícula no Quadrado ⚛️\n\n\n\n\nEXEMPLO"
+  },
+  {
+    "objectID": "va_multidi/slides_var_dimensional.html#normal-bivariada",
+    "href": "va_multidi/slides_var_dimensional.html#normal-bivariada",
+    "title": "Variáveis Aleatórias Multidimensionais",
+    "section": "NORMAL BIVARIADA",
+    "text": "NORMAL BIVARIADA\nConsidere a variável aleatória \\((X,Y)\\) com distribuição normal bivariada com a esperança de \\(X\\) igual a 10, de \\(Y\\) igual a 4, o desvio-padrões iguais a 3 e 2 respectivamente. Aqui consideremaos a correlação de 0.7 (veremos mais a frente esse conceito).\n\nDistribuição conjunta normal bivariada"
+  },
+  {
+    "objectID": "va_multidi/slides_var_dimensional.html#normal-bivariada-padrão",
+    "href": "va_multidi/slides_var_dimensional.html#normal-bivariada-padrão",
+    "title": "Variáveis Aleatórias Multidimensionais",
+    "section": "NORMAL BIVARIADA PADRÃO",
+    "text": "NORMAL BIVARIADA PADRÃO\nConsidere a variável aleatória \\((X,Y)\\) com distribuição normal bivariada padrão, ou seja, a esperança de \\(X\\) e \\(Y\\) igual a a 1, o desvio-padrões iguais a 1 e sem covariância.\n\nDistribuição conjunta normal padrão bivariada"
+  },
+  {
+    "objectID": "va_multidi/slides_var_dimensional.html#definindo-4",
+    "href": "va_multidi/slides_var_dimensional.html#definindo-4",
+    "title": "Variáveis Aleatórias Multidimensionais",
+    "section": "Definindo 📖",
+    "text": "Definindo 📖\n\nA distinção entre variável aleatória conjunta contínua e discreta pode ser feita em termos de sua função distribuição conjunta acumulada.\n\n\n\n\n\nDEFINIÇÃO\n\n\nA função distribuição conjunta acumulada, \\(F\\), da variável aleatória bidimensional \\((X,Y)\\) é definida por: \\[\n\\begin{array}{ccc}\nF(x,y)= P(X \\leq x, Y \\leq y) \\ para \\ -\\infty &lt; x_{i} &lt; \\infty \\ e \\ -\\infty &lt; y_{i} &lt; \\infty\n\\end{array}\n\\]"
+  },
+  {
+    "objectID": "va_multidi/slides_var_dimensional.html#definindo-5",
+    "href": "va_multidi/slides_var_dimensional.html#definindo-5",
+    "title": "Variáveis Aleatórias Multidimensionais",
+    "section": "Definindo 📖",
+    "text": "Definindo 📖\nSejam \\(X\\) e \\(Y\\) duas variáveis aleatórias discretas com função distribuição conjunta \\(F(x,y)\\), a função distribuição conjunta acumulada de \\(X\\) e \\(Y\\) será:\n\\[\n\\begin{array}{ccc}\nF(x,y)=\\sum_{f1=- \\infty }^{x} \\sum_{f2=- \\infty }^{y}p(t_{1},t_{2})\n\\end{array}\n\\]\nRetomando os exemplos anteriores temos as seguintes funções de distribuição conjunta acumuladas discretas:"
+  },
+  {
+    "objectID": "va_multidi/slides_var_dimensional.html#jogando-dados-4",
+    "href": "va_multidi/slides_var_dimensional.html#jogando-dados-4",
+    "title": "Variáveis Aleatórias Multidimensionais",
+    "section": "Jogando Dados 🎲",
+    "text": "Jogando Dados 🎲\n\n\n\n\nEXEMPLO\n\n\nPara o caso dos dois dados apresentados anteriormente temos que:\n\\[\n\\begin{array}{ccc}\nF(2,3)=P(X \\leq 2, Y \\leq 3)=p(1,1)+p(1,2)+p(1,3)+ \\\\\np(2,1)+p(2,2)+p(2,3)\n\\end{array}\n\\]\n\\[\nF(2,3)=P(X\\leq 2, Y \\leq 3)=6/36=1/6\n\\]"
+  },
+  {
+    "objectID": "va_multidi/slides_var_dimensional.html#jogando-dados-5",
+    "href": "va_multidi/slides_var_dimensional.html#jogando-dados-5",
+    "title": "Variáveis Aleatórias Multidimensionais",
+    "section": "Jogando Dados 🎲",
+    "text": "Jogando Dados 🎲\n\nO Gráfico da função probabilidade acumulada conjunta do exemplo dos dados será:\n\n\nDistribuição acumulada conjunta uniforme discreta"
+  },
+  {
+    "objectID": "va_multidi/slides_var_dimensional.html#caixa-de-supermercado-2",
+    "href": "va_multidi/slides_var_dimensional.html#caixa-de-supermercado-2",
+    "title": "Variáveis Aleatórias Multidimensionais",
+    "section": "Caixa de Supermercado 🛒",
+    "text": "Caixa de Supermercado 🛒\n\n\n\n\nEXEMPLO\n\n\nPara o exemplo anterior (caixa do supermercado) encontre F(-1,2) e F(1.5,2)\n\n\\[\nF(-1,2) = P(X \\leq -1, Y \\leq 2)= P(\\emptyset)=0\n\\]\n*Note que é impossível no exemplo do caixa o valor assumir -1, portanto, temos a probabilidade de um conjunto vazio, que será zero.\n\\[\n\\begin{array}{ccc}\nF(1.5,2) = P(X \\leq 1.5, Y \\leq 2)= p(0,0)+p(0,1)+p(0,2)+p(1,0)\n\\\\\n+p(1,1)+p(1,2)=8/9\n\\end{array}\n\\]"
+  },
+  {
+    "objectID": "va_multidi/slides_var_dimensional.html#binomial-1",
+    "href": "va_multidi/slides_var_dimensional.html#binomial-1",
+    "title": "Variáveis Aleatórias Multidimensionais",
+    "section": "BINOMIAL",
+    "text": "BINOMIAL\nConsidere a variável aleatória \\((X,Y)\\) com distribuição binomial e a probabilidade de sucesso de \\(X\\) é igual a 0.75 e de \\(Y\\) igual a 0.25 com 10 rodadas, sua função distribuição acumulada será:\n\nDistribuição conjunta Binomial"
+  },
+  {
+    "objectID": "va_multidi/slides_var_dimensional.html#poisson-1",
+    "href": "va_multidi/slides_var_dimensional.html#poisson-1",
+    "title": "Variáveis Aleatórias Multidimensionais",
+    "section": "POISSON",
+    "text": "POISSON\nConsidere a variável aleatória \\((X,Y)\\) com distribuição de poisson e o valor esperado de \\(X\\) iual a 7, de \\(Y\\) igual a 4 e a covariância é 3 (a frente veremos esse conceito). Assim a função distribuição acumulada será:\n\nDistribuição conjunta de Poisson"
+  },
+  {
+    "objectID": "va_multidi/slides_var_dimensional.html#definindo-6",
+    "href": "va_multidi/slides_var_dimensional.html#definindo-6",
+    "title": "Variáveis Aleatórias Multidimensionais",
+    "section": "Definindo 📖",
+    "text": "Definindo 📖\n\nSejam X e Y duas variáveis aleatórias contínuas com função distribuição conjunta \\(F(x,y)\\).\nSe existir uma função densidade de probabilidade conjunta \\(f(x,y)\\) não negativa, assim a função distribuição acumulada conjunta de X e Y será:\n\n\\[\n\\begin{array}{ccc}\nF(x,y) = \\int_{-\\infty}^{x}\\int_{- \\infty}^{y} f(t_{1},t_{2})dt_{1}dt_{2} \\\\\n\\end{array}\n\\]\npara \\(-\\infty &lt; x_{i} &lt; \\infty\\) e \\(-\\infty &lt; y_{i} &lt; \\infty\\)"
+  },
+  {
+    "objectID": "va_multidi/slides_var_dimensional.html#partícula-no-quadrado-3",
+    "href": "va_multidi/slides_var_dimensional.html#partícula-no-quadrado-3",
+    "title": "Variáveis Aleatórias Multidimensionais",
+    "section": "Partícula no Quadrado ⚛️",
+    "text": "Partícula no Quadrado ⚛️\n\n\n\n\nEXEMPLO\n\n\nPara o exemplo anterior da partícula, encontre F(0.4, 0.4):\n\n\n\n\n\n\n\n\nRESPOSTA\n\n\nVer figura abaixo. \\[\n\\begin{array}{ccc}\nP(X \\leq 0.4 ,Y \\leq 0.4)= \\int_{0}^{0.4}\\int_{0}^{0.4}f(x,y)dxdy\n\\\\\n=\\int_{0}^{0.4}\\int_{0}^{0.4}1dxdy=\\int_{0}^{0.4}(\\int_{0}^{0.4}1dx)dy=\\int_{0}^{0.4}(x\\Big|_{0}^{0.4})dy\n\\\\\n=(0.4-0)\\int_{0}^{0.4}dy=(0.4-0).(y\\Big|_{0}^{0.4})=(0.4-0)(0.4-0)=0.016\n\\\\\nP(X  \\leq 0.4,Y \\leq 0.4)=0.016\n\\end{array}\n\\]"
+  },
+  {
+    "objectID": "va_multidi/slides_var_dimensional.html#definindomais-um-pouco",
+    "href": "va_multidi/slides_var_dimensional.html#definindomais-um-pouco",
+    "title": "Variáveis Aleatórias Multidimensionais",
+    "section": "Definindo…mais um pouco 📖",
+    "text": "Definindo…mais um pouco 📖\n\n\n\n\nTEOREMA\n\n\nSeja \\(X\\) e \\(Y\\) duas variáveis aleatórias contínuas com função distribuição conjunta \\(F(x,y)\\) então:\n\\[\n\\begin{array}{ccc}\na) \\ F(- \\infty, - \\infty )=  F(- \\infty, y )=  F(x, - \\infty )=0 \\\\\n\\end{array}\n\\]\n\\[\n\\begin{array}{ccc}\nb) \\ F(\\infty, \\infty ) = 1\n\\end{array}\n\\]\nNo caso bivariado tem-se: \\[\n\\begin{array}{ccc}\nf(x,y) = \\frac{\\partial^{2}F(x,y) }{\\partial x \\partial y}\n\\end{array}\n\\]"
+  },
+  {
+    "objectID": "va_multidi/slides_var_dimensional.html#normal-bivariada-1",
+    "href": "va_multidi/slides_var_dimensional.html#normal-bivariada-1",
+    "title": "Variáveis Aleatórias Multidimensionais",
+    "section": "NORMAL BIVARIADA",
+    "text": "NORMAL BIVARIADA\nConsidere a variável aleatória \\((X,Y)\\) com distribuição normal bivariada com a esperança de \\(X\\) igual a 10, de \\(Y\\) igual a 4, o desvio-padrões iguais a 3 e 2 respectivamente. Aqui consideremaos a correlação de 0.7 (veremos mais a frente esse conceito). Assim a função distribuição acumulada conjunta terá o seguinte formato:\n\nDistribuição acumulada conjunta normal"
+  },
+  {
+    "objectID": "va_multidi/slides_var_dimensional.html#normal-bivariada-padrão-1",
+    "href": "va_multidi/slides_var_dimensional.html#normal-bivariada-padrão-1",
+    "title": "Variáveis Aleatórias Multidimensionais",
+    "section": "NORMAL BIVARIADA PADRÃO:",
+    "text": "NORMAL BIVARIADA PADRÃO:\nConsidere a variável aleatória \\((X,Y)\\) com distribuição normal bivariada padrão, ou seja, a esperança de \\(X\\) e \\(Y\\) igual a a 1, o desvio-padrões iguais a 1 e sem covariância. Assim a função distribuição acumulada conjunta terá o seguinte formato:\n\n\n\nDistribuição acumulada conjunta normal padrão"
+  },
+  {
+    "objectID": "va_multidi/marginal_condicional.html#definindo",
+    "href": "va_multidi/marginal_condicional.html#definindo",
+    "title": "Variáveis Aleatórias Multidimensionais",
+    "section": "Definindo 📖",
+    "text": "Definindo 📖\nPara o caso discreto, temos a seguinte distribuição marginal de X:\n\\[\n\\begin{array}{ccc}\np(x_{i})=P(X=x_{i})=P(X=x_i, Y=y_i \\ ou \\ X=x_i,Y=y_2 ....)\n\\\\\np(x_i)=\\sum_j p(x_i,y_j)\n\\end{array}\n\\]\nOnde \\(p\\) é a função distribuição marginal de \\(X\\). Podemos pensar em \\(Y\\) de forma análoga.\nA intuição aqui é que se queremos a marginal de \\(X\\) temos que empilhar (ou somar) na direção de \\(Y\\), assim o eixo \\(y\\) irá sumir. Vejamos graficamente."
+  },
+  {
+    "objectID": "va_multidi/marginal_condicional.html#distribuições-marginais-discretas",
+    "href": "va_multidi/marginal_condicional.html#distribuições-marginais-discretas",
+    "title": "Variáveis Aleatórias Multidimensionais",
+    "section": "Distribuições Marginais Discretas",
+    "text": "Distribuições Marginais Discretas\nVejamos um exemplo extraído de Inouye,D.I. et al.(2017):\n\nDistribuição marginal de PoissonVeja que se quisermos a distribuiçao marginal de \\(X\\), apresentada a esquerda, temos que somar as barras ou empilha-las na direção de \\(Y\\)."
+  },
+  {
+    "objectID": "va_multidi/marginal_condicional.html#definindo-1",
+    "href": "va_multidi/marginal_condicional.html#definindo-1",
+    "title": "Variáveis Aleatórias Multidimensionais",
+    "section": "Definindo 📖",
+    "text": "Definindo 📖\nO caso contínuo é similar ao discreto. No contínuo, a função densidade marginal de X será:\n\\[\n\\begin{array}{ccc}\ng(x)=\\int_{-\\infty}^{\\infty}f(x,y)dy\n\\end{array}\n\\]\nE a função densidade marginal de y será:\n\\[\n\\begin{array}{ccc}\nh(y)=\\int_{-\\infty}^{\\infty}f(x,y)dx\n\\end{array}\n\\]"
+  },
+  {
+    "objectID": "va_multidi/marginal_condicional.html#exemplo-geral",
+    "href": "va_multidi/marginal_condicional.html#exemplo-geral",
+    "title": "Variáveis Aleatórias Multidimensionais",
+    "section": "Exemplo Geral",
+    "text": "Exemplo Geral\n\n\n\n\nEXEMPLO\n\n\nSuponha que \\((X,Y)\\) seja uma variável aleatória bidimensional. Gostariamos de saber somente qual a probabilidade de encontrarmos valores de \\(x\\) entre c e d. Assim:\n\n\\[\nP(c\\leq x \\leq d)=P[c\\leq X \\leq d, -\\infty &lt; Y &lt; \\infty]\n\\]\n\\[\nP(c\\leq x \\leq d)=\\int_{c}^{d}\\int_{-\\infty}^{\\infty}f(x,y)dydx\n\\]\n\\[\nP(c\\leq x \\leq d)=\\int_{c}^{d}g(x)dx\n\\]"
+  },
+  {
+    "objectID": "va_multidi/marginal_condicional.html#distribuições-marginais-contínuas",
+    "href": "va_multidi/marginal_condicional.html#distribuições-marginais-contínuas",
+    "title": "Variáveis Aleatórias Multidimensionais",
+    "section": "Distribuições Marginais Contínuas",
+    "text": "Distribuições Marginais Contínuas\nVejamos um exemplo extraído de Selvan, R.(2015):\n\nDistribuição marginal contínua"
+  },
+  {
+    "objectID": "va_multidi/marginal_condicional.html#distribuições-marginais-contínuas-1",
+    "href": "va_multidi/marginal_condicional.html#distribuições-marginais-contínuas-1",
+    "title": "Variáveis Aleatórias Multidimensionais",
+    "section": "Distribuições Marginais Contínuas",
+    "text": "Distribuições Marginais Contínuas\nVeja que se quisermos a distribuiçao marginal de \\(X\\), apresentada ao fundo, temos que somar as barras ou empilha-las na direção de \\(Y\\)."
+  },
+  {
+    "objectID": "va_multidi/marginal_condicional.html#introdução",
+    "href": "va_multidi/marginal_condicional.html#introdução",
+    "title": "Variáveis Aleatórias Multidimensionais",
+    "section": "Introdução",
+    "text": "Introdução\nNa distribuição marginal, tinhamos a distribuição conjunta entre renda e consumo e estavamos interessados somente na renda.\nAgora querendo saber qual a distribuição da renda para certa faixa de consumo, ou o contrário, qual a distribuição do consumo para dada faixa de renda."
+  },
+  {
+    "objectID": "va_multidi/marginal_condicional.html#definindo-2",
+    "href": "va_multidi/marginal_condicional.html#definindo-2",
+    "title": "Variáveis Aleatórias Multidimensionais",
+    "section": "Definindo 📖",
+    "text": "Definindo 📖\nPara variáveis discretas temos o seguinte:\n\\[\n\\begin{array}{ccc}\nP(x_i|y_j)=P(X=x_i|Y=y_j)\n\\end{array}\n\\]\n\\[\n\\begin{array}{ccc}\nP(x_i|y_j)= \\frac{P(x_i,y_j)}{q(y_{j})}\n\\end{array}\n\\]\nNote que \\(P(x_i|y_j)\\geq 0\\) e \\(\\sum_iP(x_i|y_j)=1\\)"
+  },
+  {
+    "objectID": "va_multidi/marginal_condicional.html#distribuições-condicionais-discretas",
+    "href": "va_multidi/marginal_condicional.html#distribuições-condicionais-discretas",
+    "title": "Variáveis Aleatórias Multidimensionais",
+    "section": "Distribuições Condicionais Discretas",
+    "text": "Distribuições Condicionais Discretas\nVejamos um exemplo extraído de Inouye,D.I. et al.(2017):\n\nDistribuição condicional de Poisson"
+  },
+  {
+    "objectID": "va_multidi/marginal_condicional.html#distribuições-condicionais-discretas-1",
+    "href": "va_multidi/marginal_condicional.html#distribuições-condicionais-discretas-1",
+    "title": "Variáveis Aleatórias Multidimensionais",
+    "section": "Distribuições Condicionais Discretas",
+    "text": "Distribuições Condicionais Discretas\n\nVeja que se quisermos a distribuição condicional de \\(X\\) dado um certo valor de \\(Y\\), por exemplo, \\(Y=2\\) temos que considerar as barras marcadas e repondera-las pela chance de \\(Y=2\\) acontecer.\nOu seja, agora \\(Y=2\\) será o total."
+  },
+  {
+    "objectID": "va_multidi/marginal_condicional.html#definindo-3",
+    "href": "va_multidi/marginal_condicional.html#definindo-3",
+    "title": "Variáveis Aleatórias Multidimensionais",
+    "section": "Definindo 📖",
+    "text": "Definindo 📖\nPara o caso contínuo a f.d.p. de \\(X\\) condicionada a um dado \\(Y=y\\) é:\n\\[\n\\begin{array}{ccc}\ng(x|y)= \\frac{f(x,y)}{h(y)}\n\\end{array}\n\\]\nDe forma análoga para \\(Y\\):\n\\[\n\\begin{array}{ccc}\nh(y|x)= \\frac{f(x,y)}{g(x)}\n\\end{array}\n\\]"
+  },
+  {
+    "objectID": "va_multidi/marginal_condicional.html#definindo-4",
+    "href": "va_multidi/marginal_condicional.html#definindo-4",
+    "title": "Variáveis Aleatórias Multidimensionais",
+    "section": "Definindo 📖",
+    "text": "Definindo 📖\nNote que \\(g(x|y)\\geq 0\\) e\n\\[\n\\int_{-\\infty}^{\\infty}g(x|y)dx=\\int_{-\\infty}^{\\infty} \\frac {f(x,y)}{h(y)}dx=\\frac{h(y)}{h(y)}=1\n\\]"
+  },
+  {
+    "objectID": "va_multidi/marginal_condicional.html#distribuições-condicionais-contínuas",
+    "href": "va_multidi/marginal_condicional.html#distribuições-condicionais-contínuas",
+    "title": "Variáveis Aleatórias Multidimensionais",
+    "section": "Distribuições Condicionais Contínuas",
+    "text": "Distribuições Condicionais Contínuas\nVejamos um exemplo extraído de Neuper,M. e Ehret,U. (2019):\n\nDistribuição condicional normal"
+  },
+  {
+    "objectID": "va_multidi/marginal_condicional.html#distribuições-condicionais-contínuas-1",
+    "href": "va_multidi/marginal_condicional.html#distribuições-condicionais-contínuas-1",
+    "title": "Variáveis Aleatórias Multidimensionais",
+    "section": "Distribuições Condicionais Contínuas",
+    "text": "Distribuições Condicionais Contínuas\nVeja que se quisermos a distribuição condicional de \\(X\\) dado um certo valor de \\(Y\\), por exemplo, \\(Y=-2\\).\nTemos que considerar a linha marcada e novamente reponderar todos os elementos pela chance de \\(Y=-2\\) acontecer.\nOu seja, agora \\(Y=-2\\) será o total."
+  },
+  {
+    "objectID": "va_multidi/marginal_condicional.html#introdução-1",
+    "href": "va_multidi/marginal_condicional.html#introdução-1",
+    "title": "Variáveis Aleatórias Multidimensionais",
+    "section": "Introdução",
+    "text": "Introdução\n\nIndependência se conecta ao conceito de informação e quanto essa informação recebida muda sua opinião do que irá acontecer com o caso em estudo.\nPodemos dar uma informação sobre renda e perguntarmos sobre o consumo desse parte da população.\nQuando os resultados de \\(X\\) influenciam o resultado de \\(Y\\) dizemos que as variáveis são dependentes.\nCaso a informação sobre \\(X\\) não afeta de meneira nenhuma os resultados de \\(Y\\), dizemos que são independentes."
+  },
+  {
+    "objectID": "va_multidi/marginal_condicional.html#definindo-5",
+    "href": "va_multidi/marginal_condicional.html#definindo-5",
+    "title": "Variáveis Aleatórias Multidimensionais",
+    "section": "Definindo 📖",
+    "text": "Definindo 📖\n\n\n\n\nDEFINIÇÃO\n\n\nPara a variábel bidimensional discreta \\((X,Y)\\), \\(X\\) e \\(Y\\) serão independentes se \\[\n\\begin{array}{ccc}\np(x_i,y_j)=p(x_i)p(y_j)\n\\end{array}\n\\]\n\nOu, de outra maneira: \\[\n\\begin{array}{ccc}\nP(x_i|y_j)= \\frac{P(x_i,y_j)}{q(y_i)}= \\frac{P(x_i)q(y_j)}{q(y_i)}=P(x_i)\n\\end{array}\n\\]"
+  },
+  {
+    "objectID": "va_multidi/marginal_condicional.html#definindo-6",
+    "href": "va_multidi/marginal_condicional.html#definindo-6",
+    "title": "Variáveis Aleatórias Multidimensionais",
+    "section": "Definindo 📖",
+    "text": "Definindo 📖\n\n\n\n\nDEFINIÇÃO\n\n\nPara a variábel bidimensional contínua \\((X,Y)\\), \\(X\\) e \\(Y\\) serão independentes se: \\[\n\\begin{array}{ccc}\nf(x,y)=g(x)h(y)\n\\end{array}\n\\]\n\nOu, de outra maneira: \\[\n\\begin{array}{ccc}\ng(x|y)= \\frac{f(x,y)}{h(y)}= \\frac{g(x)h(y)}{h(y)}=g(x)\n\\end{array}\n\\]"
+  },
+  {
+    "objectID": "va_multidi/marginal_condicional.html#um-pouco-mais-sobre-independência",
+    "href": "va_multidi/marginal_condicional.html#um-pouco-mais-sobre-independência",
+    "title": "Variáveis Aleatórias Multidimensionais",
+    "section": "Um pouco mais sobre Independência",
+    "text": "Um pouco mais sobre Independência\n\nCom base nessas definições podemos agora apresentar o seguinte teorema que conecta o que viram em probabilidade com variáveis aleatórias multidimesionais.\n\n\n\n\n\nTEOREMA\n\n\nSe \\((X,Y)\\) uma variável aleatória bidimensional e A e B dois eventos que dependem de \\(X\\) e \\(Y\\), respectivamente. Então, se \\(X\\) e \\(Y\\) forem independentes: \\[\n\\begin{array}{ccc}\nP(A \\cap B)= P(A) P(B)\n\\end{array}\n\\]"
+  },
+  {
+    "objectID": "va_multidi/marginal_condicional.html#definindo-7",
+    "href": "va_multidi/marginal_condicional.html#definindo-7",
+    "title": "Variáveis Aleatórias Multidimensionais",
+    "section": "Definindo 📖",
+    "text": "Definindo 📖\n\n\n\n\nTEOREMA\n\n\nProva: \\[\n\\begin{array}{ccc}\nP(A \\cap B)= {\\int_{}^{}\\int_{}^{}}_{P(A \\cap B)}f(x,y)dxdy\\\\\n\\\\\n= {\\int_{}^{}\\int_{}^{}}_{P(A \\cap B)}g(x)h(y)dxdy\\\\\n\\\\\n={\\int_{A}^{}g(x)dx\\int_{B}^{}h(y)dy}\\\\\n\\\\\n=P(A)P(B)\n\\end{array}\n\\]"
+  },
+  {
+    "objectID": "va_multidi/marginal_condicional.html#exemplo-geral-1",
+    "href": "va_multidi/marginal_condicional.html#exemplo-geral-1",
+    "title": "Variáveis Aleatórias Multidimensionais",
+    "section": "Exemplo Geral",
+    "text": "Exemplo Geral\n\n\n\n\nEXEMPLO\n\n\nSuponha uma f.d.p. conjunta da variábel aleatória bidimensional \\((X,Y)\\): \\[\n\\begin{array}{ccc}\nf(x,y)=\\left\\{\\begin{matrix} x^{2}+ \\frac{xy}{3} \\ para \\ 0&lt;x&lt;1,0&lt;y&lt;2\n\\\\ 0,\\ caso\\ contrário\n\\end{matrix}\\right.\n\\end{array}\n\\]\nCalcule a \\(P(Y&lt;X)\\):"
+  },
+  {
+    "objectID": "va_multidi/marginal_condicional.html#exemplo-geral-2",
+    "href": "va_multidi/marginal_condicional.html#exemplo-geral-2",
+    "title": "Variáveis Aleatórias Multidimensionais",
+    "section": "Exemplo Geral",
+    "text": "Exemplo Geral\n\n\n\n\nEXEMPLO\n\n\nResposta:\n\\[\n\\begin{array}{ccc}\nP(Y&lt;X)=\\int_{0}^{1}\\int_{0}^{x} x^{2}+ \\frac{xy}{3} dydx\n\\end{array}\n\\]\n\\[\n\\begin{array}{ccc}\nP(Y&lt;X)=\\int_{0}^{1} [x^{2}y+ \\frac{xy^{2}}{6}]_0^{x} dy\n\\end{array}\n\\]\n\\[\n\\begin{array}{ccc}\nP(Y&lt;X)=\\int_{0}^{1} [x^{3}+ \\frac{x^{3}}{3}] dy\n\\end{array}\n\\]\n\\[\n\\begin{array}{ccc}\nP(Y&lt;X)= [\\frac{x^{4}}{4}+ \\frac{x^{4}}{24}]_0^{1}\n\\end{array}\n\\]\n\\[\n\\begin{array}{ccc}\nP(Y&lt;X)= \\frac{1}{4}+\\frac{1}{24}=\\frac{7}{24}\n\\end{array}\n\\]"
+  },
+  {
+    "objectID": "va_multidi/marginal_condicional.html#distribuição-marginal",
+    "href": "va_multidi/marginal_condicional.html#distribuição-marginal",
+    "title": "Variáveis Aleatórias Multidimensionais",
+    "section": "Distribuição Marginal",
+    "text": "Distribuição Marginal\n\nDada a variável aleatória bidimensional \\((X,Y)\\) podemos estar interessados em \\(X\\) ou \\(Y\\) individualmente.\nCom base na distribuição conjunta da renda e consumo, por exemplo, quero saber somente como a renda se distribui."
+  },
+  {
+    "objectID": "va_multidi/correlacao.html#definindo",
+    "href": "va_multidi/correlacao.html#definindo",
+    "title": "Variáveis Aleatórias Multidimensionais",
+    "section": "Definindo 📖",
+    "text": "Definindo 📖\n\nAté o momento medimos a \\(E(X)\\) e a \\(Var(X)\\), ou seja, uma medida de posição e de variabilidade em relação a \\(R_x\\),\nQuando temos um vetor bidimensional \\((X,Y)\\) uma outra medida surge, o “grau de associação” linear entre \\(X\\) e \\(Y\\).\n\n\n\n\n\nDEFINIÇÃO\n\n\nSeja \\((X,Y)\\) uma variável aleatória bidimensional. O Coeficiente de Correlação \\(\\rho_{X,Y}\\) entre \\(X\\) e \\(Y\\) será:\n\\[\n\\begin{array}{ccc}\n\\rho_{X,Y}=\\frac{E[(X-E(X))(Y-E(Y))]}{\\sqrt{Var(X)Var(Y)}}\n\\end{array}\n\\]"
+  },
+  {
+    "objectID": "va_multidi/correlacao.html#definindo-1",
+    "href": "va_multidi/correlacao.html#definindo-1",
+    "title": "Variáveis Aleatórias Multidimensionais",
+    "section": "Definindo 📖",
+    "text": "Definindo 📖\n\nUm termo muito importante surge na expressão acima, a Covariância.\nEla mede a variabilidade conjunta de uma variável aleátoria multidimensional.\n\n\n\n\n\nDEFINIÇÃO\n\n\nA Covariância entre \\(X\\) e \\(Y\\), \\(Cov(X,Y)\\), é dada por: \\[\n\\begin{array}{ccc}\nCov(X,Y)=E[(X-E(X))(Y-E(Y))]\n\\end{array}\n\\]\n\n\n\n\n\nPara tirar o efeito das escalas de medidas, dividimos pelos desvio-padrões."
+  },
+  {
+    "objectID": "va_multidi/correlacao.html#definindo-2",
+    "href": "va_multidi/correlacao.html#definindo-2",
+    "title": "Variáveis Aleatórias Multidimensionais",
+    "section": "Definindo 📖",
+    "text": "Definindo 📖\n\nNovamente, a correlação mede o GRAU DE ASSOCIAÇÃO LINEAR.\nVejamos algumas Propriedades da Correlação:\n\n\n\n\n\nTEOREMA\n\n\nO coeficiente de correlação \\(\\rho_{X,Y}\\) entre \\(X\\) e \\(Y\\) pode ser apresentado como: \\[\n\\begin{array}{ccc}\n\\rho_{X,Y}=\\frac{E(XY)-E(X)E(Y)}{\\sqrt{Var(X)Var(Y)}}\n\\end{array}\n\\]"
+  },
+  {
+    "objectID": "va_multidi/correlacao.html#definindo-3",
+    "href": "va_multidi/correlacao.html#definindo-3",
+    "title": "Variáveis Aleatórias Multidimensionais",
+    "section": "Definindo 📖",
+    "text": "Definindo 📖\n\n\n\n\nTEOREMA\n\n\nProva: \\[\n\\begin{array}{ccc}\nE[(X-E(X))(Y-E(Y))]\\\\\n\\\\\n=E[XY-XE(Y)-E(X)Y+E(X)E(Y)] \\\\\n\\\\\n= E(XY)-E(X)E(Y)-E(X)E(Y)+E(X)E(Y)\\\\\n\\\\\n= E(XY)-E(X)E(Y)\n\\end{array}\n\\]"
+  },
+  {
+    "objectID": "va_multidi/correlacao.html#independência-e-a-correlação",
+    "href": "va_multidi/correlacao.html#independência-e-a-correlação",
+    "title": "Variáveis Aleatórias Multidimensionais",
+    "section": "Independência e a Correlação",
+    "text": "Independência e a Correlação\n\n\n\n\nTEOREMA\n\n\nSe \\(X\\) e \\(Y\\) forem independentes então: \\[\n\\begin{array}{ccc}\n\\rho_{X,Y}=0\n\\end{array}\n\\]\n\nProva:\nDa propriedade da independência, se \\(X\\) e \\(Y\\) forem independentes então: \\[\n\\begin{array}{ccc}\nE(X,Y)=E(X)E(Y)\n\\end{array}\n\\]\n\n\n\n\nConsiderando o teorema acima, e sabendo que as variáveis são independentes, então \\(\\rho_{X,Y}=0\\)"
+  },
+  {
+    "objectID": "va_multidi/correlacao.html#importante",
+    "href": "va_multidi/correlacao.html#importante",
+    "title": "Variáveis Aleatórias Multidimensionais",
+    "section": "Importante:",
+    "text": "Importante:\n\nNote que Independência \\(\\Rightarrow \\rho_{X,Y}=0\\)\nMas não é verdade que \\(\\rho_{X,Y}=0 \\Rightarrow Independência\\)"
+  },
+  {
+    "objectID": "va_multidi/correlacao.html#o-intervalo-da-correlação",
+    "href": "va_multidi/correlacao.html#o-intervalo-da-correlação",
+    "title": "Variáveis Aleatórias Multidimensionais",
+    "section": "O Intervalo da Correlação",
+    "text": "O Intervalo da Correlação\n\n\n\n\nTEOREMA\n\n\nO Coeficiente de Correlação possui valores entre -1 e 1, ou seja: \\[\n\\begin{array}{ccc}\n-1 \\leq \\rho \\leq 1\n\\end{array}\n\\]\n\nProva:\nConsidere a seguinte desigualdade verdadeira: \\[\n\\begin{array}{ccc}\n(\\frac{x-\\mu_x}{\\sigma_x}\\mp \\frac{Y-\\mu_y}{\\sigma_y} )^{2}\\geq 0\n\\end{array}\n\\]\nA expressão continua verdadeira se aplicarmos o operador esperança:\n\\[\n\\begin{array}{ccc}\nE(\\frac{x-\\mu_x}{\\sigma_x}\\mp \\frac{Y-\\mu_y}{\\sigma_y} )^{2}\\geq 0\n\\end{array}\n\\]"
+  },
+  {
+    "objectID": "va_multidi/correlacao.html#o-intervalo-da-correlação-1",
+    "href": "va_multidi/correlacao.html#o-intervalo-da-correlação-1",
+    "title": "Variáveis Aleatórias Multidimensionais",
+    "section": "O Intervalo da Correlação",
+    "text": "O Intervalo da Correlação\n\n\n\n\nTEOREMA\n\n\nContinuação Prova:\nDesenvolvendo, temos que: \\[\n\\begin{array}{ccc}\nE[(\\frac{x-\\mu_x}{\\sigma_x})^{2}+(\\frac{Y-\\mu_y}{\\sigma_y})^{2} \\mp 2 (\\frac{x-\\mu_x}{\\sigma_x})(\\frac{Y-\\mu_y}{\\sigma_y}) ]\\geq 0\n\\end{array}\n\\]\n\\[\n\\begin{array}{ccc}\n\\frac{1}{\\sigma_x^{2}}E({X-\\mu_x})^{2}+\\frac{1}{\\sigma_y^{2}}E({Y-\\mu_y})^{2}\\mp 2 \\frac{1}{\\sigma_x \\sigma_y}E((X-\\mu_x)(Y-\\mu_y) )\\geq 0\n\\end{array}\n\\]\n\\[\n\\begin{array}{ccc}\n\\frac{\\sigma_x^{2}}{\\sigma_x^{2}}+\\frac{\\sigma_y^{2}}{\\sigma_y^{2}}\\mp 2\\rho \\geq 0\n\\end{array}\n\\]\n\\[\\begin{array}{ccc}\n\\mp 2\\rho \\geq -2\n\\end{array}\n\\]\n\\[\n\\begin{array}{ccc}\n\\therefore \\rho \\geq -1 \\ e \\ \\rho \\leq 1\n\\end{array}\n\\]"
+  },
+  {
+    "objectID": "va_multidi/correlacao.html#correlação-associação-linear",
+    "href": "va_multidi/correlacao.html#correlação-associação-linear",
+    "title": "Variáveis Aleatórias Multidimensionais",
+    "section": "Correlação: Associação linear",
+    "text": "Correlação: Associação linear\n\n\n\n\nTEOREMA\n\n\nSe X e Y forem duas variáveis aleatórias, onde \\(Y=AX+B\\), onde A e B são constantes. Então \\(\\rho^{2}=1\\). Se \\(A&gt;0\\), \\(\\rho=1\\). Se \\(A&lt;0\\), \\(\\rho=-1\\)\n\nProva:\n\\[\n\\begin{array}{ccc}\nY= AX +B\n\\\\\nE(Y)=A E(X)+ B \\ e \\ VAR(Y)=A^{2}VAR(X)\n\\\\\nE(XY)=E(AX^{2}+BX) \\ \\rightarrow AE(X^{2})+BE(X)\n\\end{array}\n\\]\nEntão: \\[\n\\begin{array}{ccc}\n\\rho^{2}=\\frac{A^{2}{Var(X)}}{A^{2}{Var(X)}}=1\n\\end{array}\n\\]"
+  },
+  {
+    "objectID": "va_multidi/correlacao.html#o-coeficiente-de-correlação",
+    "href": "va_multidi/correlacao.html#o-coeficiente-de-correlação",
+    "title": "Variáveis Aleatórias Multidimensionais",
+    "section": "O Coeficiente de Correlação",
+    "text": "O Coeficiente de Correlação\n\nAssim, com base no exposto, temos que o coeficiente de correlação é uma medida do grau de linearidade entre X e Y.\nDessa forma, \\(\\rho\\) próximo a 1 e -1 indicam alto grau de linearidade e \\(\\rho\\) próximo a zero indica ausência de relação linear - mas não diz nada sobre relações não-lineares."
+  },
+  {
+    "objectID": "va_multidi/correlacao.html#simulando-as-variáveis-e-visualizando",
+    "href": "va_multidi/correlacao.html#simulando-as-variáveis-e-visualizando",
+    "title": "Variáveis Aleatórias Multidimensionais",
+    "section": "Simulando as Variáveis e Visualizando",
+    "text": "Simulando as Variáveis e Visualizando\n\nGráfico de correlação para variáveis simuladas v1 a v5"
+  },
+  {
+    "objectID": "va_multidi/correlacao.html#correlação",
+    "href": "va_multidi/correlacao.html#correlação",
+    "title": "Variáveis Aleatórias Multidimensionais",
+    "section": "Correlação",
+    "text": "Correlação\n\nVamos começar pelas variáveis v5 e v4, elas tem um comportantamento conjunto totalmente linear, ou seja, saber de v4 te informa corretmente o que acontecerá com v5. Aqui quando v5 sobe, v4 desce.\nVejamos agora as variáveis v3 e v2, observe como os dados estão disperso, sem nenhum padrão de comportamento linear. Nesse caso a correlação é próxima a zero (-0.0135)."
+  },
+  {
+    "objectID": "va_multidi/correlacao.html#correlação-visualização-gráfica",
+    "href": "va_multidi/correlacao.html#correlação-visualização-gráfica",
+    "title": "Variáveis Aleatórias Multidimensionais",
+    "section": "Correlação: Visualização gráfica",
+    "text": "Correlação: Visualização gráfica\n\nPerceba que a relação não-linear entre v1 e v4 e v1 e v5, faz com que a correlação seja menor que 1 e não perfeita.\nJá as variáveis v1 e v2 mostram comportamento conjunto positivo, mas não perfeito, reativamente disperso. Quando v1 sobe, v2 também sobe, entretanto não cosneguimos prever esse comportamento perfeitamente."
   }
 ]
