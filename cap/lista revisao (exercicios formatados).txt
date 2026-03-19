@@ -1,0 +1,336 @@
+### Exercício 1 (ANPEC 2010) {.unnumbered .smaller}
+
+**Tema:** Probabilidade: axiomas, união de eventos, independência e probabilidade condicional.
+
+Sobre Teoria das Probabilidades, e considerando $A, B, C$ três eventos quaisquer, com $P(A), P(B), P(C) > 0$, indique as alternativas verdadeiras (V) ou falsas (F):
+
+0. $\dfrac{P(A\mid B)}{P(B\mid A)}=\dfrac{P(A)}{P(B)}$.
+
+1. Se dois eventos $A$ e $B$ são mutuamente exclusivos e exaustivos, eles são independentes.
+
+2. $P(A\cap B\cap C)=P(A\cap B)+P(C)$ se $A,B,C$ são independentes.
+
+3. Probabilidade é uma função que relaciona elementos do espaço de eventos a valores no intervalo fechado entre zero e um.
+
+4. $P(A\cup B\cup C)\le P(A)+P(B)+P(C)$, com desigualdade estrita se, e somente se, os eventos forem independentes.
+
+::: {.callout-caution  icon="false" collapse="true" title="RESPOSTA"}
+0. **F.** A razão $\dfrac{P(A\mid B)}{P(B\mid A)}=\dfrac{P(A)}{P(B)}$ só faz sentido quando $P(A\cap B)>0$ (caso contrário, vira $0/0$).
+
+1. **F.** Se são mutuamente exclusivos, $P(A\cap B)=0$, mas independência exigiria $P(A\cap B)=P(A)P(B)>0$.
+
+2. **F.** Independência implica $P(A\cap B\cap C)=P(A)P(B)P(C)$, não soma.
+
+3. **V.** Probabilidade associa eventos a valores em $[0,1]$ (além de satisfazer axiomas).
+
+4. **F.** $P(A\cup B\cup C)\le P(A)+P(B)+P(C)$ é sempre verdadeiro, mas a condição "sse independentes" é falsa.
+:::
+
+### Exercício 2 (ANPEC 2006) {.unnumbered .smaller}
+
+**Tema:** Probabilidade condicional e Bayes: atualização de risco (pobreza) por grupo.
+
+Em uma região, 25% da população são pobres. As mulheres são sobrerrepresentadas neste grupo, pois constituem 75% dos pobres, mas 50% da população. Calcule a proporção de pobres entre as mulheres. Multiplique o resultado por 100 e omita os valores após a vírgula.
+
+*Interpretação econômica pedida:* compare o risco relativo de pobreza entre mulheres e população total.
+
+::: {.callout-caution  icon="false" collapse="true" title="RESPOSTA"}
+$$
+P(\text{Pobre}\mid\text{Mulher})
+=\frac{P(\text{Mulher}\mid\text{Pobre})P(\text{Pobre})}{P(\text{Mulher})}
+=\frac{0{,}75\cdot 0{,}25}{0{,}50}=0{,}375.
+$$
+
+Multiplicando por 100 e omitindo casas decimais: $\boxed{37}$.
+:::
+
+### Exercício 3 (ANPEC 2011) {.unnumbered .smaller}
+
+**Tema:** Probabilidade: independência (incluindo 3 eventos), complemento e relações entre condicionais.
+
+Julgue as afirmativas:
+
+0. Três eventos $A,B,C$ são independentes se e somente se $P(A\cap B\cap C)=P(A)P(B)P(C)$.
+
+1. Se $P(A)=\frac{1}{3}$ e $P(B^c)=\frac{1}{5}$, $A$ e $B$ não são disjuntos.
+
+2. Se $P(A)=0{,}4$, $P(B)=0{,}8$ e $P(A\mid B)=0{,}2$, então $P(B\mid A)=0{,}4$.
+
+3. Se $P(B)=0{,}6$ e $P(A\mid B)=0{,}2$, então $P(A^c\cup B^c)=0{,}88$.
+
+4. Se $P(A)=0$, então $A=\varnothing$.
+
+::: {.callout-caution  icon="false" collapse="true" title="RESPOSTA"}
+0. **F.** Para independência mútua de três eventos é preciso também independência par a par.
+
+1. **V.** Se fossem disjuntos, $P(A)+P(B)=\frac{1}{3}+\frac{4}{5}>1$, impossível.
+
+2. **V.** $P(A\cap B)=0{,}2\cdot 0{,}8=0{,}16 \Rightarrow P(B\mid A)=0{,}16/0{,}4=0{,}4$.
+
+3. **V.** $A^c\cup B^c=(A\cap B)^c \Rightarrow 1-P(A\cap B)=1-0{,}12=0{,}88$.
+
+4. **F.** Pode haver evento não-vazio com probabilidade 0.
+:::
+
+### Exercício 4 (ANPEC 2003) {.unnumbered .smaller}
+
+**Tema:** Probabilidade condicional e Bayes: inferência da origem (causa) dado defeito (efeito).
+
+Três máquinas, $A, B, C$, produzem, respectivamente, 50%, 30% e 20% do número total de peças de uma fábrica. As porcentagens de peças defeituosas na produção dessas máquinas são, respectivamente, 3%, 4% e 5%. Uma peça é selecionada ao acaso e constata-se ser ela defeituosa. 
+
+Encontre a probabilidade de a peça ter sido produzida pela máquina $A$.
+
+*Use apenas duas casas decimais e multiplique o resultado final por 100.*
+
+::: {.callout-caution  icon="false" collapse="true" title="RESPOSTA"}
+$$
+P(D)=0{,}5\cdot 0{,}03+0{,}3\cdot 0{,}04+0{,}2\cdot 0{,}05
+=0{,}037.
+\quad
+P(A\mid D)=\frac{0{,}03\cdot 0{,}5}{0{,}037}\approx 0{,}4054.
+$$
+
+Multiplicando por 100: $\boxed{40{,}54}$.
+:::
+
+### Exercício 5 (ANPEC 2003) {.unnumbered .smaller}
+
+**Tema:** V.A. multidimensionais: variância de soma/diferença, covariância e independência.
+
+Sendo $Y$ e $X$ duas variáveis aleatórias, é correto afirmar que:
+
+0. $\mathrm{Var}(Y+X)=\mathrm{Var}(Y)+\mathrm{Var}(X)-2\mathrm{Cov}(Y,X)$.
+
+1. $\mathrm{Var}(Y-X)=\mathrm{Var}(Y)-\mathrm{Var}(X)-2\mathrm{Cov}(Y,X)$.
+
+2. $\mathrm{Var}(Y+X)=\mathrm{Var}(Y)+\mathrm{Var}(X)$, se $Y$ e $X$ forem independentes.
+
+3. Se $\mathrm{Cov}(Y,X)=0$, então $Y$ e $X$ são independentes.
+
+::: {.callout-caution  icon="false" collapse="true" title="RESPOSTA"}
+0. **F.** O correto é $Var(Y+X)=Var(Y)+Var(X)+2Cov(Y,X)$.
+
+1. **F.** O correto é $Var(Y-X)=Var(Y)+Var(X)-2Cov(Y,X)$.
+
+2. **V.** Se independentes, $Cov(Y,X)=0$.
+
+3. **F.** Covariância nula não implica independência (ex.: $Y=X^2$ com $X$ simétrico).
+:::
+
+### Exercício 6 (ANPEC 2012) {.unnumbered .smaller}
+
+**Tema:** Probabilidade condicional + mistura de tipos.
+
+Uma companhia de seguros classifica os motoristas em três grupos: $X, Y, Z$. A probabilidade de um motorista do grupo $X$ ter pelo menos um acidente em um ano é 0,4, enquanto para $Y$ e $Z$ são 0,15 e 0,1. Dos clientes, 30% são $X$, 20% são $Y$ e 50% são $Z$. Assuma independência de acidentes entre anos subsequentes para cada grupo.
+
+0. A probabilidade de um novo cliente sofrer um acidente no primeiro ano é 0,65.
+
+1. A probabilidade de um cliente do grupo $Z$ não sofrer um acidente em 2 anos é 0,36.
+
+2. A probabilidade de um novo cliente não sofrer nenhum acidente em 2 anos é 0,6575.
+
+3. Se um novo cliente não tiver nenhum acidente nos 2 primeiros anos, a probabilidade dele pertencer ao grupo $X$ é inferior a 0,2.
+
+4. A probabilidade de um novo cliente sofrer um acidente no segundo ano é inferior a 0,3, dado que ele sofreu um acidente no primeiro ano.
+
+::: {.callout-caution  icon="false" collapse="true" title="RESPOSTA"}
+Seja $p_X=0{,}4$, $p_Y=0{,}15$, $p_Z=0{,}1$ e pesos $0{,}3,0{,}2,0{,}5$.
+
+0. **F.** $P(A_1)=0{,}3\cdot0{,}4+0{,}2\cdot0{,}15+0{,}5\cdot0{,}1=0{,}20$.
+
+1. **F.** No grupo $Z$: $(1-0{,}1)^2=0{,}81$.
+
+2. **V.** $0{,}3\cdot0{,}6^2+0{,}2\cdot0{,}85^2+0{,}5\cdot0{,}9^2=0{,}6575$.
+
+3. **V.** $\dfrac{0{,}3\cdot0{,}6^2}{0{,}6575}\approx 0{,}164<0{,}2$.
+
+4. **V.** Atualizando pelo acidente no 1º ano: $P(A_2\mid A_1)=0{,}2875<0{,}3$.
+:::
+
+### Exercício 7 (ANPEC 2013) {.unnumbered .smaller}
+
+**Tema:** Bayes: testes/sinais (sensibilidade e falso positivo).
+
+Um modelo prevê corretamente uma recessão com probabilidade de 80% quando ela ocorre, e com probabilidade de 10% quando não ocorre. A probabilidade não condicional de recessão é de 20%. 
+
+Se o modelo prevê uma recessão, qual é a probabilidade de que ela realmente esteja a caminho? 
+
+*Multiplique o resultado por 100 e arredonde para o inteiro mais próximo.*
+
+::: {.callout-caution  icon="false" collapse="true" title="RESPOSTA"}
+$$
+P(R\mid S)=\frac{0{,}8\cdot 0{,}2}{0{,}8\cdot 0{,}2+0{,}1\cdot 0{,}8}
+=\frac{0{,}16}{0{,}24}=\frac{2}{3}\approx 0{,}6667.
+$$
+
+Multiplicando por 100 e arredondando: $\boxed{67}$.
+:::
+
+### Exercício 8 (ANPEC 2022) {.unnumbered .smaller}
+
+**Tema:** V.A. contínua: densidade, CDF, momentos e transformações.
+
+Seja $X$ uma v.a. com f.d.p.:
+
+$$f(x)= \begin{cases} \dfrac{x}{8}, & \text{para } 0\le x\le 4,\\ 0, & \text{caso contrário.} \end{cases}$$
+
+Julgue as afirmativas:
+
+0. $E(X)=\dfrac{1}{8}$.
+
+1. $E(X^2)=8$.
+
+2. A mediana de $X$ é 3.
+
+3. Se $Z=2+3X$, então $E(Z)=5$.
+
+4. Se $Z=2+3X$, então $Var(Z)=80$.
+
+::: {.callout-caution  icon="false" collapse="true" title="RESPOSTA"}
+Primeiro, confirme a densidade: $\int_0^4 \frac{x}{8}dx=1$.
+$$
+E[X]=\int_0^4 x\frac{x}{8}dx=\frac{1}{8}\int_0^4 x^2dx=\frac{1}{8}\cdot\frac{64}{3}=\frac{8}{3}.
+$$
+$$
+E[X^2]=\int_0^4 x^2\frac{x}{8}dx=\frac{1}{8}\int_0^4 x^3dx=\frac{1}{8}\cdot 64=8.
+$$
+A CDF em $[0,4]$ é $F(x)=\int_0^x \frac{t}{8}dt=\frac{x^2}{16}$.
+A mediana $m$ satisfaz $\frac{m^2}{16}=\frac{1}{2}\Rightarrow m=\sqrt{8}=2\sqrt{2}\approx 2{,}83$.
+
+Para $Z=2+3X$:
+$$
+E[Z]=2+3 E[X]=2+3\cdot\frac{8}{3}=10.
+\qquad
+Var(X)=E[X^2]-E[X]^2=8-\left(\frac{8}{3}\right)^2=\frac{8}{9}.
+\qquad
+$$
+$$
+Var(Z)=9 \quad Var(X)=8.
+$$
+Logo:
+
+0. **F.**
+
+1. **V.**
+
+2. **F.**
+
+3. **F.**
+
+4. **F.**
+:::
+
+### Exercício 9 (ANPEC 2022) {.unnumbered .smaller}
+
+**Tema:** V.A. multidimensional contínua: densidade conjunta.
+
+Seja a seguinte função de distribuição:
+
+$$f(x,y)= \begin{cases} xy, & 0\le x\le 4;\ 1\le y\le 2.\\ 0, & c.c \end{cases}$$
+
+Encontre o valor esperado de $X+3Y$.
+
+*Interpretação econômica:* $X$ e $Y$ como componentes de custo; $E[X+3Y]$ como valor esperado ponderado.
+
+::: {.callout-caution  icon="false" collapse="true" title="RESPOSTA"}
+Como escrito no enunciado, $\int_0^4\int_1^2 xy\,dy\,dx=12\neq 1$.
+Para interpretar como densidade conjunta, considere a versão normalizada:
+$$
+f_{X,Y}(x,y)=k\,xy,\quad 0\le x\le 4,\ 1\le y\le 2,
+$$
+onde $k$ é tal que $k\cdot 12=1 \Rightarrow k=\frac{1}{12}$.
+
+Então:
+$$
+E[X]=\iint x\cdot \frac{1}{12}xy\,dy\,dx
+=\frac{1}{12}\left(\int_0^4 x^2dx\right)\left(\int_1^2 y\,dy\right)
+=\frac{1}{12}\cdot\frac{64}{3}\cdot\frac{3}{2}=\frac{8}{3}.
+$$
+$$
+E[Y]=\iint y\cdot \frac{1}{12}xy\,dy\,dx
+=\frac{1}{12}\left(\int_0^4 x\,dx\right)\left(\int_1^2 y^2dy\right)
+=\frac{1}{12}\cdot 8\cdot\frac{7}{3}=\frac{14}{9}.
+$$
+Logo,
+$$
+E[X+3Y]=E[X]+3E[Y]=\frac{8}{3}+3\cdot\frac{14}{9}
+=\frac{22}{3}.
+$$
+:::
+
+### Exercício 10 (Morettin & Bussab) {.unnumbered .smaller}
+
+**Tema:** V.A. contínua: probabilidade condicional e momentos.
+
+A v.a. contínua $X$ tem f.d.p
+
+$$f(x)= \begin{cases} 3x^2, & -1\le x\le 0,\\ 0, & \text{c.c.} \end{cases}$$
+
+a) Se $b$ satisfaz $-1<b<0$, calcule $P(X>b \mid X < b/2)$.
+
+b) Calcule $E(X)$ e $\mathrm{Var}(X)$.
+
+::: {.callout-caution  icon="false" collapse="true" title="RESPOSTA"}
+Para $-1\le x\le 0$, $F(x)=\int_{-1}^x 3t^2dt=x^3+1$.
+
+a) $P(X>b\mid X<b/2)=\dfrac{F(b/2)-F(b)}{F(b/2)}=\frac{-7b^3}{8+b^3}$.
+
+b) $E[X]=3\int_{-1}^0 x^3dx=-\frac{3}{4}$,
+   $E[X^2]=3\int_{-1}^0 x^4dx=\frac{3}{5}$,
+   $Var(X)=\frac{3}{5}-\frac{9}{16}=\frac{3}{80}$.
+:::
+
+### Exercício 11 (Morettin & Bussab) {.unnumbered .smaller}
+
+**Tema:** V.A. contínua: CDF por partes e quantis.
+
+A demanda diária de arroz (em centenas de kg) tem f.d.p:
+
+$$f(x)= \begin{cases} \dfrac{2x}{3}, & 0\le x\le 1,\\ 1-\dfrac{x}{3}, & 1\le x\le 3,\\ 0, & \text{c.c.} \end{cases}$$
+
+a) Qual é a probabilidade de se vender mais de 150kg em um dia?
+
+b) Em 30 dias, quanto o gerente espera vender?
+
+c) Qual quantidade deve ser deixada à disposição para que não falte arroz em 95% dos dias?
+
+::: {.callout-caution  icon="false" collapse="true" title="RESPOSTA"}
+a) $150$kg $=1{,}5$. Para $1\le x\le 3$, $F(x)=x-\frac{x^2}{6}-\frac{1}{2}$.
+   Então $F(1{,}5)=0{,}625 \Rightarrow P(X>1{,}5)=0{,}375$.
+   
+b) $E[X]=\frac{4}{3}$ (centenas kg/dia). Em 30 dias: $30\cdot\frac{4}{3}=40$ centenas kg $=4000$kg.
+
+c) Resolver $F(q)=0{,}95$ em $[1,3]$ dá $q\approx 2{,}45$ centenas kg $\approx 245$kg.
+:::
+
+### Exercício 12 (ANPEC 2015) {.unnumbered .smaller}
+
+**Tema:** V.A. contínua (Uniforme).
+
+Seja $X$ uma v.a. com f.d.p.:
+
+$$f(x)=\frac{1}{2\alpha} \quad \text{em que } -\alpha \le x \le \alpha \text{ e } \alpha > 0.$$
+
+0. A probabilidade de que $X$ se situe entre $-\alpha$ e $-\alpha/4$ é igual a $3/8$.
+
+1. A mediana de $X$ é igual a zero.
+
+2. A probabilidade de que $X$ se situe entre $-\alpha/2$ e $\alpha/2$ é igual a $3/4$.
+
+3. $E[X]=0$.
+
+4. A variância de $X$ é igual a $\alpha^2/3$.
+
+::: {.callout-caution  icon="false" collapse="true" title="RESPOSTA"}
+Como $X\sim U[-\alpha,\alpha]$, probabilidades são o comprimento do intervalo dividido por $2\alpha$ e a distribuição é simétrica.
+
+0. **V.** $\frac{(-\alpha/4)-(-\alpha)}{2\alpha}=\frac{3\alpha/4}{2\alpha}=\frac{3}{8}$.
+
+1. **V.** Simetria em torno de 0 $\Rightarrow$ mediana $=0$.
+
+2. **F.** $\frac{(\alpha/2)-(-\alpha/2)}{2\alpha}=\frac{\alpha}{2\alpha}=\frac{1}{2}$.
+
+3. **V.** Simetria $\Rightarrow E[X]=0$.
+
+4. **V.** $Var(U[a,b])=\frac{(b-a)^2}{12}=\frac{(2\alpha)^2}{12}=\frac{\alpha^2}{3}$.
+:::
