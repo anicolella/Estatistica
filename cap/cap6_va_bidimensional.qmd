@@ -3,7 +3,7 @@ title: "Variáveis Aleatórias Multidimensionais"
 subtitle: "Conceitos Inciciais"
 author:
 - Alexandre Nicolella
-date: "12/03/2026"
+date: "03/12/2026"
 format: 
   html:
     toc: true
@@ -28,15 +28,11 @@ Portanto, queremos observar duas características de forma simultânea dos aluno
 
 Considere o experimento de jogar dois dados não viciados de forma simultânea. Define-se duas variáveis aleatórias: $X$ o número que aparece no dado 1 e $Y$ o número que aparece no dado 2. Assim, temos o seguinte espaço amostral com 36 elementos (6x6):
 
-$$\begin{array}{ccc}
-\Omega = { \{(1,1),(1,2),(1,3),...,(6,6)\} }
-\end{array}$$
+$$\Omega = { \{(1,1),(1,2),(1,3),...,(6,6)\} }$$
 
 Como o dado é não viciado cada evento (x,y) tem a mesma probabilidade de ocorrência de 1/36. Assim, a função de **probabilidade bivariada** é:
 
-$$\begin{array}{ccc}
-p(x_{i},y_{j})=P(X=x_{i},Y=y_{j})=1/36 
-\end{array}$$
+$$p(x_{i},y_{j})=P(X=x_{i},Y=y_{j})=1/36 $$
 
 para $i=1,...,6$ e $j=1,...6$.
 
@@ -100,7 +96,6 @@ Com base na definição anterior podemos definir agora o que seria a função di
 
 $p(x_{i},y_{j})= P(X=x_{i},Y=y_{j})$ para $-\infty < x_{i}< \infty$ e $-\infty < y_{j}< \infty$
 
----
 
 **Distribuição de probabilidade conjunta de (X,Y)** (ou bivariada):
  
@@ -142,8 +137,6 @@ A distribuição conjunta de X e Y será conforme descrito na tabela abaixo. Par
 | y=2     | 1/9       | 0         | 0          |
 
 :::
-
-#### <u>Visualização Gráfica</u>
 
 Vejamos agora alguns gráficos de variáveis aleaórias bidimensionais:
 
@@ -194,37 +187,29 @@ ii) $\int \int_{R} f(x,y)dxdy= 1$ se f(x,y)=0 para $(x,y)\notin R \rightarrow \i
 
 Importante notar que $f(x,y)$ não representa a probabilidade. Assim para um evento B em $R_{xy}$:
 
-$$\begin{array}{ccc}
-P(B)=P\{ [X(\omega),Y(\omega)] \in B \}= P\{\omega | [X(\omega),Y(\omega)] \in B \}
-\end{array}$$
+$$P(B)=P\{ [X(\omega),Y(\omega)] \in B \}= P\{\omega | [X(\omega),Y(\omega)] \in B \}$$
 
 Para o caso discreto: 
-$$\begin{array}{ccc}
-P(B)=\sum \sum_{B} p(x_{i},y_{j})
-\end{array}$$
+
+$$P(B)=\sum \sum_{B} p(x_{i},y_{j})$$
 
 Para o caso contínuo: 
-$$\begin{array}{ccc}
-P(B)=\iint_{B} f(x,y)dxdy
-\end{array}$$
+
+$$P(B)=\iint_{B} f(x,y)dxdy$$
 
 Reinterpretando o exposto acima sobre o evento B, como no caso unidimensional, onde a área sobre a função densidade de probabilidade representa a probabilidade, no caso bidimensional o **volume sob a função densidade de probabilidade conjunta representa a probabilidade**.
 
 Assim, uma probabilidade $P(a \leq X \leq b, c\leq Y \leq d)$ é calculada como:
 
-$$\begin{array}{ccc}
- P(a \leq X \leq b, c\leq Y \leq d)  = \int_{c}^{d}\int_{a}^{b} f(x,y)dxdy
-\end{array}$$
+$$P(a \leq X \leq b, c\leq Y \leq d)  = \int_{c}^{d}\int_{a}^{b} f(x,y)dxdy$$
 
 ::: {.callout-tip  icon="false" title="EXEMPLO"}
 Suponha que uma partícula é aleatoriamente alocada em um quadrado com lados iguais a 1. Assim, se duas áreas de mesma dimensão forem consideradas a partícula tem a mesma probabilidade de estar em qualquer uma das duas áreas. Seja X e Y as coordenadas da localização da partícula. A função de densidade conjunta de X e Y será:
 
-\begin{array}{ccc}
-f(x,y)=\left\{\begin{matrix} 1,\ 0\ \leq x \leq 1, \ 0\ \leq y \leq 1 \\
-
-0,\ caso\ contrário
-\end{matrix}\right.
-\end{array}
+$$f(x,y) = \begin{cases} 
+1, & 0 \le x \le 1, \ 0 \le y \le 1 \\
+0, & \text{caso contrário} 
+\end{cases}$$
 
 Assim: 
 
@@ -234,33 +219,25 @@ b. Encontre $P(0 \leq X \leq 0.2, 0\leq Y \leq 0.4)$
 ::: 
 
 
-
 ::: {.callout-caution  icon="false" collapse="true" title="RESPOSTA"}
+
 Resposta a: 
 
-<center>
 
-![Função densidade de probabilidade conjunta \label{figParticula}](../figuras/capitulos/Imagem4.png){width="40%"}
+![Função densidade de probabilidade conjunta \label{figParticula}](../figuras/capitulos/Imagem4.png){fig-align="center" width="50%"}
 
-</center>
-
----
 Resposta b: 
 
-\begin{array}{ccc}
 
-P(0 \leq X  \leq 0.2,0 \leq Y  \leq 0.4)= \int_{0}^{0.4}\int_{0}^{0.2}f(x,y)dxdy \\
-=\int_{0}^{0.4}\int_{0}^{0.2}1dxdy=\int_{0}^{0.4}(\int_{0}^{0.2}1dx)dy \\
-=\int_{0}^{0.4}(x\Big|_{0}^{0.2})dy 
-=(0.2-0)\int_{0}^{0.4}dy = (0.2-0).(y\Big|_{0}^{0.4}) \\
-=(0.2-0)(0.4-0)=0.08 \\
-P(0 \leq X  \leq 0.2,0 \leq Y \leq 0.4)=0.08
-\end{array}
+$$P(0 \leq X  \leq 0.2,0 \leq Y  \leq 0.4)= \int_{0}^{0.4}\int_{0}^{0.2}f(x,y)dxdy$$
+$$=\int_{0}^{0.4}\int_{0}^{0.2}1dxdy=\int_{0}^{0.4}\bigg(\int_{0}^{0.2}1dx\bigg)dy$$
+$$=\int_{0}^{0.4}\Big(x\Big|_{0}^{0.2}\Big)dy
+=(0.2-0)\int_{0}^{0.4}dy = (0.2-0).\Big(y\Big|_{0}^{0.4}\Big)$$
+$$=(0.2-0)(0.4-0)=0.08$$
+$$P(0 \leq X  \leq 0.2,0 \leq Y \leq 0.4)=0.08$$
+
 :::
 
-
-
-#### <u>Visualização Gráfica</u>
 
 Vejamos agora alguns gráficos de variáveis aleaórias bidimensionais:
 
@@ -306,16 +283,13 @@ Como no caso univariado a distinção entre variável aleatória conjunta contí
 
 ::: {.callout-note  icon="false" title="DEFINIÇÃO"}
 A função distribuição conjunta acumulada, F, da variável aleatória bidimensional (X,Y) é definida por:
-$$\begin{array}{ccc}
- F(x,y)= P(X \leq x, Y \leq y) \ para \ -\infty < x_{i} < \infty \ e \ -\infty < y_{i} < \infty
-\end{array}$$
+
+$$F(x,y)= P(X \leq x, Y \leq y) \ para \ -\infty < x_{i} < \infty \ e \ -\infty < y_{i} < \infty$$
 :::
 
 Seja X e Y duas variáveis aleatórias discretas com função distribuição conjunta $F(x,y)$, a função distribuição conjunta acumulada de X e Y será:
 
-$$\begin{array}{ccc}
- F(x,y)=\sum_{f1=- \infty }^{x} \sum_{f2=- \infty }^{y}p(t_{1},t_{2})
-\end{array}$$
+$$F(x,y)=\sum_{f1=- \infty }^{x} \sum_{f2=- \infty }^{y}p(t_{1},t_{2})$$
 
 Retomando os exemplos anteriores temos as seguintes funções de distribuição conjunta acumuladas discretas:
 
@@ -364,7 +338,6 @@ F(1.5,2) &= P(X \leq 1.5, Y \leq 2) \\
 \end{aligned}$$
 :::
 
-#### <u>Visualização Gráfica</u>
 
 **BINOMIAL:**
 
@@ -446,9 +419,7 @@ hist3D(x = x_vals, y = y_vals, z = cdf_poisson,
 
 Seja X e Y duas variáveis aleatórias contínuas com função distribuição conjunta $F(x,y)$. Se existir uma função densidade de probabilidade conjunta $f(x,y)$ não negativa, assim a **função distribuição conjunta acumulada de X e Y** será:
 
-$$\begin{array}{ccc}
- F(x,y) = \int_{-\infty}^{x}\int_{- \infty}^{y} f(t_{1},t_{2})dt_{1}dt_{2} \ para \ -\infty < x_{i} < \infty \ e \ -\infty < y_{i} < \infty 
-\end{array}$$
+$$F(x,y) = \int_{-\infty}^{x}\int_{- \infty}^{y} f(t_{1},t_{2})dt_{1}dt_{2} \ para \ -\infty < x_{i} < \infty \ e \ -\infty < y_{i} < \infty$$
 
 ::: {.callout-tip  icon="false" title="EXEMPLO"}
 Para o exemplo anterior da partícula, encontre F(0.4, 0.4):
@@ -456,39 +427,33 @@ Para o exemplo anterior da partícula, encontre F(0.4, 0.4):
 
 
 ::: {.callout-caution  icon="false" collapse="true" title="RESPOSTA"}
+
 Ver figura abaixo. 
-$$\begin{array}{ccc}
-P(X \leq 0.4 ,Y \leq 0.4)= \int_{0}^{0.4}\int_{0}^{0.4}f(x,y)dxdy
-\\
-=\int_{0}^{0.4}\int_{0}^{0.4}1dxdy=\int_{0}^{0.4}(\int_{0}^{0.4}1dx)dy=\int_{0}^{0.4}(x\Big|_{0}^{0.4})dy
-\\
-=(0.4-0)\int_{0}^{0.4}dy=(0.4-0).(y\Big|_{0}^{0.4})\\
-=(0.4-0)(0.4-0)=0.016
-\\
-P(X  \leq 0.4,Y \leq 0.4)=0.016
-\end{array}$$
+
+$$P(X \leq 0.4 ,Y \leq 0.4)= \int_{0}^{0.4}\int_{0}^{0.4}f(x,y)dxdy$$
+
+$$=\int_{0}^{0.4}\int_{0}^{0.4}1dxdy=\int_{0}^{0.4}\bigg(\int_{0}^{0.4}1dx\bigg)dy=\int_{0}^{0.4}\Big(x\Big|_{0}^{0.4}\Big)dy$$
+
+$$=(0.4-0)\int_{0}^{0.4}dy=(0.4-0).\Big(y\Big|_{0}^{0.4}\Big)=(0.4-0)(0.4-0)=0.016$$
+
+$$P(X  \leq 0.4,Y \leq 0.4)=0.016$$
+
 :::
 
 ::: {.callout-note  icon="false" title="TEOREMA"}
 
 Seja $X$ e $Y$ duas variáveis aleatórias contínuas com função distribuição conjunta $F(x,y)$ então:
 
-$$\begin{array}{ccc}
-a) \ F(- \infty, - \infty )=  F(- \infty, y )=  F(x, - \infty )=0 \\
-\end{array}$$
+$$a) \ F(- \infty, - \infty )=  F(- \infty, y )=  F(x, - \infty )=0$$
 
-$$\begin{array}{ccc}
-b) \ F(\infty, \infty ) = 1
-\end{array}$$
+$$b) \ F(\infty, \infty ) = 1$$
 
 No caso univariado tem-se: 
-$$\begin{array}{ccc}
- f(x,y) = \frac{\partial^{2}F(x,y) }{\partial x \partial y} 
-\end{array}$$
+
+$$f(x,y) = \frac{\partial^{2}F(x,y) }{\partial x \partial y}$$
 
 :::
 
-#### <u>Visualização Gráfica</u>
 
 Vejamos agora alguns gráficos de variáveis aleaórias bidimensionais:
 
@@ -541,6 +506,310 @@ persp3D(x = x_vals, y = y_vals, z = z_matrix2,
         xlab = "x", ylab = "y", zlab = "",
         bty = "b", phi = 30, theta = -40, zlim = c(0, 1))
 ```
+
+## Distribuição de Probabilidade Marginal e Condicional
+
+### Distribuição de Probabilidade Marginal
+
+Dada a variável bidimensional $(X,Y)$ podemos estar interessados em X ou Y individualmente. Agora não mais queremos entender como se distribui conjuntamente renda e consumo. Com base na distribuição conjunta, quero saber somente como a renda distribui, por exemplo.
+
+#### Para o caso discreto
+
+Para o caso discreto, temos a seguinte **distribuição marginal de X**:
+
+$$p(x_{i})=P(X=x_{i})=P(X=x_i, Y=y_i \ ou \ X=x_i,Y=y_2 ....)$$
+
+$$p(x_i)=\sum_j p(x_i,y_j)$$
+
+Onde p é a função distribuição marginal de $X$. Podemos pensar em $Y$ de forma análoga.
+
+A intuição aqui é que se queremos a marginal de $X$ temos que empilhar na direção de $Y$, assim o eixo $y$ irá sumir. Vejamos graficamente.
+
+
+Vejamos um exemplo extraído de Inouye,D.I. et al.(2017)[^1]:
+
+![Distribuição marginal de Poisson](../figuras/capitulos/marginal.png){fig-align="center" width="50%"}
+
+[^1]: A review of multivariate distributions for count data derived from the Poisson distribution
+
+Veja que se quisermos a distribuiçao marginal de $X$, apresentada a esquerda, temos que somar as barras ou empilha-las na direção de $Y$.
+
+#### Para o caso continuo
+
+O caso contínuo é similar ao discreto. No contínuo, a **função densidade marginal de X** será:
+
+$$g(x)=\int_{-\infty}^{\infty}f(x,y)dy$$
+
+E a **função densidade marginal de y** será:
+
+$$h(y)=\int_{-\infty}^{\infty}f(x,y)dx$$
+
+Aqui temos que mostrar uma figura para ilustrar.
+
+::: {.callout-tip  icon="false" title="EXEMPLO"}
+
+Suponha que $(X,Y)$ seja uma variável aleatória bidimensional. Não estamos interessados em $Y$, gostariamos de saber somente qual a probabilidade de encontrarmos valores de $x$ entre c e d. Assim:
+
+$$P(c\leq x \leq d)=P[c\leq X \leq d, -\infty < Y < \infty] $$
+
+$$P(c\leq x \leq d)=\int_{c}^{d}\int_{-\infty}^{\infty}f(x,y)dydx $$
+
+$$P(c\leq x \leq d)=\int_{c}^{d}g(x)dx $$
+:::
+
+
+Vejamos um exemplo extraído de Selvan, R.(2015) [^2]:
+
+![Distribuição marginal de Poisson](../figuras/capitulos/marginalcont.png){fig-align="center" width="65%"}
+
+[^2]: Selvan, R. 2015. Bayesian tracking of multiple point targets using Expectation Maximization
+
+Veja que se quisermos a distribuiçao marginal de $X$, apresentada ao fundo, temos que somar as barras ou empilha-las na direção de $Y$.
+
+### Distribuição de Probabilidade Condicional
+
+Na distribuição maringao, tinhamos a distribuição conjunta entre renda e consumo e estavamos interessados somente na renda. Agora estamos querendo saber qual a distribuição da renda para certa faixa de consumo, ou o contrário, qual a distribuição do consumo para dada faixa de renda.
+
+**Para o caso discreto:**
+
+Para variáveis discretas temos o seguinte:
+
+$$P(x_i|y_j)=P(X=x_i|Y=y_j)$$
+
+$$P(x_i|y_j)= \frac{P(x_i,y_j)}{q(y_{j})}$$
+
+Note que $P(x_i|y_j)\geq 0$ e $\sum_iP(x_i|y_j)=1$
+
+Vejamos um exemplo extraído de Inouye,D.I. et al.(2017)[^3]:
+
+![Distribuição condicional de Poisson](../figuras/capitulos/condicionaldisc.png){fig-align="center" width="50%"}
+
+[^3]: A review of multivariate distributions for count data derived from the Poisson distribution
+
+Veja que se quisermos a distribuição condicional de $X$ dado um certo valor de $Y$, por exemplo, $Y=2$.Temos que considerar as barras marcadas e repondera-las pela chance de $Y=2$ acontecer. Ou seja, agora $Y=2$ será o total.
+
+#### Para o caso contínuo
+
+Para o caso contínuo a f.d.p. de $X$ condicionada a um dado $Y=y$ é:
+
+$$g(x|y)= \frac{f(x,y)}{h(y)}$$
+
+De forma análoga para $Y$:
+
+$$h(y|x)= \frac{f(x,y)}{g(x)}$$
+
+Note que $g(x|y)\geq 0$ e
+
+$$\int_{-\infty}^{\infty}g(x|y)dx=\int_{-\infty}^{\infty} \frac {f(x,y)}{h(y)}dx=\frac{h(y)}{h(y)}=1$$
+
+Inserir um gráfico e falar da intuição.
+
+Vejamos um exemplo extraído de Neuper,M. e Ehret,U. (2019)[^4]:
+
+![Distribuição condicional normal](../figuras/capitulos/condicionalcont.png){fig-align="center" width="50%"}
+
+[^4]: Quantitative precipitation estimation with weather radar using a data- and information-based approach
+
+Veja que se quisermos a distribuição condicional de $X$ dado um certo valor de $Y$, por exemplo, $Y=-2$.Temos que considerar a linha marcada e novamente reponder todos os elementos pela chance de $Y=-2$ acontecer. Ou seja, agora $Y=-2$ será o total.
+
+### Variáveis Aleatórias Independentes
+
+Independencia está ligado ao conceito de informação e quanto essa informação recebida muda sua opinião do que irá acontecer com o caso sobre estudo. Podemos dar uma informação sobre renda e perguntarmos sobre o consumo desse parte da população. Quando os resultados de $X$ influenciam o resultado de $Y$ dizemos que as variáveis são dependentes. Caso a informação sobre $X$ não afeta de meneira nenhuma os resultados de $Y$, dizemos que são independentes.
+
+#### Para o caso discreto
+
+::: {.callout-note  icon="false" title="DEFINIÇÃO"}
+
+Para a variável bidimensional discreta $(X,Y)$, $X$ e $Y$ serão independentes se 
+
+$$p(x_i,y_j)=p(x_i)p(y_j)$$
+
+Ou, de outra maneira:
+
+$$P(x_i|y_j)= \frac{P(x_i,y_j)}{q(y_i)}= \frac{P(x_i)q(y_j)}{q(y_i)}=P(x_i)$$
+:::
+
+#### Para caso Contínuo
+
+::: {.callout-note  icon="false" title="DEFINIÇÃO"}
+
+Para a variábel bidimensional contínua $(X,Y)$, X e Y serão independentes se:
+$$f(x,y)=g(x)h(y)$$
+
+Ou, de outra maneira:
+
+$$g(x|y)= \frac{f(x,y)}{h(y)}= \frac{g(x)h(y)}{h(y)}=g(x)$$
+:::
+
+Com base nessas definições podemos agora apresentar o seguinte teorema que conecta o que viram em probabilidade com variáveis aleatórias multidimesionais.
+
+::: {.callout-note  icon="false" title="TEOREMA"}
+
+Seja $(X,Y)$ uma variável aleatória bidimensional e A e B dois eventos que dependem de X e Y, respectivamente. Então, se $X$ e $Y$ forem independentes: 
+
+$$P(A \cap B)= P(A) P(B)$$
+
+---
+
+**Prova:**
+
+$$P(A \cap B)= {\int_{}^{}\int_{}^{}}_{P(A \cap B)}f(x,y)dxdy= {\int_{}^{}\int_{}^{}}_{P(A \cap B)}g(x)h(y)dxdy$$
+
+$$P(A \cap B)={\int_{A}^{}g(x)dx\int_{B}^{}h(y)dy}=P(A)P(B)$$
+:::
+
+::: {.callout-tip  icon="false" title="EXEMPLO"}
+
+Suponha uma f.d.p. conjunta da variábel aleatória bidimensional $(X,Y)$:
+
+$$f(x,y)=\left\{\begin{matrix} x^{2}+ \frac{xy}{3}, \ para \ 0<x<1,0<y<2
+\\ 0,\ caso\ contrário
+\end{matrix}\right.$$
+
+Calcule a $P(Y<X)$:
+:::
+
+::: {.callout-caution  icon="false" collapse="true" title="RESPOSTA"}
+
+$$P(Y<X)=\int_{0}^{1}\int_{0}^{x} x^{2}+ \frac{xy}{3} dydx$$
+
+$$P(Y<X)=\int_{0}^{1} \bigg[x^{2}y+ \frac{xy^{2}}{6}\bigg]_0^{x} dy $$
+
+$$P(Y<X)=\int_{0}^{1} \bigg[x^{3}+ \frac{x^{3}}{3}\bigg] dy $$
+
+$$P(Y<X)= \bigg[\frac{x^{4}}{4}+ \frac{x^{4}}{24}\bigg]_0^{1} $$
+
+$$P(Y<X)= \frac{1}{4}+\frac{1}{24}=\frac{7}{24}$$
+:::
+
+## Coeficiente de Correlação
+
+Até o momento medimos a $E(X)$ e a $Var(X)$, ou seja, uma medida de posição e de variabilidade em relação a $R_x$, Entretanto, quando temos um vetor bidimensional $(X,Y)$ uma outra medida surge, a qual tenta media o "grau de associação" linear entre X e Y.
+
+::: {.callout-note  icon="false" title="DEFINIÇÃO"}
+
+Seja $(X,Y)$ uma variável aleatória bidimensional. O **Coeficiente de Correlação** $\rho_{X,Y}$ entre X e Y será:
+
+$$\rho_{X,Y}=\frac{E[(X-E(X))(Y-E(Y))]}{\sqrt{Var(X)Var(Y)}}$$
+:::
+
+Um termo muito importante surge na expressão acima, a **Covariância**. Ela mede a variabilidade conjunta de uma variável aleátoria multidimensional. Como no caso da variância, ela sobre do efeito das escalas de medidas. Por isso que anteriormente dividimos pelos desvio-padrões. Lembre-se que já usamos esse artifício anteriormente para nos livrar da unidade de medida.
+
+::: {.callout-note  icon="false" title="DEFINIÇÃO"}
+
+A **Covariância** entre $X$ e $Y$, $Cov(X,Y)$, é dada por:
+
+$$Cov(X,Y)=E[(X-E(X))(Y-E(Y))]$$
+:::
+
+Novamente, a correlação mede o **GRAU DE ASSOCIAÇÃO LINEAR**. Vejamos algumas Propriedades da Correlação:
+
+::: {.callout-note  icon="false" title="TEOREMA"}
+
+O coeficiente de correlação $\rho_{X,Y}$ entre $X$ e $Y$ pode ser apresentado como:
+
+$$\rho_{X,Y}=\frac{E(XY)-E(X)E(Y)}{\sqrt{Var(X)Var(Y)}}$$
+
+---
+
+**Prova:**
+
+$$E[(X-E(X))(Y-E(Y))]=E[XY-XE(Y)-E(X)Y+E(X)E(Y)]$$
+
+$$= E(XY)-E(X)E(Y)-E(X)E(Y)+E(X)E(Y)= E(XY)-E(X)E(Y)$$
+:::
+
+
+::: {.callout-note  icon="false" title="TEOREMA"}
+
+Se $X$ e $Y$ forem independentes então:
+
+$$\rho_{X,Y}=0$$
+
+---
+
+**Prova:**
+
+Da propriedade da independência, se $X$ e $Y$ forem independentes então:
+
+$$E(X,Y)=E(X)E(Y)$$
+
+:::
+
+Considerando o teorema acima, e sabendo que as variáveis são independentes, então $\rho_{X,Y}=0$
+
+[**IMPORTANTE**]{style="color:red"}: Note que Independência $\Rightarrow \rho_{X,Y}=0$ mas não é verdade que $\rho_{X,Y}=0 \Rightarrow Independência$
+
+::: {.callout-note  icon="false" title="TEOREMA"}
+
+O Coeficiente de Correlação possui valores entre -1 e 1, ou seja:
+
+$$-1 \leq \rho \leq 1$$ 
+
+---
+
+**Prova:**
+
+Considere a seguinte desigualdade verdadeira:
+
+$$ \bigg(\frac{x-\mu_x}{\sigma_x}\mp \frac{Y-\mu_y}{\sigma_y} \bigg)^{2}\geq 0$$
+
+A expressão continua verdadeira se aplicarmos o operador esperança:
+
+$$E \bigg(\frac{x-\mu_x}{\sigma_x}\mp \frac{Y-\mu_y}{\sigma_y} \bigg)^{2}\geq 0$$
+
+Desenvolvendo, temos que:
+
+$$E\bigg[\bigg(\frac{x-\mu_x}{\sigma_x}\bigg)^{2}+\bigg(\frac{Y-\mu_y}{\sigma_y}\bigg)^{2} \mp 2 \bigg(\frac{x-\mu_x}{\sigma_x}\bigg)\bigg(\frac{Y-\mu_y}{\sigma_y}\bigg) \bigg]\geq 0$$
+
+$$\frac{1}{\sigma_x^{2}}E({X-\mu_x})^{2}+\frac{1}{\sigma_y^{2}}E({Y-\mu_y})^{2}\mp 2 \frac{1}{\sigma_x \sigma_y}E[(X-\mu_x)(Y-\mu_y) ]\geq 0$$
+ 
+$$\frac{\sigma_x^{2}}{\sigma_x^{2}}+\frac{\sigma_y^{2}}{\sigma_y^{2}}\mp 2\rho \geq 0$$
+$$\mp 2\rho \geq -2$$
+$$\therefore \rho \geq -1 \ e \ \rho \leq 1$$
+:::
+
+::: {.callout-note  icon="false" title="TEOREMA"}
+
+Se X e Y forem duas variáveis aleatórias, onde $Y=AX+B$, onde A e B são constantes. Então $\rho^{2}=1$. Se $A>0$, $\rho=1$. Se $A<0$, $\rho=-1$
+
+
+---
+
+**Prova:**
+
+$$Y= AX +B$$
+
+$$E(Y)=A E(X)+ B \ e \ VAR(Y)=A^{2}VAR(X)$$
+
+$$E(XY)=E(AX^{2}+BX) \ \rightarrow AE(X^{2})+BE(X)$$
+
+Então: 
+
+$$\rho^{2} = \frac{A^{2}Var(X)} {A^{2}Var(X)}=1$$
+
+:::
+
+Assim, com base no exposto, temos que o coeficiente de correlação é uma medida do grau de linearidade entre X e Y. Dessa forma, $\rho$ próximo a 1 e -1 indicam alto grau de linearidade e $\rho$ próximo a zero indica ausência de relação linear - mas não diz nada sobre relações não-lineares.
+
+
+Aqui, apresensemtamos um correlograma com base em variáveis simuladas:
+
+
+```{r}
+#| echo = FALSE,
+#| fig.cap = "Gráfico de correlação para variáveis simuladas v1 a v5",
+#| fig.height = 5,
+#| fig.width = 5,
+#| fig.align = "center"
+library(psych)
+data <- data.frame( var1 = 1:100 + rnorm(100,sd=20), v2 = 1:100 + rnorm(100,sd=27), v3 = rep(1, 100) + rnorm(100, sd = 1)) 
+data$v4 = data$var1 ** 2 
+data$v5 = -(data$var1 ** 2) 
+pairs.panels(data)
+```
+
+Vamos começar pelas variáveis v5 e v4, elas tem um comportantamento conjunto totalmente linear, ou seja, saber de v4 te informa corretmente o que acontecerá com v5. Aqui quando v5 sobe, v4 desce. Vejamos agora as variáveis v3 e v2, observe como os dados estão disperso, sem nenhum padrão de comportamento linear. Nesse caso a correlação é próxima a zero (-0.0135). Perceba que a relação não-linear entre v1 e v4 e v1 e v5, faz com que a correlação seja menor que 1 e não perfeita. Já as variáveis v1 e v2 mostram comportamento conjunto positivo, mas não perfeito, reativamente disperso. Quando v1 sobe, v2 também sobe, entretanto não cosneguimos prever esse comportamento perfeitamente.
 
 ## Links 
 
@@ -702,11 +971,16 @@ b) Como a conjunta fatoriza nas marginais
    $$P(0<X<1,\ 1<Y<2)=(1-e^{-1})(e^{-1}-e^{-2}).$$
 
 c) Pela independência,
+
    $$f_{Y\mid X}(y\mid x)=f_Y(y), \qquad f_{X\mid Y}(x\mid y)=f_X(x).$$
-   Como ambas são Exponencial(1),
+   
+   
+Como ambas são Exponencial(1),
+
    $$E(Y\mid X=x)=E(Y)=1, \qquad E(X\mid Y=y)=E(X)=1.$$
 
 **Comentário econômico:** condicionar não muda a média quando os processos são independentes.
+
 :::
 
 ### Exercício 4 (Morettin & Bussab, Cap. 8) {.unnumbered}

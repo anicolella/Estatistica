@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Alexandre Nicolella">
-<meta name="dcterms.date" content="2026-12-03">
+<meta name="dcterms.date" content="2026-03-12">
 
 <title>8&nbsp; Variáveis Aleatórias Multidimensionais – Inferência Estatística Aplicada à Economia</title>
 <style>
@@ -279,8 +279,15 @@ window.Quarto = {
   <li><a href="#variável-aleatória-discreta" id="toc-variável-aleatória-discreta" class="nav-link" data-scroll-target="#variável-aleatória-discreta"><span class="header-section-number">8.3.1</span> Variável Aleatória Discreta</a></li>
   <li><a href="#variável-aleatória-contínua" id="toc-variável-aleatória-contínua" class="nav-link" data-scroll-target="#variável-aleatória-contínua"><span class="header-section-number">8.3.2</span> Variável Aleatória Contínua</a></li>
   </ul></li>
-  <li><a href="#links" id="toc-links" class="nav-link" data-scroll-target="#links"><span class="header-section-number">8.4</span> Links</a></li>
-  <li><a href="#exercícios" id="toc-exercícios" class="nav-link" data-scroll-target="#exercícios"><span class="header-section-number">8.5</span> Exercícios</a>
+  <li><a href="#distribuição-de-probabilidade-marginal-e-condicional" id="toc-distribuição-de-probabilidade-marginal-e-condicional" class="nav-link" data-scroll-target="#distribuição-de-probabilidade-marginal-e-condicional"><span class="header-section-number">8.4</span> Distribuição de Probabilidade Marginal e Condicional</a>
+  <ul class="collapse">
+  <li><a href="#distribuição-de-probabilidade-marginal" id="toc-distribuição-de-probabilidade-marginal" class="nav-link" data-scroll-target="#distribuição-de-probabilidade-marginal"><span class="header-section-number">8.4.1</span> Distribuição de Probabilidade Marginal</a></li>
+  <li><a href="#distribuição-de-probabilidade-condicional" id="toc-distribuição-de-probabilidade-condicional" class="nav-link" data-scroll-target="#distribuição-de-probabilidade-condicional"><span class="header-section-number">8.4.2</span> Distribuição de Probabilidade Condicional</a></li>
+  <li><a href="#variáveis-aleatórias-independentes" id="toc-variáveis-aleatórias-independentes" class="nav-link" data-scroll-target="#variáveis-aleatórias-independentes"><span class="header-section-number">8.4.3</span> Variáveis Aleatórias Independentes</a></li>
+  </ul></li>
+  <li><a href="#coeficiente-de-correlação" id="toc-coeficiente-de-correlação" class="nav-link" data-scroll-target="#coeficiente-de-correlação"><span class="header-section-number">8.5</span> Coeficiente de Correlação</a></li>
+  <li><a href="#links" id="toc-links" class="nav-link" data-scroll-target="#links"><span class="header-section-number">8.6</span> Links</a></li>
+  <li><a href="#exercícios" id="toc-exercícios" class="nav-link" data-scroll-target="#exercícios"><span class="header-section-number">8.7</span> Exercícios</a>
   <ul class="collapse">
   <li><a href="#exercício-1-anpec-2022-questão-04" id="toc-exercício-1-anpec-2022-questão-04" class="nav-link" data-scroll-target="#exercício-1-anpec-2022-questão-04">Exercício 1 (ANPEC 2022 — Questão 04)</a></li>
   <li><a href="#exercício-2-morettin-bussab-cap.-8" id="toc-exercício-2-morettin-bussab-cap.-8" class="nav-link" data-scroll-target="#exercício-2-morettin-bussab-cap.-8">Exercício 2 (Morettin &amp; Bussab, Cap. 8)</a></li>
@@ -320,7 +327,7 @@ window.Quarto = {
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">December 3, 2026</p>
+      <p class="date">March 12, 2026</p>
     </div>
   </div>
   
@@ -337,13 +344,9 @@ window.Quarto = {
 <p>Até o momento nos interessou observar apenas uma característica de um experimento. Por exemplo, a altura média dos alunos do curso de estatística. Podemos também estar interessados em mais uma característica adicional, como o peso dos alunos do curso de estatística.</p>
 <p>Portanto, queremos observar duas características de forma simultânea dos alunos: altura e peso. Ou seja, duas características simultaneamente do mesmo experimento <span class="math inline">\(\epsilon\)</span>.</p>
 <p>Considere o experimento de jogar dois dados não viciados de forma simultânea. Define-se duas variáveis aleatórias: <span class="math inline">\(X\)</span> o número que aparece no dado 1 e <span class="math inline">\(Y\)</span> o número que aparece no dado 2. Assim, temos o seguinte espaço amostral com 36 elementos (6x6):</p>
-<p><span class="math display">\[\begin{array}{ccc}
-\Omega = { \{(1,1),(1,2),(1,3),...,(6,6)\} }
-\end{array}\]</span></p>
+<p><span class="math display">\[\Omega = { \{(1,1),(1,2),(1,3),...,(6,6)\} }\]</span></p>
 <p>Como o dado é não viciado cada evento (x,y) tem a mesma probabilidade de ocorrência de 1/36. Assim, a função de <strong>probabilidade bivariada</strong> é:</p>
-<p><span class="math display">\[\begin{array}{ccc}
-p(x_{i},y_{j})=P(X=x_{i},Y=y_{j})=1/36
-\end{array}\]</span></p>
+<p><span class="math display">\[p(x_{i},y_{j})=P(X=x_{i},Y=y_{j})=1/36 \]</span></p>
 <p>para <span class="math inline">\(i=1,...,6\)</span> e <span class="math inline">\(j=1,...6\)</span>.</p>
 <p>Assim como no caso unidimensional pode-se construir um histograma. Com base no exemplo acima, podemos fazer o seguinte histograma tridimensional para o par de dados <span class="math inline">\(X\)</span> e <span class="math inline">\(Y\)</span>, ou seja, a distribuição conjunta de <span class="math inline">\((X,Y)\)</span>:</p>
 <div class="cell">
@@ -408,7 +411,6 @@ p(x_{i},y_{j})=P(X=x_{i},Y=y_{j})=1/36
 <div class="callout-body-container callout-body">
 <p><strong>Função de probabilidade conjunta de (X,Y)</strong> (ou bivariada):</p>
 <p><span class="math inline">\(p(x_{i},y_{j})= P(X=x_{i},Y=y_{j})\)</span> para <span class="math inline">\(-\infty &lt; x_{i}&lt; \infty\)</span> e <span class="math inline">\(-\infty &lt; y_{j}&lt; \infty\)</span></p>
-<hr>
 <p><strong>Distribuição de probabilidade conjunta de (X,Y)</strong> (ou bivariada):</p>
 <p><span class="math inline">\([x_{i},y_{j},p(x_{i},y_{j})]\)</span></p>
 </div>
@@ -504,8 +506,6 @@ p(x_{i},y_{j})=P(X=x_{i},Y=y_{j})=1/36
 </div>
 </div>
 </div>
-<section id="visualização-gráfica" class="level4" data-number="8.2.1.1">
-<h4 data-number="8.2.1.1" class="anchored" data-anchor-id="visualização-gráfica"><span class="header-section-number">8.2.1.1</span> <u>Visualização Gráfica</u></h4>
 <p>Vejamos agora alguns gráficos de variáveis aleaórias bidimensionais:</p>
 <p><strong>BINOMIAL:</strong></p>
 <p>Considere a variável aleatória <span class="math inline">\((X,Y)\)</span> com distribuição binomial e a probabilidade de sucesso de <span class="math inline">\(X\)</span> é igual a 0.75 e de <span class="math inline">\(Y\)</span> igual a 0.25 com 10 rodadas:</p>
@@ -532,7 +532,6 @@ Considere a variável aleatória <span class="math inline">\((X,Y)\)</span> com 
 </div>
 </div>
 </section>
-</section>
 <section id="variáveis-aleatórias-contínuas" class="level3" data-number="8.2.2">
 <h3 data-number="8.2.2" class="anchored" data-anchor-id="variáveis-aleatórias-contínuas"><span class="header-section-number">8.2.2</span> Variáveis Aleatórias Contínuas</h3>
 <p>São variáveis que não conseguimos listar, pois existem infinitos valores entre dois pontos. Assim,o vetor <span class="math inline">\((X,Y)\)</span> será uma variável aleatória contínua se puder tomar todos os valores em algum conjunto não enumerável no plano euclediano</p>
@@ -554,20 +553,14 @@ Considere a variável aleatória <span class="math inline">\((X,Y)\)</span> com 
 </div>
 </div>
 <p>Importante notar que <span class="math inline">\(f(x,y)\)</span> não representa a probabilidade. Assim para um evento B em <span class="math inline">\(R_{xy}\)</span>:</p>
-<p><span class="math display">\[\begin{array}{ccc}
-P(B)=P\{ [X(\omega),Y(\omega)] \in B \}= P\{\omega | [X(\omega),Y(\omega)] \in B \}
-\end{array}\]</span></p>
-<p>Para o caso discreto: <span class="math display">\[\begin{array}{ccc}
-P(B)=\sum \sum_{B} p(x_{i},y_{j})
-\end{array}\]</span></p>
-<p>Para o caso contínuo: <span class="math display">\[\begin{array}{ccc}
-P(B)=\iint_{B} f(x,y)dxdy
-\end{array}\]</span></p>
+<p><span class="math display">\[P(B)=P\{ [X(\omega),Y(\omega)] \in B \}= P\{\omega | [X(\omega),Y(\omega)] \in B \}\]</span></p>
+<p>Para o caso discreto:</p>
+<p><span class="math display">\[P(B)=\sum \sum_{B} p(x_{i},y_{j})\]</span></p>
+<p>Para o caso contínuo:</p>
+<p><span class="math display">\[P(B)=\iint_{B} f(x,y)dxdy\]</span></p>
 <p>Reinterpretando o exposto acima sobre o evento B, como no caso unidimensional, onde a área sobre a função densidade de probabilidade representa a probabilidade, no caso bidimensional o <strong>volume sob a função densidade de probabilidade conjunta representa a probabilidade</strong>.</p>
 <p>Assim, uma probabilidade <span class="math inline">\(P(a \leq X \leq b, c\leq Y \leq d)\)</span> é calculada como:</p>
-<p><span class="math display">\[\begin{array}{ccc}
-P(a \leq X \leq b, c\leq Y \leq d)  = \int_{c}^{d}\int_{a}^{b} f(x,y)dxdy
-\end{array}\]</span></p>
+<p><span class="math display">\[P(a \leq X \leq b, c\leq Y \leq d)  = \int_{c}^{d}\int_{a}^{b} f(x,y)dxdy\]</span></p>
 <div class="callout callout-style-default callout-tip no-icon callout-titled" title="EXEMPLO">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -579,12 +572,10 @@ P(a \leq X \leq b, c\leq Y \leq d)  = \int_{c}^{d}\int_{a}^{b} f(x,y)dxdy
 </div>
 <div class="callout-body-container callout-body">
 <p>Suponha que uma partícula é aleatoriamente alocada em um quadrado com lados iguais a 1. Assim, se duas áreas de mesma dimensão forem consideradas a partícula tem a mesma probabilidade de estar em qualquer uma das duas áreas. Seja X e Y as coordenadas da localização da partícula. A função de densidade conjunta de X e Y será:</p>
-<span class="math display">\[\begin{array}{ccc}
-f(x,y)=\left\{\begin{matrix} 1,\ 0\ \leq x \leq 1, \ 0\ \leq y \leq 1 \\
-
-0,\ caso\ contrário
-\end{matrix}\right.
-\end{array}\]</span>
+<p><span class="math display">\[f(x,y) = \begin{cases}
+1, &amp; 0 \le x \le 1, \ 0 \le y \le 1 \\
+0, &amp; \text{caso contrário}
+\end{cases}\]</span></p>
 <p>Assim:</p>
 <ol type="a">
 <li><p>Esboce a função densidade de probabilidade conjunta</p></li>
@@ -605,30 +596,18 @@ f(x,y)=\left\{\begin{matrix} 1,\ 0\ \leq x \leq 1, \ 0\ \leq y \leq 1 \\
 <div id="callout-10" class="callout-10-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>Resposta a:</p>
-<center>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="../figuras/capitulos/Imagem4.png" class="img-fluid figure-img" style="width:40.0%"></p>
+<p><img src="../figuras/capitulos/Imagem4.png" class="img-fluid figure-img" style="width:50.0%"></p>
 <figcaption>Função densidade de probabilidade conjunta </figcaption>
 </figure>
 </div>
-</center>
-<hr>
 <p>Resposta b:</p>
-<span class="math display">\[\begin{array}{ccc}
-
-P(0 \leq X  \leq 0.2,0 \leq Y  \leq 0.4)= \int_{0}^{0.4}\int_{0}^{0.2}f(x,y)dxdy \\
-=\int_{0}^{0.4}\int_{0}^{0.2}1dxdy=\int_{0}^{0.4}(\int_{0}^{0.2}1dx)dy \\
-=\int_{0}^{0.4}(x\Big|_{0}^{0.2})dy
-=(0.2-0)\int_{0}^{0.4}dy = (0.2-0).(y\Big|_{0}^{0.4}) \\
-=(0.2-0)(0.4-0)=0.08 \\
-P(0 \leq X  \leq 0.2,0 \leq Y \leq 0.4)=0.08
-\end{array}\]</span>
+<p><span class="math display">\[P(0 \leq X  \leq 0.2,0 \leq Y  \leq 0.4)= \int_{0}^{0.4}\int_{0}^{0.2}f(x,y)dxdy\]</span> <span class="math display">\[=\int_{0}^{0.4}\int_{0}^{0.2}1dxdy=\int_{0}^{0.4}\bigg(\int_{0}^{0.2}1dx\bigg)dy\]</span> <span class="math display">\[=\int_{0}^{0.4}\Big(x\Big|_{0}^{0.2}\Big)dy
+=(0.2-0)\int_{0}^{0.4}dy = (0.2-0).\Big(y\Big|_{0}^{0.4}\Big)\]</span> <span class="math display">\[=(0.2-0)(0.4-0)=0.08\]</span> <span class="math display">\[P(0 \leq X  \leq 0.2,0 \leq Y \leq 0.4)=0.08\]</span></p>
 </div>
 </div>
 </div>
-<section id="visualização-gráfica-1" class="level4" data-number="8.2.2.1">
-<h4 data-number="8.2.2.1" class="anchored" data-anchor-id="visualização-gráfica-1"><span class="header-section-number">8.2.2.1</span> <u>Visualização Gráfica</u></h4>
 <p>Vejamos agora alguns gráficos de variáveis aleaórias bidimensionais:</p>
 <p><strong>NORMAL BIVARIADA:</strong></p>
 <p>Considere a variável aleatória <span class="math inline">\((X,Y)\)</span> com distribuição normal bivariada com a esperança de <span class="math inline">\(X\)</span> igual a 10, de <span class="math inline">\(Y\)</span> igual a 4, o desvio-padrões iguais a 3 e 2 respectivamente. Aqui consideremaos a correlação de 0.7 (veremos mais a frente esse conceito).</p>
@@ -656,7 +635,6 @@ P(0 \leq X  \leq 0.2,0 \leq Y \leq 0.4)=0.08
 </div>
 </section>
 </section>
-</section>
 <section id="distribuição-acumulada" class="level2" data-number="8.3">
 <h2 data-number="8.3" class="anchored" data-anchor-id="distribuição-acumulada"><span class="header-section-number">8.3</span> Distribuição Acumulada</h2>
 <p>Como no caso univariado a distinção entre variável aleatória conjunta contínua e conjunta discreta pode ser feita em termos de sua função distribuição conjunta acumulada.</p>
@@ -672,15 +650,12 @@ P(0 \leq X  \leq 0.2,0 \leq Y \leq 0.4)=0.08
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>A função distribuição conjunta acumulada, F, da variável aleatória bidimensional (X,Y) é definida por: <span class="math display">\[\begin{array}{ccc}
-F(x,y)= P(X \leq x, Y \leq y) \ para \ -\infty &lt; x_{i} &lt; \infty \ e \ -\infty &lt; y_{i} &lt; \infty
-\end{array}\]</span></p>
+<p>A função distribuição conjunta acumulada, F, da variável aleatória bidimensional (X,Y) é definida por:</p>
+<p><span class="math display">\[F(x,y)= P(X \leq x, Y \leq y) \ para \ -\infty &lt; x_{i} &lt; \infty \ e \ -\infty &lt; y_{i} &lt; \infty\]</span></p>
 </div>
 </div>
 <p>Seja X e Y duas variáveis aleatórias discretas com função distribuição conjunta <span class="math inline">\(F(x,y)\)</span>, a função distribuição conjunta acumulada de X e Y será:</p>
-<p><span class="math display">\[\begin{array}{ccc}
-F(x,y)=\sum_{f1=- \infty }^{x} \sum_{f2=- \infty }^{y}p(t_{1},t_{2})
-\end{array}\]</span></p>
+<p><span class="math display">\[F(x,y)=\sum_{f1=- \infty }^{x} \sum_{f2=- \infty }^{y}p(t_{1},t_{2})\]</span></p>
 <p>Retomando os exemplos anteriores temos as seguintes funções de distribuição conjunta acumuladas discretas:</p>
 <div class="callout callout-style-default callout-tip no-icon callout-titled" title="EXEMPLO">
 <div class="callout-header d-flex align-content-center">
@@ -727,8 +702,6 @@ F(1.5,2) &amp;= P(X \leq 1.5, Y \leq 2) \\
 \end{aligned}\]</span></p>
 </div>
 </div>
-<section id="visualização-gráfica-2" class="level4" data-number="8.3.1.1">
-<h4 data-number="8.3.1.1" class="anchored" data-anchor-id="visualização-gráfica-2"><span class="header-section-number">8.3.1.1</span> <u>Visualização Gráfica</u></h4>
 <p><strong>BINOMIAL:</strong></p>
 <p>Considere a variável aleatória <span class="math inline">\((X,Y)\)</span> com distribuição binomial e a probabilidade de sucesso de <span class="math inline">\(X\)</span> é igual a 0.75 e de <span class="math inline">\(Y\)</span> igual a 0.25 com 10 rodadas, sua função distribuição acumulada será:</p>
 <div class="cell">
@@ -754,13 +727,10 @@ Considere a variável aleatória <span class="math inline">\((X,Y)\)</span> com 
 </div>
 </div>
 </section>
-</section>
 <section id="variável-aleatória-contínua" class="level3" data-number="8.3.2">
 <h3 data-number="8.3.2" class="anchored" data-anchor-id="variável-aleatória-contínua"><span class="header-section-number">8.3.2</span> Variável Aleatória Contínua</h3>
 <p>Seja X e Y duas variáveis aleatórias contínuas com função distribuição conjunta <span class="math inline">\(F(x,y)\)</span>. Se existir uma função densidade de probabilidade conjunta <span class="math inline">\(f(x,y)\)</span> não negativa, assim a <strong>função distribuição conjunta acumulada de X e Y</strong> será:</p>
-<p><span class="math display">\[\begin{array}{ccc}
-F(x,y) = \int_{-\infty}^{x}\int_{- \infty}^{y} f(t_{1},t_{2})dt_{1}dt_{2} \ para \ -\infty &lt; x_{i} &lt; \infty \ e \ -\infty &lt; y_{i} &lt; \infty
-\end{array}\]</span></p>
+<p><span class="math display">\[F(x,y) = \int_{-\infty}^{x}\int_{- \infty}^{y} f(t_{1},t_{2})dt_{1}dt_{2} \ para \ -\infty &lt; x_{i} &lt; \infty \ e \ -\infty &lt; y_{i} &lt; \infty\]</span></p>
 <div class="callout callout-style-default callout-tip no-icon callout-titled" title="EXEMPLO">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -786,16 +756,11 @@ F(x,y) = \int_{-\infty}^{x}\int_{- \infty}^{y} f(t_{1},t_{2})dt_{1}dt_{2} \ para
 </div>
 <div id="callout-15" class="callout-15-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p>Ver figura abaixo. <span class="math display">\[\begin{array}{ccc}
-P(X \leq 0.4 ,Y \leq 0.4)= \int_{0}^{0.4}\int_{0}^{0.4}f(x,y)dxdy
-\\
-=\int_{0}^{0.4}\int_{0}^{0.4}1dxdy=\int_{0}^{0.4}(\int_{0}^{0.4}1dx)dy=\int_{0}^{0.4}(x\Big|_{0}^{0.4})dy
-\\
-=(0.4-0)\int_{0}^{0.4}dy=(0.4-0).(y\Big|_{0}^{0.4})\\
-=(0.4-0)(0.4-0)=0.016
-\\
-P(X  \leq 0.4,Y \leq 0.4)=0.016
-\end{array}\]</span></p>
+<p>Ver figura abaixo.</p>
+<p><span class="math display">\[P(X \leq 0.4 ,Y \leq 0.4)= \int_{0}^{0.4}\int_{0}^{0.4}f(x,y)dxdy\]</span></p>
+<p><span class="math display">\[=\int_{0}^{0.4}\int_{0}^{0.4}1dxdy=\int_{0}^{0.4}\bigg(\int_{0}^{0.4}1dx\bigg)dy=\int_{0}^{0.4}\Big(x\Big|_{0}^{0.4}\Big)dy\]</span></p>
+<p><span class="math display">\[=(0.4-0)\int_{0}^{0.4}dy=(0.4-0).\Big(y\Big|_{0}^{0.4}\Big)=(0.4-0)(0.4-0)=0.016\]</span></p>
+<p><span class="math display">\[P(X  \leq 0.4,Y \leq 0.4)=0.016\]</span></p>
 </div>
 </div>
 </div>
@@ -810,19 +775,12 @@ P(X  \leq 0.4,Y \leq 0.4)=0.016
 </div>
 <div class="callout-body-container callout-body">
 <p>Seja <span class="math inline">\(X\)</span> e <span class="math inline">\(Y\)</span> duas variáveis aleatórias contínuas com função distribuição conjunta <span class="math inline">\(F(x,y)\)</span> então:</p>
-<p><span class="math display">\[\begin{array}{ccc}
-a) \ F(- \infty, - \infty )=  F(- \infty, y )=  F(x, - \infty )=0 \\
-\end{array}\]</span></p>
-<p><span class="math display">\[\begin{array}{ccc}
-b) \ F(\infty, \infty ) = 1
-\end{array}\]</span></p>
-<p>No caso univariado tem-se: <span class="math display">\[\begin{array}{ccc}
-f(x,y) = \frac{\partial^{2}F(x,y) }{\partial x \partial y}
-\end{array}\]</span></p>
+<p><span class="math display">\[a) \ F(- \infty, - \infty )=  F(- \infty, y )=  F(x, - \infty )=0\]</span></p>
+<p><span class="math display">\[b) \ F(\infty, \infty ) = 1\]</span></p>
+<p>No caso univariado tem-se:</p>
+<p><span class="math display">\[f(x,y) = \frac{\partial^{2}F(x,y) }{\partial x \partial y}\]</span></p>
 </div>
 </div>
-<section id="visualização-gráfica-3" class="level4" data-number="8.3.2.1">
-<h4 data-number="8.3.2.1" class="anchored" data-anchor-id="visualização-gráfica-3"><span class="header-section-number">8.3.2.1</span> <u>Visualização Gráfica</u></h4>
 <p>Vejamos agora alguns gráficos de variáveis aleaórias bidimensionais:</p>
 <p><strong>NORMAL BIVARIADA:</strong></p>
 <p>Considere a variável aleatória <span class="math inline">\((X,Y)\)</span> com distribuição normal bivariada com a esperança de <span class="math inline">\(X\)</span> igual a 10, de <span class="math inline">\(Y\)</span> igual a 4, o desvio-padrões iguais a 3 e 2 respectivamente. Aqui consideremaos a correlação de 0.7 (veremos mais a frente esse conceito). Assim a função distribuição acumulada conjunta terá o seguinte formato:</p>
@@ -849,9 +807,324 @@ f(x,y) = \frac{\partial^{2}F(x,y) }{\partial x \partial y}
 </div>
 </section>
 </section>
+<section id="distribuição-de-probabilidade-marginal-e-condicional" class="level2" data-number="8.4">
+<h2 data-number="8.4" class="anchored" data-anchor-id="distribuição-de-probabilidade-marginal-e-condicional"><span class="header-section-number">8.4</span> Distribuição de Probabilidade Marginal e Condicional</h2>
+<section id="distribuição-de-probabilidade-marginal" class="level3" data-number="8.4.1">
+<h3 data-number="8.4.1" class="anchored" data-anchor-id="distribuição-de-probabilidade-marginal"><span class="header-section-number">8.4.1</span> Distribuição de Probabilidade Marginal</h3>
+<p>Dada a variável bidimensional <span class="math inline">\((X,Y)\)</span> podemos estar interessados em X ou Y individualmente. Agora não mais queremos entender como se distribui conjuntamente renda e consumo. Com base na distribuição conjunta, quero saber somente como a renda distribui, por exemplo.</p>
+<section id="para-o-caso-discreto" class="level4" data-number="8.4.1.1">
+<h4 data-number="8.4.1.1" class="anchored" data-anchor-id="para-o-caso-discreto"><span class="header-section-number">8.4.1.1</span> Para o caso discreto</h4>
+<p>Para o caso discreto, temos a seguinte <strong>distribuição marginal de X</strong>:</p>
+<p><span class="math display">\[p(x_{i})=P(X=x_{i})=P(X=x_i, Y=y_i \ ou \ X=x_i,Y=y_2 ....)\]</span></p>
+<p><span class="math display">\[p(x_i)=\sum_j p(x_i,y_j)\]</span></p>
+<p>Onde p é a função distribuição marginal de <span class="math inline">\(X\)</span>. Podemos pensar em <span class="math inline">\(Y\)</span> de forma análoga.</p>
+<p>A intuição aqui é que se queremos a marginal de <span class="math inline">\(X\)</span> temos que empilhar na direção de <span class="math inline">\(Y\)</span>, assim o eixo <span class="math inline">\(y\)</span> irá sumir. Vejamos graficamente.</p>
+<p>Vejamos um exemplo extraído de Inouye,D.I. et al.(2017)<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="../figuras/capitulos/marginal.png" class="img-fluid figure-img" style="width:50.0%"></p>
+<figcaption>Distribuição marginal de Poisson</figcaption>
+</figure>
+</div>
+<p>Veja que se quisermos a distribuiçao marginal de <span class="math inline">\(X\)</span>, apresentada a esquerda, temos que somar as barras ou empilha-las na direção de <span class="math inline">\(Y\)</span>.</p>
 </section>
-<section id="links" class="level2" data-number="8.4">
-<h2 data-number="8.4" class="anchored" data-anchor-id="links"><span class="header-section-number">8.4</span> Links</h2>
+<section id="para-o-caso-continuo" class="level4" data-number="8.4.1.2">
+<h4 data-number="8.4.1.2" class="anchored" data-anchor-id="para-o-caso-continuo"><span class="header-section-number">8.4.1.2</span> Para o caso continuo</h4>
+<p>O caso contínuo é similar ao discreto. No contínuo, a <strong>função densidade marginal de X</strong> será:</p>
+<p><span class="math display">\[g(x)=\int_{-\infty}^{\infty}f(x,y)dy\]</span></p>
+<p>E a <strong>função densidade marginal de y</strong> será:</p>
+<p><span class="math display">\[h(y)=\int_{-\infty}^{\infty}f(x,y)dx\]</span></p>
+<p>Aqui temos que mostrar uma figura para ilustrar.</p>
+<div class="callout callout-style-default callout-tip no-icon callout-titled" title="EXEMPLO">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>EXEMPLO
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Suponha que <span class="math inline">\((X,Y)\)</span> seja uma variável aleatória bidimensional. Não estamos interessados em <span class="math inline">\(Y\)</span>, gostariamos de saber somente qual a probabilidade de encontrarmos valores de <span class="math inline">\(x\)</span> entre c e d.&nbsp;Assim:</p>
+<p><span class="math display">\[P(c\leq x \leq d)=P[c\leq X \leq d, -\infty &lt; Y &lt; \infty] \]</span></p>
+<p><span class="math display">\[P(c\leq x \leq d)=\int_{c}^{d}\int_{-\infty}^{\infty}f(x,y)dydx \]</span></p>
+<p><span class="math display">\[P(c\leq x \leq d)=\int_{c}^{d}g(x)dx \]</span></p>
+</div>
+</div>
+<p>Vejamos um exemplo extraído de Selvan, R.(2015) <a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a>:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="../figuras/capitulos/marginalcont.png" class="img-fluid figure-img" style="width:65.0%"></p>
+<figcaption>Distribuição marginal de Poisson</figcaption>
+</figure>
+</div>
+<p>Veja que se quisermos a distribuiçao marginal de <span class="math inline">\(X\)</span>, apresentada ao fundo, temos que somar as barras ou empilha-las na direção de <span class="math inline">\(Y\)</span>.</p>
+</section>
+</section>
+<section id="distribuição-de-probabilidade-condicional" class="level3" data-number="8.4.2">
+<h3 data-number="8.4.2" class="anchored" data-anchor-id="distribuição-de-probabilidade-condicional"><span class="header-section-number">8.4.2</span> Distribuição de Probabilidade Condicional</h3>
+<p>Na distribuição maringao, tinhamos a distribuição conjunta entre renda e consumo e estavamos interessados somente na renda. Agora estamos querendo saber qual a distribuição da renda para certa faixa de consumo, ou o contrário, qual a distribuição do consumo para dada faixa de renda.</p>
+<p><strong>Para o caso discreto:</strong></p>
+<p>Para variáveis discretas temos o seguinte:</p>
+<p><span class="math display">\[P(x_i|y_j)=P(X=x_i|Y=y_j)\]</span></p>
+<p><span class="math display">\[P(x_i|y_j)= \frac{P(x_i,y_j)}{q(y_{j})}\]</span></p>
+<p>Note que <span class="math inline">\(P(x_i|y_j)\geq 0\)</span> e <span class="math inline">\(\sum_iP(x_i|y_j)=1\)</span></p>
+<p>Vejamos um exemplo extraído de Inouye,D.I. et al.(2017)<a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a>:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="../figuras/capitulos/condicionaldisc.png" class="img-fluid figure-img" style="width:50.0%"></p>
+<figcaption>Distribuição condicional de Poisson</figcaption>
+</figure>
+</div>
+<p>Veja que se quisermos a distribuição condicional de <span class="math inline">\(X\)</span> dado um certo valor de <span class="math inline">\(Y\)</span>, por exemplo, <span class="math inline">\(Y=2\)</span>.Temos que considerar as barras marcadas e repondera-las pela chance de <span class="math inline">\(Y=2\)</span> acontecer. Ou seja, agora <span class="math inline">\(Y=2\)</span> será o total.</p>
+<section id="para-o-caso-contínuo" class="level4" data-number="8.4.2.1">
+<h4 data-number="8.4.2.1" class="anchored" data-anchor-id="para-o-caso-contínuo"><span class="header-section-number">8.4.2.1</span> Para o caso contínuo</h4>
+<p>Para o caso contínuo a f.d.p. de <span class="math inline">\(X\)</span> condicionada a um dado <span class="math inline">\(Y=y\)</span> é:</p>
+<p><span class="math display">\[g(x|y)= \frac{f(x,y)}{h(y)}\]</span></p>
+<p>De forma análoga para <span class="math inline">\(Y\)</span>:</p>
+<p><span class="math display">\[h(y|x)= \frac{f(x,y)}{g(x)}\]</span></p>
+<p>Note que <span class="math inline">\(g(x|y)\geq 0\)</span> e</p>
+<p><span class="math display">\[\int_{-\infty}^{\infty}g(x|y)dx=\int_{-\infty}^{\infty} \frac {f(x,y)}{h(y)}dx=\frac{h(y)}{h(y)}=1\]</span></p>
+<p>Inserir um gráfico e falar da intuição.</p>
+<p>Vejamos um exemplo extraído de Neuper,M. e Ehret,U. (2019)<a href="#fn4" class="footnote-ref" id="fnref4" role="doc-noteref"><sup>4</sup></a>:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="../figuras/capitulos/condicionalcont.png" class="img-fluid figure-img" style="width:50.0%"></p>
+<figcaption>Distribuição condicional normal</figcaption>
+</figure>
+</div>
+<p>Veja que se quisermos a distribuição condicional de <span class="math inline">\(X\)</span> dado um certo valor de <span class="math inline">\(Y\)</span>, por exemplo, <span class="math inline">\(Y=-2\)</span>.Temos que considerar a linha marcada e novamente reponder todos os elementos pela chance de <span class="math inline">\(Y=-2\)</span> acontecer. Ou seja, agora <span class="math inline">\(Y=-2\)</span> será o total.</p>
+</section>
+</section>
+<section id="variáveis-aleatórias-independentes" class="level3" data-number="8.4.3">
+<h3 data-number="8.4.3" class="anchored" data-anchor-id="variáveis-aleatórias-independentes"><span class="header-section-number">8.4.3</span> Variáveis Aleatórias Independentes</h3>
+<p>Independencia está ligado ao conceito de informação e quanto essa informação recebida muda sua opinião do que irá acontecer com o caso sobre estudo. Podemos dar uma informação sobre renda e perguntarmos sobre o consumo desse parte da população. Quando os resultados de <span class="math inline">\(X\)</span> influenciam o resultado de <span class="math inline">\(Y\)</span> dizemos que as variáveis são dependentes. Caso a informação sobre <span class="math inline">\(X\)</span> não afeta de meneira nenhuma os resultados de <span class="math inline">\(Y\)</span>, dizemos que são independentes.</p>
+<section id="para-o-caso-discreto-1" class="level4" data-number="8.4.3.1">
+<h4 data-number="8.4.3.1" class="anchored" data-anchor-id="para-o-caso-discreto-1"><span class="header-section-number">8.4.3.1</span> Para o caso discreto</h4>
+<div class="callout callout-style-default callout-note no-icon callout-titled" title="DEFINIÇÃO">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>DEFINIÇÃO
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Para a variável bidimensional discreta <span class="math inline">\((X,Y)\)</span>, <span class="math inline">\(X\)</span> e <span class="math inline">\(Y\)</span> serão independentes se</p>
+<p><span class="math display">\[p(x_i,y_j)=p(x_i)p(y_j)\]</span></p>
+<p>Ou, de outra maneira:</p>
+<p><span class="math display">\[P(x_i|y_j)= \frac{P(x_i,y_j)}{q(y_i)}= \frac{P(x_i)q(y_j)}{q(y_i)}=P(x_i)\]</span></p>
+</div>
+</div>
+</section>
+<section id="para-caso-contínuo" class="level4" data-number="8.4.3.2">
+<h4 data-number="8.4.3.2" class="anchored" data-anchor-id="para-caso-contínuo"><span class="header-section-number">8.4.3.2</span> Para caso Contínuo</h4>
+<div class="callout callout-style-default callout-note no-icon callout-titled" title="DEFINIÇÃO">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>DEFINIÇÃO
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Para a variábel bidimensional contínua <span class="math inline">\((X,Y)\)</span>, X e Y serão independentes se: <span class="math display">\[f(x,y)=g(x)h(y)\]</span></p>
+<p>Ou, de outra maneira:</p>
+<p><span class="math display">\[g(x|y)= \frac{f(x,y)}{h(y)}= \frac{g(x)h(y)}{h(y)}=g(x)\]</span></p>
+</div>
+</div>
+<p>Com base nessas definições podemos agora apresentar o seguinte teorema que conecta o que viram em probabilidade com variáveis aleatórias multidimesionais.</p>
+<div class="callout callout-style-default callout-note no-icon callout-titled" title="TEOREMA">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>TEOREMA
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Seja <span class="math inline">\((X,Y)\)</span> uma variável aleatória bidimensional e A e B dois eventos que dependem de X e Y, respectivamente. Então, se <span class="math inline">\(X\)</span> e <span class="math inline">\(Y\)</span> forem independentes:</p>
+<p><span class="math display">\[P(A \cap B)= P(A) P(B)\]</span></p>
+<hr>
+<p><strong>Prova:</strong></p>
+<p><span class="math display">\[P(A \cap B)= {\int_{}^{}\int_{}^{}}_{P(A \cap B)}f(x,y)dxdy= {\int_{}^{}\int_{}^{}}_{P(A \cap B)}g(x)h(y)dxdy\]</span></p>
+<p><span class="math display">\[P(A \cap B)={\int_{A}^{}g(x)dx\int_{B}^{}h(y)dy}=P(A)P(B)\]</span></p>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip no-icon callout-titled" title="EXEMPLO">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>EXEMPLO
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Suponha uma f.d.p. conjunta da variábel aleatória bidimensional <span class="math inline">\((X,Y)\)</span>:</p>
+<p><span class="math display">\[f(x,y)=\left\{\begin{matrix} x^{2}+ \frac{xy}{3}, \ para \ 0&lt;x&lt;1,0&lt;y&lt;2
+\\ 0,\ caso\ contrário
+\end{matrix}\right.\]</span></p>
+<p>Calcule a <span class="math inline">\(P(Y&lt;X)\)</span>:</p>
+</div>
+</div>
+<div class="callout callout-style-default callout-caution no-icon callout-titled" title="RESPOSTA">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-22-contents" aria-controls="callout-22" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Caution</span>RESPOSTA
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-22" class="callout-22-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p><span class="math display">\[P(Y&lt;X)=\int_{0}^{1}\int_{0}^{x} x^{2}+ \frac{xy}{3} dydx\]</span></p>
+<p><span class="math display">\[P(Y&lt;X)=\int_{0}^{1} \bigg[x^{2}y+ \frac{xy^{2}}{6}\bigg]_0^{x} dy \]</span></p>
+<p><span class="math display">\[P(Y&lt;X)=\int_{0}^{1} \bigg[x^{3}+ \frac{x^{3}}{3}\bigg] dy \]</span></p>
+<p><span class="math display">\[P(Y&lt;X)= \bigg[\frac{x^{4}}{4}+ \frac{x^{4}}{24}\bigg]_0^{1} \]</span></p>
+<p><span class="math display">\[P(Y&lt;X)= \frac{1}{4}+\frac{1}{24}=\frac{7}{24}\]</span></p>
+</div>
+</div>
+</div>
+</section>
+</section>
+</section>
+<section id="coeficiente-de-correlação" class="level2" data-number="8.5">
+<h2 data-number="8.5" class="anchored" data-anchor-id="coeficiente-de-correlação"><span class="header-section-number">8.5</span> Coeficiente de Correlação</h2>
+<p>Até o momento medimos a <span class="math inline">\(E(X)\)</span> e a <span class="math inline">\(Var(X)\)</span>, ou seja, uma medida de posição e de variabilidade em relação a <span class="math inline">\(R_x\)</span>, Entretanto, quando temos um vetor bidimensional <span class="math inline">\((X,Y)\)</span> uma outra medida surge, a qual tenta media o “grau de associação” linear entre X e Y.</p>
+<div class="callout callout-style-default callout-note no-icon callout-titled" title="DEFINIÇÃO">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>DEFINIÇÃO
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Seja <span class="math inline">\((X,Y)\)</span> uma variável aleatória bidimensional. O <strong>Coeficiente de Correlação</strong> <span class="math inline">\(\rho_{X,Y}\)</span> entre X e Y será:</p>
+<p><span class="math display">\[\rho_{X,Y}=\frac{E[(X-E(X))(Y-E(Y))]}{\sqrt{Var(X)Var(Y)}}\]</span></p>
+</div>
+</div>
+<p>Um termo muito importante surge na expressão acima, a <strong>Covariância</strong>. Ela mede a variabilidade conjunta de uma variável aleátoria multidimensional. Como no caso da variância, ela sobre do efeito das escalas de medidas. Por isso que anteriormente dividimos pelos desvio-padrões. Lembre-se que já usamos esse artifício anteriormente para nos livrar da unidade de medida.</p>
+<div class="callout callout-style-default callout-note no-icon callout-titled" title="DEFINIÇÃO">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>DEFINIÇÃO
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>A <strong>Covariância</strong> entre <span class="math inline">\(X\)</span> e <span class="math inline">\(Y\)</span>, <span class="math inline">\(Cov(X,Y)\)</span>, é dada por:</p>
+<p><span class="math display">\[Cov(X,Y)=E[(X-E(X))(Y-E(Y))]\]</span></p>
+</div>
+</div>
+<p>Novamente, a correlação mede o <strong>GRAU DE ASSOCIAÇÃO LINEAR</strong>. Vejamos algumas Propriedades da Correlação:</p>
+<div class="callout callout-style-default callout-note no-icon callout-titled" title="TEOREMA">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>TEOREMA
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>O coeficiente de correlação <span class="math inline">\(\rho_{X,Y}\)</span> entre <span class="math inline">\(X\)</span> e <span class="math inline">\(Y\)</span> pode ser apresentado como:</p>
+<p><span class="math display">\[\rho_{X,Y}=\frac{E(XY)-E(X)E(Y)}{\sqrt{Var(X)Var(Y)}}\]</span></p>
+<hr>
+<p><strong>Prova:</strong></p>
+<p><span class="math display">\[E[(X-E(X))(Y-E(Y))]=E[XY-XE(Y)-E(X)Y+E(X)E(Y)]\]</span></p>
+<p><span class="math display">\[= E(XY)-E(X)E(Y)-E(X)E(Y)+E(X)E(Y)= E(XY)-E(X)E(Y)\]</span></p>
+</div>
+</div>
+<div class="callout callout-style-default callout-note no-icon callout-titled" title="TEOREMA">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>TEOREMA
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Se <span class="math inline">\(X\)</span> e <span class="math inline">\(Y\)</span> forem independentes então:</p>
+<p><span class="math display">\[\rho_{X,Y}=0\]</span></p>
+<hr>
+<p><strong>Prova:</strong></p>
+<p>Da propriedade da independência, se <span class="math inline">\(X\)</span> e <span class="math inline">\(Y\)</span> forem independentes então:</p>
+<p><span class="math display">\[E(X,Y)=E(X)E(Y)\]</span></p>
+</div>
+</div>
+<p>Considerando o teorema acima, e sabendo que as variáveis são independentes, então <span class="math inline">\(\rho_{X,Y}=0\)</span></p>
+<p><span style="color:red"><strong>IMPORTANTE</strong></span>: Note que Independência <span class="math inline">\(\Rightarrow \rho_{X,Y}=0\)</span> mas não é verdade que <span class="math inline">\(\rho_{X,Y}=0 \Rightarrow Independência\)</span></p>
+<div class="callout callout-style-default callout-note no-icon callout-titled" title="TEOREMA">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>TEOREMA
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>O Coeficiente de Correlação possui valores entre -1 e 1, ou seja:</p>
+<p><span class="math display">\[-1 \leq \rho \leq 1\]</span></p>
+<hr>
+<p><strong>Prova:</strong></p>
+<p>Considere a seguinte desigualdade verdadeira:</p>
+<p><span class="math display">\[ \bigg(\frac{x-\mu_x}{\sigma_x}\mp \frac{Y-\mu_y}{\sigma_y} \bigg)^{2}\geq 0\]</span></p>
+<p>A expressão continua verdadeira se aplicarmos o operador esperança:</p>
+<p><span class="math display">\[E \bigg(\frac{x-\mu_x}{\sigma_x}\mp \frac{Y-\mu_y}{\sigma_y} \bigg)^{2}\geq 0\]</span></p>
+<p>Desenvolvendo, temos que:</p>
+<p><span class="math display">\[E\bigg[\bigg(\frac{x-\mu_x}{\sigma_x}\bigg)^{2}+\bigg(\frac{Y-\mu_y}{\sigma_y}\bigg)^{2} \mp 2 \bigg(\frac{x-\mu_x}{\sigma_x}\bigg)\bigg(\frac{Y-\mu_y}{\sigma_y}\bigg) \bigg]\geq 0\]</span></p>
+<p><span class="math display">\[\frac{1}{\sigma_x^{2}}E({X-\mu_x})^{2}+\frac{1}{\sigma_y^{2}}E({Y-\mu_y})^{2}\mp 2 \frac{1}{\sigma_x \sigma_y}E[(X-\mu_x)(Y-\mu_y) ]\geq 0\]</span></p>
+<p><span class="math display">\[\frac{\sigma_x^{2}}{\sigma_x^{2}}+\frac{\sigma_y^{2}}{\sigma_y^{2}}\mp 2\rho \geq 0\]</span> <span class="math display">\[\mp 2\rho \geq -2\]</span> <span class="math display">\[\therefore \rho \geq -1 \ e \ \rho \leq 1\]</span></p>
+</div>
+</div>
+<div class="callout callout-style-default callout-note no-icon callout-titled" title="TEOREMA">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>TEOREMA
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Se X e Y forem duas variáveis aleatórias, onde <span class="math inline">\(Y=AX+B\)</span>, onde A e B são constantes. Então <span class="math inline">\(\rho^{2}=1\)</span>. Se <span class="math inline">\(A&gt;0\)</span>, <span class="math inline">\(\rho=1\)</span>. Se <span class="math inline">\(A&lt;0\)</span>, <span class="math inline">\(\rho=-1\)</span></p>
+<hr>
+<p><strong>Prova:</strong></p>
+<p><span class="math display">\[Y= AX +B\]</span></p>
+<p><span class="math display">\[E(Y)=A E(X)+ B \ e \ VAR(Y)=A^{2}VAR(X)\]</span></p>
+<p><span class="math display">\[E(XY)=E(AX^{2}+BX) \ \rightarrow AE(X^{2})+BE(X)\]</span></p>
+<p>Então:</p>
+<p><span class="math display">\[\rho^{2} = \frac{A^{2}Var(X)} {A^{2}Var(X)}=1\]</span></p>
+</div>
+</div>
+<p>Assim, com base no exposto, temos que o coeficiente de correlação é uma medida do grau de linearidade entre X e Y. Dessa forma, <span class="math inline">\(\rho\)</span> próximo a 1 e -1 indicam alto grau de linearidade e <span class="math inline">\(\rho\)</span> próximo a zero indica ausência de relação linear - mas não diz nada sobre relações não-lineares.</p>
+<p>Aqui, apresensemtamos um correlograma com base em variáveis simuladas:</p>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="cap6_va_bidimensional_files/figure-html/unnamed-chunk-11-1.png" class="img-fluid figure-img" style="width:70.0%"></p>
+<figcaption>Gráfico de correlação para variáveis simuladas v1 a v5</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p>Vamos começar pelas variáveis v5 e v4, elas tem um comportantamento conjunto totalmente linear, ou seja, saber de v4 te informa corretmente o que acontecerá com v5. Aqui quando v5 sobe, v4 desce. Vejamos agora as variáveis v3 e v2, observe como os dados estão disperso, sem nenhum padrão de comportamento linear. Nesse caso a correlação é próxima a zero (-0.0135). Perceba que a relação não-linear entre v1 e v4 e v1 e v5, faz com que a correlação seja menor que 1 e não perfeita. Já as variáveis v1 e v2 mostram comportamento conjunto positivo, mas não perfeito, reativamente disperso. Quando v1 sobe, v2 também sobe, entretanto não cosneguimos prever esse comportamento perfeitamente.</p>
+</section>
+<section id="links" class="level2" data-number="8.6">
+<h2 data-number="8.6" class="anchored" data-anchor-id="links"><span class="header-section-number">8.6</span> Links</h2>
 <div class="grid">
 <div class="g-col-3">
 <p>🎞️ <span style="font-size:20px; font-weight:bold;">SLIDES</span></p>
@@ -877,8 +1150,8 @@ f(x,y) = \frac{\partial^{2}F(x,y) }{\partial x \partial y}
 </div>
 </div>
 </section>
-<section id="exercícios" class="level2" data-number="8.5">
-<h2 data-number="8.5" class="anchored" data-anchor-id="exercícios"><span class="header-section-number">8.5</span> Exercícios</h2>
+<section id="exercícios" class="level2" data-number="8.7">
+<h2 data-number="8.7" class="anchored" data-anchor-id="exercícios"><span class="header-section-number">8.7</span> Exercícios</h2>
 <section id="exercício-1-anpec-2022-questão-04" class="level3 unnumbered">
 <h3 class="unnumbered anchored" data-anchor-id="exercício-1-anpec-2022-questão-04">Exercício 1 (ANPEC 2022 — Questão 04)</h3>
 <p><strong>Tema:</strong> V.A. multidimensional contínua: densidade conjunta e esperança de combinação linear.</p>
@@ -886,7 +1159,7 @@ f(x,y) = \frac{\partial^{2}F(x,y) }{\partial x \partial y}
 <p>Encontre o valor esperado de <span class="math inline">\(X+3Y\)</span>.</p>
 <p><strong>Interpretação econômica pedida:</strong> interprete <span class="math inline">\(X\)</span> e <span class="math inline">\(Y\)</span> como dois componentes de custo/receita e <span class="math inline">\(X+3Y\)</span> como um índice econômico ponderado.</p>
 <div class="callout callout-style-default callout-caution no-icon callout-titled" title="RESPOSTA">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-17-contents" aria-controls="callout-17" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-29-contents" aria-controls="callout-29" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
@@ -895,7 +1168,7 @@ f(x,y) = \frac{\partial^{2}F(x,y) }{\partial x \partial y}
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-17" class="callout-17-contents callout-collapse collapse">
+<div id="callout-29" class="callout-29-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>Como está escrito, <span class="math display">\[\int_0^4 \int_1^2 xy\,dy\,dx = 12 \neq 1.\]</span></p>
 <p>Para tratar como densidade conjunta, use a versão normalizada <span class="math display">\[f_{X,Y}(x,y)=kxy\]</span></p>
@@ -927,7 +1200,7 @@ f(x,y) = \frac{\partial^{2}F(x,y) }{\partial x \partial y}
 </ol>
 <p><strong>Interpretação econômica pedida:</strong> use <span class="math inline">\(X\)</span> como “sinal” (choque discreto) e <span class="math inline">\(Y\)</span> como “estado” (regime) e discuta independência.</p>
 <div class="callout callout-style-default callout-caution no-icon callout-titled" title="RESPOSTA">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-18-contents" aria-controls="callout-18" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-30-contents" aria-controls="callout-30" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
@@ -936,7 +1209,7 @@ f(x,y) = \frac{\partial^{2}F(x,y) }{\partial x \partial y}
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-18" class="callout-18-contents callout-collapse collapse">
+<div id="callout-30" class="callout-30-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <ol type="a">
 <li><p>Espaço amostral: <span class="math display">\[\Omega=\{(m_1,m_2,d): m_1,m_2\in\{C,K\},\ d\in\{1,2,3,4,5,6\}\},\]</span> com 24 resultados equiprováveis.</p></li>
@@ -961,7 +1234,7 @@ f(x,y) = \frac{\partial^{2}F(x,y) }{\partial x \partial y}
 </ol>
 <p><strong>Interpretação econômica pedida:</strong> interprete <span class="math inline">\(X\)</span> e <span class="math inline">\(Y\)</span> como durações/tempos de dois processos econômicos e discuta o que significa independência.</p>
 <div class="callout callout-style-default callout-caution no-icon callout-titled" title="RESPOSTA">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-19-contents" aria-controls="callout-19" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-31-contents" aria-controls="callout-31" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
@@ -970,13 +1243,16 @@ f(x,y) = \frac{\partial^{2}F(x,y) }{\partial x \partial y}
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-19" class="callout-19-contents callout-collapse collapse">
+<div id="callout-31" class="callout-31-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <ol type="a">
 <li><p>Marginais <span class="math display">\[f_X(x)=\int_0^\infty e^{-(x+y)}\,dy=e^{-x},\qquad x&gt;0,\]</span> <span class="math display">\[f_Y(y)=\int_0^\infty e^{-(x+y)}\,dx=e^{-y},\qquad y&gt;0.\]</span></p></li>
 <li><p>Como a conjunta fatoriza nas marginais <span class="math display">\[f(x,y)=f_X(x)f_Y(y),\]</span> segue que <span class="math inline">\(X\)</span> e <span class="math inline">\(Y\)</span> são independentes. Portanto, <span class="math display">\[P(0&lt;X&lt;1,\ 1&lt;Y&lt;2)=P(0&lt;X&lt;1)\,P(1&lt;Y&lt;2).\]</span> Logo, <span class="math display">\[P(0&lt;X&lt;1)=1-e^{-1}, \qquad P(1&lt;Y&lt;2)=e^{-1}-e^{-2},\]</span> e <span class="math display">\[P(0&lt;X&lt;1,\ 1&lt;Y&lt;2)=(1-e^{-1})(e^{-1}-e^{-2}).\]</span></p></li>
-<li><p>Pela independência, <span class="math display">\[f_{Y\mid X}(y\mid x)=f_Y(y), \qquad f_{X\mid Y}(x\mid y)=f_X(x).\]</span> Como ambas são Exponencial(1), <span class="math display">\[E(Y\mid X=x)=E(Y)=1, \qquad E(X\mid Y=y)=E(X)=1.\]</span></p></li>
+<li><p>Pela independência,</p>
+<p><span class="math display">\[f_{Y\mid X}(y\mid x)=f_Y(y), \qquad f_{X\mid Y}(x\mid y)=f_X(x).\]</span></p></li>
 </ol>
+<p>Como ambas são Exponencial(1),</p>
+<p><span class="math display">\[E(Y\mid X=x)=E(Y)=1, \qquad E(X\mid Y=y)=E(X)=1.\]</span></p>
 <p><strong>Comentário econômico:</strong> condicionar não muda a média quando os processos são independentes.</p>
 </div>
 </div>
@@ -988,7 +1264,7 @@ f(x,y) = \frac{\partial^{2}F(x,y) }{\partial x \partial y}
 <p>Calcule as densidades marginais e condicionais para a v.a. <span class="math inline">\((X,Y)\)</span>, com f.d.p. dada por <span class="math display">\[f(x,y)=\frac{1}{64}(x+y), \qquad 0\le x\le 4,\ 0\le y\le 4.\]</span></p>
 <p><strong>Interpretação econômica pedida:</strong> interprete a condicional como a distribuição de <span class="math inline">\(X\)</span> dado um nível de <span class="math inline">\(Y\)</span> (por exemplo, risco dado o estado).</p>
 <div class="callout callout-style-default callout-caution no-icon callout-titled" title="RESPOSTA">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-20-contents" aria-controls="callout-20" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-32-contents" aria-controls="callout-32" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
@@ -997,7 +1273,7 @@ f(x,y) = \frac{\partial^{2}F(x,y) }{\partial x \partial y}
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-20" class="callout-20-contents callout-collapse collapse">
+<div id="callout-32" class="callout-32-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>Marginais <span class="math display">\[f_X(x)=\int_0^4 \frac{1}{64}(x+y)\,dy =\frac{1}{64}(4x+8) =\frac{x+2}{16},\qquad 0\le x\le 4,\]</span> <span class="math display">\[f_Y(y)=\int_0^4 \frac{1}{64}(x+y)\,dx =\frac{1}{64}(8+4y) =\frac{y+2}{16},\qquad 0\le y\le 4.\]</span></p>
 <p>Condicionais <span class="math display">\[f_{X\mid Y}(x\mid y)=\frac{f(x,y)}{f_Y(y)} =\frac{\frac{1}{64}(x+y)}{(y+2)/16} =\frac{x+y}{4(y+2)},\qquad 0\le x\le 4,\]</span> <span class="math display">\[f_{Y\mid X}(y\mid x)=\frac{f(x,y)}{f_X(x)} =\frac{\frac{1}{64}(x+y)}{(x+2)/16} =\frac{x+y}{4(x+2)},\qquad 0\le y\le 4.\]</span></p>
@@ -1017,7 +1293,7 @@ f(x,y) = \frac{\partial^{2}F(x,y) }{\partial x \partial y}
 </ol>
 <p><strong>Interpretação econômica pedida:</strong> destaque como a restrição <span class="math inline">\(-x&lt;y&lt;x\)</span> cria dependência econômica entre as variáveis.</p>
 <div class="callout callout-style-default callout-caution no-icon callout-titled" title="RESPOSTA">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-21-contents" aria-controls="callout-21" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-33-contents" aria-controls="callout-33" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
@@ -1026,7 +1302,7 @@ f(x,y) = \frac{\partial^{2}F(x,y) }{\partial x \partial y}
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-21" class="callout-21-contents callout-collapse collapse">
+<div id="callout-33" class="callout-33-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <ol type="a">
 <li><p>Marginal de <span class="math inline">\(X\)</span> <span class="math display">\[f_X(x)=\int_{-x}^{x}\frac18 x(x-y)\,dy =\frac{x^3}{4},\qquad 0&lt;x&lt;2.\]</span> Para <span class="math inline">\(f_Y(y)\)</span>, dado <span class="math inline">\(y\in(-2,2)\)</span>, o suporte impõe <span class="math inline">\(x\in(|y|,2)\)</span>. Então, <span class="math display">\[f_Y(y)=\int_{|y|}^{2}\frac18 x(x-y)\,dx,\qquad -2&lt;y&lt;2.\]</span> Uma forma explícita é <span class="math display">\[f_Y(y)= \begin{cases} \frac13-\frac{y}{4}+\frac{5y^3}{48}, &amp; -2&lt;y&lt;0,\\[0.4em] \frac13-\frac{y}{4}+\frac{y^3}{48}, &amp; 0\le y&lt;2. \end{cases}\]</span></p></li>
@@ -1050,7 +1326,7 @@ f(x,y) = \frac{\partial^{2}F(x,y) }{\partial x \partial y}
 </ol>
 <p><strong>Interpretação econômica pedida:</strong> interprete “com reposição” versus “sem reposição” como “choques independentes” versus “restrição de recursos”.</p>
 <div class="callout callout-style-default callout-caution no-icon callout-titled" title="RESPOSTA">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-22-contents" aria-controls="callout-22" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-34-contents" aria-controls="callout-34" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
@@ -1059,7 +1335,7 @@ f(x,y) = \frac{\partial^{2}F(x,y) }{\partial x \partial y}
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-22" class="callout-22-contents callout-collapse collapse">
+<div id="callout-34" class="callout-34-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>Com reposição, os valores possíveis são <span class="math inline">\(\{1,3,5,7\}\)</span> com <span class="math display">\[P(1)=\frac15,\qquad P(3)=\frac15,\qquad P(5)=\frac25,\qquad P(7)=\frac15.\]</span></p>
 <ol type="a">
@@ -1079,7 +1355,7 @@ f(x,y) = \frac{\partial^{2}F(x,y) }{\partial x \partial y}
 <p>Prove a igualdade abaixo <span class="math display">\[E[E(X\mid Y)] = E(X).\]</span></p>
 <p><strong>Interpretação econômica pedida:</strong> interprete como “média agregada = média das médias por grupo (tipo, setor, região)”.</p>
 <div class="callout callout-style-default callout-caution no-icon callout-titled" title="RESPOSTA">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-23-contents" aria-controls="callout-23" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-35-contents" aria-controls="callout-35" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
@@ -1088,7 +1364,7 @@ f(x,y) = \frac{\partial^{2}F(x,y) }{\partial x \partial y}
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-23" class="callout-23-contents callout-collapse collapse">
+<div id="callout-35" class="callout-35-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>Pela definição, <span class="math display">\[E(X)=\int\!\!\int x\,f_{X,Y}(x,y)\,dx\,dy.\]</span></p>
 <p>Além disso, <span class="math display">\[E(X\mid Y=y)=\int x\,f_{X\mid Y}(x\mid y)\,dx.\]</span></p>
@@ -1108,7 +1384,7 @@ f(x,y) = \frac{\partial^{2}F(x,y) }{\partial x \partial y}
 </ol>
 <p><strong>Interpretação econômica pedida:</strong> interprete <span class="math inline">\(\rho\)</span> como o comovimento linear entre dois choques.</p>
 <div class="callout callout-style-default callout-caution no-icon callout-titled" title="RESPOSTA">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-24-contents" aria-controls="callout-24" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-36-contents" aria-controls="callout-36" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
@@ -1117,7 +1393,7 @@ f(x,y) = \frac{\partial^{2}F(x,y) }{\partial x \partial y}
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-24" class="callout-24-contents callout-collapse collapse">
+<div id="callout-36" class="callout-36-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>Como em Exercício 3, a conjunta fatoriza <span class="math display">\[f(x,y)=f_X(x)f_Y(y),\]</span> então <span class="math inline">\(X\)</span> e <span class="math inline">\(Y\)</span> são independentes. Logo, <span class="math display">\[\operatorname{Cov}(X,Y)=0 \qquad \text{e} \qquad \rho(X,Y)=\frac{\operatorname{Cov}(X,Y)}{\sqrt{\operatorname{Var}(X)\operatorname{Var}(Y)}}=0.\]</span></p>
 <p><strong>Comentário econômico:</strong> ausência de comovimento linear entre os dois choques.</p>
@@ -1165,7 +1441,7 @@ f(x,y) = \frac{\partial^{2}F(x,y) }{\partial x \partial y}
 </ol>
 <p><strong>Interpretação econômica pedida:</strong> dê um exemplo econômico em que variáveis com correlação zero ainda possam ser dependentes por não linearidade ou por restrições.</p>
 <div class="callout callout-style-default callout-caution no-icon callout-titled" title="RESPOSTA">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-25-contents" aria-controls="callout-25" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-37-contents" aria-controls="callout-37" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
@@ -1174,7 +1450,7 @@ f(x,y) = \frac{\partial^{2}F(x,y) }{\partial x \partial y}
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-25" class="callout-25-contents callout-collapse collapse">
+<div id="callout-37" class="callout-37-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <ol type="a">
 <li><p>Por simetria, <span class="math display">\[E(X)=0,\qquad E(Y)=0.\]</span> Além disso, os termos com <span class="math inline">\(xy\)</span> se cancelam e resulta <span class="math display">\[E(XY)=0.\]</span> Portanto, <span class="math display">\[E(XY)=E(X)E(Y)=0,\]</span> donde a correlação é nula <span class="math display">\[\rho=0.\]</span></p></li>
@@ -1196,7 +1472,7 @@ f(x,y) = \frac{\partial^{2}F(x,y) }{\partial x \partial y}
 </ol>
 <p><strong>Interpretação econômica pedida:</strong> conecte <span class="math inline">\(S=X+Y\)</span> à soma de choques (componentes) e à decomposição de risco.</p>
 <div class="callout callout-style-default callout-caution no-icon callout-titled" title="RESPOSTA">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-26-contents" aria-controls="callout-26" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-38-contents" aria-controls="callout-38" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
@@ -1205,7 +1481,7 @@ f(x,y) = \frac{\partial^{2}F(x,y) }{\partial x \partial y}
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-26" class="callout-26-contents callout-collapse collapse">
+<div id="callout-38" class="callout-38-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <ol type="a">
 <li><p><span class="math inline">\(X\)</span> depende apenas dos dois primeiros lançamentos e <span class="math inline">\(Y\)</span> apenas do terceiro. Logo, são independentes e a covariância é nula <span class="math display">\[\operatorname{Cov}(X,Y)=0.\]</span></p></li>
@@ -1256,7 +1532,7 @@ f(x,y) = \frac{\partial^{2}F(x,y) }{\partial x \partial y}
 </table>
 <p><strong>Interpretação econômica pedida:</strong> interprete o sinal e a magnitude como evidência (ou não) de associação entre qualificação e produtividade.</p>
 <div class="callout callout-style-default callout-caution no-icon callout-titled" title="RESPOSTA">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-27-contents" aria-controls="callout-27" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-39-contents" aria-controls="callout-39" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
@@ -1265,7 +1541,7 @@ f(x,y) = \frac{\partial^{2}F(x,y) }{\partial x \partial y}
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-27" class="callout-27-contents callout-collapse collapse">
+<div id="callout-39" class="callout-39-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>Médias amostrais <span class="math display">\[\bar x=18,\qquad \bar y=32.\]</span></p>
 <p>Calcule as somas <span class="math display">\[S_{xy}=\sum_{i=1}^{6}(x_i-\bar x)(y_i-\bar y)=103,\]</span> <span class="math display">\[S_{xx}=\sum_{i=1}^{6}(x_i-\bar x)^2=116,\]</span> <span class="math display">\[S_{yy}=\sum_{i=1}^{6}(y_i-\bar y)^2=214.\]</span></p>
@@ -1277,6 +1553,15 @@ f(x,y) = \frac{\partial^{2}F(x,y) }{\partial x \partial y}
 
 
 </section>
+</section>
+<section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn1"><p>A review of multivariate distributions for count data derived from the Poisson distribution<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2"><p>Selvan, R. 2015. Bayesian tracking of multiple point targets using Expectation Maximization<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn3"><p>A review of multivariate distributions for count data derived from the Poisson distribution<a href="#fnref3" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn4"><p>Quantitative precipitation estimation with weather radar using a data- and information-based approach<a href="#fnref4" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
 </section>
 
 </main> <!-- /main -->
