@@ -37,7 +37,7 @@ library(dplyr)
 
 2.  **`select()`:** Esta função é usada para selecionar colunas específicas do conjunto de dados. No R: `colunas_selecionadas <- select(dados, coluna1, coluna2)`.
 
--  Ver também `select_all()`, `select_if()` and `select_at()` e as seguintes funções `starts_with()`, `ends_with()`, `contains()`. `matches()` e `num_range()`
+-   Ver também `select_all()`, `select_if()` and `select_at()` e as seguintes funções `starts_with()`, `ends_with()`, `contains()`. `matches()` e `num_range()`
 
 2.  **`arrange()`:** Esta função é usada para reordenar linhas com base em uma ou mais variáveis.No R: `dados_ordenados <- arrange(dados, variável)`
 
@@ -79,7 +79,7 @@ Usar o pipe evita a necessidade de criar variáveis intermediárias para armazen
 Continuaremos a utilizar o mesmo banco de dados sobre feminicídio da seção de manipulação.
 
 ```{r}
-final_fem_22 <- read.csv("C:/Users/Alexandre_Nicolella/Aulas/FEA-RP/EstatisticaII/web_estatistica/Estatistica/dados/final_fem_22.csv", head=T ,sep=";")
+final_fem_22 <- read.csv("../dados/final_fem_22.csv", head=T ,sep=";")
 
 ```
 

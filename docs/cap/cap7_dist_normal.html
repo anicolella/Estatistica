@@ -9,7 +9,7 @@
 <meta name="author" content="Alexandre Nicolella">
 <meta name="dcterms.date" content="2026-03-12">
 
-<title>Distribuição Normal e Outras Distribuições</title>
+<title>9&nbsp; Distribuição Normal e Outras Distribuições – Inferência Estatística Aplicada à Economia</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -60,18 +60,52 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </style>
 
 
-<script src="cap7_dist_normal_files/libs/clipboard/clipboard.min.js"></script>
-<script src="cap7_dist_normal_files/libs/quarto-html/quarto.js" type="module"></script>
-<script src="cap7_dist_normal_files/libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="cap7_dist_normal_files/libs/quarto-html/axe/axe-check.js" type="module"></script>
-<script src="cap7_dist_normal_files/libs/quarto-html/popper.min.js"></script>
-<script src="cap7_dist_normal_files/libs/quarto-html/tippy.umd.min.js"></script>
-<script src="cap7_dist_normal_files/libs/quarto-html/anchor.min.js"></script>
-<link href="cap7_dist_normal_files/libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="cap7_dist_normal_files/libs/quarto-html/quarto-syntax-highlighting-7b89279ff1a6dce999919e0e67d4d9ec.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="cap7_dist_normal_files/libs/bootstrap/bootstrap.min.js"></script>
-<link href="cap7_dist_normal_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="cap7_dist_normal_files/libs/bootstrap/bootstrap-9e3ffae467580fdb927a41352e75a2e0.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<link href="../cap/cap6_va_bidimensional.html" rel="prev">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-7b89279ff1a6dce999919e0e67d4d9ec.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-b743810cd4f3cadd9c36b491d3d9683b.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
 
   <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
@@ -105,54 +139,199 @@ window.Quarto = {
 
 </head>
 
-<body class="quarto-light">
+<body class="nav-sidebar docked nav-fixed quarto-light">
 
-<div id="quarto-content" class="page-columns page-rows-contents page-layout-article">
-<div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-  <nav id="TOC" role="doc-toc" class="toc-active">
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a href="../index.html" class="navbar-brand navbar-brand-logo">
+    <img src="../figuras/usp.png" alt="" class="navbar-logo light-content">
+    <img src="../figuras/usp.png" alt="" class="navbar-logo dark-content">
+    </a>
+    <a class="navbar-brand" href="../index.html">
+    <span class="navbar-title">Inferência Estatística Aplicada à Economia</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link active" href="../index.html" aria-current="page"> 
+<span class="menu-text">Home</span></a>
+  </li>  
+</ul>
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/"> <i class="bi bi-github" role="img" aria-label="GitHub">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../cap/cap5_estatistica.html">Motivando e Relembrando</a></li><li class="breadcrumb-item"><a href="../cap/cap7_dist_normal.html"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Distribuição Normal e Outras Distribuições</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header sidebar-header-stacked">
+      <a href="../index.html" class="sidebar-logo-link">
+      </a>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Prefácio</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../cap/cap1_autores.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Sobre o Autor</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../cap/cap2_summary.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Sumário</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
+ <span class="menu-text">Manipulando os Dados</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../cap/cap3_int_R.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Maipulando os Dados</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../cap/cap3_1_dplyr.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">O Dplyr</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../cap/cap4_googledrive.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Google Drive</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
+ <span class="menu-text">Motivando e Relembrando</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../cap/cap5_estatistica.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Uma Introdução à Estatística</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../cap/cap6_va_bidimensional.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Variáveis Aleatórias Multidimensionais</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../cap/cap7_dist_normal.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Distribuição Normal e Outras Distribuições</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#o-modelo-normal" id="toc-o-modelo-normal" class="nav-link active" data-scroll-target="#o-modelo-normal">O Modelo Normal</a>
+  <li><a href="#o-modelo-normal" id="toc-o-modelo-normal" class="nav-link active" data-scroll-target="#o-modelo-normal"><span class="header-section-number">9.1</span> O Modelo Normal</a>
   <ul class="collapse">
-  <li><a href="#a-distribuição-normal" id="toc-a-distribuição-normal" class="nav-link" data-scroll-target="#a-distribuição-normal">A Distribuição Normal</a></li>
-  <li><a href="#momentos" id="toc-momentos" class="nav-link" data-scroll-target="#momentos">Momentos:</a></li>
-  <li><a href="#normal-padronizada" id="toc-normal-padronizada" class="nav-link" data-scroll-target="#normal-padronizada">Normal Padronizada</a></li>
+  <li><a href="#a-distribuição-normal" id="toc-a-distribuição-normal" class="nav-link" data-scroll-target="#a-distribuição-normal"><span class="header-section-number">9.1.1</span> A Distribuição Normal</a></li>
+  <li><a href="#momentos" id="toc-momentos" class="nav-link" data-scroll-target="#momentos"><span class="header-section-number">9.1.2</span> Momentos:</a></li>
+  <li><a href="#normal-padronizada" id="toc-normal-padronizada" class="nav-link" data-scroll-target="#normal-padronizada"><span class="header-section-number">9.1.3</span> Normal Padronizada</a></li>
   </ul></li>
-  <li><a href="#o-modelo-exponencial" id="toc-o-modelo-exponencial" class="nav-link" data-scroll-target="#o-modelo-exponencial">O Modelo Exponencial</a>
+  <li><a href="#o-modelo-exponencial" id="toc-o-modelo-exponencial" class="nav-link" data-scroll-target="#o-modelo-exponencial"><span class="header-section-number">9.2</span> O Modelo Exponencial</a>
   <ul class="collapse">
-  <li><a href="#o-modelo-exponencial-1" id="toc-o-modelo-exponencial-1" class="nav-link" data-scroll-target="#o-modelo-exponencial-1">O Modelo Exponencial</a></li>
-  <li><a href="#momentos-da-distribuição" id="toc-momentos-da-distribuição" class="nav-link" data-scroll-target="#momentos-da-distribuição">Momentos da Distribuição</a></li>
-  <li><a href="#função-distribuição-acumulada-1" id="toc-função-distribuição-acumulada-1" class="nav-link" data-scroll-target="#função-distribuição-acumulada-1">Função Distribuição Acumulada</a></li>
+  <li><a href="#o-modelo-exponencial-1" id="toc-o-modelo-exponencial-1" class="nav-link" data-scroll-target="#o-modelo-exponencial-1"><span class="header-section-number">9.2.1</span> O Modelo Exponencial</a></li>
+  <li><a href="#momentos-da-distribuição" id="toc-momentos-da-distribuição" class="nav-link" data-scroll-target="#momentos-da-distribuição"><span class="header-section-number">9.2.2</span> Momentos da Distribuição</a></li>
+  <li><a href="#função-distribuição-acumulada-1" id="toc-função-distribuição-acumulada-1" class="nav-link" data-scroll-target="#função-distribuição-acumulada-1"><span class="header-section-number">9.2.3</span> Função Distribuição Acumulada</a></li>
   </ul></li>
-  <li><a href="#aproximação-da-binomial-pela-normal" id="toc-aproximação-da-binomial-pela-normal" class="nav-link" data-scroll-target="#aproximação-da-binomial-pela-normal">Aproximação da Binomial pela Normal</a>
+  <li><a href="#aproximação-da-binomial-pela-normal" id="toc-aproximação-da-binomial-pela-normal" class="nav-link" data-scroll-target="#aproximação-da-binomial-pela-normal"><span class="header-section-number">9.3</span> Aproximação da Binomial pela Normal</a>
   <ul class="collapse">
-  <li><a href="#relembrando-a-binomial" id="toc-relembrando-a-binomial" class="nav-link" data-scroll-target="#relembrando-a-binomial">Relembrando a Binomial</a></li>
-  <li><a href="#aproximação-normal-à-binomial" id="toc-aproximação-normal-à-binomial" class="nav-link" data-scroll-target="#aproximação-normal-à-binomial">Aproximação Normal à Binomial</a></li>
+  <li><a href="#relembrando-a-binomial" id="toc-relembrando-a-binomial" class="nav-link" data-scroll-target="#relembrando-a-binomial"><span class="header-section-number">9.3.1</span> Relembrando a Binomial</a></li>
+  <li><a href="#aproximação-normal-à-binomial" id="toc-aproximação-normal-à-binomial" class="nav-link" data-scroll-target="#aproximação-normal-à-binomial"><span class="header-section-number">9.3.2</span> Aproximação Normal à Binomial</a></li>
   </ul></li>
-  <li><a href="#distribuição-gama" id="toc-distribuição-gama" class="nav-link" data-scroll-target="#distribuição-gama">Distribuição Gama</a>
+  <li><a href="#distribuição-gama" id="toc-distribuição-gama" class="nav-link" data-scroll-target="#distribuição-gama"><span class="header-section-number">9.4</span> Distribuição Gama</a>
   <ul class="collapse">
-  <li><a href="#o-modelo-gama" id="toc-o-modelo-gama" class="nav-link" data-scroll-target="#o-modelo-gama">O Modelo Gama</a></li>
-  <li><a href="#momentos-2" id="toc-momentos-2" class="nav-link" data-scroll-target="#momentos-2">Momentos</a></li>
+  <li><a href="#o-modelo-gama" id="toc-o-modelo-gama" class="nav-link" data-scroll-target="#o-modelo-gama"><span class="header-section-number">9.4.1</span> O Modelo Gama</a></li>
+  <li><a href="#momentos-2" id="toc-momentos-2" class="nav-link" data-scroll-target="#momentos-2"><span class="header-section-number">9.4.2</span> Momentos</a></li>
   </ul></li>
-  <li><a href="#distribuição-qui-quadrado" id="toc-distribuição-qui-quadrado" class="nav-link" data-scroll-target="#distribuição-qui-quadrado">Distribuição Qui-Quadrado</a>
+  <li><a href="#distribuição-qui-quadrado" id="toc-distribuição-qui-quadrado" class="nav-link" data-scroll-target="#distribuição-qui-quadrado"><span class="header-section-number">9.5</span> Distribuição Qui-Quadrado</a>
   <ul class="collapse">
-  <li><a href="#o-modelo-qui-quadrado" id="toc-o-modelo-qui-quadrado" class="nav-link" data-scroll-target="#o-modelo-qui-quadrado">O Modelo Qui-Quadrado</a></li>
-  <li><a href="#momentos-3" id="toc-momentos-3" class="nav-link" data-scroll-target="#momentos-3">Momentos</a></li>
-  <li><a href="#resultados-importantes" id="toc-resultados-importantes" class="nav-link" data-scroll-target="#resultados-importantes">Resultados importantes</a></li>
+  <li><a href="#o-modelo-qui-quadrado" id="toc-o-modelo-qui-quadrado" class="nav-link" data-scroll-target="#o-modelo-qui-quadrado"><span class="header-section-number">9.5.1</span> O Modelo Qui-Quadrado</a></li>
+  <li><a href="#momentos-3" id="toc-momentos-3" class="nav-link" data-scroll-target="#momentos-3"><span class="header-section-number">9.5.2</span> Momentos</a></li>
+  <li><a href="#resultados-importantes" id="toc-resultados-importantes" class="nav-link" data-scroll-target="#resultados-importantes"><span class="header-section-number">9.5.3</span> Resultados importantes</a></li>
   </ul></li>
-  <li><a href="#distribuição-t-student" id="toc-distribuição-t-student" class="nav-link" data-scroll-target="#distribuição-t-student">Distribuição t-student</a>
+  <li><a href="#distribuição-t-student" id="toc-distribuição-t-student" class="nav-link" data-scroll-target="#distribuição-t-student"><span class="header-section-number">9.6</span> Distribuição t-student</a>
   <ul class="collapse">
-  <li><a href="#o-modelo-t-student" id="toc-o-modelo-t-student" class="nav-link" data-scroll-target="#o-modelo-t-student">O Modelo t-student</a></li>
-  <li><a href="#momentos-4" id="toc-momentos-4" class="nav-link" data-scroll-target="#momentos-4">Momentos</a></li>
+  <li><a href="#o-modelo-t-student" id="toc-o-modelo-t-student" class="nav-link" data-scroll-target="#o-modelo-t-student"><span class="header-section-number">9.6.1</span> O Modelo t-student</a></li>
+  <li><a href="#momentos-4" id="toc-momentos-4" class="nav-link" data-scroll-target="#momentos-4"><span class="header-section-number">9.6.2</span> Momentos</a></li>
   </ul></li>
-  <li><a href="#distribuição-f" id="toc-distribuição-f" class="nav-link" data-scroll-target="#distribuição-f">Distribuição F</a>
+  <li><a href="#distribuição-f" id="toc-distribuição-f" class="nav-link" data-scroll-target="#distribuição-f"><span class="header-section-number">9.7</span> Distribuição F</a>
   <ul class="collapse">
-  <li><a href="#o-modelo-f" id="toc-o-modelo-f" class="nav-link" data-scroll-target="#o-modelo-f">O Modelo F</a></li>
-  <li><a href="#momentos-5" id="toc-momentos-5" class="nav-link" data-scroll-target="#momentos-5">Momentos</a></li>
+  <li><a href="#o-modelo-f" id="toc-o-modelo-f" class="nav-link" data-scroll-target="#o-modelo-f"><span class="header-section-number">9.7.1</span> O Modelo F</a></li>
+  <li><a href="#momentos-5" id="toc-momentos-5" class="nav-link" data-scroll-target="#momentos-5"><span class="header-section-number">9.7.2</span> Momentos</a></li>
   </ul></li>
-  <li><a href="#links" id="toc-links" class="nav-link" data-scroll-target="#links">Links</a></li>
-  <li><a href="#exercícios" id="toc-exercícios" class="nav-link" data-scroll-target="#exercícios">Exercícios</a>
+  <li><a href="#links" id="toc-links" class="nav-link" data-scroll-target="#links"><span class="header-section-number">9.8</span> Links</a></li>
+  <li><a href="#exercícios" id="toc-exercícios" class="nav-link" data-scroll-target="#exercícios"><span class="header-section-number">9.9</span> Exercícios</a>
   <ul class="collapse">
   <li><a href="#exercício-1-anpec-2022-questão-02" id="toc-exercício-1-anpec-2022-questão-02" class="nav-link" data-scroll-target="#exercício-1-anpec-2022-questão-02">Exercício 1 (ANPEC 2022 — Questão 02)</a></li>
   <li><a href="#exercício-2" id="toc-exercício-2" class="nav-link" data-scroll-target="#exercício-2">Exercício 2</a></li>
@@ -168,12 +347,13 @@ window.Quarto = {
   </ul></li>
   </ul>
 </nav>
-</div>
+    </div>
+<!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default">
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../cap/cap5_estatistica.html">Motivando e Relembrando</a></li><li class="breadcrumb-item"><a href="../cap/cap7_dist_normal.html"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Distribuição Normal e Outras Distribuições</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">Distribuição Normal e Outras Distribuições</h1>
+<h1 class="title"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Distribuição Normal e Outras Distribuições</span></h1>
 <p class="subtitle lead">Conceitos Inciciais</p>
 </div>
 
@@ -203,10 +383,10 @@ window.Quarto = {
 </header>
 
 
-<section id="o-modelo-normal" class="level2">
-<h2 class="anchored" data-anchor-id="o-modelo-normal">O Modelo Normal</h2>
-<section id="a-distribuição-normal" class="level3">
-<h3 class="anchored" data-anchor-id="a-distribuição-normal">A Distribuição Normal</h3>
+<section id="o-modelo-normal" class="level2" data-number="9.1">
+<h2 data-number="9.1" class="anchored" data-anchor-id="o-modelo-normal"><span class="header-section-number">9.1</span> O Modelo Normal</h2>
+<section id="a-distribuição-normal" class="level3" data-number="9.1.1">
+<h3 data-number="9.1.1" class="anchored" data-anchor-id="a-distribuição-normal"><span class="header-section-number">9.1.1</span> A Distribuição Normal</h3>
 <p>Um dos principais modelos de probabilidade. É essencial para inferência estatística (distribuição Gaussiana).</p>
 <div class="callout callout-style-default callout-note no-icon callout-titled" title="DEFINIÇÃO">
 <div class="callout-header d-flex align-content-center">
@@ -282,8 +462,8 @@ window.Quarto = {
 </div>
 <div style="page-break-after: always;"></div>
 </section>
-<section id="momentos" class="level3">
-<h3 class="anchored" data-anchor-id="momentos">Momentos:</h3>
+<section id="momentos" class="level3" data-number="9.1.2">
+<h3 data-number="9.1.2" class="anchored" data-anchor-id="momentos"><span class="header-section-number">9.1.2</span> Momentos:</h3>
 <p>Os primeiros dois momentos da distribuição normal são:</p>
 <div class="callout callout-style-default callout-note no-icon callout-titled" title="DEFINIÇÃO">
 <div class="callout-header d-flex align-content-center">
@@ -307,10 +487,10 @@ window.Quarto = {
 </ul>
 <p><span class="math display">\[f(\mu + x; \mu, \sigma ^{2}) = f(\mu - x; \mu, \sigma ^{2})\]</span></p>
 </section>
-<section id="normal-padronizada" class="level3">
-<h3 class="anchored" data-anchor-id="normal-padronizada">Normal Padronizada</h3>
-<section id="o-modelo" class="level4">
-<h4 class="anchored" data-anchor-id="o-modelo">O Modelo</h4>
+<section id="normal-padronizada" class="level3" data-number="9.1.3">
+<h3 data-number="9.1.3" class="anchored" data-anchor-id="normal-padronizada"><span class="header-section-number">9.1.3</span> Normal Padronizada</h3>
+<section id="o-modelo" class="level4" data-number="9.1.3.1">
+<h4 data-number="9.1.3.1" class="anchored" data-anchor-id="o-modelo"><span class="header-section-number">9.1.3.1</span> O Modelo</h4>
 <p>Um caso especial da distribuição normal é aquela que possui média 0 e desvio padrão igual a 1. Recebe até um nome diferenciado, distribuição normal padrão.</p>
 <div class="callout callout-style-default callout-note no-icon callout-titled" title="DEFINIÇÃO">
 <div class="callout-header d-flex align-content-center">
@@ -329,8 +509,8 @@ window.Quarto = {
 </div>
 </div>
 </section>
-<section id="padronização" class="level4">
-<h4 class="anchored" data-anchor-id="padronização">Padronização</h4>
+<section id="padronização" class="level4" data-number="9.1.3.2">
+<h4 data-number="9.1.3.2" class="anchored" data-anchor-id="padronização"><span class="header-section-number">9.1.3.2</span> Padronização</h4>
 <div class="callout callout-style-default callout-note no-icon callout-titled" title="TEOREMA">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -365,8 +545,8 @@ window.Quarto = {
 </div>
 </div>
 </section>
-<section id="função-distribuição-acumulada" class="level4">
-<h4 class="anchored" data-anchor-id="função-distribuição-acumulada">Função Distribuição Acumulada</h4>
+<section id="função-distribuição-acumulada" class="level4" data-number="9.1.3.3">
+<h4 data-number="9.1.3.3" class="anchored" data-anchor-id="função-distribuição-acumulada"><span class="header-section-number">9.1.3.3</span> Função Distribuição Acumulada</h4>
 <div class="callout callout-style-default callout-note no-icon callout-titled" title="DEFINIÇÃO">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -516,7 +696,7 @@ window.Quarto = {
 <img src="../figuras/capitulos/Imagem8.jpeg" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:70.0%">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-particula-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;1: Consulta à tabela Normal Padrão para o exemplo apresentado
+Figure&nbsp;9.1: Consulta à tabela Normal Padrão para o exemplo apresentado
 </figcaption>
 </figure>
 </div>
@@ -638,11 +818,11 @@ Figure&nbsp;1: Consulta à tabela Normal Padrão para o exemplo apresentado
 </section>
 </section>
 </section>
-<section id="o-modelo-exponencial" class="level2">
-<h2 class="anchored" data-anchor-id="o-modelo-exponencial">O Modelo Exponencial</h2>
+<section id="o-modelo-exponencial" class="level2" data-number="9.2">
+<h2 data-number="9.2" class="anchored" data-anchor-id="o-modelo-exponencial"><span class="header-section-number">9.2</span> O Modelo Exponencial</h2>
 <p>Útil nas aplicações de contabilidade de sistemas.</p>
-<section id="o-modelo-exponencial-1" class="level3">
-<h3 class="anchored" data-anchor-id="o-modelo-exponencial-1">O Modelo Exponencial</h3>
+<section id="o-modelo-exponencial-1" class="level3" data-number="9.2.1">
+<h3 data-number="9.2.1" class="anchored" data-anchor-id="o-modelo-exponencial-1"><span class="header-section-number">9.2.1</span> O Modelo Exponencial</h3>
 <div class="callout callout-style-default callout-note no-icon callout-titled" title="DEFINIÇÃO">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -660,8 +840,8 @@ Figure&nbsp;1: Consulta à tabela Normal Padrão para o exemplo apresentado
 </div>
 </div>
 </section>
-<section id="momentos-da-distribuição" class="level3">
-<h3 class="anchored" data-anchor-id="momentos-da-distribuição">Momentos da Distribuição</h3>
+<section id="momentos-da-distribuição" class="level3" data-number="9.2.2">
+<h3 data-number="9.2.2" class="anchored" data-anchor-id="momentos-da-distribuição"><span class="header-section-number">9.2.2</span> Momentos da Distribuição</h3>
 <p>A distribuição T possui os seguintes Momentos :</p>
 <div class="callout callout-style-default callout-note no-icon callout-titled" title="DEFINIÇÃO">
 <div class="callout-header d-flex align-content-center">
@@ -700,8 +880,8 @@ Figure&nbsp;1: Consulta à tabela Normal Padrão para o exemplo apresentado
 </div>
 </div>
 </section>
-<section id="função-distribuição-acumulada-1" class="level3">
-<h3 class="anchored" data-anchor-id="função-distribuição-acumulada-1">Função Distribuição Acumulada</h3>
+<section id="função-distribuição-acumulada-1" class="level3" data-number="9.2.3">
+<h3 data-number="9.2.3" class="anchored" data-anchor-id="função-distribuição-acumulada-1"><span class="header-section-number">9.2.3</span> Função Distribuição Acumulada</h3>
 <div class="callout callout-style-default callout-note no-icon callout-titled" title="DEFINIÇÃO">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -757,10 +937,10 @@ Figure&nbsp;1: Consulta à tabela Normal Padrão para o exemplo apresentado
 </div>
 </section>
 </section>
-<section id="aproximação-da-binomial-pela-normal" class="level2">
-<h2 class="anchored" data-anchor-id="aproximação-da-binomial-pela-normal">Aproximação da Binomial pela Normal</h2>
-<section id="relembrando-a-binomial" class="level3">
-<h3 class="anchored" data-anchor-id="relembrando-a-binomial">Relembrando a Binomial</h3>
+<section id="aproximação-da-binomial-pela-normal" class="level2" data-number="9.3">
+<h2 data-number="9.3" class="anchored" data-anchor-id="aproximação-da-binomial-pela-normal"><span class="header-section-number">9.3</span> Aproximação da Binomial pela Normal</h2>
+<section id="relembrando-a-binomial" class="level3" data-number="9.3.1">
+<h3 data-number="9.3.1" class="anchored" data-anchor-id="relembrando-a-binomial"><span class="header-section-number">9.3.1</span> Relembrando a Binomial</h3>
 <div class="callout callout-style-default callout-tip no-icon callout-titled" title="EXEMPLO">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -829,8 +1009,8 @@ Figure&nbsp;1: Consulta à tabela Normal Padrão para o exemplo apresentado
 </tbody>
 </table>
 </center>
-<section id="momentos-1" class="level4">
-<h4 class="anchored" data-anchor-id="momentos-1">Momentos:</h4>
+<section id="momentos-1" class="level4" data-number="9.3.1.1">
+<h4 data-number="9.3.1.1" class="anchored" data-anchor-id="momentos-1"><span class="header-section-number">9.3.1.1</span> Momentos:</h4>
 <div class="callout callout-style-default callout-note no-icon callout-titled" title="DEFINIÇÃO">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -852,8 +1032,8 @@ Figure&nbsp;1: Consulta à tabela Normal Padrão para o exemplo apresentado
 </div>
 </section>
 </section>
-<section id="aproximação-normal-à-binomial" class="level3">
-<h3 class="anchored" data-anchor-id="aproximação-normal-à-binomial">Aproximação Normal à Binomial</h3>
+<section id="aproximação-normal-à-binomial" class="level3" data-number="9.3.2">
+<h3 data-number="9.3.2" class="anchored" data-anchor-id="aproximação-normal-à-binomial"><span class="header-section-number">9.3.2</span> Aproximação Normal à Binomial</h3>
 <p>Suponha uma variável Y distribuída pela binomial com parâmetros <span class="math inline">\(n=10\)</span> e <span class="math inline">\(p=\frac{1}{2}\)</span>. Suponha que queremos calcular <span class="math inline">\(P(Y \geq 7)\)</span>. Isso equivale a calcular:</p>
 <center>
 <table class="caption-top table">
@@ -983,10 +1163,10 @@ Figure&nbsp;1: Consulta à tabela Normal Padrão para o exemplo apresentado
 </div>
 </section>
 </section>
-<section id="distribuição-gama" class="level2">
-<h2 class="anchored" data-anchor-id="distribuição-gama">Distribuição Gama</h2>
-<section id="o-modelo-gama" class="level3">
-<h3 class="anchored" data-anchor-id="o-modelo-gama">O Modelo Gama</h3>
+<section id="distribuição-gama" class="level2" data-number="9.4">
+<h2 data-number="9.4" class="anchored" data-anchor-id="distribuição-gama"><span class="header-section-number">9.4</span> Distribuição Gama</h2>
+<section id="o-modelo-gama" class="level3" data-number="9.4.1">
+<h3 data-number="9.4.1" class="anchored" data-anchor-id="o-modelo-gama"><span class="header-section-number">9.4.1</span> O Modelo Gama</h3>
 <p>Uma variável aleatória contínua X que assume valores positivos tem distribuição Gama, com parâmetros <span class="math inline">\(\alpha \geq 1\)</span> e <span class="math inline">\(\beta&gt;0\)</span>, com f.d.p. dada por:</p>
 <div class="callout callout-style-default callout-note no-icon callout-titled" title="DEFINIÇÃO">
 <div class="callout-header d-flex align-content-center">
@@ -1033,8 +1213,8 @@ f(x;\beta,\alpha) = \begin{cases}
 </div>
 </div>
 </section>
-<section id="momentos-2" class="level3">
-<h3 class="anchored" data-anchor-id="momentos-2">Momentos</h3>
+<section id="momentos-2" class="level3" data-number="9.4.2">
+<h3 data-number="9.4.2" class="anchored" data-anchor-id="momentos-2"><span class="header-section-number">9.4.2</span> Momentos</h3>
 <div class="callout callout-style-default callout-note no-icon callout-titled" title="DEFINIÇÃO">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -1053,10 +1233,10 @@ f(x;\beta,\alpha) = \begin{cases}
 </div>
 </section>
 </section>
-<section id="distribuição-qui-quadrado" class="level2">
-<h2 class="anchored" data-anchor-id="distribuição-qui-quadrado">Distribuição Qui-Quadrado</h2>
-<section id="o-modelo-qui-quadrado" class="level3">
-<h3 class="anchored" data-anchor-id="o-modelo-qui-quadrado">O Modelo Qui-Quadrado</h3>
+<section id="distribuição-qui-quadrado" class="level2" data-number="9.5">
+<h2 data-number="9.5" class="anchored" data-anchor-id="distribuição-qui-quadrado"><span class="header-section-number">9.5</span> Distribuição Qui-Quadrado</h2>
+<section id="o-modelo-qui-quadrado" class="level3" data-number="9.5.1">
+<h3 data-number="9.5.1" class="anchored" data-anchor-id="o-modelo-qui-quadrado"><span class="header-section-number">9.5.1</span> O Modelo Qui-Quadrado</h3>
 <div class="callout callout-style-default callout-note no-icon callout-titled" title="DEFINIÇÃO">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -1097,8 +1277,8 @@ f(x;\beta,\alpha) = \begin{cases}
 </div>
 </div>
 </section>
-<section id="momentos-3" class="level3">
-<h3 class="anchored" data-anchor-id="momentos-3">Momentos</h3>
+<section id="momentos-3" class="level3" data-number="9.5.2">
+<h3 data-number="9.5.2" class="anchored" data-anchor-id="momentos-3"><span class="header-section-number">9.5.2</span> Momentos</h3>
 <div class="callout callout-style-default callout-note no-icon callout-titled" title="DEFINIÇÃO">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -1116,8 +1296,8 @@ f(x;\beta,\alpha) = \begin{cases}
 </div>
 <p>Existem tabelas para obter uma probabilidade <span class="math inline">\(P(Y&gt;y_0)\)</span> quando Y é uma variável com distribuição Qui-Quadrado. Além disso, quando <span class="math inline">\(v&gt;30\)</span> podemos utilizar a aproximação normal para a distribuição Qui-Quadrado.</p>
 </section>
-<section id="resultados-importantes" class="level3">
-<h3 class="anchored" data-anchor-id="resultados-importantes">Resultados importantes</h3>
+<section id="resultados-importantes" class="level3" data-number="9.5.3">
+<h3 data-number="9.5.3" class="anchored" data-anchor-id="resultados-importantes"><span class="header-section-number">9.5.3</span> Resultados importantes</h3>
 <p>Temos dois resultados importantes:</p>
 <div class="callout callout-style-default callout-note no-icon callout-titled" title="DEFINIÇÃO">
 <div class="callout-header d-flex align-content-center">
@@ -1140,10 +1320,10 @@ f(x;\beta,\alpha) = \begin{cases}
 </div>
 </section>
 </section>
-<section id="distribuição-t-student" class="level2">
-<h2 class="anchored" data-anchor-id="distribuição-t-student">Distribuição t-student</h2>
-<section id="o-modelo-t-student" class="level3">
-<h3 class="anchored" data-anchor-id="o-modelo-t-student">O Modelo t-student</h3>
+<section id="distribuição-t-student" class="level2" data-number="9.6">
+<h2 data-number="9.6" class="anchored" data-anchor-id="distribuição-t-student"><span class="header-section-number">9.6</span> Distribuição t-student</h2>
+<section id="o-modelo-t-student" class="level3" data-number="9.6.1">
+<h3 data-number="9.6.1" class="anchored" data-anchor-id="o-modelo-t-student"><span class="header-section-number">9.6.1</span> O Modelo t-student</h3>
 <div class="callout callout-style-default callout-note no-icon callout-titled" title="DEFINIÇÃO">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -1187,8 +1367,8 @@ f(x;\beta,\alpha) = \begin{cases}
 </div>
 <p>Observe que quanto maior o grau de liberdade, gl, mais próximo à normal padrão a distribuição de t-student se encontra.</p>
 </section>
-<section id="momentos-4" class="level3">
-<h3 class="anchored" data-anchor-id="momentos-4">Momentos</h3>
+<section id="momentos-4" class="level3" data-number="9.6.2">
+<h3 data-number="9.6.2" class="anchored" data-anchor-id="momentos-4"><span class="header-section-number">9.6.2</span> Momentos</h3>
 <div class="callout callout-style-default callout-note no-icon callout-titled" title="DEFINIÇÃO">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -1206,10 +1386,10 @@ f(x;\beta,\alpha) = \begin{cases}
 </div>
 </section>
 </section>
-<section id="distribuição-f" class="level2">
-<h2 class="anchored" data-anchor-id="distribuição-f">Distribuição F</h2>
-<section id="o-modelo-f" class="level3">
-<h3 class="anchored" data-anchor-id="o-modelo-f">O Modelo F</h3>
+<section id="distribuição-f" class="level2" data-number="9.7">
+<h2 data-number="9.7" class="anchored" data-anchor-id="distribuição-f"><span class="header-section-number">9.7</span> Distribuição F</h2>
+<section id="o-modelo-f" class="level3" data-number="9.7.1">
+<h3 data-number="9.7.1" class="anchored" data-anchor-id="o-modelo-f"><span class="header-section-number">9.7.1</span> O Modelo F</h3>
 <div class="callout callout-style-default callout-note no-icon callout-titled" title="DEFINIÇÃO">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -1227,8 +1407,8 @@ f(x;\beta,\alpha) = \begin{cases}
 </div>
 </div>
 </section>
-<section id="momentos-5" class="level3">
-<h3 class="anchored" data-anchor-id="momentos-5">Momentos</h3>
+<section id="momentos-5" class="level3" data-number="9.7.2">
+<h3 data-number="9.7.2" class="anchored" data-anchor-id="momentos-5"><span class="header-section-number">9.7.2</span> Momentos</h3>
 <div class="callout callout-style-default callout-note no-icon callout-titled" title="DEFINIÇÃO">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -1364,8 +1544,8 @@ f(x;\beta,\alpha) = \begin{cases}
 </div>
 </section>
 </section>
-<section id="links" class="level2">
-<h2 class="anchored" data-anchor-id="links">Links</h2>
+<section id="links" class="level2" data-number="9.8">
+<h2 data-number="9.8" class="anchored" data-anchor-id="links"><span class="header-section-number">9.8</span> Links</h2>
 <div class="grid">
 <div class="g-col-3">
 <p>🎞️ <span style="font-size:20px; font-weight:bold;">SLIDES</span></p>
@@ -1393,8 +1573,8 @@ f(x;\beta,\alpha) = \begin{cases}
 </div>
 </div>
 </section>
-<section id="exercícios" class="level2">
-<h2 class="anchored" data-anchor-id="exercícios">Exercícios</h2>
+<section id="exercícios" class="level2" data-number="9.9">
+<h2 data-number="9.9" class="anchored" data-anchor-id="exercícios"><span class="header-section-number">9.9</span> Exercícios</h2>
 <section id="exercício-1-anpec-2022-questão-02" class="level3 unnumbered">
 <h3 class="unnumbered anchored" data-anchor-id="exercício-1-anpec-2022-questão-02">Exercício 1 (ANPEC 2022 — Questão 02)</h3>
 <p><strong>Tema:</strong> Distribuições contínuas, momentos e transformação linear.</p>
@@ -1776,17 +1956,18 @@ f(x;\beta,\alpha) = \begin{cases}
 </div>
 </div>
 </div>
+
+
 </section>
 </section>
-
-
-<div id="quarto-appendix" class="default"><section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
-
+<section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes">
+<hr>
 <ol>
 <li id="fn1"><p>http://www.portalaction.com.br/probabilidades/62-distribuicao-normal<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 </ol>
-</section></div></main>
-<!-- /main column -->
+</section>
+
+</main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     const icon = "";
@@ -2187,6 +2368,15 @@ f(x;\beta,\alpha) = \begin{cases}
     }
   });
   </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="../cap/cap6_va_bidimensional.html" class="pagination-link" aria-label="Variáveis Aleatórias Multidimensionais">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Variáveis Aleatórias Multidimensionais</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+  </div>
+</nav>
 </div> <!-- /content -->
 
 

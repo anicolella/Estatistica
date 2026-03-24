@@ -249,7 +249,7 @@ data_feminic22<-data.frame(estados, regiao, homic_abs, feminic_abs)
 Podemos modificar o nome das variáveis com o comando `names`. Entretanto, tem que renomear todas
 
 ```{r, results='hide'}
-names(data_feminic22)<-c("estado", "regioa", "homic_abs", "feminic_abs") 
+names(data_feminic22)<-c("estado", "regiao", "homic_abs", "feminic_abs") 
 data_feminic22
 ```
 
@@ -314,12 +314,12 @@ rm(comb1)
 
 Disponibilizamos dois banco de dados, um contendo os homicídios e feminicídios por estado e outro com as tentativas. Esses arquivos estão em formato csv (comma separated values).
 
-Para leitura desse arquivo em csv o seguinte comando é necessário `read.csv`, indicado que possui cabeçalho e que o separador é ";". Observe que vc tem que indicar o caminho correto. 
+Para leitura desse arquivo em csv o seguinte comando é necessário `read.csv`, indicado que possui cabeçalho e que o separador é ";". Observe que vc tem que indicar o caminho correto.
 
 ```{r}
-df_feminic22<-read.csv("C:/Users/Alexandre_Nicolella/Aulas/FEA-RP/EstatisticaII/web_estatistica/Estatistica/dados/dados_feminic.csv", head=TRUE,sep=";")
+df_feminic22 <- read.csv("../dados/dados_feminic.csv", head=TRUE, sep=";")
 
-df_t_feminic22<-read.csv("C:/Users/Alexandre_Nicolella/Aulas/FEA-RP/EstatisticaII/web_estatistica/Estatistica/dados/dados_tent_feminic.csv", head=TRUE,sep=";")
+df_t_feminic22 <- read.csv("../dados/dados_tent_feminic.csv", head=TRUE, sep=";")
 
 ```
 
@@ -343,14 +343,14 @@ O R usa o formato americano de separação numérica. Usa ponto ao invés da ví
 Podemos exportar os dados em diferentes formatos. Alguns exemplos são csv, texto delimitado, excel, stata. Vejamos em csv:
 
 ```{r,eval=F}
-write.table(df_feminic22, "C:/Users/Alexandre_Nicolella/Aulas/FEA-RP/EstatisticaII/web_estatistica/Estatistica/dados/export_feminic.csv", sep=";")
+write.table(df_feminic22, "../dados/export_feminic.csv", sep=";")
 ```
 
 Para exportar em Stata utilize os seguintes comandos:
 
 ```{r,eval=F}
 library(foreign)
-write.dta(df_feminic22, paste(getwd(),"~/Banco de dados/export_feminic.dta",sep=''))
+write.dta(df_feminic22, "../dados/export_feminic.dta")
 ```
 
 ### Lidando com Dados Missing
@@ -532,7 +532,7 @@ library(reshape)
 final_fem_22 <- rename(final_fem_22, c(regiao.x="regiao"))
 
 save(final_fem_22, file = "dados.RData")
-write.table(final_fem_22, "C:/Users/Alexandre_Nicolella/Aulas/FEA-RP/EstatisticaII/web_estatistica/Estatistica/dados/final_fem_22.csv", sep=";")
+write.table(final_fem_22, "../dados/final_fem_22.csv", sep=";")
 ```
 
 **Selecionando Variáveis**:
