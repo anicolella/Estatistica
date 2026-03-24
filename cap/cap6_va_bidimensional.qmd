@@ -839,7 +839,7 @@ Bases de dados e exercícios em Excel.
 ::: {.g-col-3}
 💻 <span style="font-size:20px; font-weight:bold;">SCRIPT R</span>  
 
-[Acessar Scripts R](https://SEU_LINK_R)
+<!-- [Acessar Scripts R](https://SEU_LINK_R) -->
 
 Códigos utilizados nas aulas em R.
 :::
@@ -847,7 +847,7 @@ Códigos utilizados nas aulas em R.
 ::: {.g-col-3}
 🐍 <span style="font-size:20px; font-weight:bold;">SCRIPT PYTHON</span>  
 
-[Acessar Scripts Python](https://SEU_LINK_PYTHON)
+<!-- [Acessar Scripts Python](https://SEU_LINK_PYTHON) -->
 
 Códigos utilizados nas aulas em Python.
 :::
