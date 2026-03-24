@@ -44,7 +44,7 @@ book:
       chapters:
         - cap/cap5_estatistica.qmd
         - cap/cap6_va_bidimensional.qmd
-	- cap/cap7_dist_normal.qmd
+        - cap/cap7_dist_normal.qmd
 
     - part: "Inferência Estatística"
       chapters:
