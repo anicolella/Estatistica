@@ -1,0 +1,163 @@
+---
+title: "Amostragem"
+# subtitle: "Conceitos Inciciais"
+author:
+- Alexandre Nicolella
+date: "03/31/2026"
+format: 
+  html:
+    toc: true
+    fig-align: center
+    #df-print: paged
+knitr:
+  opts_chunk:
+    out.width: "70%"
+execute:
+  echo: false
+  warning: false
+  message: false
+---
+
+## Determinação do tamanho da amostra
+
+Iremos considerar aqui apenas a técnica de amostrage alatatória simples. Nosso objetivo é dar a intuição do processo de amostragem e não ensinar a fazer design de pesquisa de campo. Existem disciplinas específicas para isso.
+
+Duas medidas importantes a serem consideradas.
+
+\begin{enumerate}
+
+  \item Distância Máxima tolerável entre a estimativa e o parâmetro real: $d$
+  
+  \item A probabilidade de que $d$ seja maior que o tolerável: $\alpha$
+  
+\end{enumerate}
+
+### Tamanho da amostra com $\sigma$ conhecido
+
+Considere a desigualdade de Tchebycheff:
+
+$$P(|\overline{X} - \mu| \leq \varepsilon ) \geq 1-\frac{\sigma^{2}}{\varepsilon^{2} n}$$
+
+
+Considerando $\varepsilon=d$, $\frac{\sigma^{2}}{\varepsilon^{2} n}=\alpha$ e trabalhando no limite inferior tolerável (na igualdade):
+
+$$P(|\overline{X} - \mu|\leq d) = 1 - \alpha$$
+
+$$P(-d \leq \overline{X} - \mu\leq d) = 1 - \alpha$$
+
+$$P(-\frac{d}{\sigma/\sqrt{n} } \leq Z \leq \frac{d}{\sigma/\sqrt{n}}) = 1 - \alpha$$
+
+$$P(-\frac{d\sqrt{n}}{\sigma } \leq Z \leq \frac{d\sqrt{n}}{\sigma}) = 1 - \alpha$$
+
+$$P(-Z_c \leq Z \leq Z_c) = 1 - \alpha$$
+
+$$Z_c=\frac{\sqrt{n}d}{\sigma} \rightarrow n=\frac{\sigma^{2}Z_c^{2}}{d^{2}}$$
+
+onde n é o tamanho da amostra. Logo observa-se que o tamanho da amostra não tem relação com o tamanho da população. Se a população for altamente homogênea, a variância será pequena e o tamanho da amostra pequeno. Também depende do erro e da probabilidade de ficar acima do tolerável.
+
+
+::: {.callout-tip  icon="false" title="EXEMPLO"}
+
+Uma pesquisa de satisfação foi feita com os funcionários de uma empresa. O índice vai de 0 a 100 e sabe-se que o desvio padrão é 30. 
+
+Qual o tamanho da amostra de entrevistados, considerando um nível de tolerância $d=1,5$ unidades, com probabilidade $1-\alpha=92,81\%$?
+
+:::
+
+
+::: {.callout-caution  icon="false" collapse="true" title="RESPOSTA"}
+
+Na tabela da distribuição normal padrão:
+
+$$1 -\alpha = 0,9281 \rightarrow Z_c=1,8$$
+
+Como d=1,5 então:
+
+$$n= \bigg(\frac{1,8 . 30}{1,5} \bigg)^{2}\cong 1.296$$
+
+:::
+
+### Tamanho da amostra com população finita
+
+Se a população for finita a independência entre os elementos $X_i$ não é válida. Disto segue que:
+
+$$Var(\overline{X}) = \frac{\sigma^{2}}{n}$$
+
+é caso particular de:
+
+$$Var(\overline{X}) = \sigma^{2} \bigg(\frac{1}{n}-\frac{1}{N} \bigg)$$
+
+Onde N é o tamanho populacional. Assim, para N finito e conhecido basta utilizar:
+
+$$n' = \frac{n}{1+ n/N}$$
+
+Note que se $n$ for muito menor que $N$ então $n' \rightarrow n$ e
+
+$$Var(\overline{X}) = \sigma^{2} \bigg(\frac{1}{n}-\frac{1}{N} \bigg) \rightarrow \frac{\sigma^{2}}{n}$$
+
+Ou seja, converge para a amostragem anterior para população infinita.
+
+### Tamanho da amostra com $\sigma$ desconhecido: média amostral
+
+Como não temos $\sigma$ temos que fazer uma amostra piloto com $n_1$ elementos e estimar o desvio padrão da seguinte maneira:
+
+$$S_1=\sqrt{\frac{\sum (X_i - \overline{X})^{2}}{n-1}}$$
+
+Assim pode-se calcular:
+
+$$n=\frac{S_1 ^{2} Z_c^{2}}{d^{2}} $$
+
+Assim como temos já $n_1$ elementos agora podemos complementar até chegar a a $n$
+
+### Proporção populacional
+
+Agora queremos garantir que:
+
+$$P(|\hat{p} - p|\leq d) = 1 - \alpha$$
+
+O tamanho da amostra será tal que:
+
+$$n=\frac{ Z_{c}^{2}}{d^{2}} p (1-p)$$
+
+se não sabemos nada considerar $p=0,5$, esse irá gerar a maior amostra para dado $\alpha$ e $d$
+
+\begin{tcolorbox}
+O exemplo no R:
+\end{tcolorbox}
+
+Vejamos como ficaria o tamanho amostral para uma pesquisa eleitoral onde consideramos que $p=0.4$, $1-p=0.6$, $1-\alpha=0,95$ e iremos considerar varios $d$, margem de erro. Ou seja, a primeira é dois pontos percentuais para mais ou menos, o segundo 1,5 pontos percentuais, o terceiro, 1 ponto e por fim 0,5 pontos percentuais. Vejamos o que essa mudança no que estamos ropensos a aceitar como margem de erro afeta o custo da pesquisa. Vimos que o valor por questionário era de R\$53,00.
+
+
+```{r}
+#| echo = TRUE
+# Utilizando a tabela normal vimos que para alpha de 5% o 
+  #valor de Zc é 1,96, sendo p=0.4 e q=0.6
+
+# para uma margem de erro de 2 pontos para cima e para 
+#baixo,tem-se 
+1.96^2*0.4*0.6/(0.02^2)  # Tamanho amostral
+
+(1.96^2*0.4*0.6/(0.02^2))*53 # Custo da pesquisa
+
+# para uma margem de erro de 1.5 pontos para cima e para 
+#baixo,tem-se 
+1.96^2*0.4*0.6/(0.015^2)  # Tamanho amostral
+
+(1.96^2*0.4*0.6/(0.015^2))*53 # Custo da pesquisa
+
+# para uma margem de erro de 1 pontos para cima e para 
+#baixo,tem-se 
+1.96^2*0.4*0.6/(0.01^2)  # Tamanho amostral
+
+(1.96^2*0.4*0.6/(0.01^2))*53 # Custo da pesquisa
+
+
+# para uma margem de erro de 1 pontos para cima e para 
+#baixo,tem-se 
+1.96^2*0.4*0.6/(0.005^2)  # Tamanho amostral
+
+(1.96^2*0.4*0.6/(0.005^2))*53 # Custo da pesquisa
+
+```
+
+Notamos que para sairmos de uma margem de erro de 2 pontos para uma margem de erro de 0.5 pontos percentuais o custo sai de R\$122 mil para quase R\$ 2 milhões. O custo cresce de forma exponencial com o aumento da precisão.

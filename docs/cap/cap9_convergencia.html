@@ -6,8 +6,10 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="Alexandre Nicolella">
+<meta name="dcterms.date" content="2026-03-31">
 
-<title>2&nbsp; Sobre o Autor – Inferência Estatística Aplicada à Economia</title>
+<title>11&nbsp; Modos de Convergência – Inferência Estatística Aplicada à Economia</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -30,8 +32,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
-<link href="../cap/cap2_summary.html" rel="next">
-<link href="../index.html" rel="prev">
+<link href="../cap/cap10_amostragem.html" rel="next">
+<link href="../cap/cap8_inferencia.html" rel="prev">
 <script src="../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
@@ -71,6 +73,35 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 </head>
 
@@ -117,7 +148,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../cap/cap1_autores.html"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Sobre o Autor</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../cap/cap8_inferencia.html">Inferência Estatística</a></li><li class="breadcrumb-item"><a href="../cap/cap9_convergencia.html"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Modos de Convergência</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -149,7 +180,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../cap/cap1_autores.html" class="sidebar-item-text sidebar-link active">
+  <a href="../cap/cap1_autores.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Sobre o Autor</span></span></a>
   </div>
 </li>
@@ -234,7 +265,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../cap/cap9_convergencia.html" class="sidebar-item-text sidebar-link">
+  <a href="../cap/cap9_convergencia.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Modos de Convergência</span></span></a>
   </div>
 </li>
@@ -302,23 +333,45 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#alexandre-nicolella" id="toc-alexandre-nicolella" class="nav-link active" data-scroll-target="#alexandre-nicolella"><span class="header-section-number">2.1</span> <strong>Alexandre Nicolella</strong></a></li>
+  <li><a href="#modos-de-convergência" id="toc-modos-de-convergência" class="nav-link active" data-scroll-target="#modos-de-convergência"><span class="header-section-number">11.1</span> Modos de Convergência</a>
+  <ul class="collapse">
+  <li><a href="#convergência-de-uma-sequência-numérica" id="toc-convergência-de-uma-sequência-numérica" class="nav-link" data-scroll-target="#convergência-de-uma-sequência-numérica"><span class="header-section-number">11.1.1</span> Convergência de uma sequência numérica</a></li>
+  <li><a href="#convergência-em-distribuição-e-o-teorema-do-limite-central." id="toc-convergência-em-distribuição-e-o-teorema-do-limite-central." class="nav-link" data-scroll-target="#convergência-em-distribuição-e-o-teorema-do-limite-central."><span class="header-section-number">11.1.2</span> Convergência em Distribuição e o Teorema do Limite Central.</a></li>
+  <li><a href="#teorema-do-limite-central-tlc-aplicação-da-convergência-em-distribuição." id="toc-teorema-do-limite-central-tlc-aplicação-da-convergência-em-distribuição." class="nav-link" data-scroll-target="#teorema-do-limite-central-tlc-aplicação-da-convergência-em-distribuição."><span class="header-section-number">11.1.3</span> Teorema do Limite Central (TLC): Aplicação da Convergência em Distribuição.</a></li>
+  <li><a href="#aproximação-normal-da-binomial" id="toc-aproximação-normal-da-binomial" class="nav-link" data-scroll-target="#aproximação-normal-da-binomial"><span class="header-section-number">11.1.4</span> Aproximação Normal da Binomial</a></li>
+  <li><a href="#convergência-em-probabilidade-e-a-lei-dos-grandes-números" id="toc-convergência-em-probabilidade-e-a-lei-dos-grandes-números" class="nav-link" data-scroll-target="#convergência-em-probabilidade-e-a-lei-dos-grandes-números"><span class="header-section-number">11.1.5</span> Convergência em Probabilidade e a Lei dos Grandes Números</a></li>
+  <li><a href="#a-lei-dos-grandes-números-lgn-aplicação-da-convergência-em-probabilidade" id="toc-a-lei-dos-grandes-números-lgn-aplicação-da-convergência-em-probabilidade" class="nav-link" data-scroll-target="#a-lei-dos-grandes-números-lgn-aplicação-da-convergência-em-probabilidade"><span class="header-section-number">11.1.6</span> A Lei dos Grandes Números (LGN): Aplicação da Convergência em Probabilidade</a></li>
+  <li><a href="#convergência-em-média-quadrática" id="toc-convergência-em-média-quadrática" class="nav-link" data-scroll-target="#convergência-em-média-quadrática"><span class="header-section-number">11.1.7</span> Convergência em Média Quadrática</a></li>
+  <li><a href="#relação-entre-as-convergências" id="toc-relação-entre-as-convergências" class="nav-link" data-scroll-target="#relação-entre-as-convergências"><span class="header-section-number">11.1.8</span> Relação entre as convergências</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default">
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../cap/cap8_inferencia.html">Inferência Estatística</a></li><li class="breadcrumb-item"><a href="../cap/cap9_convergencia.html"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Modos de Convergência</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Sobre o Autor</span></h1>
+<h1 class="title"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Modos de Convergência</span></h1>
 </div>
 
 
 
 <div class="quarto-title-meta">
 
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Alexandre Nicolella </p>
+          </div>
+  </div>
     
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">March 31, 2026</p>
+    </div>
+  </div>
   
     
   </div>
@@ -328,20 +381,244 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<div class="container" style="display: flex; flex-direction: column; gap: 2rem;">
-<div class="autor" style="display: flex; align-items: center; gap: 1.5rem; flex-wrap: wrap;">
-<section id="alexandre-nicolella" class="level2 bio" data-number="2.1">
-<h2 data-number="2.1" class="anchored" data-anchor-id="alexandre-nicolella"><span class="header-section-number">2.1</span> <strong>Alexandre Nicolella</strong></h2>
-<p><img src="../figuras/alexandre.jpg" style="border-radius: 50%; object-fit: cover; box-shadow: 0 4px 8px rgba(0,0,0,0.15);" width="140" height="140"></p>
-<p>É professor de Economia na Universidade de São Paulo, atuando na Faculdade de Economia, Administração e Contabilidade de Ribeirão Preto (FEA-RP). Possui doutorado em Economia Aplicada pela mesma universidade, com períodos de pesquisa como professor visitante na University of Kent (Reino Unido) e na University of Illinois (EUA). Sua atuação recente tem se concentrado nas áreas de economia social e ambiental, com projetos financiados por instituições internacionais como IFPRI, Banco Mundial, GIZ e BID, além de agências nacionais como CAPES, FAPESP, MEC, INEP e BNDES. Leciona disciplinas de Estatística na graduação e Avaliação de Políticas Públicas na pós-graduação em Economia. Tem experiência consolidada na aplicação de métodos quantitativos à análise de questões sociais e na avaliação de impacto de políticas públicas.</p>
-<p>📘 <a href="https://lattes.cnpq.br/1375868138002604">Currículo Lattes</a> •</p>
-<p>🔗 <a href="https://orcid.org/0000-0002-1006-6527">ORCID</a></p>
-<p>🐙 <a href="https://github.com/anicolella">GitHub</a></p>
+<section id="modos-de-convergência" class="level2" data-number="11.1">
+<h2 data-number="11.1" class="anchored" data-anchor-id="modos-de-convergência"><span class="header-section-number">11.1</span> Modos de Convergência</h2>
+<p>Gostariamos de saber se uma sequência de variáveis aleatórias <span class="math inline">\(X_1,X_2,...,X_n\)</span> caminha ou converge na direção de <span class="math inline">\(X\)</span>. Assim, suponha que queiramos saber o valor de <span class="math inline">\(X\)</span>, fazemos uma medida via <span class="math inline">\(X_1\)</span>, podemos aumentar o número de medidas para <span class="math inline">\(X_2\)</span> e observamos se chega mais próximo de <span class="math inline">\(X\)</span>, e constinuamos até <span class="math inline">\(X_n\)</span> e vemos se essa sequencia de medidas vai convergindo para <span class="math inline">\(X\)</span>.Veremos aqui 3 tipos de convergência.</p>
+<section id="convergência-de-uma-sequência-numérica" class="level3" data-number="11.1.1">
+<h3 data-number="11.1.1" class="anchored" data-anchor-id="convergência-de-uma-sequência-numérica"><span class="header-section-number">11.1.1</span> Convergência de uma sequência numérica</h3>
+<div class="callout callout-style-default callout-note no-icon callout-titled" title="DEFINIÇÃO">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>DEFINIÇÃO
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><strong>Convergência:</strong></p>
+<p>Uma sequência de números reais <span class="math inline">\(\{\alpha_i\}\)</span> <span class="math inline">\(i=1,2,..,n\)</span> converge para um número real <span class="math inline">\(\alpha\)</span> se para qualquer <span class="math inline">\(\varepsilon&gt;0\)</span> existe um inteiro N onde para todo <span class="math inline">\(n&gt;N\)</span> tem-se:</p>
+<p><span class="math display">\[|\alpha_n - \alpha |&lt;\varepsilon\]</span></p>
+<p>Assim:</p>
+<p><span class="math inline">\(\alpha_n \rightarrow \alpha\)</span> quando <span class="math inline">\(n \rightarrow \infty\)</span> ou</p>
+<p><span class="math inline">\(lim_{n \rightarrow \infty} \alpha_n = \alpha\)</span></p>
+</div>
+</div>
+<p>No caso de variáveis aleatórias, como só podemos falar de probabilidade, a definição anterior de convergência não é válida.</p>
 </section>
+<section id="convergência-em-distribuição-e-o-teorema-do-limite-central." class="level3" data-number="11.1.2">
+<h3 data-number="11.1.2" class="anchored" data-anchor-id="convergência-em-distribuição-e-o-teorema-do-limite-central."><span class="header-section-number">11.1.2</span> Convergência em Distribuição e o Teorema do Limite Central.</h3>
+<p>É forma mais fraca de convergência, dizemos que a fda de <span class="math inline">\(X_n\)</span> converge para a fda de <span class="math inline">\(X\)</span>. Formalmente:</p>
+<div class="callout callout-style-default callout-note no-icon callout-titled" title="DEFINIÇÃO">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>DEFINIÇÃO
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><strong>Convergência em Distribuição</strong></p>
+<p>Uma sequência de v.a. <span class="math inline">\(\{X_i\}\)</span> <span class="math inline">\(i=1,2,..,n\)</span> converge para <span class="math inline">\(X\)</span> em distribuição se a função de distribuição acumulada <span class="math inline">\(F_{X_n}\)</span> de <span class="math inline">\(X_i\)</span> converge para a f.d.a. <span class="math inline">\(F_X\)</span> de <span class="math inline">\(X\)</span> em cada ponto da F. Em outras palavras:</p>
+<p><span class="math inline">\(X_n \overset{d}{\rightarrow} X\)</span> ou</p>
+<p><span class="math inline">\(\lim_{n \rightarrow\infty}F_{X_n}(x)=F_{X}(x)\)</span> é a distribuição limite de <span class="math inline">\(X_n\)</span>.</p>
+</div>
+</div>
+</section>
+<section id="teorema-do-limite-central-tlc-aplicação-da-convergência-em-distribuição." class="level3" data-number="11.1.3">
+<h3 data-number="11.1.3" class="anchored" data-anchor-id="teorema-do-limite-central-tlc-aplicação-da-convergência-em-distribuição."><span class="header-section-number">11.1.3</span> Teorema do Limite Central (TLC): Aplicação da Convergência em Distribuição.</h3>
+<p>Um dos resultados mais importantes em estatística e que afirma que a soma de um grande número de variáveis aleatórias possui distribuição normal. Suponha uma sequência <span class="math inline">\(X_1, X_2, ...., X_n\)</span> a qual possui a mesma distribuição de <span class="math inline">\(X\)</span>. A média <span class="math inline">\(\overline{X}\)</span>, que é uma soma de variáveis aleatórias, possui <span class="math inline">\(E(\overline{X})=\mu\)</span> e a variância <span class="math inline">\(Var(\overline{X})=\frac{\sigma^2}{n}\)</span>. Podemos normalizar a variável aleatória <span class="math inline">\(\overline{X}\)</span>, ou seja <span class="math inline">\(Z_n\)</span>:</p>
+<p><span class="math display">\[Z_n=\frac{\overline{X}_n- E(\overline{X}_n)}{\sqrt{Var(\overline{X}_n)}}\]</span></p>
+<p>Dessa forma podemos fazer a seguinte definição:</p>
+<div class="callout callout-style-default callout-note no-icon callout-titled" title="DEFINIÇÃO">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>DEFINIÇÃO
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><strong>Teorema do Limite Central</strong></p>
+<p>Seja <span class="math inline">\(X_1, X_2,...,X_n\)</span> uma sequência de variáveis aleatórias com <span class="math inline">\(E(X_i)=\mu\)</span> e <span class="math inline">\(Var(X_i)=\sigma^2\)</span>. A variável <span class="math inline">\(\overline{X}\)</span> normalizada:</p>
+<p><span class="math display">\[Z_n=\frac{\overline{X}_n- E(\overline{X}_n)}{\sqrt{Var(\overline{X}_n)}} =\frac{X_1+X_2+,...+X_n-n\mu}{\frac{\sigma}{\sqrt{n}}}\]</span></p>
+<p>converge em distribuição para uma normal padrão quando <span class="math inline">\(n\)</span> vai para o infinito, assim:</p>
+<p><span class="math inline">\(\lim_{n \rightarrow\infty}P(Z_n \leq x)=\Phi(x)\)</span> para to <span class="math inline">\(x \in \mathbb{R}\)</span></p>
+<p>Portanto,</p>
+<p><span class="math display">\[Z_n \overset{d}{\rightarrow} N(0,1)\]</span></p>
+</div>
+</div>
+<p>Assim, temos a distribuição assintótica de <span class="math inline">\(Z_n\)</span> (a qual se aproxima quando n é grande), será:</p>
+<p><span class="math display">\[Z_n \overset{a}{\sim } N(0,1)\]</span></p>
+<p>Isso implica que a distribuição assintótica da sequência <span class="math inline">\(\overline{X}_n\)</span> é:</p>
+<p><span class="math display">\[\overline{X}_n\overset{a}{\sim }N(E(\overline{X_n}),Var(\overline{X_n}))\]</span></p>
+</section>
+<section id="aproximação-normal-da-binomial" class="level3" data-number="11.1.4">
+<h3 data-number="11.1.4" class="anchored" data-anchor-id="aproximação-normal-da-binomial"><span class="header-section-number">11.1.4</span> Aproximação Normal da Binomial</h3>
+<p>Recordando, uma variável com distribuição Binomial <span class="math inline">\(X\)</span> é a soma de v.a. Bernoulli iid <span class="math inline">\(\{Y_i\}\)</span> tal que <span class="math inline">\(X= \sum Y_i\)</span>. Sendo que <span class="math inline">\(Y_i=1\)</span> com probabilidade <span class="math inline">\(p\)</span> e <span class="math inline">\(Y_i=0\)</span> com probabilidade <span class="math inline">\((1-p)\)</span>.</p>
+<p><span class="math inline">\(\hat{p}=\frac{X}{n}\)</span></p>
+<p>Assim, se as condições do TLC são satisfeitas, com <span class="math inline">\(E(Y_i)=p\)</span>, <span class="math inline">\(Var(Y_i)=(1-p)p\)</span> e <span class="math inline">\(\hat{p}=\frac{X}{n}\)</span> então:</p>
+<p><span class="math display">\[\frac{\frac{X}{n}-p} {\sqrt{(1-p)p/n}}\overset{d}{\rightarrow} N(0,1)\]</span></p>
+<p>Assim:</p>
+<p><span class="math display">\[\frac{X}{n} \overset{a}{\sim } N(p, pq/n)\]</span></p>
+<p>Ou:</p>
+<p><span class="math display">\[X \overset{a}{\sim } N(np, npq)\]</span></p>
+</section>
+<section id="convergência-em-probabilidade-e-a-lei-dos-grandes-números" class="level3" data-number="11.1.5">
+<h3 data-number="11.1.5" class="anchored" data-anchor-id="convergência-em-probabilidade-e-a-lei-dos-grandes-números"><span class="header-section-number">11.1.5</span> Convergência em Probabilidade e a Lei dos Grandes Números</h3>
+<p>É um modo de convergência mais forte do que a convergência em distribuição, muitas vezes chamada de convergência estocástica. Vejamos a definição:</p>
+<div class="callout callout-style-default callout-note no-icon callout-titled" title="DEFINIÇÃO">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>DEFINIÇÃO
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><strong>Convergência em Probabilidade:</strong></p>
+<p>Uma sequência de v.a. <span class="math inline">\(X_1,X_2,,...,X_n\)</span> converge em probabilidade para uma v.a. <span class="math inline">\(X\)</span>, ou seja,</p>
+<p><span class="math inline">\(X_n \overset{p}{\rightarrow} X\)</span> quando <span class="math inline">\(n \rightarrow \infty\)</span>, se:</p>
+<p><span class="math inline">\(lim_{n \rightarrow \infty} P(|X_n - X |\geq \varepsilon) = 0\)</span> ou</p>
+<p><span class="math inline">\(plim_{n \rightarrow \infty} X_n = X\)</span></p>
+</div>
+</div>
+</section>
+<section id="a-lei-dos-grandes-números-lgn-aplicação-da-convergência-em-probabilidade" class="level3" data-number="11.1.6">
+<h3 data-number="11.1.6" class="anchored" data-anchor-id="a-lei-dos-grandes-números-lgn-aplicação-da-convergência-em-probabilidade"><span class="header-section-number">11.1.6</span> A Lei dos Grandes Números (LGN): Aplicação da Convergência em Probabilidade</h3>
+<section id="lei-fraca-dos-grandes-números" class="level4" data-number="11.1.6.1">
+<h4 data-number="11.1.6.1" class="anchored" data-anchor-id="lei-fraca-dos-grandes-números"><span class="header-section-number">11.1.6.1</span> Lei Fraca dos Grandes Números</h4>
+<p>A Lei dos Grandes Números é o Teorema que descreve o resultado de um experimento realizado um grande número de vezes. A Lei Fraca será nosso foco, pois é bem menos restritiva em termos de convergência, ou seja, exige uma convergência mais fraca e é suficiente para os problemas econométricos que veremos a frente.</p>
+<div class="callout callout-style-default callout-note no-icon callout-titled" title="DEFINIÇÃO">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>DEFINIÇÃO
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><strong>Lei Fraca dos Grandes Números</strong></p>
+<p>Dada uma sequência da v.a. <span class="math inline">\(X_i\)</span> e <span class="math inline">\(\overline{X}_n=\frac{1}{n} \sum X_i\)</span>, a Lei Fraca Dos Grandes Números coloca que <span class="math inline">\(\overline{X}_n - E(\overline{X}_n)\)</span> converge para 0 em probabilidade. Portanto:</p>
+<p><span class="math inline">\(\overline{X}_n - E(\overline{X}_n) \overset{p}{\rightarrow} 0\)</span></p>
+<p>ou</p>
+<p><span class="math inline">\(\overline{X}_n \overset{p}{\rightarrow} E(\overline{X}_n)=\mu\)</span></p>
+</div>
+</div>
+<p>Assim temos o seguinte teorema</p>
+<div class="callout callout-style-default callout-note no-icon callout-titled" title="TEOREMA">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>TEOREMA
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Seja uma sequência <span class="math inline">\(X_1,X_2,...,X_n\)</span> iid com <span class="math inline">\(E(X_i)=\mu\)</span> e <span class="math inline">\(Var(X_i)=\sigma^2\)</span>. Então:</p>
+<p><span class="math inline">\(\overline{X_n} \overset{p}{\rightarrow} \mu\)</span> quando $n $.</p>
+<hr>
+<p><strong>Prova:</strong></p>
+<p>Utilizando a desigualdade de Tchebycheff:</p>
+<p><span class="math display">\[P(|\overline{X} - \mu|&lt; \varepsilon ) \geq 1-\frac{\sigma^{2}}{\varepsilon^{2} n}\]</span></p>
+<p><span class="math display">\[lim_{n \rightarrow \infty} P(|\overline{X} - \mu|&lt; \varepsilon ) = 1\]</span></p>
+<p>ou</p>
+<p><span class="math display">\[lim_{n \rightarrow \infty} P(|\overline{X} - \mu| \geq \varepsilon ) = 0\]</span></p>
+<p>Portanto:</p>
+<p><span class="math display">\[\overline{X} \overset{P}{\rightarrow} \mu\]</span></p>
+<p>ou</p>
+<p><span class="math display">\[plim \overline{X}  = \mu\]</span></p>
+</div>
+</div>
+<p><strong>Em palavras:</strong></p>
+<p>O significado de <span class="math inline">\(X_n\)</span> convirgir para <span class="math inline">\(\mu\)</span>, é que com uma amostra cada vez maior existe uma probabilidade muito alta de que a média ds observações esteja próxima do verdadeiro par6ametro populacional, ou seja, a esperança.</p>
+</section>
+<section id="lei-forte-dos-grandes-números" class="level4" data-number="11.1.6.2">
+<h4 data-number="11.1.6.2" class="anchored" data-anchor-id="lei-forte-dos-grandes-números"><span class="header-section-number">11.1.6.2</span> Lei Forte dos Grandes Números</h4>
+<p>Uma maneira mais forte de convergência é dada pela convergência “quase certa”. Não veremos ela aqui e daremos uma ideia apenas da existência da Lei Forte dos Grande Números. Podemos representar essa convergência por:</p>
+<p><span class="math inline">\(\overline{X_n}\overset{a.s.}{\rightarrow}\mu\)</span> quando <span class="math inline">\(n \rightarrow \infty\)</span></p>
+<p>Podemos definir a convergência quase certa da seguinte maneira:</p>
+<div class="callout callout-style-default callout-note no-icon callout-titled" title="DEFINIÇÃO">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>DEFINIÇÃO
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><strong>Lei Forte dos Grandes Números</strong></p>
+<p><span class="math display">\[P(lim_{n \rightarrow \infty} \overline{X_n}=\mu  ) = 1\]</span></p>
+</div>
+</div>
+<p>Ou seja, a Lei forte coloca que <span class="math inline">\(X_n\)</span> converge para <span class="math inline">\(\mu\)</span> com probabilidade igual a 1. Aqui é a probabilidade do limite e antes o limite da probabilidade! Assim, a média da amostra converge quase certamente para o valor esperado.</p>
+<p>É um tipo de convergência pouco utilizado na Econometria. Vejamos em palavras a diferença entre as duas para um <span class="math inline">\(n\)</span> grande</p>
+</section>
+</section>
+<section id="convergência-em-média-quadrática" class="level3" data-number="11.1.7">
+<h3 data-number="11.1.7" class="anchored" data-anchor-id="convergência-em-média-quadrática"><span class="header-section-number">11.1.7</span> Convergência em Média Quadrática</h3>
+<p>É um tipo de convergência mais forte que a de probabilidade e de distribuição.</p>
+<div class="callout callout-style-default callout-note no-icon callout-titled" title="DEFINIÇÃO">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>DEFINIÇÃO
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><strong>Convergência em Média Quadrática</strong></p>
+<p>Uma sequência de v.a. <span class="math inline">\(X_1,X2,...,X_n\)</span> converge para <span class="math inline">\(X\)</span> em média quadrática se:</p>
+<p><span class="math display">\[lim_{n \rightarrow \infty} E(X_n - X)^{2} = 0\]</span></p>
+<p>Tal que:</p>
+<p><span class="math inline">\(X_n \overset{M}{\rightarrow} X\)</span></p>
+</div>
+</div>
+</section>
+<section id="relação-entre-as-convergências" class="level3" data-number="11.1.8">
+<h3 data-number="11.1.8" class="anchored" data-anchor-id="relação-entre-as-convergências"><span class="header-section-number">11.1.8</span> Relação entre as convergências</h3>
+<p>Existe uma relação de implicação ou relacionamento entre os diversos tipos de convergência. Esse relacionamento é apresentado no teorema abaixo.</p>
+<div class="callout callout-style-default callout-note no-icon callout-titled" title="TEOREMA">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>TEOREMA
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><span class="math inline">\(X_n \overset{M}{\rightarrow} X \Rightarrow X_n \overset{P}{\rightarrow} X\)</span></p>
+<p><span class="math inline">\(X_n \overset{p}{\rightarrow} X \Rightarrow X_n \overset{d}{\rightarrow} X\)</span></p>
+<p>O que implica:</p>
+<p><span class="math inline">\(X_n \overset{M}{\rightarrow} X \Rightarrow X_n \overset{p}{\rightarrow} X \Rightarrow X_n \overset{d}{\rightarrow} X\)</span></p>
+</div>
+</div>
+<div class="callout callout-style-default callout-note no-icon callout-titled" title="TEOREMA">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>TEOREMA
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Seja <span class="math inline">\(X_n\)</span> um vetor de v.a. com númerp finito de elementos. Seja <span class="math inline">\(g\)</span> uma função contínua e <span class="math inline">\(\alpha\)</span> um vetor constante. Então:</p>
+<p><span class="math inline">\(X_n \overset{P}{\rightarrow} \alpha \Rightarrow g(X_n) \overset{P}{\rightarrow} g(\alpha)\)</span></p>
 </div>
 </div>
 
 
+</section>
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -746,13 +1023,13 @@ ul.task-list li input[type="checkbox"] {
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../index.html" class="pagination-link" aria-label="Prefácio">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Prefácio</span></span>
+      <a href="../cap/cap8_inferencia.html" class="pagination-link" aria-label="Introdução">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Introdução</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../cap/cap2_summary.html" class="pagination-link" aria-label="Sumário">
-        <span class="nav-page-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Sumário</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../cap/cap10_amostragem.html" class="pagination-link" aria-label="Amostragem">
+        <span class="nav-page-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Amostragem</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

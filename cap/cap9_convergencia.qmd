@@ -1,0 +1,279 @@
+---
+title: "Modos de Convergência"
+# subtitle: "Conceitos Inciciais"
+author:
+- Alexandre Nicolella
+date: "03/31/2026"
+format: 
+  html:
+    toc: true
+    fig-align: center
+    #df-print: paged
+knitr:
+  opts_chunk:
+    out.width: "70%"
+execute:
+  echo: false
+  warning: false
+  message: false
+---
+
+## Modos de Convergência
+
+Gostariamos de saber se uma sequência de variáveis aleatórias $X_1,X_2,...,X_n$ caminha ou converge na direção de $X$. Assim, suponha que queiramos saber o valor de $X$, fazemos uma medida via $X_1$, podemos aumentar o número de medidas para $X_2$ e observamos se chega mais próximo de $X$, e constinuamos até $X_n$ e vemos se essa sequencia de medidas vai convergindo para $X$.Veremos aqui 3 tipos de convergência.
+
+\begin{enumerate}
+ \item Convergência em probabilidade
+ \item Convergência em Média Quadratica
+ \item Convergência em Distribuição
+\end{enumerate}
+
+### Convergência de uma sequência numérica
+
+::: {.callout-note  icon="false" title="DEFINIÇÃO"}
+
+**Convergência:**
+
+Uma sequência de números reais $\{\alpha_i\}$ $i=1,2,..,n$ converge para um número real $\alpha$ se para qualquer $\varepsilon>0$ existe um inteiro N onde para todo $n>N$ tem-se:
+
+$$|\alpha_n - \alpha |<\varepsilon$$
+
+Assim: 
+
+
+$\alpha_n \rightarrow \alpha$ quando $n \rightarrow \infty$ ou
+
+
+$lim_{n \rightarrow \infty} \alpha_n = \alpha$
+
+
+:::
+
+No caso de variáveis aleatórias, como só podemos falar de probabilidade, a definição anterior de convergência não é válida.
+
+### Convergência em Distribuição e o Teorema do Limite Central.
+
+É forma mais fraca de convergência, dizemos que a fda de $X_n$ converge para a fda de $X$. Formalmente:
+
+::: {.callout-note  icon="false" title="DEFINIÇÃO"}
+
+**Convergência em Distribuição**
+
+Uma sequência de v.a. $\{X_i\}$ $i=1,2,..,n$ converge para $X$ em distribuição se a função de distribuição acumulada $F_{X_n}$ de $X_i$ converge para a f.d.a. $F_X$ de $X$ em cada ponto da F. Em outras palavras:
+
+
+$X_n \overset{d}{\rightarrow} X$  ou
+
+
+$\lim_{n \rightarrow\infty}F_{X_n}(x)=F_{X}(x)$ é a distribuição limite de $X_n$.
+
+:::
+
+### Teorema do Limite Central (TLC): Aplicação da Convergência em Distribuição.
+
+Um dos resultados mais importantes em estatística e que afirma que a soma de um grande número de variáveis aleatórias possui distribuição normal. Suponha uma sequência $X_1, X_2, ...., X_n$ a qual possui a mesma distribuição de $X$. A média $\overline{X}$, que é uma soma de variáveis aleatórias, possui $E(\overline{X})=\mu$ e a variância $Var(\overline{X})=\frac{\sigma^2}{n}$. Podemos normalizar a variável aleatória $\overline{X}$, ou seja $Z_n$:
+
+
+$$Z_n=\frac{\overline{X}_n- E(\overline{X}_n)}{\sqrt{Var(\overline{X}_n)}}$$
+
+Dessa forma podemos fazer a seguinte definição:
+
+::: {.callout-note  icon="false" title="DEFINIÇÃO"}
+
+**Teorema do Limite Central**
+
+Seja $X_1, X_2,...,X_n$ uma sequência de variáveis aleatórias com $E(X_i)=\mu$ e $Var(X_i)=\sigma^2$. A variável $\overline{X}$ normalizada:
+
+
+$$Z_n=\frac{\overline{X}_n- E(\overline{X}_n)}{\sqrt{Var(\overline{X}_n)}} =\frac{X_1+X_2+,...+X_n-n\mu}{\frac{\sigma}{\sqrt{n}}}$$
+
+converge em distribuição para uma normal padrão quando $n$ vai para o infinito, assim:
+
+$\lim_{n \rightarrow\infty}P(Z_n \leq x)=\Phi(x)$ para to $x \in \mathbb{R}$
+
+Portanto, 
+
+$$Z_n \overset{d}{\rightarrow} N(0,1)$$
+
+:::
+
+Assim, temos a distribuição assintótica de $Z_n$ (a qual se aproxima quando n é grande), será:
+
+$$Z_n \overset{a}{\sim } N(0,1)$$
+
+Isso implica que a distribuição assintótica da sequência $\overline{X}_n$ é:
+
+$$\overline{X}_n\overset{a}{\sim }N(E(\overline{X_n}),Var(\overline{X_n}))$$
+
+### Aproximação Normal da Binomial
+
+Recordando, uma variável com distribuição Binomial $X$ é a soma de v.a. Bernoulli iid $\{Y_i\}$ tal que $X= \sum Y_i$. Sendo que $Y_i=1$ com probabilidade $p$ e $Y_i=0$ com probabilidade $(1-p)$.
+
+$\hat{p}=\frac{X}{n}$
+
+Assim, se as condições do TLC são satisfeitas, com $E(Y_i)=p$, $Var(Y_i)=(1-p)p$ e $\hat{p}=\frac{X}{n}$ então:
+
+$$\frac{\frac{X}{n}-p} {\sqrt{(1-p)p/n}}\overset{d}{\rightarrow} N(0,1)$$
+
+
+Assim:
+
+
+$$\frac{X}{n} \overset{a}{\sim } N(p, pq/n)$$
+
+Ou:
+
+
+$$X \overset{a}{\sim } N(np, npq)$$
+
+### Convergência em Probabilidade e a Lei dos Grandes Números
+
+É um modo de convergência mais forte do que a convergência em distribuição, muitas vezes chamada de convergência estocástica. Vejamos a definição:
+
+::: {.callout-note  icon="false" title="DEFINIÇÃO"}
+
+**Convergência em Probabilidade:**
+
+Uma sequência de v.a. $X_1,X_2,,...,X_n$  converge em probabilidade para uma v.a. $X$, ou seja,  
+
+
+$X_n \overset{p}{\rightarrow} X$ quando $n \rightarrow \infty$, se: 
+
+
+$lim_{n \rightarrow \infty} P(|X_n - X |\geq \varepsilon) = 0$ ou
+
+
+$plim_{n \rightarrow \infty} X_n = X$
+
+:::
+
+### A Lei dos Grandes Números (LGN): Aplicação da Convergência em Probabilidade
+
+#### Lei Fraca dos Grandes Números
+
+A Lei dos Grandes Números é o Teorema que descreve o resultado de um experimento realizado um grande número de vezes. A Lei Fraca será nosso foco, pois é bem menos restritiva em termos de convergência, ou seja, exige uma convergência mais fraca e é suficiente para os problemas econométricos que veremos a frente.
+
+::: {.callout-note  icon="false" title="DEFINIÇÃO"}
+
+**Lei Fraca dos Grandes Números**
+
+Dada uma sequência da v.a. $X_i$ e $\overline{X}_n=\frac{1}{n} \sum X_i$, a Lei Fraca Dos Grandes Números coloca que  $\overline{X}_n - E(\overline{X}_n)$ converge para 0 em probabilidade. Portanto: 
+
+
+$\overline{X}_n - E(\overline{X}_n) \overset{p}{\rightarrow} 0$
+
+ou
+
+$\overline{X}_n \overset{p}{\rightarrow} E(\overline{X}_n)=\mu$
+
+:::
+
+Assim temos o seguinte teorema
+
+::: {.callout-note  icon="false" title="TEOREMA"}
+
+Seja uma sequência $X_1,X_2,...,X_n$ iid com $E(X_i)=\mu$ e $Var(X_i)=\sigma^2$. Então:
+
+$\overline{X_n} \overset{p}{\rightarrow} \mu$ quando $n \rightarrow \infty $.
+
+
+---
+
+
+**Prova:**
+
+Utilizando a desigualdade de Tchebycheff:
+
+
+$$P(|\overline{X} - \mu|< \varepsilon ) \geq 1-\frac{\sigma^{2}}{\varepsilon^{2} n}$$
+
+
+$$lim_{n \rightarrow \infty} P(|\overline{X} - \mu|< \varepsilon ) = 1$$
+
+ou 
+
+
+$$lim_{n \rightarrow \infty} P(|\overline{X} - \mu| \geq \varepsilon ) = 0$$
+
+
+Portanto:
+
+
+$$\overline{X} \overset{P}{\rightarrow} \mu$$ 
+
+ou 
+
+$$plim \overline{X}  = \mu$$
+:::
+
+**Em palavras:**
+
+O significado de $X_n$ convirgir para $\mu$, é que com uma amostra cada vez maior existe uma probabilidade muito alta de que a média ds observações esteja próxima do verdadeiro par6ametro populacional, ou seja, a esperança.
+
+#### Lei Forte dos Grandes Números
+
+Uma maneira mais forte de convergência é dada pela convergência "quase certa". Não veremos ela aqui e daremos uma ideia apenas da existência da Lei Forte dos Grande Números. Podemos representar essa convergência por:
+
+
+$\overline{X_n}\overset{a.s.}{\rightarrow}\mu$ quando $n \rightarrow \infty$
+
+Podemos definir a convergência quase certa da seguinte maneira:
+
+::: {.callout-note  icon="false" title="DEFINIÇÃO"}
+
+**Lei Forte dos Grandes Números**
+
+$$P(lim_{n \rightarrow \infty} \overline{X_n}=\mu  ) = 1$$
+
+:::
+
+Ou seja, a Lei forte coloca que $X_n$ converge para $\mu$ com probabilidade igual a 1. Aqui é a probabilidade do limite e antes o limite da probabilidade! Assim, a média da amostra converge quase certamente para o valor esperado.
+
+É um tipo de convergência pouco utilizado na Econometria. Vejamos em palavras a diferença entre as duas para um $n$ grande
+
+\begin{enumerate}
+
+  \item **Lei Fraca:** $\overline{X}_n$ está próximo de $\mu$ e portanto $|\overline{X}_n-\mu|>\varepsilon$ pode existir mas não é frequente
+  
+  \item **Lei Forte:** $|\overline{X}_n-\mu|<\varepsilon$ para todo $n$
+  
+\end{enumerate}
+
+### Convergência em Média Quadrática
+
+É um tipo de convergência mais forte que a de probabilidade e de distribuição.
+
+::: {.callout-note  icon="false" title="DEFINIÇÃO"}
+
+**Convergência em Média Quadrática**
+
+Uma sequência de v.a. $X_1,X2,...,X_n$ converge para $X$ em média quadrática se:
+
+$$lim_{n \rightarrow \infty} E(X_n - X)^{2} = 0$$
+
+Tal que:
+
+$X_n \overset{M}{\rightarrow} X$ 
+:::
+
+### Relação entre as convergências
+
+Existe uma relação de implicação ou relacionamento entre os diversos tipos de convergência. Esse relacionamento é apresentado no teorema abaixo.
+
+::: {.callout-note  icon="false" title="TEOREMA"}
+
+$X_n \overset{M}{\rightarrow} X \Rightarrow X_n \overset{P}{\rightarrow} X$
+
+$X_n \overset{p}{\rightarrow} X \Rightarrow X_n \overset{d}{\rightarrow} X$
+
+O que implica: 
+
+$X_n \overset{M}{\rightarrow} X \Rightarrow X_n \overset{p}{\rightarrow} X \Rightarrow X_n \overset{d}{\rightarrow} X$
+:::
+
+::: {.callout-note  icon="false" title="TEOREMA"}
+
+Seja $X_n$ um vetor de v.a. com númerp finito de elementos. Seja $g$ uma função contínua e $\alpha$ um vetor constante. Então:
+
+$X_n \overset{P}{\rightarrow} \alpha \Rightarrow g(X_n) \overset{P}{\rightarrow} g(\alpha)$
+:::

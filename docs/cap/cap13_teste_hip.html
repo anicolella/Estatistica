@@ -9,7 +9,7 @@
 <meta name="author" content="Alexandre Nicolella">
 <meta name="dcterms.date" content="2026-03-31">
 
-<title>12&nbsp; Teste de Hipótese – Inferência Estatística Aplicada à Economia</title>
+<title>15&nbsp; Procedimento Geral – Inferência Estatística Aplicada à Economia</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -67,7 +67,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
-<link href="../cap/cap9_estimacao.html" rel="prev">
+<link href="../cap/cap14_hip_pop.html" rel="next">
+<link href="../cap/cap12_estimacao_intervalo.html" rel="prev">
 <script src="../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
@@ -182,7 +183,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../cap/cap10_teste_hip.html">Teste de Hipótese</a></li><li class="breadcrumb-item"><a href="../cap/cap10_teste_hip.html"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Teste de Hipótese</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../cap/cap13_teste_hip.html">Teste de Hipótese</a></li><li class="breadcrumb-item"><a href="../cap/cap13_teste_hip.html"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Procedimento Geral</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -294,7 +295,19 @@ window.Quarto = {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../cap/cap8_inferencia.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Inferência Estatística</span></span></a>
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Introdução</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../cap/cap9_convergencia.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Modos de Convergência</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../cap/cap10_amostragem.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Amostragem</span></span></a>
   </div>
 </li>
       </ul>
@@ -310,8 +323,14 @@ window.Quarto = {
       <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../cap/cap9_estimacao.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Estimação</span></span></a>
+  <a href="../cap/cap11_estimacao_ponto.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Estimação no Ponto</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../cap/cap12_estimacao_intervalo.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Estimação por Intervalo</span></span></a>
   </div>
 </li>
       </ul>
@@ -327,8 +346,14 @@ window.Quarto = {
       <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../cap/cap10_teste_hip.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Teste de Hipótese</span></span></a>
+  <a href="../cap/cap13_teste_hip.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Procedimento Geral</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../cap/cap14_hip_pop.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Teste de Hipótese na prática</span></span></a>
   </div>
 </li>
       </ul>
@@ -343,28 +368,21 @@ window.Quarto = {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#introdução" id="toc-introdução" class="nav-link active" data-scroll-target="#introdução"><span class="header-section-number">12.1</span> Introdução</a></li>
-  <li><a href="#construindo-a-hipótese-nula" id="toc-construindo-a-hipótese-nula" class="nav-link" data-scroll-target="#construindo-a-hipótese-nula"><span class="header-section-number">12.2</span> Construindo a Hipótese Nula</a>
+  <li><a href="#introdução" id="toc-introdução" class="nav-link active" data-scroll-target="#introdução"><span class="header-section-number">15.1</span> Introdução</a></li>
+  <li><a href="#construindo-a-hipótese-nula" id="toc-construindo-a-hipótese-nula" class="nav-link" data-scroll-target="#construindo-a-hipótese-nula"><span class="header-section-number">15.2</span> Construindo a Hipótese Nula</a>
   <ul class="collapse">
-  <li><a href="#o-teste-estatístico" id="toc-o-teste-estatístico" class="nav-link" data-scroll-target="#o-teste-estatístico"><span class="header-section-number">12.2.1</span> O Teste Estatístico</a></li>
-  <li><a href="#probabilidade-da-cauda-e-o-p-valor" id="toc-probabilidade-da-cauda-e-o-p-valor" class="nav-link" data-scroll-target="#probabilidade-da-cauda-e-o-p-valor"><span class="header-section-number">12.2.2</span> Probabilidade da cauda e o p-valor</a></li>
-  <li><a href="#erro-tipo-i-ei-e-erro-tipo-ii-eii" id="toc-erro-tipo-i-ei-e-erro-tipo-ii-eii" class="nav-link" data-scroll-target="#erro-tipo-i-ei-e-erro-tipo-ii-eii"><span class="header-section-number">12.2.3</span> Erro Tipo I (EI) e Erro Tipo II (EII)</a></li>
+  <li><a href="#o-teste-estatístico" id="toc-o-teste-estatístico" class="nav-link" data-scroll-target="#o-teste-estatístico"><span class="header-section-number">15.2.1</span> O Teste Estatístico</a></li>
+  <li><a href="#probabilidade-da-cauda-e-o-p-valor" id="toc-probabilidade-da-cauda-e-o-p-valor" class="nav-link" data-scroll-target="#probabilidade-da-cauda-e-o-p-valor"><span class="header-section-number">15.2.2</span> Probabilidade da cauda e o p-valor</a></li>
+  <li><a href="#erro-tipo-i-ei-e-erro-tipo-ii-eii" id="toc-erro-tipo-i-ei-e-erro-tipo-ii-eii" class="nav-link" data-scroll-target="#erro-tipo-i-ei-e-erro-tipo-ii-eii"><span class="header-section-number">15.2.3</span> Erro Tipo I (EI) e Erro Tipo II (EII)</a></li>
   </ul></li>
-  <li><a href="#procedimento-geral-do-teste-de-hipótese" id="toc-procedimento-geral-do-teste-de-hipótese" class="nav-link" data-scroll-target="#procedimento-geral-do-teste-de-hipótese"><span class="header-section-number">12.3</span> Procedimento Geral do Teste de Hipótese</a>
+  <li><a href="#procedimento-geral-do-teste-de-hipótese" id="toc-procedimento-geral-do-teste-de-hipótese" class="nav-link" data-scroll-target="#procedimento-geral-do-teste-de-hipótese"><span class="header-section-number">15.3</span> Procedimento Geral do Teste de Hipótese</a>
   <ul class="collapse">
-  <li><a href="#teste-para-um-parâmetro-populacional" id="toc-teste-para-um-parâmetro-populacional" class="nav-link" data-scroll-target="#teste-para-um-parâmetro-populacional"><span class="header-section-number">12.3.1</span> Teste para um parâmetro populacional</a></li>
-  <li><a href="#nível-de-significância" id="toc-nível-de-significância" class="nav-link" data-scroll-target="#nível-de-significância"><span class="header-section-number">12.3.2</span> Nível de significância</a></li>
-  <li><a href="#estabelencendo-valor-crítico-e-região-crítica." id="toc-estabelencendo-valor-crítico-e-região-crítica." class="nav-link" data-scroll-target="#estabelencendo-valor-crítico-e-região-crítica."><span class="header-section-number">12.3.3</span> Estabelencendo Valor Crítico e Região Crítica.</a></li>
-  <li><a href="#o-teste-de-hipótese" id="toc-o-teste-de-hipótese" class="nav-link" data-scroll-target="#o-teste-de-hipótese"><span class="header-section-number">12.3.4</span> O Teste de Hipótese</a></li>
-  <li><a href="#relação-entre-a-probabilidade-de-cauda-p-valor-e-região-crítica" id="toc-relação-entre-a-probabilidade-de-cauda-p-valor-e-região-crítica" class="nav-link" data-scroll-target="#relação-entre-a-probabilidade-de-cauda-p-valor-e-região-crítica"><span class="header-section-number">12.3.5</span> Relação entre a Probabilidade de cauda, p-valor, e região crítica</a></li>
-  <li><a href="#os-cinco-passos-para-a-contrução-do-teste-de-hipótese" id="toc-os-cinco-passos-para-a-contrução-do-teste-de-hipótese" class="nav-link" data-scroll-target="#os-cinco-passos-para-a-contrução-do-teste-de-hipótese"><span class="header-section-number">12.3.6</span> Os Cinco passos para a contrução do teste de hipótese</a></li>
-  </ul></li>
-  <li><a href="#teste-de-hipótese-na-prática" id="toc-teste-de-hipótese-na-prática" class="nav-link" data-scroll-target="#teste-de-hipótese-na-prática"><span class="header-section-number">12.4</span> Teste de Hipótese na prática</a>
-  <ul class="collapse">
-  <li><a href="#testes-paramétricos-para-parâmetros-locacional" id="toc-testes-paramétricos-para-parâmetros-locacional" class="nav-link" data-scroll-target="#testes-paramétricos-para-parâmetros-locacional"><span class="header-section-number">12.4.1</span> Testes paramétricos para parâmetros locacional</a></li>
-  <li><a href="#teste-sobre-a-esperança-de-uma-população-normal-com-variância-desconhecida" id="toc-teste-sobre-a-esperança-de-uma-população-normal-com-variância-desconhecida" class="nav-link" data-scroll-target="#teste-sobre-a-esperança-de-uma-população-normal-com-variância-desconhecida"><span class="header-section-number">12.4.2</span> Teste sobre a Esperança de uma população normal com variância desconhecida</a></li>
-  <li><a href="#comparação-de-duas-populações-normais-amostra-independente" id="toc-comparação-de-duas-populações-normais-amostra-independente" class="nav-link" data-scroll-target="#comparação-de-duas-populações-normais-amostra-independente"><span class="header-section-number">12.4.3</span> Comparação de duas populações normais: amostra independente</a></li>
-  <li><a href="#testes-paramétricos-sobre-probabilidades" id="toc-testes-paramétricos-sobre-probabilidades" class="nav-link" data-scroll-target="#testes-paramétricos-sobre-probabilidades"><span class="header-section-number">12.4.4</span> Testes Paramétricos sobre Probabilidades</a></li>
+  <li><a href="#teste-para-um-parâmetro-populacional" id="toc-teste-para-um-parâmetro-populacional" class="nav-link" data-scroll-target="#teste-para-um-parâmetro-populacional"><span class="header-section-number">15.3.1</span> Teste para um parâmetro populacional</a></li>
+  <li><a href="#nível-de-significância" id="toc-nível-de-significância" class="nav-link" data-scroll-target="#nível-de-significância"><span class="header-section-number">15.3.2</span> Nível de significância</a></li>
+  <li><a href="#estabelencendo-valor-crítico-e-região-crítica." id="toc-estabelencendo-valor-crítico-e-região-crítica." class="nav-link" data-scroll-target="#estabelencendo-valor-crítico-e-região-crítica."><span class="header-section-number">15.3.3</span> Estabelencendo Valor Crítico e Região Crítica.</a></li>
+  <li><a href="#o-teste-de-hipótese" id="toc-o-teste-de-hipótese" class="nav-link" data-scroll-target="#o-teste-de-hipótese"><span class="header-section-number">15.3.4</span> O Teste de Hipótese</a></li>
+  <li><a href="#relação-entre-a-probabilidade-de-cauda-p-valor-e-região-crítica" id="toc-relação-entre-a-probabilidade-de-cauda-p-valor-e-região-crítica" class="nav-link" data-scroll-target="#relação-entre-a-probabilidade-de-cauda-p-valor-e-região-crítica"><span class="header-section-number">15.3.5</span> Relação entre a Probabilidade de cauda, p-valor, e região crítica</a></li>
+  <li><a href="#os-cinco-passos-para-a-contrução-do-teste-de-hipótese" id="toc-os-cinco-passos-para-a-contrução-do-teste-de-hipótese" class="nav-link" data-scroll-target="#os-cinco-passos-para-a-contrução-do-teste-de-hipótese"><span class="header-section-number">15.3.6</span> Os Cinco passos para a contrução do teste de hipótese</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -372,9 +390,9 @@ window.Quarto = {
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../cap/cap10_teste_hip.html">Teste de Hipótese</a></li><li class="breadcrumb-item"><a href="../cap/cap10_teste_hip.html"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Teste de Hipótese</span></a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../cap/cap13_teste_hip.html">Teste de Hipótese</a></li><li class="breadcrumb-item"><a href="../cap/cap13_teste_hip.html"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Procedimento Geral</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Teste de Hipótese</span></h1>
+<h1 class="title"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Procedimento Geral</span></h1>
 </div>
 
 
@@ -403,13 +421,13 @@ window.Quarto = {
 </header>
 
 
-<section id="introdução" class="level2" data-number="12.1">
-<h2 data-number="12.1" class="anchored" data-anchor-id="introdução"><span class="header-section-number">12.1</span> Introdução</h2>
+<section id="introdução" class="level2" data-number="15.1">
+<h2 data-number="15.1" class="anchored" data-anchor-id="introdução"><span class="header-section-number">15.1</span> Introdução</h2>
 <p>Até o momento estimamos características da população, fizemos a estimativa pontual e a estimativa de intervalo de um parâmetro. Neste último associamos um grau de confiabilidade de que encontrariamos o verdadeiro parâmetro dentro desse intervalo. Entretanto algumas vezes temos teorias diferentes e gostariamos de testar se uma teoria é mais plausível do que outra com base na realidade. Dessa forma, gostariamos de testar se uma sobre a população é mais plausível, ou seja, se os dados amostrais trazem evidências que apoiam ou não essa hipótese. Por exemplo:</p>
 <p>Aqui faremos algo muito parecido com os tribunais, assumimos que a pessoa ou empresa é “inocente”. Que o medicamento não tem efeito, que o teor de gordura está certo, que o candidato tem maioria, que as comunidades possuem a mesma renda e que o recurso não afeta o número de falências. Partimos da premissa de que a hipótese inicial é a correta e tentamos verificar com os fatos (dados amostrais) se essa hipótese colocada é verossímil.</p>
 </section>
-<section id="construindo-a-hipótese-nula" class="level2" data-number="12.2">
-<h2 data-number="12.2" class="anchored" data-anchor-id="construindo-a-hipótese-nula"><span class="header-section-number">12.2</span> Construindo a Hipótese Nula</h2>
+<section id="construindo-a-hipótese-nula" class="level2" data-number="15.2">
+<h2 data-number="15.2" class="anchored" data-anchor-id="construindo-a-hipótese-nula"><span class="header-section-number">15.2</span> Construindo a Hipótese Nula</h2>
 <p>Imaginemos o seguinte caso. Uma ONG que combate fome e pobreza afirma que uma determinada comunidade deveria receber um programa do governo pois possui renda per capita de R$600,00, a qual a torna elegível ao programa. Entretanto, os gestores do programa acham que esse valor está subestimado e que na verdade a renda seria maior. A questão é como saber quem está correto, a ONG ou o Governo?</p>
 <p>Dessa forma temos duas hipóteses distintas a que diz que a esperança da renda pc é de R$600 e a outra proposição que diz que a renda dessa população é maior que R$600. Vamos assumir que a ONG tem razão, que acreditamos na sua palavra até que se prove o contrário, e chamaremos essa afirmativa de ou <span class="math inline">\(H_0\)</span>. Ela afirma que a esperança da renda pc, <span class="math inline">\(\mu\)</span> é de R$600. Podemos de forma condensada dizer:</p>
 <p><span class="math display">\[H_0: \qquad \mu=600\]</span></p>
@@ -418,8 +436,8 @@ window.Quarto = {
 <p>Nosso problema então é decidir quem tem razão nessa história, ou seja, devemos aceitar ou rejeitar a hipótese nula <span class="math inline">\(H_0\)</span> - de que a esperança da renda pc é de 600 - em detrimento a hipótese alternativa <span class="math inline">\(H_1\)</span> que afirma que a renda é maior do que 600. Juntas:</p>
 <p><span class="math display">\[H_0: \qquad \mu=600\]</span></p>
 <p><span class="math display">\[H_1: \qquad \mu&gt;600\]</span></p>
-<section id="o-teste-estatístico" class="level3" data-number="12.2.1">
-<h3 data-number="12.2.1" class="anchored" data-anchor-id="o-teste-estatístico"><span class="header-section-number">12.2.1</span> O Teste Estatístico</h3>
+<section id="o-teste-estatístico" class="level3" data-number="15.2.1">
+<h3 data-number="15.2.1" class="anchored" data-anchor-id="o-teste-estatístico"><span class="header-section-number">15.2.1</span> O Teste Estatístico</h3>
 <p>Colocada as duas teorias concorrentes, temos que decidir como testar qual dessas duas hipóteses é mais plausível. Para isso devemos nos valer de um processo de amostragem, onde faremos <span class="math inline">\(n\)</span> medições da renda pc (que chamaremos de X), <span class="math inline">\(X_1, X_2, ..., X_n\)</span>, e obteremos os valores de renda pc <span class="math inline">\(x_1, x_2,...x_n\)</span>. Com base na amostra devemos ter algum tipo de cálculo que nos permite inferir se rejeitamos ou não <span class="math inline">\(H_0\)</span>, se é plausível ou não a hipótese colocada. Isso é o que chamamos de teste estatístico:</p>
 <div class="callout callout-style-default callout-note no-icon callout-titled" title="DEFINIÇÃO">
 <div class="callout-header d-flex align-content-center">
@@ -445,7 +463,7 @@ window.Quarto = {
 <img src="../figuras/capitulos/testehipot1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:70.0%">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-particula-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;12.1: Teste de Hipótese - intuição
+Figure&nbsp;15.1: Teste de Hipótese - intuição
 </figcaption>
 </figure>
 </div>
@@ -470,7 +488,7 @@ Figure&nbsp;12.1: Teste de Hipótese - intuição
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="cap10_teste_hip_files/figure-html/unnamed-chunk-1-1.png" class="img-fluid figure-img" style="width:70.0%"></p>
+<p><img src="cap13_teste_hip_files/figure-html/unnamed-chunk-1-1.png" class="img-fluid figure-img" style="width:70.0%"></p>
 <figcaption>Valores típicos da distribuiçao da média sob H0</figcaption>
 </figure>
 </div>
@@ -480,16 +498,16 @@ Figure&nbsp;12.1: Teste de Hipótese - intuição
 <p>Quanto retiramos a amostra e calculamos o valor da média obtivemos <span class="math inline">\(\bar{x}=700\)</span>. Observe no gráfico acima onde está o valor de 700, muita a frente e notamos claramente que a probabilidade de obtermos esse valor de média com uma amostra retirada da população <span class="math inline">\(N(600,100^2)\)</span>, é praticamente 0.</p>
 <p>Portanto, existem evidências de que essa amostra não veio de uma população conforme descrita pela ONG e sim de uma população com esperança maior do que R$600. Portanto, dizemos que rejeitamos <span class="math inline">\(H_0\)</span></p>
 </section>
-<section id="probabilidade-da-cauda-e-o-p-valor" class="level3" data-number="12.2.2">
-<h3 data-number="12.2.2" class="anchored" data-anchor-id="probabilidade-da-cauda-e-o-p-valor"><span class="header-section-number">12.2.2</span> Probabilidade da cauda e o p-valor</h3>
+<section id="probabilidade-da-cauda-e-o-p-valor" class="level3" data-number="15.2.2">
+<h3 data-number="15.2.2" class="anchored" data-anchor-id="probabilidade-da-cauda-e-o-p-valor"><span class="header-section-number">15.2.2</span> Probabilidade da cauda e o p-valor</h3>
 <p>Uma outra maneira que podemos olhar o valor de 700 é por meio da probabilidade da cauda acima dele. Vamos considerar a figura acima que mostra a distribuição da média retirada de uma população sob <span class="math inline">\(H_0\)</span>, ou seja, <span class="math inline">\(N(600,100^2)\)</span>. Podemos estimar qual seria a probabilidade de acharmos valores iguais ou maiores do que 700 nessa distribuição. Essa é chamada probabilidade de cauda a direita <span class="math inline">\(P(\bar{X}\geq 700|H_0)\)</span> e mais conhecida como . Podemos computar esse valor para a cauda inferior, para a superior ou para ambas, a depender da hipótese feita. Esse valor nos mostra que quando mais a direita estiver o nosso valor calculado, menor será essa probabilidade e maior serão as evidências contra <span class="math inline">\(H_0\)</span>. Para o nosso exemplo anterior temos:</p>
 <p><span class="math display">\[P(\bar{X}\geq 700|H_0 \Rightarrow \bar{X} \sim N(600,\frac{100^2}{25}))\]</span></p>
 <p><span class="math display">\[P(Z_{\bar{X}}\geq \frac{700-600}{100/5}|H_0)\]</span> <span class="math display">\[P(Z_{\bar{X}} \geq  \frac{100}{20})=P(Z_{\bar{X}} \geq 5)=0\]</span></p>
 <p>Notamos que esse valor de <span class="math inline">\(z_c\)</span> é muito alto e nem aparece na tabela da normal padrão. Mostrando que essa probabilidade é de zero. Ou seja, o p-valor nesse caso é igual a 0, mostrando uma forte evidência de que a ONG está enganada com relação a sua medida da renda dessa população.</p>
 <p>Esse foi um exemplo extremo para compreender a intuição do processo. Entretanto, precisamos decidir a partir de que ponto exatamente dizemos que pertence a população sob <span class="math inline">\(H_0\)</span> e a partir de que ponto não pertence. Para isso precisamos entender os erros que podemos cometer ao fazer esse julgamento.</p>
 </section>
-<section id="erro-tipo-i-ei-e-erro-tipo-ii-eii" class="level3" data-number="12.2.3">
-<h3 data-number="12.2.3" class="anchored" data-anchor-id="erro-tipo-i-ei-e-erro-tipo-ii-eii"><span class="header-section-number">12.2.3</span> Erro Tipo I (EI) e Erro Tipo II (EII)</h3>
+<section id="erro-tipo-i-ei-e-erro-tipo-ii-eii" class="level3" data-number="15.2.3">
+<h3 data-number="15.2.3" class="anchored" data-anchor-id="erro-tipo-i-ei-e-erro-tipo-ii-eii"><span class="header-section-number">15.2.3</span> Erro Tipo I (EI) e Erro Tipo II (EII)</h3>
 <p>Aqui precisamos distinguir duas ideias, a primeiro é a existência da verdadeira população e a segunda é o que achamos ser a verdadeira população com base na análise que fizemos. Aqui surge o que chamamos de erro estatístico. Não temos como fugir dele, somente controlá-lo. Vejamos a tabela abaixo que resume as possibilidades:</p>
 <p>Observe que a nossa decisão pode incorrer em dois erros diversos. O Erro Tipo I (EI) o qual informa que erramos ao rejeitar que a população veio de <span class="math inline">\(H_0\)</span> e na realidade tinha vindo, e o segundo tipo (EII) que nos diz que aceitamos <span class="math inline">\(H_0\)</span> quando na verdade não veio de <span class="math inline">\(H_0\)</span>. O primeiro erro é o chamado na literatura médica de falso negativo, ou seja, classifica a pessoa não portadora da doença (negativa) e na verdade ela possui. O segundo tipo é o falso positivo, onde classifica-se a pessoa com a doença quando na realidade ela não possui. Assim tem-se a seguinte definição:</p>
 <div class="callout callout-style-default callout-note no-icon callout-titled" title="DEFINIÇÃO">
@@ -540,7 +558,7 @@ Figure&nbsp;12.1: Teste de Hipótese - intuição
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="cap10_teste_hip_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid figure-img" style="width:70.0%"></p>
+<p><img src="cap13_teste_hip_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid figure-img" style="width:70.0%"></p>
 <figcaption>Erro Tipo I e a Região Crítica</figcaption>
 </figure>
 </div>
@@ -592,7 +610,7 @@ P(E II)=P(\overline{X} \notin R C |H_1 \quad \text { verdadeiro })=\beta
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="cap10_teste_hip_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid figure-img" style="width:70.0%"></p>
+<p><img src="cap13_teste_hip_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid figure-img" style="width:70.0%"></p>
 <figcaption>Erro Tipo I e a Região Crítica</figcaption>
 </figure>
 </div>
@@ -602,10 +620,10 @@ P(E II)=P(\overline{X} \notin R C |H_1 \quad \text { verdadeiro })=\beta
 <p>Importante notar que em geral não conhecemos qual a distribuição está sob <span class="math inline">\(H_1\)</span>, lembre-se que o que tinhamos era apenas uma afirmativa que era maior, ou seja, que era diferente de 600. Isso é a prática mais comum e controlamos então o EI o qual conseguimos calcular e a partir desse controle encontramos os valores da nossa região crítica e montamos nosso teste de hipótese.</p>
 </section>
 </section>
-<section id="procedimento-geral-do-teste-de-hipótese" class="level2" data-number="12.3">
-<h2 data-number="12.3" class="anchored" data-anchor-id="procedimento-geral-do-teste-de-hipótese"><span class="header-section-number">12.3</span> Procedimento Geral do Teste de Hipótese</h2>
-<section id="teste-para-um-parâmetro-populacional" class="level3" data-number="12.3.1">
-<h3 data-number="12.3.1" class="anchored" data-anchor-id="teste-para-um-parâmetro-populacional"><span class="header-section-number">12.3.1</span> Teste para um parâmetro populacional</h3>
+<section id="procedimento-geral-do-teste-de-hipótese" class="level2" data-number="15.3">
+<h2 data-number="15.3" class="anchored" data-anchor-id="procedimento-geral-do-teste-de-hipótese"><span class="header-section-number">15.3</span> Procedimento Geral do Teste de Hipótese</h2>
+<section id="teste-para-um-parâmetro-populacional" class="level3" data-number="15.3.1">
+<h3 data-number="15.3.1" class="anchored" data-anchor-id="teste-para-um-parâmetro-populacional"><span class="header-section-number">15.3.1</span> Teste para um parâmetro populacional</h3>
 <p>Temos interesse em uma caracteristica da população. Como vimos por exemplo, na renda pc de uma população <span class="math inline">\(X\)</span>, ou mais especificamente na sua esperança <span class="math inline">\(E(X)=\mu\)</span>. Contruímos o teste sobre o parâmetro, podendo ser unicaudal ou bicaudal.</p>
 <p><strong>Hipótese Unicaudal</strong></p>
 <p>Ocorre quando temos algum conhecimento do processo. Como no caso anterior, observamos que a ONG tinha dito que a renda era 600 e o governo contextava e dizia que era maior. Logo temos a seguinte formulação geral para o teste unilateral:</p>
@@ -613,8 +631,8 @@ P(E II)=P(\overline{X} \notin R C |H_1 \quad \text { verdadeiro })=\beta
 <p><strong>Hipótese Bicaudal</strong></p>
 <p>Já para o teste bilateral ou bicaudal podemos observar valores maiores ou menores em relação a hipótese nula. Assim não temos nenhum conhecimento que nos permita dizer que podemos ter valores somente maiores ou somente menores. Temos a seguinte formulação geral: <span class="math display">\[H_0: \qquad \theta=\theta_0\]</span> <span class="math display">\[H_1: \qquad \theta \neq \theta_0\]</span></p>
 </section>
-<section id="nível-de-significância" class="level3" data-number="12.3.2">
-<h3 data-number="12.3.2" class="anchored" data-anchor-id="nível-de-significância"><span class="header-section-number">12.3.2</span> Nível de significância</h3>
+<section id="nível-de-significância" class="level3" data-number="15.3.2">
+<h3 data-number="15.3.2" class="anchored" data-anchor-id="nível-de-significância"><span class="header-section-number">15.3.2</span> Nível de significância</h3>
 <p>Retomando o nosso exemplo, ao rejeitarmos <span class="math inline">\(H_0\)</span> podemos cometer o erro de dizer que a renda pc é maior de 600, o que implicaria em não recebimento do benefício, mas na realidade a renda era efetivamente 600 e as pessoas mereciam ter recebido. Tentamos controlar esse tipo de erro que é o nosso Erro Tipo I (EI). Temos que definir qual seria o tamanho desse erro, 10%, 5%, 1% etc. Esse percentual é o que chamamos de nível de significância. Quem define esse tamanho é o pesquisador e em geral, em economia, utilizamos os níveis acima.</p>
 <div class="callout callout-style-default callout-note no-icon callout-titled" title="DEFINIÇÃO">
 <div class="callout-header d-flex align-content-center">
@@ -632,8 +650,8 @@ P(E II)=P(\overline{X} \notin R C |H_1 \quad \text { verdadeiro })=\beta
 </div>
 <p>Dessa forma, faremos o teste de hipótese para o parâmetro <span class="math inline">\(\theta\)</span> ao nível de significância de <span class="math inline">\(\alpha\)</span>. No nosso caso dizemos que iremos testar se a renda pc é de 600, <span class="math inline">\(H_0: \mu=600\)</span>, ao nível de 5% de significância.</p>
 </section>
-<section id="estabelencendo-valor-crítico-e-região-crítica." class="level3" data-number="12.3.3">
-<h3 data-number="12.3.3" class="anchored" data-anchor-id="estabelencendo-valor-crítico-e-região-crítica."><span class="header-section-number">12.3.3</span> Estabelencendo Valor Crítico e Região Crítica.</h3>
+<section id="estabelencendo-valor-crítico-e-região-crítica." class="level3" data-number="15.3.3">
+<h3 data-number="15.3.3" class="anchored" data-anchor-id="estabelencendo-valor-crítico-e-região-crítica."><span class="header-section-number">15.3.3</span> Estabelencendo Valor Crítico e Região Crítica.</h3>
 <p>Com base no nível de significância conseguiremos estabelecer qual é o valor crítico e qual seria a região de rejeição. Para o nosso caso encontramos o valor crítico de 633 e a nossa região foi estabelecida como <span class="math inline">\(RC =\{\bar{x} \in R | \bar{x} \geq 633\}\)</span>. Conforme calculamos anteiormente. A região crítica engloba os valores que julgamos não serem mais pertencentes a distribuição sob <span class="math inline">\(H_0\)</span>. Em nosso caso todos os valores da estimativa calculada que ficarem acima de 633 dizemos que não vierem da distribuição sob <span class="math inline">\(H_0\)</span></p>
 <div class="callout callout-style-default callout-note no-icon callout-titled" title="DEFINIÇÃO">
 <div class="callout-header d-flex align-content-center">
@@ -654,12 +672,12 @@ P(E II)=P(\overline{X} \notin R C |H_1 \quad \text { verdadeiro })=\beta
 <p>Dessa forma, a região critica depende do teste estatístico escolhido e se a hipótese é unilateral, ou seja, apenas de um lado da distribuição ou bilateral, os dois lados da distribuição. No caso unilateral utilizamos o nível de siginifcância, <span class="math inline">\(\alpha\)</span>, todo de um lado apenas. Se for o teste bilateral dividimos o nível de significância, ou seja, utilizamos <span class="math inline">\(\alpha /2\)</span>, metade para cada lado.</p>
 <p>Outro ponto que altera a região crítica é o nível de significância escolhido. Quando mais alto <span class="math inline">\(\alpha\)</span> maior a probabilidade de se obter uma amostra com estimativas pertencentes a região crítica. Assim, <span class="math inline">\(\alpha\)</span> maiores implicam em maiores regiões crítica.</p>
 </section>
-<section id="o-teste-de-hipótese" class="level3" data-number="12.3.4">
-<h3 data-number="12.3.4" class="anchored" data-anchor-id="o-teste-de-hipótese"><span class="header-section-number">12.3.4</span> O Teste de Hipótese</h3>
+<section id="o-teste-de-hipótese" class="level3" data-number="15.3.4">
+<h3 data-number="15.3.4" class="anchored" data-anchor-id="o-teste-de-hipótese"><span class="header-section-number">15.3.4</span> O Teste de Hipótese</h3>
 <p>Fazemos nosso processo de amostragem e obtemos o valor do teste estatístico. Se o valor do teste ficar fora da região crítica dizemos que não rejeitamos <span class="math inline">\(H_0\)</span>. Para o nosso caso, que não existe evidências de que a renda é maior do 600 reais. &nbsp; Caso o teste estatítico produza uma estimativa na região crítica, rejeitamos <span class="math inline">\(H_0\)</span>, há evidências de que a renda pc é maior do que aquela postulada pela ONG. Isso conclui o nosso teste de hipótese.</p>
 </section>
-<section id="relação-entre-a-probabilidade-de-cauda-p-valor-e-região-crítica" class="level3" data-number="12.3.5">
-<h3 data-number="12.3.5" class="anchored" data-anchor-id="relação-entre-a-probabilidade-de-cauda-p-valor-e-região-crítica"><span class="header-section-number">12.3.5</span> Relação entre a Probabilidade de cauda, p-valor, e região crítica</h3>
+<section id="relação-entre-a-probabilidade-de-cauda-p-valor-e-região-crítica" class="level3" data-number="15.3.5">
+<h3 data-number="15.3.5" class="anchored" data-anchor-id="relação-entre-a-probabilidade-de-cauda-p-valor-e-região-crítica"><span class="header-section-number">15.3.5</span> Relação entre a Probabilidade de cauda, p-valor, e região crítica</h3>
 <p>Considere o caso anterior onde tinhamos um teste estatístico realizado para a renda pc de uma comunidade <span class="math inline">\(H_0: \mu=600\)</span>. Retomando o que fizemos anteriormente e no qual consideramos o nível de 5% de significância para o teste unilateral, obtivemos a seguinte Região Crítica:</p>
 <p><span class="math inline">\(RC =\{\bar{x} \in \mathbb{R} | \bar{x} \geq 633\}\)</span></p>
 <p>Vamos supor agora que realizamos uma nova amostragem e a estimativa do nosso teste com base em uma amostragem de 25 elementos foi de 645. Com base no valor do teste e na nossa região crítica construída, rejeitariamos <span class="math inline">\(H_0\)</span>. Podemos agora calcular a probbilidade de cauda, ou seja, o p-valor, o qual mostra a probabilidade de obtermos valores iguais ou maiores do que 645 sob a hipótese nula. Assim:</p>
@@ -696,7 +714,7 @@ P(E II)=P(\overline{X} \notin R C |H_1 \quad \text { verdadeiro })=\beta
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="cap10_teste_hip_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid figure-img" style="width:70.0%"></p>
+<p><img src="cap13_teste_hip_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid figure-img" style="width:70.0%"></p>
 <figcaption>Nível de significância e p-valor</figcaption>
 </figure>
 </div>
@@ -704,536 +722,10 @@ P(E II)=P(\overline{X} \notin R C |H_1 \quad \text { verdadeiro })=\beta
 </div>
 <p>Em marrom, linha mais a esquerda, temos o limite da região crítica, ou seja, o valor a partir do qual rejeitariamos <span class="math inline">\(H_0\)</span>. Note que podemos montar essa região sem efetivamente retiramos uma amostra, somente com base na teoria e no tamanho amostral que poderiamos coletar. Ela especifica todas os valores sob os quais rejeitamos <span class="math inline">\(H_0\)</span>. O p-valor está indicado pela linha azul no gráfico e nos fornece a ideia de quão forte é essa rejeição, observa-se que quanto menor o p-valor (valores mais extremos) mais evidências temos de que a hipótese nula <span class="math inline">\(H_0\)</span> não é adequada, ou seja, mais forte são as evidências para a rejeição.</p>
 </section>
-<section id="os-cinco-passos-para-a-contrução-do-teste-de-hipótese" class="level3" data-number="12.3.6">
-<h3 data-number="12.3.6" class="anchored" data-anchor-id="os-cinco-passos-para-a-contrução-do-teste-de-hipótese"><span class="header-section-number">12.3.6</span> Os Cinco passos para a contrução do teste de hipótese</h3>
-
-</section>
-</section>
-<section id="teste-de-hipótese-na-prática" class="level2" data-number="12.4">
-<h2 data-number="12.4" class="anchored" data-anchor-id="teste-de-hipótese-na-prática"><span class="header-section-number">12.4</span> Teste de Hipótese na prática</h2>
-<section id="introdução-1" class="level4" data-number="12.4.0.1">
-<h4 data-number="12.4.0.1" class="anchored" data-anchor-id="introdução-1"><span class="header-section-number">12.4.0.1</span> Introdução</h4>
-<p>Vamos separar em dois grupos de testes. Os testes sobre os parâmetros locacionais e os testes sobre probabilidades. Apesar do procedimento ser sempre aquele apresentado acima, existe mudanças na estatística que iremos utilizar dado a situação em questão.</p>
-</section>
-<section id="testes-paramétricos-para-parâmetros-locacional" class="level3" data-number="12.4.1">
-<h3 data-number="12.4.1" class="anchored" data-anchor-id="testes-paramétricos-para-parâmetros-locacional"><span class="header-section-number">12.4.1</span> Testes paramétricos para parâmetros locacional</h3>
-<section id="testes-sobre-esperança-de-uma-população-com-variância-conhecida" class="level4" data-number="12.4.1.1">
-<h4 data-number="12.4.1.1" class="anchored" data-anchor-id="testes-sobre-esperança-de-uma-população-com-variância-conhecida"><span class="header-section-number">12.4.1.1</span> Testes sobre Esperança de uma população com variância conhecida</h4>
-<p>Esse é nosso primeiro teste sobre a esperança populacional, <span class="math inline">\(\mu\)</span> e ele parte do pressuposto que conhecemos a variância populacional, ou seja, <span class="math inline">\(\sigma^2=\sigma_0^2\)</span>. Vamos seguir os passos que mostramos anteriormente e construir o que seria a forma geral de testar uma hipótese neste caso;</p>
-<p><strong>1- Definindo a Hipótese</strong></p>
-<p>Podemos definir de forma Bicaudal ou Unicaudal</p>
-<p><span class="math display">\[H_0: \mu=\mu_0\]</span> <span class="math display">\[H_1: \mu \neq \mu_0\]</span></p>
-<p>ou</p>
-<p><span class="math display">\[H_0:  \mu=\mu_0\]</span> <span class="math display">\[H_1:  \mu &gt;\mu_0 \quad ou \quad H_1: \mu&lt;\mu_0\]</span></p>
-<p><strong>2 - Definindo o Estimador</strong></p>
-<p>O estimador para a esperança já conhecemos, a média <span class="math inline">\((\bar{X})\)</span>. Para encontrar estimadores podemos utilizar uma das técnicas anteriores que vimos. <span class="math display">\[\bar{X}=\frac{\sum_i{X_i}}{n}\]</span> Sabemos que ao realizar um processo de amostragem aleatório, temos <span class="math inline">\(n\)</span> medições de <span class="math inline">\(X\)</span> (<span class="math inline">\(X_i\)</span>) e cada uma dessas tem a mesma probabilidade de <span class="math inline">\(X\)</span>. Observamos <span class="math inline">\(x_i\)</span>. Dessa forma, considerando o TLC e a LGN tem-se: <span class="math display">\[\bar{X}\sim N(\mu,\sigma^2/n)\]</span></p>
-<p>Esse resultado é independente da distribuição de <span class="math inline">\(X\)</span>. Somente precisamos assumir normalidade de <span class="math inline">\(X\)</span> para amostras pequenas, pois neste caso não conseguimos garantir as convergências em distribuição. Sob <span class="math inline">\(H_0\)</span> temos o seguinte: <span class="math display">\[\bar{X}\overset{H_0}{\sim} N(\mu_0,\sigma_0^2/n)\]</span></p>
-<p>Logo o nosso Teste Estatístico <span class="math inline">\(T\)</span>, sob <span class="math inline">\(H_0\)</span> será:</p>
-<p><span class="math display">\[T=\frac{\bar{X}-\mu_0}{\sigma_0/\sqrt{n}}\overset{H_0}{\sim} N(0,1)\]</span></p>
-<p><strong>3 - Nivel de Significância e Região Crítica</strong></p>
-<p>O controle do Erro Tipo I ou o nível de significância é uma escolha do pesquisador. Em economia utilizamos 10%, 5% e 1%. Com base na sua escolha podemos estabelecer as regiões críticas para o teste. Para: <span class="math display">\[H_0: \mu=\mu_0\]</span> <span class="math display">\[H_1: \mu \neq \mu_0\]</span></p>
-<p><span class="math display">\[RC=\{t \in \mathbb{R} |t\leq - z_{c,\alpha/2} \quad \cup \quad t\geq  z_{c,\alpha/2}\}\]</span></p>
-<p><span class="math display">\[H_0: \mu=\mu_0\]</span> <span class="math display">\[H_1: \mu &gt;\mu_0 \quad ou \quad H_1: \mu&lt;\mu_0\]</span></p>
-<p><span class="math display">\[RC_1=\{t \in \mathbb{R} | t\geq  z_{c,\alpha}\}\]</span></p>
-<p>ou</p>
-<p><span class="math display">\[RC_2=\{t \in \mathbb{R} |t\leq - z_{c,\alpha} \}\]</span></p>
-<p><strong>4 - Cálculo do Teste Estatístico</strong></p>
-<p>Calcular o valor do teste estatístico com base na amostra retirada da população sob estudo. Agora teremos uma realização da média amostral das diversas possibilidades fornecidas pela distribuição de <span class="math inline">\(\bar{X}\)</span>. Tem-se: <span class="math display">\[\bar{x}=\frac{\sum_i{x_i}}{n}\]</span> Logo o valor do nosso teste estatístico será:</p>
-<p><span class="math display">\[t=\frac{\bar{x}-\mu_0}{\sigma_0/\sqrt{n}}\]</span></p>
-<p>Agora podemos comparar esse valor obtido com os valores ditos mais prováveis de ocorrerem sob <span class="math inline">\(H_0\)</span>. Basicamente faremos isso comparando o valor obtido, <span class="math inline">\(t\)</span> com a nossa região crítica.</p>
-<p><strong>5 - Teste de hipótese</strong></p>
-<p>Assim se a nossa estimativa <span class="math inline">\(t\)</span> pertencer a regiao crítica rejeitamos <span class="math inline">\(H_0\)</span>, ou seja, há evidências de que a afirmativa esteja errada. Caso não esteja na RC não rejeitamos <span class="math inline">\(H_0\)</span> e portanto temos evidência de que esteja correto.</p>
-<p>Vejamos agora um exemplo.</p>
-<div class="callout callout-style-default callout-tip no-icon callout-titled" title="EXEMPLO">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Tip</span>EXEMPLO
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Suponha que temos uma máquina de empacotar que tem uma regulagem original com <span class="math inline">\(\mu=500\)</span> e <span class="math inline">\(\sigma^{2}=400\)</span>. O gerente de qualidade da empresa mensalmente faz a aferição para verificar se a máquina está desregulada. Ele coleta aleatóriamente <span class="math inline">\(n=16\)</span> pacotes e obteve a média <span class="math inline">\(\bar{x}=492\)</span>. O gerente deve parar a produção e chamar a equipe de manutenção ao nível de 1% de significância?</p>
-</div>
-</div>
-<p><strong>Resolvendo:</strong></p>
-<p><strong>1 - Definindo a hipótese</strong></p>
-<p>Vamos adotar como hipótese nula a afirmação de que a máquina não desregulou. A hipótese alternativa é que a máquina pode ter desregulado para cima ou para baixo.</p>
-<p><span class="math display">\[H_0: \mu=500 g\]</span> <span class="math display">\[H_{1}: \mu \neq 500 g\]</span> Nesse caso utilizamos a hipótese bilateral.</p>
-<p><strong>2 - Definindo o Estimador</strong></p>
-<p>O estimador de <span class="math inline">\(\mu\)</span> é a média <span class="math inline">\(\bar{X}\)</span>:</p>
-<p><span class="math display">\[\bar{X}=\frac{\sum_iX_i}{16}\]</span></p>
-<p>Sendo a distribuição desse estimador:</p>
-<p><span class="math display">\[\bar{X}\sim N(\mu,\sigma^2/16)\]</span></p>
-<p>Sob <span class="math inline">\(H_0\)</span> temos a seguinte definição:</p>
-<p><span class="math display">\[\bar{X}\overset{H_0}{\sim} N(500,400/16)\]</span></p>
-<p>Logo o nosso Teste Estatístico <span class="math inline">\(T\)</span>, que nesse caso é a normal padronizada, sob <span class="math inline">\(H_0\)</span> será :</p>
-<p><span class="math display">\[T=\frac{\bar{X}-500}{20/\sqrt{16}}\overset{H_0}{\sim} N(0,1)\]</span></p>
-<p><strong>3 - Nivel de Significância e Região Crítica</strong></p>
-<p>Considerando o nível de 1% de significância temos a seguinte região crítica para T, com base na tabela:</p>
-<p><span class="math display">\[RC=\{t \in \mathbb{R} |t\leq - z_{c,0.025} \quad \cup \quad t\geq  z_{c,0.025}\}= \{ t \in \mathbb{R}| t\leq -2.58 \quad \cup \quad t\geq 2,58 \}\]</span></p>
-<p><strong>4 - Cálculo do Teste Estatístico</strong></p>
-<p>Com base nas 16 elementos amostrados de <span class="math inline">\(X\)</span>, obtivemos:</p>
-<p><span class="math display">\[\bar{x}=\frac{\sum_i{x_i}}{16}=492\]</span></p>
-<p>Logo o valor do nosso teste estatístico será:</p>
-<p><span class="math display">\[t=\frac{492-500}{20/4}=\frac{-8}{5}=1.6\]</span></p>
-<p>Agora podemos comparar esse valor obtido com os valores ditos mais prováveis de ocorrerem sob <span class="math inline">\(H_0\)</span>. Basicamente faremos isso comparando o valor obtido, <span class="math inline">\(t\)</span> com a nossa região crítica.</p>
-<p><strong>5 - Teste de Hipótese</strong></p>
-<p>Com base no <span class="math inline">\(t\)</span> calculado procedemos o teste de hipótese. Sadendo que a RC é:</p>
-<p><span class="math display">\[RC= \{ t \in \mathbb{R}| t\leq -2.58 \quad \cup \quad t\geq 2,58 \}\]</span></p>
-<p>Como <span class="math inline">\(t=1.6\)</span> ele não pertence a região, logo não rejeitamos <span class="math inline">\(H_0\)</span>, não há evidências de que a máquina desregulou e o gerente não deveria parar a produção para fazer a manutenção.</p>
-<p>Uma outra maneira de fazermos é ao invés de utilizarmos a normal padronizada, encontrarmos quais são os limites da região crítica na distribuição de <span class="math inline">\(\bar{X}\)</span>. Assim poderemos fazer para o nível de significância, <span class="math inline">\(\alpha\)</span> de 1%:</p>
-<p><span class="math display">\[z_{c_1}=-2,58=(\overline{x}_{c1}-500)/5=487,1\]</span></p>
-<p><span class="math display">\[z_{c_2}=2,58=(\overline{x}_{c2}-500)/5=512,9\]</span></p>
-<p>Logo a região crítica análoga na distribuição de <span class="math inline">\(\bar{X}\)</span> será:</p>
-<p><span class="math display">\[RC=\{\overline{x} \in R | \overline{x} \leq 487,1 \ \text{ou} \  \overline{x}\geq512,9  \}\]</span></p>
-<p>Como a amostra tem média <span class="math inline">\(\overline{x}=492\)</span> ela não pertence à região críitica então não rejeitamos <span class="math inline">\(H_0\)</span>.</p>
-<p>Vejamos a simulação e os valores críticos e o <span class="math inline">\(\bar{x}\)</span> calculado.</p>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>x<span class="ot">&lt;-</span><span class="fu">seq</span>(<span class="dv">480</span>,<span class="dv">520</span>,<span class="fl">0.1</span>) </span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>fdnorm<span class="ot">&lt;-</span><span class="fu">dnorm</span>(<span class="at">x =</span> x, <span class="at">mean =</span> <span class="dv">500</span>, <span class="at">sd=</span><span class="dv">5</span>)  </span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>fdnorm1<span class="ot">&lt;-</span><span class="fu">dnorm</span>(<span class="at">x =</span> x, <span class="at">mean =</span> <span class="dv">500</span>, <span class="at">sd=</span><span class="dv">5</span>)</span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>regiao<span class="ot">=</span><span class="fu">seq</span>(<span class="fl">512.9</span>,<span class="dv">520</span>,<span class="fl">0.01</span>)</span>
-<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>cord.x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fu">min</span>(regiao),regiao,<span class="fu">max</span>(regiao))</span>
-<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>cord.y <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">0</span>,<span class="fu">dnorm</span>(regiao,<span class="at">mean=</span><span class="dv">500</span>, <span class="at">sd=</span><span class="dv">5</span>),<span class="dv">0</span>) </span>
-<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a><span class="fu">curve</span>(<span class="fu">dnorm</span>(x,<span class="dv">500</span>,<span class="dv">5</span>),<span class="at">xlim=</span><span class="fu">c</span>(<span class="dv">480</span>,<span class="dv">520</span>),<span class="at">xlab=</span><span class="fu">expression</span>(<span class="fu">bar</span>(x)),<span class="at">type=</span><span class="st">"l"</span>,</span>
-<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>      <span class="at">col=</span><span class="st">"steelblue4"</span>,<span class="at">lwd=</span><span class="dv">2</span>, <span class="at">ylab=</span><span class="fu">expression</span>(<span class="fu">paste</span>(<span class="st">"f("</span>, <span class="fu">bar</span>(x),</span>
-<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>      <span class="st">")"</span>)),<span class="at">xaxt=</span><span class="st">"n"</span>,<span class="at">cex.axis=</span><span class="fl">0.65</span>, <span class="at">cex.lab=</span><span class="fl">0.8</span> ) </span>
-<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a><span class="fu">axis</span>(<span class="dv">1</span>,<span class="at">at=</span><span class="fu">c</span>(<span class="fl">487.1</span>, <span class="dv">492</span>, <span class="dv">495</span>, <span class="dv">500</span>, <span class="dv">505</span>, <span class="dv">510</span>, <span class="fl">512.9</span>, <span class="dv">515</span>),<span class="at">labels =</span></span>
-<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>       <span class="fu">c</span>(<span class="fl">487.1</span>, <span class="dv">492</span>, <span class="dv">495</span>, <span class="dv">500</span>, <span class="dv">505</span>, <span class="dv">510</span>, <span class="fl">512.9</span>, <span class="dv">515</span>),<span class="at">cex.axis=</span><span class="fl">0.7</span>, <span class="at">cex.lab=</span><span class="fl">0.8</span>) </span>
-<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a><span class="fu">polygon</span>(cord.x,cord.y,<span class="at">col=</span><span class="st">'steelblue4'</span>)</span>
-<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a><span class="fu">abline</span>(<span class="at">v=</span><span class="fl">512.9</span>, <span class="at">col=</span><span class="st">"steelblue4"</span>, <span class="at">lty=</span><span class="dv">2</span>, <span class="at">lwd=</span><span class="dv">2</span>)</span>
-<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a><span class="fu">abline</span>(<span class="at">v=</span><span class="dv">492</span>, <span class="at">col=</span><span class="st">"wheat4"</span>, <span class="at">lty=</span><span class="dv">2</span>, <span class="at">lwd=</span><span class="dv">2</span>)</span>
-<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a><span class="fu">text</span>(<span class="dv">500</span>, <span class="fl">0.001</span>, <span class="fu">expression</span>(mu))</span>
-<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a><span class="fu">text</span>(<span class="dv">517</span>, <span class="fl">0.01</span>, <span class="fu">expression</span>(<span class="fu">paste</span>(alpha,<span class="st">"/2"</span>, <span class="st">"=0.025"</span>)))</span>
-<span id="cb5-17"><a href="#cb5-17" aria-hidden="true" tabindex="-1"></a><span class="fu">text</span>(<span class="dv">517</span>, <span class="fl">0.04</span>, <span class="fu">expression</span>(<span class="st">"RC"</span>))</span>
-<span id="cb5-18"><a href="#cb5-18" aria-hidden="true" tabindex="-1"></a><span class="fu">text</span>(<span class="dv">494</span>, <span class="fl">0.01</span>, <span class="fu">expression</span>(<span class="fu">paste</span>(<span class="fu">bar</span>(x),<span class="st">"=492"</span>)))</span>
-<span id="cb5-19"><a href="#cb5-19" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-20"><a href="#cb5-20" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">new=</span><span class="cn">TRUE</span>)</span>
-<span id="cb5-21"><a href="#cb5-21" aria-hidden="true" tabindex="-1"></a><span class="fu">curve</span>(<span class="fu">dnorm</span>(x,<span class="dv">500</span>,<span class="dv">5</span>),<span class="at">xlim=</span><span class="fu">c</span>(<span class="dv">480</span>,<span class="dv">520</span>),<span class="at">xlab=</span><span class="fu">expression</span>(<span class="fu">bar</span>(x)),<span class="at">type=</span><span class="st">"l"</span>,</span>
-<span id="cb5-22"><a href="#cb5-22" aria-hidden="true" tabindex="-1"></a>      <span class="at">col=</span><span class="st">"steelblue4"</span>,<span class="at">lwd=</span><span class="dv">2</span>, <span class="at">ylab=</span><span class="fu">expression</span>(<span class="fu">paste</span>(<span class="st">"f("</span>, <span class="fu">bar</span>(x),</span>
-<span id="cb5-23"><a href="#cb5-23" aria-hidden="true" tabindex="-1"></a>      <span class="st">")"</span>)),<span class="at">xaxt=</span><span class="st">"n"</span>,<span class="at">cex.axis=</span><span class="fl">0.65</span>, <span class="at">cex.lab=</span><span class="fl">0.8</span> ) </span>
-<span id="cb5-24"><a href="#cb5-24" aria-hidden="true" tabindex="-1"></a><span class="fu">axis</span>(<span class="dv">1</span>,<span class="at">at=</span><span class="fu">c</span>(<span class="fl">487.1</span>, <span class="dv">492</span>, <span class="dv">495</span>, <span class="dv">500</span>, <span class="dv">505</span>, <span class="dv">510</span>, <span class="fl">512.9</span>, <span class="dv">515</span>),<span class="at">labels =</span></span>
-<span id="cb5-25"><a href="#cb5-25" aria-hidden="true" tabindex="-1"></a>       <span class="fu">c</span>(<span class="fl">487.1</span>, <span class="dv">492</span>, <span class="dv">495</span>, <span class="dv">500</span>, <span class="dv">505</span>, <span class="dv">510</span>, <span class="fl">512.9</span>, <span class="dv">515</span>),<span class="at">cex.axis=</span><span class="fl">0.7</span>, <span class="at">cex.lab=</span><span class="fl">0.8</span>) </span>
-<span id="cb5-26"><a href="#cb5-26" aria-hidden="true" tabindex="-1"></a>regiao<span class="ot">=</span><span class="fu">seq</span>(<span class="dv">480</span>,<span class="fl">487.1</span>,<span class="fl">0.01</span>)</span>
-<span id="cb5-27"><a href="#cb5-27" aria-hidden="true" tabindex="-1"></a>cord.x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fu">min</span>(regiao),regiao,<span class="fu">max</span>(regiao))</span>
-<span id="cb5-28"><a href="#cb5-28" aria-hidden="true" tabindex="-1"></a>cord.y <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">0</span>,<span class="fu">dnorm</span>(regiao,<span class="at">mean=</span><span class="dv">500</span>, <span class="at">sd=</span><span class="dv">5</span>),<span class="dv">0</span>)</span>
-<span id="cb5-29"><a href="#cb5-29" aria-hidden="true" tabindex="-1"></a><span class="fu">polygon</span>(cord.x,cord.y,<span class="at">col=</span><span class="st">'steelblue4'</span>)</span>
-<span id="cb5-30"><a href="#cb5-30" aria-hidden="true" tabindex="-1"></a><span class="fu">abline</span>(<span class="at">v=</span><span class="fl">487.1</span>, <span class="at">col=</span><span class="st">"steelblue4"</span>, <span class="at">lty=</span><span class="dv">2</span>, <span class="at">lwd=</span><span class="dv">2</span>)</span>
-<span id="cb5-31"><a href="#cb5-31" aria-hidden="true" tabindex="-1"></a><span class="fu">text</span>(<span class="dv">483</span>, <span class="fl">0.01</span>, <span class="fu">expression</span>(<span class="fu">paste</span>(alpha,<span class="st">"/2"</span>, <span class="st">"=0.025"</span>)))</span>
-<span id="cb5-32"><a href="#cb5-32" aria-hidden="true" tabindex="-1"></a><span class="fu">text</span>(<span class="dv">483</span>, <span class="fl">0.04</span>, <span class="fu">expression</span>(<span class="st">"RC"</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="cap10_teste_hip_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid figure-img" style="width:70.0%"></p>
-<figcaption>Nível de significância e p-valor</figcaption>
-</figure>
-</div>
-</div>
-</div>
-<p>Observamos na distribuição de <span class="math inline">\(\bar{X}\)</span>, a qual foi construída considerando <span class="math inline">\(H_0\)</span> verdadeira, os valores críticos 487.1 e 512.9, bem como as regiões críticas. Nota-se que o valor de <span class="math inline">\(\bar{x}\)</span> não está dentro da RC e portanto, não rejeitamos <span class="math inline">\(H_0\)</span>.</p>
-</section>
-<section id="utilizando-a-probabilidade-de-cauda-ou-probilidade-de-significância-ou-p-valor" class="level4" data-number="12.4.1.2">
-<h4 data-number="12.4.1.2" class="anchored" data-anchor-id="utilizando-a-probabilidade-de-cauda-ou-probilidade-de-significância-ou-p-valor"><span class="header-section-number">12.4.1.2</span> Utilizando a Probabilidade de Cauda ou Probilidade de Significância ou p-valor</h4>
-<p>Para fixarmos a ideia de p-valor, vamos fazer agora um teste de hipótese considerando apenas a probabilidade de cauda, ou probabilidade de significância ou o p-valor. O nome mais comum é p-valor. Agora não construiremos mais a região crítica e iremos calcular com base na estatística:</p>
-<p><span class="math display">\[P(T\geq t_0|H_0)=p-valor=\hat{\alpha}\]</span></p>
-<p>Vejamos um exemplo:</p>
-<div class="callout callout-style-default callout-tip no-icon callout-titled" title="EXEMPLO">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Tip</span>EXEMPLO
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Uma empresa de transporte intermunicipal que ganhou uma concessão do Estado afirma que o tempo de viagem, <span class="math inline">\(X\)</span>, entre duas cidades de acordo com seus estudos preliminares pode ser assim descrito:</p>
-<p><span class="math display">\[X \sim N (300,30^{2})\]</span></p>
-<p>Inclusive esse tempo foi um dos critérios utilizados no processo de cessão. O Ministério Público desconfia e acredita que esse valor é maior. O MP faz um estudo considerando 10 viagens aleatórias e encontra que <span class="math inline">\(\overline{x}=314\)</span>. O MP deve se reunir com a empresa e pedir um ajustamento de conduta?</p>
-</div>
-</div>
-<p><strong>Resolvendo:</strong></p>
-<p><strong>1 - Definindo a hipótese</strong></p>
-<p><span class="math display">\[H_0: \mu=300\]</span></p>
-<p><span class="math display">\[H_1: \mu\geq 300\]</span></p>
-<p><strong>2 - Definindo o Estimador</strong></p>
-<p>Sabemos que <span class="math inline">\(\bar{X}\)</span> será:</p>
-<p><span class="math display">\[\overline{X} \sim N (\mu; \sigma^{2}/10 )\]</span></p>
-<p>e considerando que a empresa está correta, ou seja, sob <span class="math inline">\(H_0\)</span>:</p>
-<p><span class="math display">\[\overline{X} \sim N (300; 900/10)\]</span></p>
-<p><strong>3 - Nivel de Significância e Região Crítica</strong></p>
-<p>Não precisamos mais calcular!!</p>
-<p><strong>4 - Cálculo do Teste Estatístico</strong></p>
-<p>Com <span class="math inline">\(\bar{x}_0=314\)</span> e sob <span class="math inline">\(H_0\)</span>, calculamos a probabilidade de ocorrência de amostras com o valor iguais ou superiores a <span class="math inline">\(\overline{x}=314\)</span>:</p>
-<p><span class="math display">\[P(\bar{x}&gt;314)=P \bigg(z&gt;\frac{314-300}{9.49} \bigg)=P(z&gt;1,48)=0,07\]</span></p>
-<p><span class="math display">\[\hat{\alpha}=p-valor=7\%\]</span></p>
-<p>Caso fosse bicaudal e sabendo que a distribuição é simétrica poderiamos considerar:</p>
-<p><span class="math display">\[\hat{\alpha}=14\%\]</span></p>
-<p><strong>5 - Teste de Hipótese</strong></p>
-<p>Considerando o teste unilateral, temos agora a força da rejeição. A chance de retirarmos 314 ou mais é de 7%. Apesar de baixo poderia ocorrer. Não parece muito improvável, tanto que se considerarmos <span class="math inline">\(\alpha=1\%\)</span> ou <span class="math inline">\(\alpha=5\%\)</span> não rejeitamos. Só rejeitariamos <span class="math inline">\(H_0\)</span> se <span class="math inline">\(\alpha=10\%\)</span>. Podemos concluir que as evidências não nos revelam que a empresa está tendo um tempo maior de viagem, apesar dessa conclusão não ser tão forte.</p>
-</section>
-</section>
-<section id="teste-sobre-a-esperança-de-uma-população-normal-com-variância-desconhecida" class="level3" data-number="12.4.2">
-<h3 data-number="12.4.2" class="anchored" data-anchor-id="teste-sobre-a-esperança-de-uma-população-normal-com-variância-desconhecida"><span class="header-section-number">12.4.2</span> Teste sobre a Esperança de uma população normal com variância desconhecida</h3>
-<p>O procedimento aqui é análogo ao que fizemos anteriormente para testar a média quando conheciamos o desvio populacional <span class="math inline">\(\sigma\)</span>. Entretanto o nosso teste estatístico que era:</p>
-<p><span class="math display">\[T=\frac{\bar{X}-\mu_0}{\sigma_0/\sqrt{n}}\]</span></p>
-<p>Não pode ser calculado pois não conhecemos mais <span class="math inline">\(\sigma_0\)</span>. Temos que substituir esse parâmetro pela sua estimativa.</p>
-<p><span class="math display">\[S_X^2=\frac{1}{n-1}\sum_i (X-\bar{X})^2\]</span></p>
-<p>Dessa forma, nosso novo teste estatístico será:</p>
-<p><span class="math display">\[T=\frac{\bar{X}-\mu_0}{S_X/\sqrt{n}}\]</span></p>
-<p>Nossa questão agora é qual a distruibuição desse teste? Agora tanto <span class="math inline">\(\bar{X}\)</span> como <span class="math inline">\(S_X\)</span> são variáveis aleatórias e possuem distriuição. Para verificar, vamos dividir o numerador e o denominador por uma constante - desvio, <span class="math inline">\(\sigma\)</span></p>
-<p><span class="math display">\[\frac{\bar{X}-\mu}{S_X / \sqrt{n}} = \frac{\sqrt{n}(\bar{X}-\mu)}{S_X} \div \sigma \rightarrow \frac{\sqrt{n}(\overline{X}-\mu) / \sigma}{s / \sigma}\]</span></p>
-<p>Analisando o numerador:</p>
-<p><span class="math display">\[z=\frac{(\bar{x}-\mu)}{\sigma / \sqrt{n}} \sim N(0,1)\]</span></p>
-<p>Analisando o denominador e assumindo que X tem uma distribuição normal:</p>
-<p><span class="math display">\[(s/ \sigma)^{2} \Rightarrow \frac{(n-1) S^{2}}{\sigma^{2}} /(n-1) \sim \chi^{2}_{(n-1)}\]</span></p>
-<p>Temos a divisão de uma normal <span class="math inline">\(N(0,1)\)</span> por <span class="math inline">\(\sqrt{\chi^2_{n-1}}\)</span> dividido pelo número de graus de liberdade</p>
-<p><span class="math display">\[\left[\frac{N(0,1)}{\frac{\sqrt{\chi^{2}_{n-1}}}{ n-1}}\right]\]</span></p>
-<p>Portanto nosso teste estatístico será:</p>
-<p><span class="math display">\[T=\frac{\sqrt{n}(\bar{X}-\mu)}{S_X} \sim t(n-1)\]</span></p>
-<p>E terá uma distribuição t-student com n-1 graus de liberdade. Agora nossa região crítica tem que ser construída com base na tabela da distribuição t.Para o caso bicaudal:</p>
-<p><span class="math display">\[RC=\{t \in \mathbb{R} |t\leq - t_{c,\alpha/2} \quad ou \quad t\geq  t_{c,\alpha/2}\}\]</span> Para o caso unicaudal:</p>
-<p><span class="math display">\[RC_1=\{t \in \mathbb{R} | t\geq  t_{c,\alpha}\} \quad ou \quad RC_2=\{t \in \mathbb{R} |t\leq -t_{c,\alpha} \}\]</span></p>
-<p>Agora vejamos um exemplo:</p>
-<div class="callout callout-style-default callout-tip no-icon callout-titled" title="EXEMPLO">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Tip</span>EXEMPLO
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Um fabricante afirma que seus cigarros não contém mais do que 30mg de nicotina. O Ministério da Saúde está desconfiado dessa afirmativa e acredita que o conteúdo de nicotina é maior do que o anunciado (teste unilateral). Foi realizada uma amostra de 25 cigarros e o teor médio de nicotina nos mesmos foi <span class="math inline">\(\overline{x_0}=31,5mg\)</span> e o desvio padrão amostral <span class="math inline">\(S_X=3mg\)</span>. Com <span class="math inline">\(\alpha=5\%\)</span> os dados confirmam a informação?</p>
-</div>
-</div>
-<p><strong>1 - Definindo a hipótese</strong></p>
-<p><span class="math display">\[H_0: \mu=30\]</span></p>
-<p><span class="math display">\[H_1: \mu\geq30\]</span></p>
-<p><strong>2 - Definindo o Estimador</strong></p>
-<p>O estimador de <span class="math inline">\(\mu\)</span> é a média <span class="math inline">\(\bar{X}\)</span>:</p>
-<p><span class="math display">\[\bar{X}=\frac{\sum_iX_i}{25}\]</span></p>
-<p>Logo o nosso Teste Estatístico <span class="math inline">\(T\)</span>, que nesse caso é a padronização de <span class="math inline">\(\bar{X}\)</span> e considerando o estimador da variância será, sob <span class="math inline">\(H_0\)</span>:</p>
-<p><span class="math display">\[T=\frac{\bar{X}-30}{3/\sqrt{25}}\overset{H_0}{\sim} t(24)\]</span></p>
-<p><strong>3 - Nivel de Significância e Região Crítica</strong></p>
-<p>Considerando o nível de 5% de significância e teste unilateral temos a seguinte região crítica para T, com base na tabela t-student:</p>
-<p><span class="math display">\[RC=\{t \in \mathbb{R} |t\geq t_{24,0.05} \}= \{t \in \mathbb{R} |t\geq 1,711 \}\]</span></p>
-<p>Todos os valores da estatística acima de 1,711 fazem parte da nossa região crítica.</p>
-<p><strong>4 - Cálculo do Teste Estatístico</strong></p>
-<p>Foram amostrado 25 elementos de <span class="math inline">\(X\)</span>, obtivemos:</p>
-<p><span class="math display">\[\bar{x}=\frac{\sum_i{x_i}}{25}=31.5\]</span></p>
-<p>Logo o valor do nosso teste estatístico será:</p>
-<p><span class="math display">\[t=\frac{31.5-30}{3/5}=\frac{1.5}{0.6}=2.5\]</span></p>
-<p>Agora podemos comparar o valor obtido, <span class="math inline">\(t\)</span> com a nossa região crítica.</p>
-<p><strong>5 - Teste de Hipótese</strong></p>
-<p>Nosso teste foi <span class="math inline">\(T=2.5\)</span> e nossa região crítica <span class="math inline">\(RC=\{t\geq 1,711 \}\)</span>. Logo pertence à região crítica. Dessa forma, rejeitamos <span class="math inline">\(H_0\)</span> mostrando que há evidências de que o teor de nicotina é maior do que o anunciado pela firma.</p>
-<p><strong>6 - Extra 1: Probabilidade de cauda ou p-valor</strong></p>
-<p>Vamos ver qual a probabilidade de encontrarmos os valores <span class="math inline">\(T=2.5\)</span> ou maiores em uma amostra que veio de uma população sob <span class="math inline">\(H_0\)</span> ou seja, <span class="math inline">\(\mu=30g\)</span>.</p>
-<p><span class="math display">\[\hat{\alpha}=P\left(T&gt;t_{0}| H_{0}\right)=P\left(T&gt;2,5 | H_{0}\right)=0,01,\]</span></p>
-<p>o que também leva à rejeição de <span class="math inline">\(H_0\)</span> ao nível de 5% de confiança.</p>
-<p><strong>7 - Extra 2: O Intervalo e Confiança</strong></p>
-<p>Como rejeitamos, poderiamos estar interessados em descobrir onde estaria a verdadeira média populacional ao nível de 5% de confiança. Vamos calcular o intervalo de confiança para 5% ( <span class="math inline">\(t_\gamma=2,064\)</span>):</p>
-<p><span class="math display">\[\begin{array}{ccc}
-I C(\mu ; 0.95)=31,5 \pm(2.064) 3/\sqrt{25}
-\\
-\\
-I C(\mu ; 0.95)=\{30.26 ; 32.74\}
-\\
-\\
-\end{array}\]</span></p>
-<p>Logo o verdadeiro parâmetro populacional <span class="math inline">\(\mu\)</span> estaria entre <span class="math inline">\(30.26\)</span> e <span class="math inline">\(32.74\)</span>.</p>
-<p><strong>8 - Extra 3: Simulando o nosso problema</strong></p>
-<p>Vamos agora simular a distribuição t-student sob <span class="math inline">\(H_0\)</span> e verificar o valor obitido, a RC e o p-valor</p>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>x<span class="ot">&lt;-</span><span class="fu">seq</span>(<span class="sc">-</span><span class="dv">4</span>,<span class="dv">4</span>,<span class="fl">0.1</span>) </span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>fdt<span class="ot">&lt;-</span><span class="fu">dt</span>(<span class="at">x =</span> x, <span class="at">df =</span> <span class="dv">24</span>)  </span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>fdt1<span class="ot">&lt;-</span><span class="fu">dt</span>(<span class="at">x =</span> x, <span class="at">df =</span> <span class="dv">24</span>)</span>
-<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>regiao<span class="ot">=</span><span class="fu">seq</span>(<span class="fl">1.711</span>,<span class="dv">4</span>,<span class="fl">0.01</span>)</span>
-<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>cord.x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fu">min</span>(regiao),regiao,<span class="fu">max</span>(regiao))</span>
-<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>cord.y <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">0</span>,<span class="fu">dt</span>(regiao,<span class="at">df=</span><span class="dv">24</span>),<span class="dv">0</span>) </span>
-<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a><span class="fu">curve</span>(<span class="fu">dt</span>(x,<span class="at">df =</span> <span class="dv">24</span>),<span class="at">xlim=</span><span class="fu">c</span>(<span class="sc">-</span><span class="dv">4</span>,<span class="dv">4</span>),<span class="at">xlab=</span><span class="fu">expression</span>(t),<span class="at">type=</span><span class="st">"l"</span>,</span>
-<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>      <span class="at">col=</span><span class="st">"steelblue4"</span>,<span class="at">lwd=</span><span class="dv">2</span>, <span class="at">ylab=</span><span class="fu">expression</span>(<span class="fu">paste</span>(<span class="st">"f("</span>, <span class="fu">bar</span>(t),</span>
-<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>      <span class="st">")"</span>)),<span class="at">xaxt=</span><span class="st">"n"</span>,<span class="at">cex.axis=</span><span class="fl">0.65</span>, <span class="at">cex.lab=</span><span class="fl">0.8</span> ) </span>
-<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a><span class="fu">axis</span>(<span class="dv">1</span>,<span class="at">at=</span><span class="fu">c</span>(<span class="sc">-</span><span class="dv">4</span>,<span class="sc">-</span><span class="dv">3</span>,<span class="sc">-</span><span class="dv">2</span>,<span class="sc">-</span><span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">1</span>, <span class="fl">1.71</span>,<span class="fl">2.5</span>,<span class="dv">3</span>, <span class="dv">4</span>),<span class="at">labels =</span></span>
-<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a>       <span class="fu">c</span>(<span class="sc">-</span><span class="dv">4</span>,<span class="sc">-</span><span class="dv">3</span>,<span class="sc">-</span><span class="dv">2</span>,<span class="sc">-</span><span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">1</span>, <span class="fl">1.71</span>,<span class="fl">2.5</span>,<span class="dv">3</span>, <span class="dv">4</span>),<span class="at">cex.axis=</span><span class="fl">0.7</span>, <span class="at">cex.lab=</span><span class="fl">0.8</span>) </span>
-<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a><span class="fu">polygon</span>(cord.x,cord.y,<span class="at">col=</span><span class="st">'wheat4'</span>)</span>
-<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a><span class="fu">abline</span>(<span class="at">v=</span><span class="fl">1.711</span>, <span class="at">col=</span><span class="st">"wheat4"</span>, <span class="at">lty=</span><span class="dv">2</span>, <span class="at">lwd=</span><span class="dv">2</span>)</span>
-<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a><span class="fu">text</span>(<span class="dv">0</span>, <span class="fl">0.001</span>, <span class="fu">expression</span>(mu))</span>
-<span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a><span class="fu">text</span>(<span class="fl">2.2</span>, <span class="fl">0.15</span>, <span class="fu">expression</span>(<span class="fu">paste</span>(alpha, <span class="st">"=0.05"</span>)))</span>
-<span id="cb6-16"><a href="#cb6-16" aria-hidden="true" tabindex="-1"></a><span class="fu">text</span>(<span class="dv">3</span>, <span class="fl">0.25</span>, <span class="fu">expression</span>(<span class="st">"Região Crítica"</span>))</span>
-<span id="cb6-17"><a href="#cb6-17" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-18"><a href="#cb6-18" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">new=</span><span class="cn">TRUE</span>)</span>
-<span id="cb6-19"><a href="#cb6-19" aria-hidden="true" tabindex="-1"></a><span class="fu">curve</span>(<span class="fu">dt</span>(x,<span class="at">df =</span> <span class="dv">24</span>),<span class="at">xlim=</span><span class="fu">c</span>(<span class="sc">-</span><span class="dv">4</span>,<span class="dv">4</span>),<span class="at">xlab=</span><span class="fu">expression</span>(t),<span class="at">type=</span><span class="st">"l"</span>,</span>
-<span id="cb6-20"><a href="#cb6-20" aria-hidden="true" tabindex="-1"></a>      <span class="at">col=</span><span class="st">"steelblue4"</span>,<span class="at">lwd=</span><span class="dv">2</span>, <span class="at">ylab=</span><span class="fu">expression</span>(<span class="fu">paste</span>(<span class="st">"f("</span>, <span class="fu">bar</span>(t),</span>
-<span id="cb6-21"><a href="#cb6-21" aria-hidden="true" tabindex="-1"></a>      <span class="st">")"</span>)),<span class="at">xaxt=</span><span class="st">"n"</span>,<span class="at">cex.axis=</span><span class="fl">0.65</span>, <span class="at">cex.lab=</span><span class="fl">0.8</span> )  </span>
-<span id="cb6-22"><a href="#cb6-22" aria-hidden="true" tabindex="-1"></a>regiao<span class="ot">=</span><span class="fu">seq</span>(<span class="fl">2.5</span>,<span class="dv">4</span>,<span class="fl">0.01</span>)</span>
-<span id="cb6-23"><a href="#cb6-23" aria-hidden="true" tabindex="-1"></a>cord.x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fu">min</span>(regiao),regiao,<span class="fu">max</span>(regiao))</span>
-<span id="cb6-24"><a href="#cb6-24" aria-hidden="true" tabindex="-1"></a>cord.y <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">0</span>,<span class="fu">dt</span>(regiao,<span class="at">df=</span><span class="dv">24</span>),<span class="dv">0</span>)</span>
-<span id="cb6-25"><a href="#cb6-25" aria-hidden="true" tabindex="-1"></a><span class="fu">polygon</span>(cord.x,cord.y,<span class="at">col=</span><span class="st">'steelblue4'</span>)</span>
-<span id="cb6-26"><a href="#cb6-26" aria-hidden="true" tabindex="-1"></a><span class="fu">abline</span>(<span class="at">v=</span><span class="fl">2.5</span>, <span class="at">col=</span><span class="st">"steelblue4"</span>, <span class="at">lty=</span><span class="dv">2</span>, <span class="at">lwd=</span><span class="dv">2</span>)</span>
-<span id="cb6-27"><a href="#cb6-27" aria-hidden="true" tabindex="-1"></a><span class="fu">text</span>(<span class="fl">3.3</span>, <span class="fl">0.05</span>, <span class="fu">expression</span>(<span class="fu">paste</span>(<span class="st">"p-value=0.01"</span>)))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="cap10_teste_hip_files/figure-html/unnamed-chunk-6-1.png" class="img-fluid figure-img" style="width:70.0%"></p>
-<figcaption>Nível de significância e p-valor para distribuição t-student</figcaption>
-</figure>
-</div>
-</div>
-</div>
-</section>
-<section id="comparação-de-duas-populações-normais-amostra-independente" class="level3" data-number="12.4.3">
-<h3 data-number="12.4.3" class="anchored" data-anchor-id="comparação-de-duas-populações-normais-amostra-independente"><span class="header-section-number">12.4.3</span> Comparação de duas populações normais: amostra independente</h3>
-<p>Nesse caso não quero mais saber se a esperança de uma população é igual a um determinado valor <span class="math inline">\(H_0:\mu=k\)</span> agora queremos saber se uma população possui o mesmo valor de esperança que a outra população. Por exemplo se a renda per capita é da cidade é igual a renda per capita no campo. Agora comparamos duas médias <span class="math inline">\(H_0:\mu_1=\mu_2\)</span>. Aqui assumimos que elas são normais e as amostras são independentes:</p>
-<p><span class="math display">\[P_1 \sim N(\mu_1,\sigma^2_1)\]</span></p>
-<p><span class="math display">\[P_2 \sim N(\mu_2,\sigma^2_2)\]</span></p>
-<p><strong>1 - Definindo a hipótese</strong></p>
-<p><span class="math display">\[H_0: \mu_1=\mu_2\]</span></p>
-<p><span class="math display">\[H_1: \mu_1\neq\mu_2\]</span></p>
-<p><strong>2 - Definindo o Estimador</strong></p>
-<p>Supondo que retiramos uma amostra de <span class="math inline">\(n\)</span> elementos da população 1 <span class="math inline">\(X\)</span> e de <span class="math inline">\(m\)</span> elementos da população 2, <span class="math inline">\(Y\)</span>. Sob <span class="math inline">\(H_0\)</span> temos:</p>
-<p><span class="math display">\[\begin{array}{ccc}
-\mathbb{E}(\overline{X}-\overline{Y})=\mathbb{E}(\overline{X})-\mathbb{E}(\overline{Y})=\mu_X-\mu_Y=0
-\\
-Var(\overline{X}-\overline{Y})=Var(\overline{X})+Var(\overline{Y})=\frac{\sigma^2_X}{n}+\frac{\sigma^2_Y}{m}
-\end{array}\]</span></p>
-<p><strong>2.1 - Caso 1: Para variâncias conhecidas</strong></p>
-<p>Sob a hipótese de que <span class="math inline">\(H_0\)</span> é verdadeira:</p>
-<p><span class="math display">\[\begin{array}{ccc}
-T=\frac{(\overline{X}-\overline{Y})-(\mu_X-\mu_Y)}{\sqrt{\frac{\sigma^2_X}{n}+\frac{\sigma^2_Y}{m}}}
-\\
-\\
-T=\frac{(\overline{X}-\overline{Y})}{\sqrt{\frac{\sigma^2_X}{n}+\frac{\sigma^2_Y}{m}}}\sim N(0,1)
-\\
-\end{array}\]</span></p>
-<p>Dessa forma construímos nossa região crítica com base nos valores críticos determinados pelo nosso nível de significância (<span class="math inline">\(\alpha\)</span>) na normal padrão <span class="math inline">\((\phi)\)</span>, ou seja, <span class="math inline">\(z_{c,\alpha}\)</span></p>
-<p>O intervalo de confiança nesse casos seria:</p>
-<p><span class="math display">\[IC(\theta;\gamma)=(\overline{x_0}-\overline{y_0})\pm z_{\gamma}\sqrt{\frac{\sigma^2_X}{n}+\frac{\sigma^2_Y}{m}}\]</span></p>
-<p><strong>2.2 - Caso 2: Para variância desconhecida e iguais</strong></p>
-<p>No teste de igualdade de variância essa não foi rejeitada. Temos que <span class="math inline">\(S_1^2\)</span> e <span class="math inline">\(S_2^2\)</span> são dois estimadores não viesados de <span class="math inline">\(\sigma^2\)</span>. Novamente retiramos uma amostra de <span class="math inline">\(n\)</span> elementos da população 1 <span class="math inline">\(X\)</span> e de <span class="math inline">\(m\)</span> elementos da população 2, <span class="math inline">\(Y\)</span>. Assim:</p>
-<p><span class="math display">\[S_p^2=\frac{(n-1)S_X^2+(m-1)S_Y^2}{n+m-2}\]</span></p>
-<p>Para testar a hipótese nula utiliza-se:</p>
-<p><span class="math display">\[T=\frac{\overline{X}-\overline{Y}}{S_p\sqrt{\frac{1}{n}+\frac{1}{m}}}\sim t_{(n+m-2)}\]</span></p>
-<p>Dessa forma construímos nossa região crítica com base nos valores críticos determinados pelo nosso nível de significância (<span class="math inline">\(\alpha\)</span>) na t-student <span class="math inline">\(t(n+m-2))\)</span>, ou seja, <span class="math inline">\(t_{\alpha,(n+m-2)}\)</span></p>
-<p>Construímos o seguinte Intervalo de confiança:</p>
-<p><span class="math display">\[IC(\theta;\gamma)=(\overline{x_0}-\overline{y_0})\pm t_{\gamma,(n+m-2)}S_p\sqrt{\frac{1}{n}+\frac{1}{m}}\]</span></p>
-<p><strong>2.3 - Caso 3: Para variância desconhecida e desiguais</strong></p>
-<p>Agora a hipótese de igualdade de variância for rejeitada, as duas populações possuem variâncias distintas, logo:</p>
-<p><span class="math display">\[T=\frac{\overline{X}-\overline{Y}}{\sqrt{S_X^2/n+S_Y^2/m}}\sim t_{(v)}\]</span></p>
-<p>Para encontrar o grau de liberdade <span class="math inline">\(v\)</span>:</p>
-<p><span class="math display">\[v=\frac{(A+B)^2}{\frac{A^2}{(n-1)}+\frac{B^2}{(m-1)}},\]</span></p>
-<p>onde:</p>
-<p><span class="math display">\[A=\frac{S_X^2}{n} \qquad B=\frac{S_Y^2}{m}\]</span></p>
-<p>Novamente, nossa região crítica é elaborada com base nos valores críticos determinados pelo nosso nível de significância (<span class="math inline">\(\alpha\)</span>) na t-student <span class="math inline">\(t(v)\)</span>, ou seja, <span class="math inline">\(t_{\alpha,(v)}\)</span></p>
-<p>Construímos o seguinte Intervalo de confiança:</p>
-<p><span class="math display">\[IC(\theta;\gamma)=(\overline{x_0}-\overline{y_0})\pm t_{\gamma,(v)}\sqrt{S_1^2/n+S_2^2/m}\]</span></p>
-<p>Vejamos agora dois exemplos. O primeiro é para as variâncias conhecidas e o segundo para variâncias desconhecidas mas iguais!</p>
-<div class="callout callout-style-default callout-tip no-icon callout-titled" title="EXEMPLO">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Tip</span>EXEMPLO
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p><strong>Teste de diferença de médias com variância conhecidas</strong></p>
-<p>Uma empresa propos um novo sistema de monitoramento de processo e quer verificar se esse faz com que os funcionarios tenham melhor performance. Foi feito um ensaio com 8 funcionários sob o monitoramento atual <span class="math inline">\((X)\)</span> e a performance média registrada foi de 80.5 pontos. Sabe-se que o desvio padrão populacional, <span class="math inline">\(\sigma_X=1.5\)</span>. Foi feito outro ensaio com 10 funcionários sob o novo monitoramento <span class="math inline">\((Y)\)</span> e a performance foi de 81.3 pontos. Aqui também conhecemos o desvio padrão populacional, <span class="math inline">\(\sigma_X=3.8\)</span></p>
-</div>
-</div>
-<p><strong>1 - Definindo a hipótese</strong></p>
-<p>Vamos adotar o teste unilateral pois sabemos que o novo processo pode performar igual ou melhor e não pior.</p>
-<p><span class="math display">\[H_0: \mu_X=\mu_Y\]</span></p>
-<p><span class="math display">\[H_1: \mu_X\leq\mu_Y\]</span></p>
-<p><strong>2 - Defindo o Estimador</strong></p>
-<p>Para variância conhecida e considerando a a hipótese nula utiliza-se o seguinte estimador:</p>
-<p><span class="math display">\[T=\frac{(\overline{X}-\overline{Y})}{\sqrt{\frac{\sigma^2_X}{n}+\frac{\sigma^2_Y}{m}}}\sim N(0,1)\]</span></p>
-<p><strong>3 - Nivel de Significância e Região Crítica</strong></p>
-<p>Considerando o nível de 5% de significância e teste unilateral temos a seguinte região crítica para T, com base na tabela normal padrão, <span class="math inline">\(z_{c,0.05}\)</span>:</p>
-<p><span class="math display">\[RC=\{t \in \mathbb{R} |t\leq z_{c,0.05} \} = \{t \in \mathbb{R} |t\leq -1.645 \}\]</span></p>
-<p><strong>4 - Cálculo do Teste Estatístico</strong></p>
-<p>Calculando a variância ponderada:</p>
-<p><span class="math display">\[T=\frac{(\overline{X}-\overline{Y})}{\sqrt{\frac{\sigma^2_X}{n}+\frac{\sigma^2_Y}{m}}}= \frac{(80.5-81.3)}{\sqrt{\frac{1.5^2}{8}+\frac{3.8^2}{10}}}= -0.61\sim N(0,1)\]</span></p>
-<p><strong>5 - Teste de Hipótese</strong></p>
-<p>Como -0.61 não está na região crítica, não rejeitamos a hipótese nula de que os dois processos de monitoramento produzem o mesmo resultado. Isso indica que se houver algum custo adicional na implementação do monitoramento 2, esse será um prejuízo para a empresa.</p>
-<p><strong>6 - Simulando as duas distribuições</strong></p>
-<p>Veja nas simulações como as duas distribuições estão próxima uma da outra indicando que não conseguimos diferenciar. Isso é a explicação visual do porque não houve diferença entre as médias dos dois monitoramentos.</p>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>x<span class="ot">&lt;-</span><span class="fu">seq</span>(<span class="dv">77</span>,<span class="dv">85</span>,<span class="fl">0.1</span>) </span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="fu">curve</span>(<span class="fu">dnorm</span>(x,<span class="fl">80.5</span>,<span class="fl">0.53</span>),<span class="at">xlim=</span><span class="fu">c</span>(<span class="dv">77</span>,<span class="dv">85</span>),<span class="at">xlab=</span><span class="fu">expression</span>(<span class="fu">bar</span>(x)),<span class="at">type=</span><span class="st">"l"</span>,</span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>      <span class="at">col=</span><span class="st">"steelblue4"</span>,<span class="at">lwd=</span><span class="dv">2</span>, <span class="at">ylab=</span><span class="fu">expression</span>(<span class="fu">paste</span>(<span class="st">"f("</span>, <span class="fu">bar</span>(x),</span>
-<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>      <span class="st">")"</span>)),<span class="at">xaxt=</span><span class="st">"n"</span>,<span class="at">cex.axis=</span><span class="fl">0.65</span>, <span class="at">cex.lab=</span><span class="fl">0.8</span> ) </span>
-<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a><span class="fu">axis</span>(<span class="dv">1</span>,<span class="at">at=</span><span class="fu">c</span>(<span class="dv">77</span>,<span class="fl">80.5</span>,<span class="fl">81.3</span>, <span class="dv">85</span>),<span class="at">labels =</span></span>
-<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>       <span class="fu">c</span>(<span class="dv">77</span>,<span class="fl">80.5</span>,<span class="fl">81.3</span>, <span class="dv">85</span>),<span class="at">cex.axis=</span><span class="fl">0.7</span>, <span class="at">cex.lab=</span><span class="fl">0.8</span>) </span>
-<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a><span class="fu">abline</span>(<span class="at">v=</span><span class="fl">80.5</span>, <span class="at">col=</span><span class="st">"steelblue4"</span>, <span class="at">lty=</span><span class="dv">2</span>, <span class="at">lwd=</span><span class="dv">2</span>)</span>
-<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">new=</span><span class="cn">TRUE</span>)</span>
-<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a><span class="fu">curve</span>(<span class="fu">dnorm</span>(x,<span class="fl">81.3</span>,<span class="fl">1.2</span>),<span class="at">xlim=</span><span class="fu">c</span>(<span class="dv">77</span>,<span class="dv">85</span>),<span class="at">xlab=</span><span class="fu">expression</span>(<span class="fu">bar</span>(x)),<span class="at">type=</span><span class="st">"l"</span>,</span>
-<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a>      <span class="at">col=</span><span class="st">"wheat4"</span>,<span class="at">lwd=</span><span class="dv">2</span>, <span class="at">ylab=</span><span class="fu">expression</span>(<span class="fu">paste</span>(<span class="st">"f("</span>, <span class="fu">bar</span>(x),</span>
-<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a>      <span class="st">")"</span>)),<span class="at">xaxt=</span><span class="st">"n"</span>,<span class="at">yaxt=</span><span class="st">"n"</span>,<span class="at">cex.axis=</span><span class="fl">0.65</span>, <span class="at">cex.lab=</span><span class="fl">0.8</span> ) </span>
-<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a><span class="fu">abline</span>(<span class="at">v=</span><span class="fl">81.3</span>, <span class="at">col=</span><span class="st">"wheat4"</span>, <span class="at">lty=</span><span class="dv">2</span>, <span class="at">lwd=</span><span class="dv">2</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="cap10_teste_hip_files/figure-html/unnamed-chunk-7-1.png" class="img-fluid figure-img" style="width:70.0%"></p>
-<figcaption>Simulando as duas distribuições do monitoramento, supondo normalidade</figcaption>
-</figure>
-</div>
-</div>
-</div>
-<div class="callout callout-style-default callout-tip no-icon callout-titled" title="EXEMPLO">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Tip</span>EXEMPLO
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p><strong>Teste de diferença de médias com variância desconhecidas e iguais</strong></p>
-<p>Uma empresa está testando duas misturas de concretos os quais são feitos com cimento de diferentes minas. A mistura 1 é a mistura padrão feita com o cimento já conhecido. A mistura 2 usa a mesma receita mas utiliza um cimento vindo de uma nova mina. A empresa quer saber se as duas misturas produzem a mesma qualidade de produto, ou seja, que a carga de ruptura do concreto após 28 dias é a mesma em <span class="math inline">\(kg/cm^2\)</span>. A tabela abaixo traz os testes laboratoriais e gostariamos de saber se ao nível de 5% de confiança as duas misturas possuem a mesma esperança?</p>
-</div>
-</div>
-<p><strong>Resolvendo:</strong></p>
-<p>Considerando que <span class="math inline">\(X\)</span> é a carga de ruptura da mistura 1 <span class="math inline">\((x_1, x_2, ...., x_{12})\)</span> e que <span class="math inline">\(Y\)</span> é a carga de ruptura da mistura 2 <span class="math inline">\((y_1, y_2, ...,y_{10})\)</span>. Vamos calcular as médias e desvio padrões amostrais:</p>
-<p><span class="math display">\[\begin{array}{ccc}
-n=12 \ \qquad \sum_iX_i=183.8 \ \qquad \sum_iX_i^2=2816.92
-\\
-\\
-m=10 \ \qquad \sum_iY_i=148.3 \ \qquad \sum_iY_i^2=2200.81
-\\
-\\
-\overline{X}=\frac{\sum_iX_i}{n}=15.316
-\\
-\\
-\overline{Y}=\frac{\sum_iY_i}{n}=14.83
-\\
-\\
-S_X^2=\frac{\sum_iX_i^2-2\overline{X}\sum_iX_i+n\overline{X}^2}{n-1}=0.1561 \Rightarrow S_X=0.395
-\\
-\\
-S_Y^2=0,1690 \Rightarrow  S_Y=0.411
-\end{array}\]</span></p>
-<p><strong>1 - Definindo a hipótese</strong></p>
-<p><span class="math display">\[H_0: \mu_X=\mu_Y\]</span></p>
-<p><span class="math display">\[H_1: \mu_X\neq\mu_Y\]</span></p>
-<p><strong>2 - Defindo o Estimador</strong></p>
-<p>Para variância desconhecida e iguais e assumindo que ambas as populações possuem distribuição normal. Sob a hipótese nula utiliza-se utiliza-se o seguinte estimador:</p>
-<p><span class="math display">\[T=\frac{\overline{X}-\overline{Y}}{S_p\sqrt{\frac{1}{n}+\frac{1}{m}}}\sim t_{(n+m-2)}\]</span> Sendo:</p>
-<p><span class="math display">\[S_p^2=\frac{(n-1)S_X^2+(m-1)S_Y^2}{n+m-2}\]</span></p>
-<p><strong>3 - Nivel de Significância e Região Crítica</strong></p>
-<p>Considerando o nível de 5% de significância e teste bilateral temos a seguinte região crítica para T, com base na tabela t-student, <span class="math inline">\(t_{(12+10-2)}=t_{(20)}\)</span></p>
-<p><span class="math display">\[RC=\{t \in \mathbb{R} |t\leq t_{(20),0.025} \quad \cup \quad t\leq t_{(20),0.025} \} = \{t \in \mathbb{R} |t\leq -2.086 \quad \cup \quad t\geq 2.086 \}\]</span></p>
-<p><strong>4 - Cálculo do Teste Estatístico</strong></p>
-<p>Calculando a variância ponderada:</p>
-<p><span class="math display">\[S_p^2=\frac{(n-1)S_X^2+(m-1)S_Y^2}{n+m-2}=\frac{(11)0.1561+(9)0.169}{12+10-2}= 0.1619\]</span> Portanto o teste estatístico será:</p>
-<p><span class="math display">\[T=\frac{\overline{X}-\overline{Y}}{S_p\sqrt{\frac{1}{n}+\frac{1}{m}}}=\frac{15.316-14.83}{0.1619\sqrt{\frac{1}{12}+\frac{1}{10}}}= 2.84\sim t_{(12+10-2)}\]</span></p>
-<p><strong>5 - Teste de Hipótese</strong></p>
-<p>Como 2.84 está na região crítica rejeitamos a hipótese de que as duas misturas produzem concretos com a mesma carga de ruptura, indicando que há evidências de que a carga de ruptura da nova mistura 2 é menor do que a mistura original.</p>
-<p><strong>6 - Extra: Simulando as duas distribuições</strong></p>
-<p>Podemos observar as duas distribuições da média para a mistura 1 e para a mistura 2. Observa-se que elas estão distantes uma da outra indicando visualmente que elas vem de populações distintas.</p>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>x<span class="ot">&lt;-</span><span class="fu">seq</span>(<span class="fl">14.3</span>,<span class="fl">15.8</span>,<span class="fl">0.1</span>) </span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="fu">curve</span>(<span class="fu">dnorm</span>(x,<span class="fl">15.316</span>,<span class="fl">0.1140</span>),<span class="at">xlim=</span><span class="fu">c</span>(<span class="fl">14.3</span>,<span class="fl">15.8</span>),<span class="at">xlab=</span><span class="fu">expression</span>(<span class="fu">bar</span>(x)),<span class="at">type=</span><span class="st">"l"</span>,</span>
-<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>      <span class="at">col=</span><span class="st">"steelblue4"</span>,<span class="at">lwd=</span><span class="dv">2</span>, <span class="at">ylab=</span><span class="fu">expression</span>(<span class="fu">paste</span>(<span class="st">"f("</span>, <span class="fu">bar</span>(x),</span>
-<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>      <span class="st">")"</span>)),<span class="at">xaxt=</span><span class="st">"n"</span>,<span class="at">cex.axis=</span><span class="fl">0.65</span>, <span class="at">cex.lab=</span><span class="fl">0.8</span> ) </span>
-<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a><span class="fu">axis</span>(<span class="dv">1</span>,<span class="at">at=</span><span class="fu">c</span>( <span class="fl">14.5</span>, <span class="fl">14.83</span>, <span class="dv">15</span>, <span class="fl">15.31</span>,<span class="fl">15.5</span>),<span class="at">labels =</span></span>
-<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>       <span class="fu">c</span>( <span class="fl">14.5</span>, <span class="fl">14.83</span>, <span class="dv">15</span>, <span class="fl">15.31</span>,<span class="fl">15.5</span>),<span class="at">cex.axis=</span><span class="fl">0.7</span>, <span class="at">cex.lab=</span><span class="fl">0.8</span>) </span>
-<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a><span class="fu">abline</span>(<span class="at">v=</span><span class="fl">15.316</span>, <span class="at">col=</span><span class="st">"steelblue4"</span>, <span class="at">lty=</span><span class="dv">2</span>, <span class="at">lwd=</span><span class="dv">2</span>)</span>
-<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a><span class="fu">text</span>(<span class="fl">14.83</span>, <span class="fl">1.5</span>, <span class="fu">expression</span>(<span class="fu">paste</span>(<span class="st">"Mistura 1"</span>)))</span>
-<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">new=</span><span class="cn">TRUE</span>)</span>
-<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a><span class="fu">curve</span>(<span class="fu">dnorm</span>(x,<span class="fl">14.83</span>,<span class="fl">0.13</span>),<span class="at">xlim=</span><span class="fu">c</span>(<span class="fl">14.3</span>,<span class="fl">15.8</span>),<span class="at">xlab=</span><span class="fu">expression</span>(<span class="fu">bar</span>(x)),<span class="at">type=</span><span class="st">"l"</span>,</span>
-<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a>      <span class="at">col=</span><span class="st">"wheat4"</span>,<span class="at">lwd=</span><span class="dv">2</span>, <span class="at">ylab=</span><span class="fu">expression</span>(<span class="fu">paste</span>(<span class="st">"f("</span>, <span class="fu">bar</span>(x),</span>
-<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a>      <span class="st">")"</span>)),<span class="at">xaxt=</span><span class="st">"n"</span>,<span class="at">yaxt=</span><span class="st">"n"</span>,<span class="at">cex.axis=</span><span class="fl">0.65</span>, <span class="at">cex.lab=</span><span class="fl">0.8</span> ) </span>
-<span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a><span class="fu">abline</span>(<span class="at">v=</span><span class="fl">14.83</span>, <span class="at">col=</span><span class="st">"wheat4"</span>, <span class="at">lty=</span><span class="dv">2</span>, <span class="at">lwd=</span><span class="dv">2</span>)</span>
-<span id="cb8-14"><a href="#cb8-14" aria-hidden="true" tabindex="-1"></a><span class="fu">text</span>(<span class="fl">15.31</span>, <span class="fl">1.5</span>, <span class="fu">expression</span>(<span class="fu">paste</span>(<span class="st">"Mistura 2"</span>)))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="cap10_teste_hip_files/figure-html/unnamed-chunk-8-1.png" class="img-fluid figure-img" style="width:70.0%"></p>
-<figcaption>Simulando as duas distribuições do monitoramento, supondo normalidade.</figcaption>
-</figure>
-</div>
-</div>
-</div>
-</section>
-<section id="testes-paramétricos-sobre-probabilidades" class="level3" data-number="12.4.4">
-<h3 data-number="12.4.4" class="anchored" data-anchor-id="testes-paramétricos-sobre-probabilidades"><span class="header-section-number">12.4.4</span> Testes Paramétricos sobre Probabilidades</h3>
-<section id="teste-para-proporção" class="level4" data-number="12.4.4.1">
-<h4 data-number="12.4.4.1" class="anchored" data-anchor-id="teste-para-proporção"><span class="header-section-number">12.4.4.1</span> Teste para proporção</h4>
-<p>Aqui estamos interessados em eventos que podem ocorrer (1) e que não podem ocorrer (0), tratados em geral por uma distribuição Binomial. Aqui podemos citar exemplos de pesquisas eleitorais, pessoas favoráveis a uma política, empresas que entraram em recuperação judicial, indiívuos que possuem dívida em atraso etc. Vamos trabalhar aqui com a estratégia de aproximação da binomial pela normal.</p>
-<p><strong>1- Definindo a Hipótese</strong></p>
-<p>Podemos definir de forma Bicaudal ou Unicaudal</p>
-<p><span class="math display">\[H_0: p=p_0\]</span> <span class="math display">\[H_1: p \neq p_0\]</span> ou</p>
-<p><span class="math display">\[H_0: p=p_0\]</span> <span class="math display">\[H_1: p &gt;p_0 \quad ou \quad H_1: p&lt;p_0\]</span></p>
-<p><strong>2 - Definindo o Estimador</strong></p>
-<p>O estimador para a proporção seria <span class="math inline">\(\hat{p}=\frac{\sum_i{X_i}}{n}\)</span>. Para encontrar o teste estatístico utilizaremos a ideia de aproximação da binomial pela normal.<br>
-Sabemos pelo que vimos anteriormente que ao realizar um processo de amostragem aleatório, temos <span class="math inline">\(n\)</span> medições de <span class="math inline">\(X\)</span> (<span class="math inline">\(X_i\)</span>) e cada uma com a mesma distribuição de <span class="math inline">\(X\)</span> - binomial. Observamos <span class="math inline">\(x_i\)</span>. Dessa forma, considerando o TLC e a LGN tem-se:</p>
-<p><span class="math inline">\(\mu=np\)</span> e que <span class="math inline">\(\sigma^2=np(1-p)\)</span>. Para um <span class="math inline">\(n\)</span> suficientemente grande,<span class="math inline">\(X \sim b(n,p)\)</span> pode ser aproximado por <span class="math inline">\(N(np,np(1-p))\)</span>.</p>
-<p>Como, <span class="math inline">\(\hat{p}=\frac{\sum_i{X_i}}{n}\)</span>, a distribuição da proporção amostral será <span class="math inline">\(\hat{p} \sim N(p,p(1-p)/n)\)</span></p>
-<p>Portanto Sob <span class="math inline">\(H_0\)</span> o nosso Teste Estatístico <span class="math inline">\(T\)</span>, será:</p>
-<p><span class="math display">\[T=\frac{\hat{p}-p_0}{\sqrt{p_0(1-p_0)}}\sqrt{n}\overset{H_0}{\sim} N(0,1)\]</span></p>
-<p><strong>3 - Nivel de Significância e Região Crítica</strong></p>
-<p>Novamente em economia utilizamos 10%, 5% e 1%. Com base na sua escolha podemos estabelecer as regiões críticas para o teste. Para:</p>
-<p><span class="math display">\[H_0:  p=p_0\]</span></p>
-<p><span class="math display">\[H_1:  p \neq p_0\]</span></p>
-<p><span class="math display">\[RC=\{t \in \mathbb{R} |t\leq - z_{c,\alpha/2} \quad \cup \quad t\geq  z_{c,\alpha/2}\}\]</span></p>
-<p><span class="math display">\[H_0:  p=p_0\]</span></p>
-<p><span class="math display">\[H_1:  p &gt;p_0 \quad ou \quad H_1: p&lt;p_0\]</span></p>
-<p><span class="math display">\[RC_1=\{t \in \mathbb{R} | t\geq  z_{c,\alpha}\}\]</span></p>
-<p>ou</p>
-<p><span class="math display">\[RC_2=\{t \in \mathbb{R} |t\leq - z_{c,\alpha} \}\]</span></p>
-<p><strong>4 - Cálculo do Teste Estatístico</strong></p>
-<p>Calcular o valor do teste estatístico com base na amostra retirada da população sob estudo. Agora teremos uma realização da proporção amostral das diversas possibilidades fornecidas pela distribuição de <span class="math inline">\(\hat{p}\)</span>. Tem-se:</p>
-<p><span class="math display">\[\hat{p}=\frac{\sum_i{x_i}}{n}\]</span></p>
-<p>Logo o valor do nosso teste estatístico será:</p>
-<p><span class="math display">\[t=\frac{\hat{p}-p_0}{\sqrt{p_0(1-p_0)}/\sqrt{n}}\]</span></p>
-<p>Comparamos o valor obtido, <span class="math inline">\(t\)</span> com a nossa região crítica.</p>
-<p><strong>5 - Teste de hipótese</strong></p>
-<p>Assim se a nossa estimativa <span class="math inline">\(t\)</span> pertencer a região crítica rejeitamos <span class="math inline">\(H_0\)</span>. Caso não esteja na RC não rejeitamos <span class="math inline">\(H_0\)</span>.</p>
-<p>Vejamos agora um exemplo extraído de Bussab e Moretim:</p>
-<div class="callout callout-style-default callout-tip no-icon callout-titled" title="EXEMPLO">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Tip</span>EXEMPLO
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Temos uma estação de TV que afirma que <span class="math inline">\(60\%\)</span> das Tv’s estavam sintonizadas no seu programa as 20h. Uma emissora concorrente contesta essa afirmação dizendo que na verdade esse percentual é bem menor. Ela contrata uma empresa para verificar quem está com a razão, pois isso tem impactos diretos sobre a quantidade de propaganda que conseguem negociar. Essa empresa contratou você para realizar o teste. Já antecipando fez um processo de amostragem com 200 famílias e ao nível de significância de 5% quem teria razão? (teste unilateral)</p>
-</div>
-</div>
-<p><strong>Resolvendo:</strong></p>
-<p><strong>1- Definindo a Hipótese</strong></p>
-<p>Definindo de forma Unicaudal</p>
-<p><span class="math display">\[H_0: p=0,60\]</span></p>
-<p><span class="math display">\[H_1: p&lt;0,60\]</span></p>
-<p><strong>2 - Definindo o Estimador</strong></p>
-<p>Sob <span class="math inline">\(H_0\)</span> temos o seguinte Teste Estatístico.</p>
-<p><span class="math display">\[T=\frac{\hat{p}-p_0}{\sqrt{p_0(1-p_0)}/\sqrt{n}}=\frac{\hat{p}-0.6}{\sqrt{0.6(0.4)}}\sqrt{200} \sim N(0;1)\]</span></p>
-<p><strong>3 - Nivel de Significância e Região Crítica</strong></p>
-<p>Supondo <span class="math inline">\(H_0\)</span> verdadeira, <span class="math inline">\(\alpha=0,05\)</span> e utilizando a tabela da Normal Padrão:</p>
-<p><span class="math display">\[RC=\{t \in \mathbb{R} | t \leq -1.645 \}\]</span></p>
-<p><strong>4 - Cálculo do Teste Estatístico</strong> A mostra de 200 elementos mostrou que 104 lares estavam ligado no programa, ou seja, 52%. Dessa forma podemos calcular nosso Teste Estatístico:</p>
-<p><span class="math display">\[t=\frac{0.52-0.6}{\sqrt{0.6(0.4)}}\sqrt{200} = -2.309\]</span></p>
-<p>o qual pertence a região crítica.</p>
-<p>Uma outra maneira de proceder seria utilizar a distribuição de <span class="math inline">\(\hat{p} \sim N(0.6; 0.24/200)\)</span> sob <span class="math inline">\(H_0\)</span> para encontrarmos o valor crítico e a região crítica na distribuição de <span class="math inline">\(\hat{p}\)</span>. Procedemos da seguinte maneira:</p>
-<p><span class="math display">\[\begin{array}{ccc}
-\frac{p_{c}-0,6}{\sqrt{\frac{0,24}{200}}}=\frac{p_c-0,6}{0,03464}=-1,65\Rightarrow p_c-0,6=0,057157 \Rightarrow p_c=0,5428
-\\
-RC=\{\hat{p} \subset R | \hat{p}\leq0,5428\}\}
-\end{array}\]</span></p>
-<p>Como <span class="math inline">\(\hat{p}=0.52\)</span> esse pertence a região crítica. Os resultados são análogos.</p>
-<p><strong>5 - Teste de hipótese</strong> Assim, como -2.309 (ou 0.52) está na região crítica rejeitamos <span class="math inline">\(H_0\)</span>. Há evidências de que a emissora não teve <span class="math inline">\(60\%\)</span> da audiência e sim menos.</p>
+<section id="os-cinco-passos-para-a-contrução-do-teste-de-hipótese" class="level3" data-number="15.3.6">
+<h3 data-number="15.3.6" class="anchored" data-anchor-id="os-cinco-passos-para-a-contrução-do-teste-de-hipótese"><span class="header-section-number">15.3.6</span> Os Cinco passos para a contrução do teste de hipótese</h3>
 
 
-</section>
 </section>
 </section>
 
@@ -1640,11 +1132,14 @@ RC=\{\hat{p} \subset R | \hat{p}\leq0,5428\}\}
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../cap/cap9_estimacao.html" class="pagination-link" aria-label="Estimação">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Estimação</span></span>
+      <a href="../cap/cap12_estimacao_intervalo.html" class="pagination-link" aria-label="Estimação por Intervalo">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Estimação por Intervalo</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
+      <a href="../cap/cap14_hip_pop.html" class="pagination-link" aria-label="Teste de Hipótese na prática">
+        <span class="nav-page-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Teste de Hipótese na prática</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
   </div>
 </nav>
 </div> <!-- /content -->

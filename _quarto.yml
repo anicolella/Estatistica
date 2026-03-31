@@ -49,14 +49,18 @@ book:
     - part: "Inferência Estatística"
       chapters:
         - cap/cap8_inferencia.qmd
+        - cap/cap9_convergencia.qmd
+        - cap/cap10_amostragem.qmd
 
     - part: "Estimação"
       chapters:
-        - cap/cap9_estimacao.qmd
+        - cap/cap11_estimacao_ponto.qmd
+        - cap/cap12_estimacao_intervalo.qmd
 
     - part: "Teste de Hipótese"
       chapters:
-        - cap/cap10_teste_hip.qmd
+        - cap/cap13_teste_hip.qmd
+        - cap/cap14_hip_pop.qmd
 
 bibliography: references.bib
 

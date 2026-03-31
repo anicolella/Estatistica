@@ -6,8 +6,10 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="Alexandre Nicolella">
+<meta name="dcterms.date" content="2026-03-31">
 
-<title>2&nbsp; Sobre o Autor – Inferência Estatística Aplicada à Economia</title>
+<title>12&nbsp; Amostragem – Inferência Estatística Aplicada à Economia</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,6 +22,41 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -30,8 +67,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
-<link href="../cap/cap2_summary.html" rel="next">
-<link href="../index.html" rel="prev">
+<link href="../cap/cap11_estimacao_ponto.html" rel="next">
+<link href="../cap/cap9_convergencia.html" rel="prev">
 <script src="../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
@@ -71,6 +108,35 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 </head>
 
@@ -117,7 +183,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../cap/cap1_autores.html"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Sobre o Autor</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../cap/cap8_inferencia.html">Inferência Estatística</a></li><li class="breadcrumb-item"><a href="../cap/cap10_amostragem.html"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Amostragem</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -149,7 +215,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../cap/cap1_autores.html" class="sidebar-item-text sidebar-link active">
+  <a href="../cap/cap1_autores.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Sobre o Autor</span></span></a>
   </div>
 </li>
@@ -240,7 +306,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../cap/cap10_amostragem.html" class="sidebar-item-text sidebar-link">
+  <a href="../cap/cap10_amostragem.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Amostragem</span></span></a>
   </div>
 </li>
@@ -302,23 +368,41 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#alexandre-nicolella" id="toc-alexandre-nicolella" class="nav-link active" data-scroll-target="#alexandre-nicolella"><span class="header-section-number">2.1</span> <strong>Alexandre Nicolella</strong></a></li>
+  <li><a href="#determinação-do-tamanho-da-amostra" id="toc-determinação-do-tamanho-da-amostra" class="nav-link active" data-scroll-target="#determinação-do-tamanho-da-amostra"><span class="header-section-number">12.1</span> Determinação do tamanho da amostra</a>
+  <ul class="collapse">
+  <li><a href="#tamanho-da-amostra-com-sigma-conhecido" id="toc-tamanho-da-amostra-com-sigma-conhecido" class="nav-link" data-scroll-target="#tamanho-da-amostra-com-sigma-conhecido"><span class="header-section-number">12.1.1</span> Tamanho da amostra com <span class="math inline">\(\sigma\)</span> conhecido</a></li>
+  <li><a href="#tamanho-da-amostra-com-população-finita" id="toc-tamanho-da-amostra-com-população-finita" class="nav-link" data-scroll-target="#tamanho-da-amostra-com-população-finita"><span class="header-section-number">12.1.2</span> Tamanho da amostra com população finita</a></li>
+  <li><a href="#tamanho-da-amostra-com-sigma-desconhecido-média-amostral" id="toc-tamanho-da-amostra-com-sigma-desconhecido-média-amostral" class="nav-link" data-scroll-target="#tamanho-da-amostra-com-sigma-desconhecido-média-amostral"><span class="header-section-number">12.1.3</span> Tamanho da amostra com <span class="math inline">\(\sigma\)</span> desconhecido: média amostral</a></li>
+  <li><a href="#proporção-populacional" id="toc-proporção-populacional" class="nav-link" data-scroll-target="#proporção-populacional"><span class="header-section-number">12.1.4</span> Proporção populacional</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default">
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../cap/cap8_inferencia.html">Inferência Estatística</a></li><li class="breadcrumb-item"><a href="../cap/cap10_amostragem.html"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Amostragem</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Sobre o Autor</span></h1>
+<h1 class="title"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Amostragem</span></h1>
 </div>
 
 
 
 <div class="quarto-title-meta">
 
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Alexandre Nicolella </p>
+          </div>
+  </div>
     
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">March 31, 2026</p>
+    </div>
+  </div>
   
     
   </div>
@@ -328,20 +412,134 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<div class="container" style="display: flex; flex-direction: column; gap: 2rem;">
-<div class="autor" style="display: flex; align-items: center; gap: 1.5rem; flex-wrap: wrap;">
-<section id="alexandre-nicolella" class="level2 bio" data-number="2.1">
-<h2 data-number="2.1" class="anchored" data-anchor-id="alexandre-nicolella"><span class="header-section-number">2.1</span> <strong>Alexandre Nicolella</strong></h2>
-<p><img src="../figuras/alexandre.jpg" style="border-radius: 50%; object-fit: cover; box-shadow: 0 4px 8px rgba(0,0,0,0.15);" width="140" height="140"></p>
-<p>É professor de Economia na Universidade de São Paulo, atuando na Faculdade de Economia, Administração e Contabilidade de Ribeirão Preto (FEA-RP). Possui doutorado em Economia Aplicada pela mesma universidade, com períodos de pesquisa como professor visitante na University of Kent (Reino Unido) e na University of Illinois (EUA). Sua atuação recente tem se concentrado nas áreas de economia social e ambiental, com projetos financiados por instituições internacionais como IFPRI, Banco Mundial, GIZ e BID, além de agências nacionais como CAPES, FAPESP, MEC, INEP e BNDES. Leciona disciplinas de Estatística na graduação e Avaliação de Políticas Públicas na pós-graduação em Economia. Tem experiência consolidada na aplicação de métodos quantitativos à análise de questões sociais e na avaliação de impacto de políticas públicas.</p>
-<p>📘 <a href="https://lattes.cnpq.br/1375868138002604">Currículo Lattes</a> •</p>
-<p>🔗 <a href="https://orcid.org/0000-0002-1006-6527">ORCID</a></p>
-<p>🐙 <a href="https://github.com/anicolella">GitHub</a></p>
+<section id="determinação-do-tamanho-da-amostra" class="level2" data-number="12.1">
+<h2 data-number="12.1" class="anchored" data-anchor-id="determinação-do-tamanho-da-amostra"><span class="header-section-number">12.1</span> Determinação do tamanho da amostra</h2>
+<p>Iremos considerar aqui apenas a técnica de amostrage alatatória simples. Nosso objetivo é dar a intuição do processo de amostragem e não ensinar a fazer design de pesquisa de campo. Existem disciplinas específicas para isso.</p>
+<p>Duas medidas importantes a serem consideradas.</p>
+<section id="tamanho-da-amostra-com-sigma-conhecido" class="level3" data-number="12.1.1">
+<h3 data-number="12.1.1" class="anchored" data-anchor-id="tamanho-da-amostra-com-sigma-conhecido"><span class="header-section-number">12.1.1</span> Tamanho da amostra com <span class="math inline">\(\sigma\)</span> conhecido</h3>
+<p>Considere a desigualdade de Tchebycheff:</p>
+<p><span class="math display">\[P(|\overline{X} - \mu| \leq \varepsilon ) \geq 1-\frac{\sigma^{2}}{\varepsilon^{2} n}\]</span></p>
+<p>Considerando <span class="math inline">\(\varepsilon=d\)</span>, <span class="math inline">\(\frac{\sigma^{2}}{\varepsilon^{2} n}=\alpha\)</span> e trabalhando no limite inferior tolerável (na igualdade):</p>
+<p><span class="math display">\[P(|\overline{X} - \mu|\leq d) = 1 - \alpha\]</span></p>
+<p><span class="math display">\[P(-d \leq \overline{X} - \mu\leq d) = 1 - \alpha\]</span></p>
+<p><span class="math display">\[P(-\frac{d}{\sigma/\sqrt{n} } \leq Z \leq \frac{d}{\sigma/\sqrt{n}}) = 1 - \alpha\]</span></p>
+<p><span class="math display">\[P(-\frac{d\sqrt{n}}{\sigma } \leq Z \leq \frac{d\sqrt{n}}{\sigma}) = 1 - \alpha\]</span></p>
+<p><span class="math display">\[P(-Z_c \leq Z \leq Z_c) = 1 - \alpha\]</span></p>
+<p><span class="math display">\[Z_c=\frac{\sqrt{n}d}{\sigma} \rightarrow n=\frac{\sigma^{2}Z_c^{2}}{d^{2}}\]</span></p>
+<p>onde n é o tamanho da amostra. Logo observa-se que o tamanho da amostra não tem relação com o tamanho da população. Se a população for altamente homogênea, a variância será pequena e o tamanho da amostra pequeno. Também depende do erro e da probabilidade de ficar acima do tolerável.</p>
+<div class="callout callout-style-default callout-tip no-icon callout-titled" title="EXEMPLO">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>EXEMPLO
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Uma pesquisa de satisfação foi feita com os funcionários de uma empresa. O índice vai de 0 a 100 e sabe-se que o desvio padrão é 30.</p>
+<p>Qual o tamanho da amostra de entrevistados, considerando um nível de tolerância <span class="math inline">\(d=1,5\)</span> unidades, com probabilidade <span class="math inline">\(1-\alpha=92,81\%\)</span>?</p>
+</div>
+</div>
+<div class="callout callout-style-default callout-caution no-icon callout-titled" title="RESPOSTA">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Caution</span>RESPOSTA
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-2" class="callout-2-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Na tabela da distribuição normal padrão:</p>
+<p><span class="math display">\[1 -\alpha = 0,9281 \rightarrow Z_c=1,8\]</span></p>
+<p>Como d=1,5 então:</p>
+<p><span class="math display">\[n= \bigg(\frac{1,8 . 30}{1,5} \bigg)^{2}\cong 1.296\]</span></p>
+</div>
+</div>
+</div>
 </section>
+<section id="tamanho-da-amostra-com-população-finita" class="level3" data-number="12.1.2">
+<h3 data-number="12.1.2" class="anchored" data-anchor-id="tamanho-da-amostra-com-população-finita"><span class="header-section-number">12.1.2</span> Tamanho da amostra com população finita</h3>
+<p>Se a população for finita a independência entre os elementos <span class="math inline">\(X_i\)</span> não é válida. Disto segue que:</p>
+<p><span class="math display">\[Var(\overline{X}) = \frac{\sigma^{2}}{n}\]</span></p>
+<p>é caso particular de:</p>
+<p><span class="math display">\[Var(\overline{X}) = \sigma^{2} \bigg(\frac{1}{n}-\frac{1}{N} \bigg)\]</span></p>
+<p>Onde N é o tamanho populacional. Assim, para N finito e conhecido basta utilizar:</p>
+<p><span class="math display">\[n' = \frac{n}{1+ n/N}\]</span></p>
+<p>Note que se <span class="math inline">\(n\)</span> for muito menor que <span class="math inline">\(N\)</span> então <span class="math inline">\(n' \rightarrow n\)</span> e</p>
+<p><span class="math display">\[Var(\overline{X}) = \sigma^{2} \bigg(\frac{1}{n}-\frac{1}{N} \bigg) \rightarrow \frac{\sigma^{2}}{n}\]</span></p>
+<p>Ou seja, converge para a amostragem anterior para população infinita.</p>
+</section>
+<section id="tamanho-da-amostra-com-sigma-desconhecido-média-amostral" class="level3" data-number="12.1.3">
+<h3 data-number="12.1.3" class="anchored" data-anchor-id="tamanho-da-amostra-com-sigma-desconhecido-média-amostral"><span class="header-section-number">12.1.3</span> Tamanho da amostra com <span class="math inline">\(\sigma\)</span> desconhecido: média amostral</h3>
+<p>Como não temos <span class="math inline">\(\sigma\)</span> temos que fazer uma amostra piloto com <span class="math inline">\(n_1\)</span> elementos e estimar o desvio padrão da seguinte maneira:</p>
+<p><span class="math display">\[S_1=\sqrt{\frac{\sum (X_i - \overline{X})^{2}}{n-1}}\]</span></p>
+<p>Assim pode-se calcular:</p>
+<p><span class="math display">\[n=\frac{S_1 ^{2} Z_c^{2}}{d^{2}} \]</span></p>
+<p>Assim como temos já <span class="math inline">\(n_1\)</span> elementos agora podemos complementar até chegar a a <span class="math inline">\(n\)</span></p>
+</section>
+<section id="proporção-populacional" class="level3" data-number="12.1.4">
+<h3 data-number="12.1.4" class="anchored" data-anchor-id="proporção-populacional"><span class="header-section-number">12.1.4</span> Proporção populacional</h3>
+<p>Agora queremos garantir que:</p>
+<p><span class="math display">\[P(|\hat{p} - p|\leq d) = 1 - \alpha\]</span></p>
+<p>O tamanho da amostra será tal que:</p>
+<p><span class="math display">\[n=\frac{ Z_{c}^{2}}{d^{2}} p (1-p)\]</span></p>
+<p>se não sabemos nada considerar <span class="math inline">\(p=0,5\)</span>, esse irá gerar a maior amostra para dado <span class="math inline">\(\alpha\)</span> e <span class="math inline">\(d\)</span></p>
+<p>Vejamos como ficaria o tamanho amostral para uma pesquisa eleitoral onde consideramos que <span class="math inline">\(p=0.4\)</span>, <span class="math inline">\(1-p=0.6\)</span>, <span class="math inline">\(1-\alpha=0,95\)</span> e iremos considerar varios <span class="math inline">\(d\)</span>, margem de erro. Ou seja, a primeira é dois pontos percentuais para mais ou menos, o segundo 1,5 pontos percentuais, o terceiro, 1 ponto e por fim 0,5 pontos percentuais. Vejamos o que essa mudança no que estamos ropensos a aceitar como margem de erro afeta o custo da pesquisa. Vimos que o valor por questionário era de R$53,00.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Utilizando a tabela normal vimos que para alpha de 5% o </span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>  <span class="co">#valor de Zc é 1,96, sendo p=0.4 e q=0.6</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="co"># para uma margem de erro de 2 pontos para cima e para </span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="co">#baixo,tem-se </span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="fl">1.96</span><span class="sc">^</span><span class="dv">2</span><span class="sc">*</span><span class="fl">0.4</span><span class="sc">*</span><span class="fl">0.6</span><span class="sc">/</span>(<span class="fl">0.02</span><span class="sc">^</span><span class="dv">2</span>)  <span class="co"># Tamanho amostral</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 2304.96</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>(<span class="fl">1.96</span><span class="sc">^</span><span class="dv">2</span><span class="sc">*</span><span class="fl">0.4</span><span class="sc">*</span><span class="fl">0.6</span><span class="sc">/</span>(<span class="fl">0.02</span><span class="sc">^</span><span class="dv">2</span>))<span class="sc">*</span><span class="dv">53</span> <span class="co"># Custo da pesquisa</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 122162.9</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># para uma margem de erro de 1.5 pontos para cima e para </span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="co">#baixo,tem-se </span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="fl">1.96</span><span class="sc">^</span><span class="dv">2</span><span class="sc">*</span><span class="fl">0.4</span><span class="sc">*</span><span class="fl">0.6</span><span class="sc">/</span>(<span class="fl">0.015</span><span class="sc">^</span><span class="dv">2</span>)  <span class="co"># Tamanho amostral</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 4097.707</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>(<span class="fl">1.96</span><span class="sc">^</span><span class="dv">2</span><span class="sc">*</span><span class="fl">0.4</span><span class="sc">*</span><span class="fl">0.6</span><span class="sc">/</span>(<span class="fl">0.015</span><span class="sc">^</span><span class="dv">2</span>))<span class="sc">*</span><span class="dv">53</span> <span class="co"># Custo da pesquisa</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 217178.5</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># para uma margem de erro de 1 pontos para cima e para </span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="co">#baixo,tem-se </span></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="fl">1.96</span><span class="sc">^</span><span class="dv">2</span><span class="sc">*</span><span class="fl">0.4</span><span class="sc">*</span><span class="fl">0.6</span><span class="sc">/</span>(<span class="fl">0.01</span><span class="sc">^</span><span class="dv">2</span>)  <span class="co"># Tamanho amostral</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 9219.84</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>(<span class="fl">1.96</span><span class="sc">^</span><span class="dv">2</span><span class="sc">*</span><span class="fl">0.4</span><span class="sc">*</span><span class="fl">0.6</span><span class="sc">/</span>(<span class="fl">0.01</span><span class="sc">^</span><span class="dv">2</span>))<span class="sc">*</span><span class="dv">53</span> <span class="co"># Custo da pesquisa</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 488651.5</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># para uma margem de erro de 1 pontos para cima e para </span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="co">#baixo,tem-se </span></span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a><span class="fl">1.96</span><span class="sc">^</span><span class="dv">2</span><span class="sc">*</span><span class="fl">0.4</span><span class="sc">*</span><span class="fl">0.6</span><span class="sc">/</span>(<span class="fl">0.005</span><span class="sc">^</span><span class="dv">2</span>)  <span class="co"># Tamanho amostral</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 36879.36</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>(<span class="fl">1.96</span><span class="sc">^</span><span class="dv">2</span><span class="sc">*</span><span class="fl">0.4</span><span class="sc">*</span><span class="fl">0.6</span><span class="sc">/</span>(<span class="fl">0.005</span><span class="sc">^</span><span class="dv">2</span>))<span class="sc">*</span><span class="dv">53</span> <span class="co"># Custo da pesquisa</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 1954606</code></pre>
 </div>
 </div>
+<p>Notamos que para sairmos de uma margem de erro de 2 pontos para uma margem de erro de 0.5 pontos percentuais o custo sai de R$122 mil para quase R$ 2 milhões. O custo cresce de forma exponencial com o aumento da precisão.</p>
 
 
+</section>
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -746,13 +944,13 @@ ul.task-list li input[type="checkbox"] {
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../index.html" class="pagination-link" aria-label="Prefácio">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Prefácio</span></span>
+      <a href="../cap/cap9_convergencia.html" class="pagination-link" aria-label="Modos de Convergência">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Modos de Convergência</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../cap/cap2_summary.html" class="pagination-link" aria-label="Sumário">
-        <span class="nav-page-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Sumário</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../cap/cap11_estimacao_ponto.html" class="pagination-link" aria-label="Estimação no Ponto">
+        <span class="nav-page-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Estimação no Ponto</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
