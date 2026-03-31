@@ -1,0 +1,1958 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.8.25">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Alexandre Nicolella">
+<meta name="dcterms.date" content="2026-03-31">
+
+<title>11&nbsp; Estimação – Inferência Estatística Aplicada à Economia</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<link href="../cap/cap10_teste_hip.html" rel="next">
+<link href="../cap/cap8_inferencia.html" rel="prev">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-7b89279ff1a6dce999919e0e67d4d9ec.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-b743810cd4f3cadd9c36b491d3d9683b.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+</head>
+
+<body class="nav-sidebar docked nav-fixed quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a href="../index.html" class="navbar-brand navbar-brand-logo">
+    <img src="../figuras/usp.png" alt="" class="navbar-logo light-content">
+    <img src="../figuras/usp.png" alt="" class="navbar-logo dark-content">
+    </a>
+    <a class="navbar-brand" href="../index.html">
+    <span class="navbar-title">Inferência Estatística Aplicada à Economia</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link active" href="../index.html" aria-current="page"> 
+<span class="menu-text">Home</span></a>
+  </li>  
+</ul>
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/"> <i class="bi bi-github" role="img" aria-label="GitHub">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../cap/cap9_estimacao.html">Estimação</a></li><li class="breadcrumb-item"><a href="../cap/cap9_estimacao.html"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Estimação</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header sidebar-header-stacked">
+      <a href="../index.html" class="sidebar-logo-link">
+      </a>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Prefácio</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../cap/cap1_autores.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Sobre o Autor</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../cap/cap2_summary.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Sumário</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
+ <span class="menu-text">Manipulando os Dados</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../cap/cap3_int_R.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Maipulando os Dados</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../cap/cap3_1_dplyr.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">O Dplyr</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../cap/cap4_googledrive.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Google Drive</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
+ <span class="menu-text">Motivando e Relembrando</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../cap/cap5_estatistica.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Uma Introdução à Estatística</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../cap/cap6_va_bidimensional.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Variáveis Aleatórias Multidimensionais</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../cap/cap7_dist_normal.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Distribuição Normal e Outras Distribuições</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true">
+ <span class="menu-text">Inferência Estatística</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../cap/cap8_inferencia.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Inferência Estatística</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true">
+ <span class="menu-text">Estimação</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../cap/cap9_estimacao.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Estimação</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true">
+ <span class="menu-text">Teste de Hipótese</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../cap/cap10_teste_hip.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Teste de Hipótese</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#introdução" id="toc-introdução" class="nav-link active" data-scroll-target="#introdução"><span class="header-section-number">11.1</span> Introdução</a></li>
+  <li><a href="#estimadores-e-estimação" id="toc-estimadores-e-estimação" class="nav-link" data-scroll-target="#estimadores-e-estimação"><span class="header-section-number">11.2</span> Estimadores e Estimação</a></li>
+  <li><a href="#propriedades-dos-estimadores" id="toc-propriedades-dos-estimadores" class="nav-link" data-scroll-target="#propriedades-dos-estimadores"><span class="header-section-number">11.3</span> Propriedades dos Estimadores</a>
+  <ul class="collapse">
+  <li><a href="#tendenciosidade-ou-viés" id="toc-tendenciosidade-ou-viés" class="nav-link" data-scroll-target="#tendenciosidade-ou-viés"><span class="header-section-number">11.3.1</span> Tendenciosidade ou Viés</a></li>
+  <li><a href="#eficiência" id="toc-eficiência" class="nav-link" data-scroll-target="#eficiência"><span class="header-section-number">11.3.2</span> Eficiência</a></li>
+  <li><a href="#erro-quadrático-médio" id="toc-erro-quadrático-médio" class="nav-link" data-scroll-target="#erro-quadrático-médio"><span class="header-section-number">11.3.3</span> Erro quadrático médio</a></li>
+  <li><a href="#consistência" id="toc-consistência" class="nav-link" data-scroll-target="#consistência"><span class="header-section-number">11.3.4</span> Consistência</a></li>
+  </ul></li>
+  <li><a href="#métodos-de-estimação" id="toc-métodos-de-estimação" class="nav-link" data-scroll-target="#métodos-de-estimação"><span class="header-section-number">11.4</span> Métodos de Estimação</a>
+  <ul class="collapse">
+  <li><a href="#estimadores-de-mínimos-quadrados" id="toc-estimadores-de-mínimos-quadrados" class="nav-link" data-scroll-target="#estimadores-de-mínimos-quadrados"><span class="header-section-number">11.4.1</span> Estimadores de Mínimos Quadrados</a></li>
+  <li><a href="#estimador-de-máxima-verossimilhança" id="toc-estimador-de-máxima-verossimilhança" class="nav-link" data-scroll-target="#estimador-de-máxima-verossimilhança"><span class="header-section-number">11.4.2</span> Estimador de Máxima Verossimilhança</a></li>
+  <li><a href="#máxima-verossimilhança-e-minimos-quadrados" id="toc-máxima-verossimilhança-e-minimos-quadrados" class="nav-link" data-scroll-target="#máxima-verossimilhança-e-minimos-quadrados"><span class="header-section-number">11.4.3</span> Máxima Verossimilhança e Minimos Quadrados</a></li>
+  </ul></li>
+  <li><a href="#estimação-de-intervalo" id="toc-estimação-de-intervalo" class="nav-link" data-scroll-target="#estimação-de-intervalo"><span class="header-section-number">11.5</span> Estimação de Intervalo</a>
+  <ul class="collapse">
+  <li><a href="#introdução-1" id="toc-introdução-1" class="nav-link" data-scroll-target="#introdução-1"><span class="header-section-number">11.5.1</span> Introdução</a></li>
+  <li><a href="#intervalo-de-confiança-procedimento-geral" id="toc-intervalo-de-confiança-procedimento-geral" class="nav-link" data-scroll-target="#intervalo-de-confiança-procedimento-geral"><span class="header-section-number">11.5.2</span> Intervalo de confiança: Procedimento Geral</a></li>
+  <li><a href="#para-dados-com-distribuição-normal-a-média" id="toc-para-dados-com-distribuição-normal-a-média" class="nav-link" data-scroll-target="#para-dados-com-distribuição-normal-a-média"><span class="header-section-number">11.5.3</span> Para dados com Distribuição Normal: a média</a></li>
+  <li><a href="#quando-a-variância-é-desconhecida" id="toc-quando-a-variância-é-desconhecida" class="nav-link" data-scroll-target="#quando-a-variância-é-desconhecida"><span class="header-section-number">11.5.4</span> Quando a variância é desconhecida</a></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../cap/cap9_estimacao.html">Estimação</a></li><li class="breadcrumb-item"><a href="../cap/cap9_estimacao.html"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Estimação</span></a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Estimação</span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Alexandre Nicolella </p>
+          </div>
+  </div>
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">March 31, 2026</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="introdução" class="level2" data-number="11.1">
+<h2 data-number="11.1" class="anchored" data-anchor-id="introdução"><span class="header-section-number">11.1</span> Introdução</h2>
+<p>Um dos esforços da estatística é propor técnicas para estimar caracaterísticas populacionais que auxiliem os tomadores de decisão a fazerem melhores escolhas. Se vamos fazer um programa para treinamento para mulheres desempregadas de baixa renda, precisamos saber qual a taxa de desemprego daquela população e assim propor um número de vagas adequado. Se queremos melhorar o sistema de logística de um entreposto, precisamos entender qual a intensidade de chegada de caminhões nesse entreposto. Se vamos fazer um programa de auxílio para pessoas em situaçao de extrema pobreza, precisamos saber quantas pessoas vivem nessa situação nessa localidade.</p>
+<p>Notamos que para a maior parte das questões que temos sobre o mundo, raramente sabemos o que acontece na população. Temos que tentar construir um modelo que nos ajude nessa tarefa e nos de a segurança que as nossas estimativas da realidade sejam boas. Na inferência estatística existem dois objetivos principais.</p>
+<p>Nosso objetivo aqui é estudar técnicas que nos permita avaliar se uma proposta de estimativa de uma caractaristica da população é “boa” e aprender técnicas para encontrar “boas” estimativas. Assim temos duas questões básicas surgem:</p>
+<p>Para saber se uma estimativa é boa ou não vamos introduzir duas ideias aqui, exatidão e precisão.</p>
+<p>A figura abaixo traz esses dois conceitos<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>:</p>
+<div id="fig-particula" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-particula-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../figuras/capitulos/preciso.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:60.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-particula-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;11.1: Exatidão e precisão
+</figcaption>
+</figure>
+</div>
+<p>Uma outra forma de vermos o mesmo conceito é pelo exmplo clássico dos alvos. Vejamos a figura abaixo:</p>
+<div id="fig-particula" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-particula-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../figuras/capitulos/alvo.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:60.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-particula-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;11.2: Alvo e os conceitos de Exatidão e precisão
+</figcaption>
+</figure>
+</div>
+<p>Cada x no alvo representa uma tentativa sua de estimar o parâmetro de uma população que é o centro do alvo. A ideia seria que uma boa “arma” (arma aqui é a sua equação matemática) é aquela que acerta ao redor do centro do alvo e menos espelhado possível. Vejamos cada um desses alvos:</p>
+<p>Portanto, notamos que a melhor arma, ou seja, a melhor forma de estimar é pela “arma” C.</p>
+</section>
+<section id="estimadores-e-estimação" class="level2" data-number="11.2">
+<h2 data-number="11.2" class="anchored" data-anchor-id="estimadores-e-estimação"><span class="header-section-number">11.2</span> Estimadores e Estimação</h2>
+<p>Considere uma amostra <span class="math inline">\((X_1, ..., X_n)\)</span> de uma variável aleatória <span class="math inline">\(X\)</span>, sendo <span class="math inline">\(X_i\)</span> variáveis aleatíras com a mesma distribuição de <span class="math inline">\(X\)</span> e <span class="math inline">\(x_i\)</span> os valores observados. Considere <span class="math inline">\(\Theta\)</span> um parâmetro populacional, podendo ser por exemplo: <span class="math inline">\(\mu\)</span> ou <span class="math inline">\(\sigma\)</span>.</p>
+<div class="callout callout-style-default callout-note no-icon callout-titled" title="DEFINIÇÃO">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>DEFINIÇÃO
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Um estimador <span class="math inline">\(T\)</span> do parâmetro <span class="math inline">\(\Theta\)</span> é qualquer função das observações da amostra, tal que:</p>
+</div>
+</div>
+<p>Portanto, cada estimador é uma estatística a qual associamos a um parâmetro. Assim temos uma segunda definição:</p>
+<div class="callout callout-style-default callout-note no-icon callout-titled" title="DEFINIÇÃO">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>DEFINIÇÃO
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Uma Estimativa é o valor <span class="math inline">\(t\)</span> que somente depende da amostra observada <span class="math inline">\(x_1, x_2, ..., x_n\)</span>. Ou seja, é uma função somento do banco de dados coletado:</p>
+</div>
+</div>
+<p>Veja a situação apresentada abaixo. Sabe-se que temos o retorno de uma carteira dada por <span class="math inline">\(X\)</span> que é uma variável aleatória. Sabe-se que a esperança do rerotno dessa carteira (<span class="math inline">\(\mathbb{E}(X)\)</span>) que chamaremos de <span class="math inline">\(\Theta\)</span> é de 0. Encontramos duas maneiras de estimar esse retorno. Abaixo temos a distribuição de dois estimadores <span class="math inline">\(T_1\)</span> e <span class="math inline">\(T_2\)</span> do parâmetro <span class="math inline">\(\Theta\)</span>.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Distribuição de dois estimadores, T1 e T2,  para o parâmetro populacional</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>x<span class="ot">&lt;-</span><span class="fu">seq</span>(<span class="sc">-</span><span class="dv">5</span>,<span class="dv">7</span>,<span class="fl">0.1</span>) </span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>T1<span class="ot">&lt;-</span><span class="fu">dnorm</span>(<span class="at">x =</span> x, <span class="at">mean =</span> <span class="dv">3</span>, <span class="at">sd=</span><span class="dv">1</span>)   </span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>T2<span class="ot">&lt;-</span><span class="fu">dnorm</span>(<span class="at">x =</span> x, <span class="at">mean =</span> <span class="dv">0</span>, <span class="at">sd=</span><span class="dv">1</span>)</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(x,T1,<span class="at">xlab=</span><span class="st">"ti"</span>,<span class="at">type=</span><span class="st">"l"</span>,<span class="at">main=</span><span class="cn">NULL</span>, <span class="at">col=</span><span class="st">"steelblue3"</span>,<span class="at">lwd=</span><span class="dv">2</span>, <span class="at">ylab=</span><span class="st">"f(ti)"</span>,</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>     <span class="at">xaxt=</span><span class="st">"n"</span>,<span class="at">cex.axis=</span><span class="fl">0.65</span>, <span class="at">cex.lab=</span><span class="fl">0.8</span> ) </span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="fu">abline</span>(<span class="at">v=</span><span class="dv">0</span>, <span class="at">col=</span><span class="st">"black"</span>, <span class="at">lty=</span><span class="dv">2</span>)</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">new=</span><span class="cn">TRUE</span>)</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(x,T2,<span class="at">xlab=</span><span class="st">""</span>, <span class="at">ylab=</span><span class="st">""</span>,<span class="at">type=</span><span class="st">"l"</span>,<span class="at">col=</span><span class="st">"wheat4"</span>,<span class="at">lwd=</span><span class="dv">2</span>,<span class="at">xaxt=</span><span class="st">"n"</span>,</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>     <span class="at">cex.axis=</span><span class="fl">0.65</span>, <span class="at">cex.lab=</span><span class="fl">0.8</span> ) </span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="fu">axis</span>(<span class="dv">1</span>,<span class="at">at=</span><span class="fu">c</span>(<span class="dv">0</span>),<span class="at">labels =</span><span class="fu">c</span>(<span class="fu">expression</span>(Theta)),<span class="at">cex.axis=</span><span class="fl">0.65</span>, <span class="at">cex.lab=</span><span class="fl">0.8</span>) </span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a><span class="fu">legend</span>(<span class="st">"topleft"</span>, <span class="at">legend=</span><span class="fu">c</span>(<span class="st">"T1"</span>, <span class="st">"T2"</span>),<span class="at">col=</span><span class="fu">c</span>(<span class="st">"steelblue3"</span>, <span class="st">"wheat4"</span>), </span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>       <span class="at">lty=</span><span class="dv">1</span><span class="sc">:</span><span class="dv">1</span>, <span class="at">box.lty=</span><span class="dv">0</span>,<span class="at">cex=</span><span class="fl">0.8</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="cap9_estimacao_files/figure-html/unnamed-chunk-1-1.png" class="img-fluid figure-img" style="width:70.0%"></p>
+<figcaption>Função Distribuição de Probabilidade Normal e Função Distribuição Acumulada Normal</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p><strong>Questão</strong></p>
+<p>Definir uma função <span class="math inline">\(T_i= h(X_1, ..., X_n)\)</span> que seja próxima de <span class="math inline">\(\Theta\)</span> segundo algum critério. Ou seja, que acerte em média o parâmetro e que não seja muito dispersa!</p>
+</section>
+<section id="propriedades-dos-estimadores" class="level2" data-number="11.3">
+<h2 data-number="11.3" class="anchored" data-anchor-id="propriedades-dos-estimadores"><span class="header-section-number">11.3</span> Propriedades dos Estimadores</h2>
+<section id="tendenciosidade-ou-viés" class="level3" data-number="11.3.1">
+<h3 data-number="11.3.1" class="anchored" data-anchor-id="tendenciosidade-ou-viés"><span class="header-section-number">11.3.1</span> Tendenciosidade ou Viés</h3>
+<p>Suponha que estamos querendo estudar o desempenho dos alunos na Prova do ENEM, <span class="math inline">\(X\)</span>, que vamos assumir que tenha distribuição normal com <span class="math inline">\(\mathbb{E}(X)=2000\)</span> e <span class="math inline">\(\sigma=400\)</span>. Vamos observar 50 alunos que fizeram a prova em 2019 e estimar a esperança da nota utilizando a fórmula <span class="math inline">\(\bar{X}\)</span>. Iremos repetir o processo de amostragem 100.000 vezes. Assim, vamos coletar 50 pessoas e fazer a média para essa amostragem, <span class="math inline">\(\bar{X}_{50}\)</span> e repetimos esse processo 100 mil vezes. Teremos portanto 100 mil médias. Vejamos a distribuição dessas médias feitas no R:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Distribuição da nota dos alunos que fizeram ENEM, X. </span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>x_normal<span class="ot">&lt;-</span><span class="fu">rnorm</span>(<span class="dv">10000</span>,<span class="at">mean=</span><span class="dv">2000</span>, <span class="at">sd=</span> <span class="dv">400</span>)</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="co">#Amostragem:</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Criando os vetores numéricos </span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>xbar50<span class="ot">&lt;-</span><span class="fu">numeric</span>()</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>var_amostral50<span class="ot">&lt;-</span><span class="fu">numeric</span>()</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Extraindo 100 mil amostras de 50 alunos e fazendo a média para cada uma. </span></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Teremos 100.000 médias  </span></span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> ( i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">100000</span>){</span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>  smp<span class="ot">&lt;-</span><span class="fu">sample</span>(x_normal,<span class="at">replace =</span> <span class="cn">TRUE</span>,<span class="at">size =</span> <span class="dv">50</span>)</span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>  xbar50[i]<span class="ot">&lt;-</span><span class="fu">mean</span>(x_normal[smp])</span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a><span class="co"># Plotando as médias obtidas</span></span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(xbar50, <span class="at">col=</span><span class="st">"steelblue3"</span>,<span class="at">freq =</span> <span class="cn">FALSE</span>, <span class="at">breaks =</span> <span class="dv">25</span>,<span class="at">main=</span><span class="st">""</span>,</span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a>     <span class="at">xlim=</span><span class="fu">c</span>(<span class="dv">1800</span>, <span class="dv">2200</span>), <span class="at">ylab=</span><span class="st">"Dist. da média"</span>, <span class="at">xlab=</span><span class="st">"médias para n=50"</span>,</span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a>     <span class="at">xaxt=</span><span class="st">"n"</span>,<span class="at">border=</span><span class="st">"steelblue3"</span>)</span>
+<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a><span class="fu">abline</span>(<span class="at">v=</span><span class="dv">2000</span>, <span class="at">col=</span><span class="st">"black"</span>, <span class="at">lty=</span><span class="dv">2</span>)</span>
+<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a><span class="fu">text</span>(<span class="dv">2000</span>, <span class="fl">0.0003</span>, <span class="fu">expression</span>(Theta))</span>
+<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a><span class="fu">axis</span>(<span class="dv">1</span>,<span class="at">at=</span><span class="fu">c</span>(<span class="dv">1800</span>, <span class="fu">mean</span>(xbar50), <span class="dv">2200</span>),<span class="at">labels =</span><span class="fu">c</span>(<span class="dv">1800</span>, <span class="fu">round</span>(<span class="fu">mean</span>(xbar50)),</span>
+<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a>    <span class="dv">2200</span>),<span class="at">cex.axis=</span><span class="fl">0.65</span>, <span class="at">cex.lab=</span><span class="fl">0.8</span>) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="cap9_estimacao_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid figure-img" style="width:70.0%"></p>
+<figcaption>Distribuição do estimador da Esperança da Nota do ENEM</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p>Observa-se que neste caso o valor númerico central representa <span class="math inline">\(\mathbb{E}(\bar{X})\)</span> e a linha pontilhada mostra <span class="math inline">\(\mathbb{E}(X)=2000=\Theta\)</span>. Ainda pode-se observar que encontramos diversos valores para <span class="math inline">\(\bar{X}\)</span>, variando de 1800 a 2200, mas com grande concentração ao redor de 2000.</p>
+<p>Com base na figura 3 que apresenta dois estimadores e na figura 4 que mostra o resultado para uma estimativa da Esperança, temos a seguinte definição:</p>
+<div class="callout callout-style-default callout-note no-icon callout-titled" title="DEFINIÇÃO">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>DEFINIÇÃO
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>O estimador <span class="math inline">\(T\)</span> é chamado de estimador <strong>não-viesado</strong>, ou não-tendencioso, para o parâmetro <span class="math inline">\(\Theta\)</span> se:</p>
+<p><strong><span class="math inline">\(\mathbb{E}(T)=\Theta\)</span></strong> para todo <strong><span class="math inline">\(\Theta\)</span></strong></p>
+<p>Independente do valor de <span class="math inline">\(\Theta\)</span>, sendo a diferença <span class="math inline">\(\mathbb{E}(T)-\Theta\)</span> chamada de viés de <span class="math inline">\(T\)</span>. Se a diferença é diferente de 0, T é viesado.</p>
+</div>
+</div>
+<section id="estimadores-não-viesados-para-esperança-e-variância-populacional." class="level4" data-number="11.3.1.1">
+<h4 data-number="11.3.1.1" class="anchored" data-anchor-id="estimadores-não-viesados-para-esperança-e-variância-populacional."><span class="header-section-number">11.3.1.1</span> Estimadores não viesados para Esperança e Variância populacional.</h4>
+<p>Considere uma população com N elementos e com a esperança populacional de uma população de tamanho N:</p>
+<p><span class="math display">\[\mu =\frac{1}{N}\sum_{j=1}^{N}X_j\]</span></p>
+<p>Um bom estimador para a Esperança populacional seria a média, “copiando” a formulação populacional e consierando <span class="math inline">\(n\)</span> o tamanho da amostra, ou seja:</p>
+<p><span class="math display">\[\bar{X} =\frac{1}{n}\sum_{i=1}^{n}X_i\]</span></p>
+<p>Observe que ele é um estimador não visesado pois</p>
+<p><span class="math display">\[\mathbb{E}(\bar{X})=\frac{1}{n}\mathbb{E}[X_1+X_2+...+X_n]\]</span></p>
+<p><span class="math display">\[\mathbb{E}(\bar{X})=\frac{1}{n}[\mathbb{E}(X_1)+\mathbb{E}(X_2)+...+\mathbb{E}(X_n)]\]</span></p>
+<p><span class="math display">\[\mathbb{E}(\bar{X})=\frac{1}{n}[\mu+\mu+...+\mu]=\frac{1}{n}n\mu=\mu\]</span></p>
+<p>Da mesma forma podemos utilizar o princípio de “copiar” para achar um estimador (<span class="math inline">\(\hat{\sigma}^2\)</span>) para a variância populacional <span class="math inline">\(\sigma^2\)</span>, assim:</p>
+<p><span class="math display">\[\sigma^{2}=\frac{1}{N}\sum_{i=1}^{N}(X_i - \mu)^{2} \]</span></p>
+<p>E um possível estimador para <span class="math inline">\(\sigma^{2}\)</span> (observe que colocamos um chapéu sobre <span class="math inline">\(sigma\)</span>) será:</p>
+<p><span class="math display">\[\hat{\sigma}^{2}=\frac{1}{n}\sum_{i=1}^{n}(X_i - \overline{X})^{2} \]</span></p>
+<p>Entretanto, tal estimador é viesado pois:</p>
+<p><span class="math display">\[\sum_{i=1}^{N}(X_i - \overline{X})^{2} = \sum_{i=1}^{N}(X_i - \mu + \mu - \overline{X})^{2}=\sum_{i=1}^{N}((X_i - \mu)- (\overline{X}-\mu))^{2}\]</span></p>
+<p><span class="math display">\[= \sum_{i=1}^{N}(X_i - \mu)^{2}  - 2 \sum_{i=1}^{N}(X_i - \mu) (\overline{X} - \mu) + \sum_{i=1}^{N}(\overline{X}  - \mu)^{2}\]</span></p>
+<p>Note que <span class="math inline">\((\overline{X} - \mu)\)</span> é constante. Então dado que:</p>
+<p><span class="math display">\[\sum_{i=1}^{N}(X_i - \mu)= \sum_{i=1}^{N}X_i - n\mu\]</span></p>
+<p><span class="math display">\[\overline{X}=\frac{1}{n}\sum_{i=1}^{N}X_i \]</span></p>
+<p>Temos que:</p>
+<p><span class="math display">\[n \overline{X}=\sum_{i=1}^{n}X_i \rightarrow \sum_{i=1}^{n}(X_i - \mu)=n(\overline{X}-\mu)\]</span></p>
+<p>Logo:</p>
+<p><span class="math display">\[\begin{equation}
+      \begin{split}
+\sum_{i=1}^{n}(X_i - \overline{X})^{2} &amp; = \sum_{i=1}^{n}(X_i - \mu + \mu - \overline{X})^{2} \\
+&amp; = \sum_{i=1}^{N}(X_i - \mu)^{2}  - 2 n (\overline{X} - \mu)^{2} + n(\overline{X}  - \mu)^{2} \\
+&amp; =\sum_{i=1}^{N}(X_i - \mu)^{2}  - n (\overline{X} - \mu)^{2}
+    \end{split}
+\end{equation}\]</span></p>
+<p>Assim:</p>
+<p><span class="math display">\[\begin{array}{ccc}
+\mathbb{E}(\hat{\sigma}^{2})&amp;=E[\frac{1}{n}\{ \sum_{i=1}^{n}(X_i - \mu)^{2}  - n (\overline{X} - \mu)^{2} \}]
+\\
+\\
+&amp;=\frac{1}{n}\{ \sum_{i=1}^{n}E (X_i - \mu)^{2}  - n E (\overline{X} - \mu)^{2} \}
+\\
+\\
+&amp;=\frac{1}{n}\{ \sum_{i=1}^{n}Var(X_i)  - n Var(\overline{X}) \}
+\end{array}\]</span></p>
+<p>Como <span class="math inline">\(Var(X_i)=\sigma^{2}\)</span> e <span class="math inline">\(Var(\overline{X})=\sigma^{2}/n\)</span>:</p>
+<p><span class="math display">\[\begin{array}{ccc}
+\mathbb{E}(\hat{\sigma}^{2})=\frac{1}{n}\{ \sum_{i=1}^{n} \sigma^{2} - n \frac{ \sigma^{2}}{n} \}
+\\
+\\
+= \sigma^{2} - \frac{ \sigma^{2}}{n}
+\\
+\\
+=\sigma^{2}\frac{n-1}{n}
+\end{array}\]</span></p>
+<p>Assim <span class="math inline">\(\hat{\sigma^{2}}\)</span> é um estimador viesado para o parâmetro <span class="math inline">\(\sigma^{2}\)</span> e o viés é dado por:</p>
+<p><span class="math display">\[V = V(\hat{\sigma^{2}})= E(\hat{\sigma^{2}})-E(\sigma)=-\frac{\sigma^{2}}{n}\]</span></p>
+<p>Como <span class="math inline">\(V\)</span> é negativo estamos subestimando o verdadeiro valor do parâmetro. Entretanto, o viés diminui com n:</p>
+<p>Quando <span class="math inline">\(n \rightarrow \infty\)</span> temos que <span class="math inline">\(V \rightarrow 0\)</span></p>
+<p>Para obter o melhor estimador não-viesado do parâmetro <span class="math inline">\(\sigma^2\)</span> basta considerar</p>
+<p><span class="math display">\[\begin{array}{ccc}
+S^2= \frac{n}{n-1} \hat{\sigma}^2
+\\
+\\
+\therefore \mathbb{E}(\frac{n}{n-1} \hat{\sigma}^2)=\frac{n}{n-1} \mathbb{E}(\hat{\sigma}^2)=\frac{n}{n-1}\frac{n-1}{n} \sigma^2=\sigma^2
+\end{array}\]</span></p>
+<p>Definimos: <span class="math display">\[\begin{array}{ccc}
+S^2= \frac{n}{n-1} \hat{\sigma}^2 = \frac{n}{n-1}\frac{1}{n} \sum_{i=1}^{n}(X_i - \overline{X})^2
+\\
+\\
+S^2=\frac{1}{n-1}\sum_{i=1}^{n}(X_i - \overline{X})^2
+\end{array}\]</span></p>
+<p>Onde:</p>
+<p><span class="math display">\[E(S^2)=\sigma^2\]</span></p>
+<p><span class="math inline">\(S^2\)</span> é um estimador não-viesado</p>
+</section>
+</section>
+<section id="eficiência" class="level3" data-number="11.3.2">
+<h3 data-number="11.3.2" class="anchored" data-anchor-id="eficiência"><span class="header-section-number">11.3.2</span> Eficiência</h3>
+<p>Agora temos a seguinte situação, dado dois estimadores não viesados, como escolher qual dos dois seria melhor? Vejamos a situação abaixo:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Vamos estudar a nota do ENEM. </span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>x_normal<span class="ot">&lt;-</span><span class="fu">rnorm</span>(<span class="dv">10000</span>,<span class="at">mean=</span><span class="dv">2000</span>, <span class="at">sd=</span> <span class="dv">400</span>)</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Criando os vetores numéricos </span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>xbar50<span class="ot">&lt;-</span><span class="fu">numeric</span>()</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>med50<span class="ot">&lt;-</span><span class="fu">numeric</span>()</span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Extraindo duas mil amostras de 15 e fazendo a média e </span></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a><span class="co"># variância. Teremos 2000 médias e 2000 variâncias </span></span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> ( i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">100000</span>){</span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>  smp<span class="ot">&lt;-</span><span class="fu">sample</span>(x_normal,<span class="at">replace =</span> <span class="cn">TRUE</span>, <span class="at">size =</span> <span class="dv">50</span>)</span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>  xbar50[i]<span class="ot">&lt;-</span><span class="fu">mean</span>(x_normal[smp])</span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>  med50[i]<span class="ot">&lt;-</span><span class="fu">median</span>(x_normal[smp])</span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mfrow=</span><span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>))</span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(xbar50, <span class="at">col=</span><span class="st">"steelblue3"</span>,<span class="at">freq =</span> <span class="cn">FALSE</span>, <span class="at">breaks =</span> <span class="dv">25</span>,<span class="at">main=</span><span class="st">""</span>,</span>
+<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a>     <span class="at">xlim=</span><span class="fu">c</span>(<span class="dv">1800</span>, <span class="dv">2200</span>), <span class="at">ylab=</span><span class="st">"Densidade"</span>, <span class="at">xlab=</span><span class="st">"Média para n=50"</span>,<span class="at">xaxt=</span><span class="st">"n"</span>,</span>
+<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a>     <span class="at">border=</span><span class="st">"steelblue3"</span>)</span>
+<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a><span class="fu">abline</span>(<span class="at">v=</span><span class="dv">2000</span>, <span class="at">col=</span><span class="st">"black"</span>, <span class="at">lty=</span><span class="dv">2</span>)</span>
+<span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a><span class="fu">axis</span>(<span class="dv">1</span>,<span class="at">at=</span><span class="fu">c</span>(<span class="dv">1800</span>, <span class="fu">mean</span>(xbar50), <span class="dv">2200</span>),<span class="at">labels =</span><span class="fu">c</span>(<span class="dv">1800</span>, <span class="fu">round</span>(<span class="fu">mean</span>(xbar50)),</span>
+<span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a>    <span class="dv">2200</span>),<span class="at">cex.axis=</span><span class="fl">0.65</span>) </span>
+<span id="cb3-21"><a href="#cb3-21" aria-hidden="true" tabindex="-1"></a><span class="fu">text</span>(<span class="dv">2000</span>, <span class="fl">0.0003</span>, <span class="fu">expression</span>(Theta))</span>
+<span id="cb3-22"><a href="#cb3-22" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(med50, <span class="at">col=</span><span class="st">"steelblue3"</span>,<span class="at">freq =</span> <span class="cn">FALSE</span>, <span class="at">breaks =</span> <span class="dv">25</span>,<span class="at">main=</span><span class="st">""</span>,</span>
+<span id="cb3-23"><a href="#cb3-23" aria-hidden="true" tabindex="-1"></a>     <span class="at">xlim=</span><span class="fu">c</span>(<span class="dv">1800</span>, <span class="dv">2200</span>), <span class="at">ylab=</span><span class="st">"Densidade"</span>, <span class="at">xlab=</span><span class="st">"Médiana para n=50"</span>,<span class="at">xaxt=</span><span class="st">"n"</span>,</span>
+<span id="cb3-24"><a href="#cb3-24" aria-hidden="true" tabindex="-1"></a>     <span class="at">border=</span><span class="st">"steelblue3"</span>)</span>
+<span id="cb3-25"><a href="#cb3-25" aria-hidden="true" tabindex="-1"></a><span class="fu">abline</span>(<span class="at">v=</span><span class="dv">2000</span>, <span class="at">col=</span><span class="st">"black"</span>, <span class="at">lty=</span><span class="dv">2</span>)</span>
+<span id="cb3-26"><a href="#cb3-26" aria-hidden="true" tabindex="-1"></a><span class="fu">axis</span>(<span class="dv">1</span>,<span class="at">at=</span><span class="fu">c</span>(<span class="dv">1800</span>, <span class="fu">mean</span>(xbar50), <span class="dv">2200</span>),<span class="at">labels =</span><span class="fu">c</span>(<span class="dv">1800</span>, <span class="fu">round</span>(<span class="fu">mean</span>(xbar50)),</span>
+<span id="cb3-27"><a href="#cb3-27" aria-hidden="true" tabindex="-1"></a>    <span class="dv">2200</span>),<span class="at">cex.axis=</span><span class="fl">0.65</span>) </span>
+<span id="cb3-28"><a href="#cb3-28" aria-hidden="true" tabindex="-1"></a><span class="fu">text</span>(<span class="dv">2000</span>, <span class="fl">0.0003</span>, <span class="fu">expression</span>(Theta))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="cap9_estimacao_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid figure-img" style="width:70.0%"></p>
+<figcaption>Distribuição de dois estimadores não viesádos para a Esperança da População , média e mediana</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p>A figura 5 mostra a distribuição de dois estimadores da esperança populacional das notas do ENEN, a média e a mediana. Observa-se que elas não são viesadas. Qual das duas seria a melhor? Poderia utilizar as duas?</p>
+<p>Visualmente notamos que a precisão do gráfico do estimador que utiliza a mediana amostral é maior do que a do gráfico do estimador que uriliza a méia amostral. Matematicamente temos o seguinte:</p>
+<p><span class="math display">\[Var(\hat{md})=\pi \frac{\sigma^2}{n}&gt;\frac{\sigma^2}{n}= Var(\bar{X})\]</span></p>
+<p><span class="math inline">\(\bar{X}\)</span> tem menor variância e é melhor a partir deste critério. Assim, a média acerta o alvo como a mediana, entretanto a dispersão é menor para média, ou seja, maior precisão. O estimador da esperança que utiliza a média é exato e mais preciso do que o estimador que utiliza a mediana e portanto é preferível!</p>
+<p>Em termos práticos, estimadores mais precisos ou eficientes, geram estimativas que tem maior chance de estarem perto do verdadeiro parâmetro. Veja o gráfico que para a média a chance de obtermos valores ao redor de 2.200 é muito baixo e apresenta-se maior na mediana.</p>
+<div class="callout callout-style-default callout-note no-icon callout-titled" title="DEFINIÇÃO">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>DEFINIÇÃO
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Sejam <span class="math inline">\(T_1\)</span> e <span class="math inline">\(T_2\)</span> são dois estimadores não-viesados de um mesmo parâmetro <span class="math inline">\(\Theta\)</span>. Dizemos que <span class="math inline">\(T_1\)</span> é mais eficiente do que o estimador <span class="math inline">\(T_2\)</span> se</p>
+</div>
+</div>
+</section>
+<section id="erro-quadrático-médio" class="level3" data-number="11.3.3">
+<h3 data-number="11.3.3" class="anchored" data-anchor-id="erro-quadrático-médio"><span class="header-section-number">11.3.3</span> Erro quadrático médio</h3>
+<p>A performance de um estimador deve ser avaliada principalmente pela maneira que se dispersa ao redor do parâmetro <span class="math inline">\(\Theta\)</span> a ser estimado. Considere o erro amostral:</p>
+<p>Esse é o erro que cometemos ao estimar o parâmetro <span class="math inline">\(\Theta\)</span> da distribuição da v.a. <span class="math inline">\(X\)</span> pelo estimador <span class="math inline">\(T\)</span> baseado em uma amostra</p>
+<div class="callout callout-style-default callout-note no-icon callout-titled" title="DEFINIÇÃO">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>DEFINIÇÃO
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Sendo <span class="math inline">\(T\)</span> o estimador do parâmetro populacional <span class="math inline">\(\Theta\)</span>, então o Erro Quadrático Médio (EQM) do estimador <span class="math inline">\(T\)</span> será:</p>
+<p><span class="math display">\[EQM(T;\Theta) = E(e^{2})= E(T-\Theta)^{2}\]</span></p>
+<hr>
+<p><strong>Desenvolvendo:</strong></p>
+<p><span class="math display">\[\begin{array}{ll}
+EQM(T;\Theta) &amp;= E(e^{2})=E(T-\Theta)^{2}
+\\
+\\
+&amp;= E(T-E(T))^{2}+ E(E(T)-\Theta)^{2}
+\\
+\\
+&amp;= Var (T) + V^{2}
+\end{array}\]</span></p>
+</div>
+</div>
+<p>Sendo <span class="math inline">\(Var (T)\)</span> a variância do estimador e <span class="math inline">\(V^{2}\)</span> o viés ao quadrado. Dessa forma, se conseguirmos encontrar o estimador que possui o menor EQM, esse será o estimador que reduz viés e variância. Muitas vezes buscamos em uma família de estimadores consistentes aqueles que possuem o menor EQM.</p>
+<p>O gráfico apresenta o EQM da média e da mediana ao estimar a esperança da nota do ENEM. Observe que o EQM da mediana é maior, distribuição com mais peso a direita, ou seja, a chance de erros maiores é maior ao utilizar a mediana como estimador. Por isso preferimos a média.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Vamos estudar a nota do ENEM. </span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>x_normal<span class="ot">&lt;-</span><span class="fu">rnorm</span>(<span class="dv">10000</span>,<span class="at">mean=</span><span class="dv">2000</span>, <span class="at">sd=</span> <span class="dv">400</span>)</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Criando os vetores numéricos </span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>xbar50<span class="ot">&lt;-</span><span class="fu">numeric</span>()</span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>med50<span class="ot">&lt;-</span><span class="fu">numeric</span>()</span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>e50<span class="ot">&lt;-</span><span class="fu">numeric</span>()</span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>e50md<span class="ot">&lt;-</span><span class="fu">numeric</span>()</span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Extraindo duas mil amostras de 15 e fazendo a média e </span></span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a><span class="co"># variância. Teremos 2000 médias e 2000 variâncias </span></span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> ( i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">100000</span>){</span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>  smp<span class="ot">&lt;-</span><span class="fu">sample</span>(x_normal,<span class="at">replace =</span> <span class="cn">TRUE</span>,<span class="at">size =</span> <span class="dv">50</span>)</span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a>  xbar50[i]<span class="ot">&lt;-</span><span class="fu">mean</span>(x_normal[smp])</span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a>  e50[i]<span class="ot">&lt;-</span>(xbar50[i]<span class="sc">-</span><span class="dv">2000</span>)<span class="sc">^</span><span class="dv">2</span></span>
+<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a>  med50[i]<span class="ot">&lt;-</span><span class="fu">median</span>(x_normal[smp])</span>
+<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a>  e50md[i]<span class="ot">&lt;-</span>(med50[i]<span class="sc">-</span><span class="dv">2000</span>)<span class="sc">^</span><span class="dv">2</span></span>
+<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(e50md, <span class="at">col=</span><span class="st">"wheat4"</span>,<span class="at">freq =</span> <span class="cn">FALSE</span>, <span class="at">breaks =</span> <span class="dv">120</span>,<span class="at">main=</span><span class="st">""</span>,</span>
+<span id="cb4-20"><a href="#cb4-20" aria-hidden="true" tabindex="-1"></a>     <span class="at">xlim=</span><span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">15000</span>), <span class="at">ylab=</span><span class="st">"Densidade do EQM"</span>, <span class="at">xlab=</span><span class="st">"EQM"</span>,</span>
+<span id="cb4-21"><a href="#cb4-21" aria-hidden="true" tabindex="-1"></a>     <span class="at">border=</span><span class="st">"wheat4"</span>)</span>
+<span id="cb4-22"><a href="#cb4-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-23"><a href="#cb4-23" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">new=</span><span class="cn">TRUE</span>)</span>
+<span id="cb4-24"><a href="#cb4-24" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(e50, <span class="at">col=</span><span class="st">"steelblue3"</span>,<span class="at">freq =</span> <span class="cn">FALSE</span>, <span class="at">breaks =</span> <span class="dv">120</span>,<span class="at">main=</span><span class="st">""</span>,<span class="at">xaxt=</span><span class="st">"n"</span>,</span>
+<span id="cb4-25"><a href="#cb4-25" aria-hidden="true" tabindex="-1"></a>     <span class="at">yaxt=</span><span class="st">"n"</span>, <span class="at">xlim=</span><span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">15000</span>), <span class="at">ylab=</span><span class="st">"Densidade do EQM"</span>, <span class="at">xlab=</span><span class="st">"EQM"</span>,</span>
+<span id="cb4-26"><a href="#cb4-26" aria-hidden="true" tabindex="-1"></a>     <span class="at">border=</span><span class="st">"steelblue3"</span>)</span>
+<span id="cb4-27"><a href="#cb4-27" aria-hidden="true" tabindex="-1"></a><span class="fu">legend</span>(<span class="st">"topright"</span>, <span class="at">legend=</span><span class="fu">c</span>(<span class="st">"EQM- mediana"</span>, <span class="st">"EQM - média"</span>),<span class="at">col=</span><span class="fu">c</span>(<span class="st">"wheat4"</span>,</span>
+<span id="cb4-28"><a href="#cb4-28" aria-hidden="true" tabindex="-1"></a>      <span class="st">"steelblue3"</span>), <span class="at">lty=</span><span class="dv">1</span><span class="sc">:</span><span class="dv">1</span>, <span class="at">box.lty=</span><span class="dv">0</span>,<span class="at">cex=</span><span class="fl">0.8</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="cap9_estimacao_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid figure-img" style="width:70.0%"></p>
+<figcaption>Erro Quadrático Médio de dois estimadores não viesádos para a Esperança da População , média e mediana</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="consistência" class="level3" data-number="11.3.4">
+<h3 data-number="11.3.4" class="anchored" data-anchor-id="consistência"><span class="header-section-number">11.3.4</span> Consistência</h3>
+<p>A consistência é uma propriedade que surge quando o tamanho amostral cresce, ou seja, quando <span class="math inline">\(n\rightarrow \infty\)</span>. Essa é uma propriedade importante para um estimador, pois deve convergir para o verdadeiro parâmetro quando a quantidade de informação aumenta, ou seja, maior tamanho amostral.</p>
+<p>Podemos calcular <span class="math inline">\(\overline{X}\)</span> para diversos tamanho de amostra, obtemos uma sequência de estimadores <span class="math inline">\(\overline{X}_n\)</span> para n=1,2,…. Quando <span class="math inline">\(n\)</span> cresce e a distribuição de <span class="math inline">\(\overline{X}_n\)</span> torna-se mais concentrada ao redor da média real <span class="math inline">\(\mu\)</span>. Dessa forma, <span class="math inline">\(\overline{X}_n\)</span> é uma sequência consistende de estimadores de <span class="math inline">\(\mu\)</span>.</p>
+<p>Veja o gráfico abaixo para amostra de tamanho 50, 500 e 1500.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Voltamos a nota do ENEM. </span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>x_normal<span class="ot">&lt;-</span><span class="fu">rnorm</span>(<span class="dv">10000</span>,<span class="at">mean=</span><span class="dv">2000</span>, <span class="at">sd=</span> <span class="dv">400</span>)</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Criando os vetores numéricos </span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>xbar50<span class="ot">&lt;-</span><span class="fu">numeric</span>()</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>xbar500<span class="ot">&lt;-</span><span class="fu">numeric</span>()</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>xbar1500<span class="ot">&lt;-</span><span class="fu">numeric</span>()</span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Extraindo duas mil amostras de 15 e fazendo a média e </span></span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a><span class="co"># variância. Teremos 2000 médias e 2000 variâncias </span></span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> ( i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">50000</span>){</span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>  smp<span class="ot">&lt;-</span><span class="fu">sample</span>(x_normal,<span class="at">replace =</span> <span class="cn">TRUE</span>, <span class="at">size =</span> <span class="dv">50</span>)</span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>  xbar50[i]<span class="ot">&lt;-</span><span class="fu">mean</span>(x_normal[smp])</span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a>  smp1<span class="ot">&lt;-</span><span class="fu">sample</span>(x_normal,<span class="at">replace =</span> <span class="cn">TRUE</span>,<span class="at">size =</span> <span class="dv">500</span>)</span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a>  xbar500[i]<span class="ot">&lt;-</span><span class="fu">mean</span>(x_normal[smp1])</span>
+<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a>  smp2<span class="ot">&lt;-</span><span class="fu">sample</span>(x_normal,<span class="at">replace =</span> <span class="cn">TRUE</span>,<span class="at">size =</span> <span class="dv">1500</span>)</span>
+<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a>  xbar1500[i]<span class="ot">&lt;-</span><span class="fu">mean</span>(x_normal[smp2])</span>
+<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb5-17"><a href="#cb5-17" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(xbar50, <span class="at">col=</span><span class="st">"wheat4"</span>,<span class="at">freq =</span> <span class="cn">FALSE</span>, <span class="at">breaks =</span> <span class="dv">25</span>,<span class="at">main=</span><span class="st">""</span>,</span>
+<span id="cb5-18"><a href="#cb5-18" aria-hidden="true" tabindex="-1"></a>     <span class="at">xlim=</span><span class="fu">c</span>(<span class="dv">1800</span>, <span class="dv">2200</span>), <span class="at">ylab=</span><span class="st">"Densidade da Média"</span>, <span class="at">xlab=</span><span class="st">"Média de X"</span>, </span>
+<span id="cb5-19"><a href="#cb5-19" aria-hidden="true" tabindex="-1"></a>     <span class="at">border=</span><span class="st">"wheat4"</span>)</span>
+<span id="cb5-20"><a href="#cb5-20" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">new=</span><span class="cn">TRUE</span>)</span>
+<span id="cb5-21"><a href="#cb5-21" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(xbar500, <span class="at">col=</span><span class="st">"steelblue3"</span>,<span class="at">freq =</span> <span class="cn">FALSE</span>, <span class="at">breaks =</span> <span class="dv">25</span>,<span class="at">main=</span><span class="st">""</span>,<span class="at">xaxt=</span><span class="st">"n"</span>,</span>
+<span id="cb5-22"><a href="#cb5-22" aria-hidden="true" tabindex="-1"></a>     <span class="at">yaxt=</span><span class="st">"n"</span>, <span class="at">xlim=</span><span class="fu">c</span>(<span class="dv">1800</span>, <span class="dv">2200</span>), <span class="at">ylab=</span><span class="st">""</span>, <span class="at">xlab=</span><span class="st">""</span>, <span class="at">border=</span><span class="st">"steelblue3"</span>)</span>
+<span id="cb5-23"><a href="#cb5-23" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">new=</span><span class="cn">TRUE</span>)</span>
+<span id="cb5-24"><a href="#cb5-24" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(xbar1500, <span class="at">col=</span><span class="st">"gray"</span>,<span class="at">freq =</span> <span class="cn">FALSE</span>, <span class="at">breaks =</span> <span class="dv">25</span>,<span class="at">main=</span><span class="st">""</span>,<span class="at">xaxt=</span><span class="st">"n"</span>,</span>
+<span id="cb5-25"><a href="#cb5-25" aria-hidden="true" tabindex="-1"></a>     <span class="at">yaxt=</span><span class="st">"n"</span>, <span class="at">xlim=</span><span class="fu">c</span>(<span class="dv">1800</span>, <span class="dv">2200</span>), <span class="at">ylab=</span><span class="st">""</span>, <span class="at">xlab=</span><span class="st">""</span>,<span class="at">border=</span><span class="st">"gray"</span>)</span>
+<span id="cb5-26"><a href="#cb5-26" aria-hidden="true" tabindex="-1"></a><span class="fu">text</span>(<span class="dv">2000</span>, <span class="fl">0.0008</span>, <span class="fu">expression</span>(mu))</span>
+<span id="cb5-27"><a href="#cb5-27" aria-hidden="true" tabindex="-1"></a><span class="fu">legend</span>(<span class="st">"topright"</span>, <span class="at">legend=</span><span class="fu">c</span>(<span class="st">"Amostra"</span>,<span class="st">"n=50"</span>,<span class="st">"n=500"</span>,<span class="st">"n=1500"</span>),<span class="at">col=</span><span class="fu">c</span>(<span class="st">"white"</span>, </span>
+<span id="cb5-28"><a href="#cb5-28" aria-hidden="true" tabindex="-1"></a>      <span class="st">"wheat4"</span>,<span class="st">"steelblue3"</span>,<span class="st">"gray"</span>), <span class="at">lty=</span><span class="dv">1</span><span class="sc">:</span><span class="dv">1</span>, <span class="at">box.lty=</span><span class="dv">0</span>,<span class="at">cex=</span><span class="fl">0.8</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="cap9_estimacao_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid figure-img" style="width:70.0%"></p>
+<figcaption>Consistência do estimador não viesados para a Esperança da População , média</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p>Observe que ao aumentar o tamanho amostral a distribuição vai se concentrando ao redor do parâmetro populacional. Ou seja, <span class="math inline">\(\bar{X}\)</span> é consistente. Assim tem-se a seguinte definição:</p>
+<div class="callout callout-style-default callout-note no-icon callout-titled" title="DEFINIÇÃO">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>DEFINIÇÃO
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Uma sequência <span class="math inline">\(\{T_n \}\)</span> de estimadores de um parâmetro <span class="math inline">\(\Theta\)</span> é consistente se para todo <span class="math inline">\(\varepsilon &gt;0\)</span>:</p>
+<p><span class="math display">\[P\{ | T_n - \Theta | &gt; \varepsilon \} \rightarrow 0 , n \rightarrow \infty\]</span></p>
+<p>Para o caso específico da média <span class="math inline">\(\bar{X}\)</span>, tem-se:</p>
+<p><span class="math display">\[P\{ | \bar{X} - \mu | &gt; \varepsilon \} \rightarrow 0 , n \rightarrow \infty\]</span></p>
+</div>
+</div>
+<p>Dessa forma temos o seguinte Teorema:</p>
+<div class="callout callout-style-default callout-note no-icon callout-titled" title="TEOREMA">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>TEOREMA
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Considerando a desigualdade de Tchebycheff, tem-se:</p>
+<p><span class="math display">\[P\{ | T_n - \Theta | &lt; \varepsilon \} \geq 1-\frac{\sigma^2}{\varepsilon^2n}\]</span></p>
+<p>Dessa forma sequência <span class="math inline">\(\{T_n \}\)</span> de estimadores de um parâmetro <span class="math inline">\(\Theta\)</span> é consistente se:</p>
+<p><span class="math display">\[lim_{n \rightarrow \infty} P\{ | T_n - \Theta | &lt; \varepsilon \} = 1\]</span></p>
+<p>Podemos ainda escrever:</p>
+</div>
+</div>
+<p>A prova desse teorema foi vista na seção anterior quando apresentamos a Lei dos Grandes Números. Uma maneira mais direta para testar a consistência do estimador pode-se utilizar o seguinte resultado:</p>
+<p><strong>Proposição</strong></p>
+<p>Uma sequência <span class="math inline">\(\{T_n \}\)</span> de estimadores de um parâmetro <span class="math inline">\(\Theta\)</span> é consistente se:</p>
+<p><span class="math display">\[lim_{n \rightarrow \infty} E(T_n) = \Theta\]</span></p>
+<p><span class="math display">\[lim_{n \rightarrow \infty} Var (T_n) = 0\]</span></p>
+<div class="callout callout-style-default callout-tip no-icon callout-titled" title="EXEMPLO">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>EXEMPLO
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Seja <span class="math inline">\(S^{2}\)</span> um estimador não viesado, sendo, <span class="math inline">\(E(S^{2})=\sigma^{2}\)</span>. Se X tiver uma distribuição Normal ~<span class="math inline">\(N(\mu,\sigma^{2})\)</span> e <span class="math inline">\(X_1, ..., X_n\)</span> as <span class="math inline">\(n\)</span> medições de <span class="math inline">\(X\)</span>, então:</p>
+<p><span class="math display">\[Var(S^{2})=\frac{2 \sigma^{4}}{n-1}\]</span></p>
+<p>e</p>
+<p><span class="math display">\[lim_{n \rightarrow \infty}Var(S^{2})=0\]</span></p>
+<p>Portanto, <span class="math inline">\(S^{2}\)</span> é um estimador consistente pois:</p>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip no-icon callout-titled" title="EXEMPLO">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>EXEMPLO
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Para o caso do estimador incosistente <span class="math inline">\(\hat{\sigma^2}\)</span> da variância populacional onde <span class="math inline">\(\mathbb{E}(\hat{\sigma^2})=\sigma^2-\frac{\sigma^2}{n}\)</span>, tem-se:</p>
+<p><span class="math display">\[\begin{array}{ccc}
+\mathbb{E}(\hat{\sigma^{2}})=\hat{\sigma^{2}}- \frac{\hat{\sigma^{2}}}{n} \Rightarrow lim_{n \rightarrow \infty} \mathbb{E}(\hat{\sigma^{2}})={\sigma^{2}}
+\end{array}\]</span></p>
+<p><span class="math display">\[\begin{array}{ccc}
+Var(\hat{\sigma^{2}})= (\frac{n-1}{n})^{2} Var(S^{2}) = \frac{(n-1)^2}{n^{2}} \frac{2\sigma^{4}}{n-1}=\frac{n-1}{n^{2}} 2 \sigma^{4} \Rightarrow lim_{n \rightarrow \infty} Var(\hat{\sigma^{2}})=0
+\end{array}\]</span></p>
+<p>Portanto, <span class="math inline">\(\hat{\sigma^{2}}\)</span> é um estimador <strong>consistente</strong></p>
+</div>
+</div>
+<p>Esse resultado mostra o porque muitas vezes utilizamos os dois estimadores para estimar a variância populacional, pois para um <span class="math inline">\(n\)</span> grande ambos são consistentes. Além disso, a variância de <span class="math inline">\(\hat{\sigma}^2\)</span> é menor.</p>
+</section>
+</section>
+<section id="métodos-de-estimação" class="level2" data-number="11.4">
+<h2 data-number="11.4" class="anchored" data-anchor-id="métodos-de-estimação"><span class="header-section-number">11.4</span> Métodos de Estimação</h2>
+<p>Até agora “imitamos” o que acontece na população para a amostra com os estimadores <span class="math inline">\(\overline{X}\)</span> e <span class="math inline">\(S^2\)</span>. Entretanto podemos ter modelos mais complexos e parâmetros populacionais que não conseguimos imitar o que acontece na população.</p>
+<p>Vamos considerar que gostariamos de compreender os determinantes da renda de uma pessoa. Afinal, renda significa consumo e bem estar e gostariamos de saber porque tem pessoas que ganham mais e pessoas que ganham menos. Assim poderemos propor políticas públicas que sejam mais efetivas.</p>
+<p>Com o passar do tempo e vários estudos os economistas perceberam que a educação é um fator importante para compreender a renda das pessoas.</p>
+<p>Ou seja, o salário é uma função da educação que recebemos. Veja o gráfico 1 abaixo entre o ln do PIB per capita e os anos médios de educação em diversos países do mundo<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a>.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Pib per capita em ln e anos de estudos de diversos países em 2010</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>ln_salario<span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fl">9.16</span>, <span class="fl">9.44</span>, <span class="fl">9.67</span>, <span class="fl">10.71</span>, <span class="fl">10.61</span>, <span class="fl">7.79</span>, <span class="fl">9.55</span>, <span class="fl">10.55</span>, <span class="fl">8.87</span>, <span class="fl">7.56</span>,</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>               <span class="fl">8.48</span>, <span class="fl">9.51</span>, <span class="fl">9.61</span>, <span class="fl">7.75</span>, <span class="fl">7.90</span>, <span class="fl">10.60</span>, <span class="fl">9.80</span>, <span class="fl">9.14</span>, <span class="fl">9.27</span>, <span class="fl">9.40</span>, </span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>               <span class="fl">7.80</span>, <span class="fl">10.24</span>, <span class="fl">10.17</span>, <span class="fl">6.45</span>, <span class="fl">10.68</span>, <span class="fl">9.35</span>, <span class="fl">9.12</span>, <span class="fl">9.12</span>, <span class="fl">8.72</span>, <span class="fl">8.84</span>,                   <span class="fl">10.56</span>, <span class="fl">10.49</span>, <span class="fl">7.89</span>, <span class="fl">10.61</span>, <span class="fl">8.28</span>, <span class="fl">10.16</span>, <span class="fl">8.76</span>, <span class="fl">7.41</span>, <span class="fl">8.24</span>, <span class="fl">10.64</span>, </span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>               <span class="fl">9.93</span>, <span class="fl">10.54</span>, <span class="fl">8.38</span>, <span class="fl">8.90</span>, <span class="fl">9.76</span>, <span class="fl">9.14</span>, <span class="fl">10.78</span>, <span class="fl">10.46</span>, <span class="fl">8.81</span>, <span class="fl">10.51</span>,</span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>               <span class="fl">9.14</span>, <span class="fl">7.82</span>,  <span class="fl">7.80</span>, <span class="fl">6.67</span>, <span class="fl">10.97</span>, <span class="fl">6.88</span>, <span class="fl">9.79</span>, <span class="fl">7.54</span>, <span class="fl">10.04</span>, <span class="fl">9.63</span>,</span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>               <span class="fl">9.58</span>, <span class="fl">8.77</span>, <span class="fl">6.88</span>, <span class="fl">8.14</span>, <span class="fl">7.60</span>, <span class="fl">10.69</span>, <span class="fl">10.34</span>, <span class="fl">8.29</span>, <span class="fl">6.74</span>, <span class="fl">11.20</span>,</span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>               <span class="fl">8.34</span>, <span class="fl">9.62</span>, <span class="fl">8.83</span>, <span class="fl">9.13</span>, <span class="fl">8.59</span>, <span class="fl">9.95</span>, <span class="fl">10.16</span>, <span class="fl">9.73</span>, <span class="fl">9.99</span>, <span class="fl">7.92</span>,</span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>               <span class="fl">9.43</span>, <span class="fl">7.06</span>, <span class="fl">9.34</span>, <span class="fl">10.36</span>, <span class="fl">10.36</span>, <span class="fl">9.03</span>, <span class="fl">8.19</span>, <span class="fl">8.86</span>, <span class="fl">10.61</span>, <span class="fl">10.93</span>,</span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>               <span class="fl">8.65</span>, <span class="fl">10.52</span>, <span class="fl">9.43</span>, <span class="fl">7.11</span>, <span class="fl">10.22</span>, <span class="fl">9.27</span>, <span class="fl">9.79</span>, <span class="fl">7.45</span>, <span class="fl">10.46</span>, <span class="fl">10.81</span>,</span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a>               <span class="fl">9.67</span>, <span class="fl">9.70</span>, <span class="fl">8.42</span>, <span class="fl">7.96</span>, <span class="fl">7.30</span>)</span>
+<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a>educa<span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fl">10.44</span>, <span class="dv">7</span>, <span class="fl">9.71</span>, <span class="fl">11.69</span>, <span class="fl">10.13</span>, <span class="fl">6.22</span>, <span class="fl">9.57</span>, <span class="fl">11.29</span>, <span class="fl">9.63</span>, <span class="fl">4.57</span>, <span class="fl">8.57</span>,</span>
+<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a>          <span class="fl">8.17</span>, <span class="fl">11.07</span>, <span class="fl">4.94</span>, <span class="fl">6.41</span>, <span class="fl">12.74</span>, <span class="fl">10.35</span>, <span class="fl">8.25</span>, <span class="fl">9.35</span>, <span class="fl">8.43</span>, <span class="fl">4.93</span>, <span class="fl">11.76</span>,</span>
+<span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a>          <span class="fl">12.8</span>, <span class="fl">3.79</span>, <span class="fl">11.97</span>, <span class="fl">8.12</span>, <span class="fl">8.02</span>, <span class="fl">7.44</span>, <span class="fl">8.06</span>, <span class="fl">10.35</span>, <span class="fl">10.71</span>, <span class="fl">11.34</span>, <span class="fl">3.92</span>,</span>
+<span id="cb6-16"><a href="#cb6-16" aria-hidden="true" tabindex="-1"></a>          <span class="fl">12.58</span>, <span class="fl">7.66</span>, <span class="fl">11.36</span>, <span class="fl">5.21</span>, <span class="fl">5.17</span>, <span class="fl">6.6</span>, <span class="fl">12.2</span>, <span class="fl">11.98</span>, <span class="fl">11.48</span>, <span class="fl">6.59</span>, <span class="fl">8.02</span>,</span>
+<span id="cb6-17"><a href="#cb6-17" aria-hidden="true" tabindex="-1"></a>          <span class="fl">9.15</span>, <span class="fl">7.43</span>, <span class="fl">12.45</span>, <span class="fl">10.71</span>, <span class="fl">10.33</span>, <span class="fl">12.44</span>, <span class="dv">10</span>, <span class="fl">6.47</span>, <span class="fl">6.08</span>, <span class="fl">4.35</span>, <span class="fl">11.33</span>,</span>
+<span id="cb6-18"><a href="#cb6-18" aria-hidden="true" tabindex="-1"></a>          <span class="fl">5.01</span>, <span class="fl">10.89</span>, <span class="fl">2.14</span>, <span class="fl">11.06</span>, <span class="fl">9.44</span>, <span class="fl">9.18</span>, <span class="fl">5.27</span>, <span class="fl">2.03</span>, <span class="fl">5.11</span>, <span class="fl">4.44</span>, <span class="fl">11.71</span>,</span>
+<span id="cb6-19"><a href="#cb6-19" aria-hidden="true" tabindex="-1"></a>          <span class="fl">11.12</span>, <span class="fl">6.82</span>, <span class="fl">1.95</span>, <span class="fl">11.65</span>, <span class="fl">5.19</span>, <span class="fl">9.72</span>, <span class="fl">7.99</span>, <span class="fl">9.28</span>, <span class="fl">8.65</span>, <span class="fl">11.62</span>, <span class="fl">8.71</span>,</span>
+<span id="cb6-20"><a href="#cb6-20" aria-hidden="true" tabindex="-1"></a>          <span class="fl">11.08</span>, <span class="fl">12.02</span>, <span class="fl">3.11</span>, <span class="fl">11.52</span>, <span class="fl">4.28</span>, <span class="fl">9.89</span>, <span class="fl">12.96</span>, <span class="fl">10.75</span>, <span class="fl">10.67</span>, <span class="fl">3.49</span>,</span>
+<span id="cb6-21"><a href="#cb6-21" aria-hidden="true" tabindex="-1"></a>          <span class="fl">5.33</span>, <span class="fl">11.95</span>, <span class="fl">12.92</span>, <span class="fl">7.07</span>, <span class="fl">11.96</span>, <span class="fl">8.47</span>, <span class="fl">6.09</span>, <span class="fl">10.96</span>, <span class="dv">8</span>, <span class="fl">7.44</span>, <span class="fl">5.87</span>,</span>
+<span id="cb6-22"><a href="#cb6-22" aria-hidden="true" tabindex="-1"></a>          <span class="fl">12.46</span>, <span class="fl">13.24</span>, <span class="fl">8.61</span>, <span class="fl">8.78</span>, <span class="fl">3.84</span>, <span class="fl">7.4</span>, <span class="fl">7.86</span>)  </span>
+<span id="cb6-23"><a href="#cb6-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-24"><a href="#cb6-24" aria-hidden="true" tabindex="-1"></a>bd <span class="ot">=</span> <span class="fu">data.frame</span>(ln_salario, educa)</span>
+<span id="cb6-25"><a href="#cb6-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-26"><a href="#cb6-26" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(bd<span class="sc">$</span>educa, bd<span class="sc">$</span>ln_salario, <span class="at">xlab=</span><span class="st">"Anos de Estudo"</span>, </span>
+<span id="cb6-27"><a href="#cb6-27" aria-hidden="true" tabindex="-1"></a>     <span class="at">ylab=</span><span class="st">"ln PIB pc "</span>, <span class="at">pch=</span><span class="dv">20</span>, <span class="at">col=</span><span class="st">"wheat4"</span>,<span class="at">ylim=</span><span class="fu">c</span>(<span class="dv">5</span>,<span class="dv">12</span>))</span>
+<span id="cb6-28"><a href="#cb6-28" aria-hidden="true" tabindex="-1"></a><span class="fu">abline</span>(<span class="fu">lm</span>(bd<span class="sc">$</span>ln_salario<span class="sc">~</span>bd<span class="sc">$</span>educa), <span class="at">col=</span><span class="st">"steelblue3"</span>, <span class="at">lwd =</span> <span class="dv">2</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="cap9_estimacao_files/figure-html/unnamed-chunk-6-1.png" class="img-fluid figure-img" style="width:70.0%"></p>
+<figcaption>Anos de estudos e ln do PIB pc de diversos países em 2010</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p>Observe que existe uma relação ascendente, ou seja, quanto maior a educação maior renda per capita. Entretanto, observa-se também uma imprecisão, ou algum componente aleatório que não nos permite determinar precisamente a renda dada a escolaridade. Para países com 10 anos de estudos as rendas variam mais ou menos entre 8,5 e 10,5. Dessa forma um possível modelo para tratarmos essa problema seria:</p>
+<p>A questão é qual a função que descreveria essa relação entre escolaridade de rend? O que podemos assumir é que h é uma função crescente e parece razoável que possamos assumir uma função linear como representada pela linha vermelha. Podemos dizer que existe uma correlação entre renda e educação, ou seja, uma dependência linear. Um possível e mais comum modelo seria uma função linear que relaciona renda e educação e que considere as flutuações, ou seja:</p>
+<p><span class="math display">\[Renda=\alpha+\beta . Educação + u_i\]</span></p>
+<p>Essa é a linha de regressão sendo que <span class="math inline">\(\alpha\)</span> e <span class="math inline">\(\beta\)</span> parâmetros populacionais. O parâmetro <span class="math inline">\(\beta\)</span> representa a influência de um ano a mais de educação sobre a renda per capita e sendo <span class="math inline">\(\mathbb{E}(u_i)=0\)</span> para <span class="math inline">\(i=1,...n\)</span></p>
+<p>O que precisamos estimar é o parâmetro populacional <span class="math inline">\(\beta\)</span>. Assim, deve existir uma estimador <span class="math inline">\(\hat{\beta}=h(Y_i,X_j)\)</span> que nos permitir estimar quanto que cada a ano a mais de educação poderia nos trazer a mais de renda. Diferentemente do que fizemos para Esperança, agora temos pouco ou nenhuma intuição do que seria a formulação de <span class="math inline">\(h\)</span>.</p>
+<p>Existem algumas maneiras para fazermos isso:</p>
+<p>Veremos duas delas Minimos Quadrados e Máxmia Verossimilhança.</p>
+<section id="estimadores-de-mínimos-quadrados" class="level3" data-number="11.4.1">
+<h3 data-number="11.4.1" class="anchored" data-anchor-id="estimadores-de-mínimos-quadrados"><span class="header-section-number">11.4.1</span> Estimadores de Mínimos Quadrados</h3>
+<p>Iremos continuar como nosso exemplo anterior onde gostariamos de saber como cada ano a mais de educação poderia afetar a renda per capita. Primeiramente vamos considerar o gráfico anterior mas de uma forma mais didática. Considere a figura 2<a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a>:</p>
+<div id="fig-particula" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-particula-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../figuras/capitulos/reg.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:60.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-particula-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;11.3: Valores observados e estimados para y
+</figcaption>
+</figure>
+</div>
+<p>Temos que observar dois pontos importantes, o primeiro é que os pontos representam valores do par ordenado <span class="math inline">\((x_i,y_i)\)</span>. A linha representa os valores estimados ou projetados de <span class="math inline">\(Y\)</span> para dado valor de <span class="math inline">\(X\)</span>, ou seja, <span class="math inline">\(\hat{y}_i=\alpha+\beta.x_i\)</span>. Um bom estimador, ou seja, um bom <span class="math inline">\(\alpha\)</span> e <span class="math inline">\(\beta\)</span>, deveria ser aquele que torne o menor possível essa distância entre observado <span class="math inline">\(y_i\)</span> e estimado<span class="math inline">\(\hat{y_i}\)</span>, ou seja, minimiza o erro que cometemos ao tentar estimar o valor observado. Nesse sentido, deve minimizar conjuntamente a distância dos pontos (observado) até a linha (estimado). Dessa forma, os erros podem ser assim descritos:</p>
+<p><span class="math display">\[e=(y_i-\hat{y}_i)=(y_i-\alpha-\beta.x_i)\]</span></p>
+<p>Como não é importante se os erros são positivos ou negativos, utilizamos aqui a minimização da soma dos erros ao quadrado. Para verem uma simulação sobre esse ajustamento ou minimização dos erros ao qudrado, acesse “https://phet.colorado.edu/en/simulation/least-squares-regression”. Portanto devemos minimizar:</p>
+<p><span class="math display">\[S(\alpha, \beta)=\sum_{i=1}^{n}(y_i-\hat{y}_i)^2=\sum_{i=1}^{n}(y_i-\alpha-\beta.x_i)^2\]</span></p>
+<p>Podemos entender essa minimização como o procedimento para encontrar os estimadores <span class="math inline">\(\hat{\alpha}\)</span> e <span class="math inline">\(\hat{\beta}\)</span> que gerem o menor erro quadrático médio. Ou seja, encontraremos os estimadores lineares que reduzem viés e variância.</p>
+<p>Minimizando os erros ao quadrado e utilizando a regra da cadeia (considere <span class="math inline">\(z=y_i-\alpha-\beta.x_i\)</span>):</p>
+<p><span class="math display">\[\begin{array}{clc}
+S(\alpha, \beta)=&amp;\sum_{i=1}^{n}(y_i-\alpha-\beta.x_i)^2
+\\
+\\
+\frac{\partial S(\alpha, \beta)}{\partial \alpha} =&amp; 2\sum (y_i -\hat{\alpha}- \hat{\beta} x_i)(-1)=0
+\\
+\\
+0=&amp; -\sum y_i+n\hat{\alpha}+\hat{\beta}\sum x_i
+\\
+\\
+\hat{\alpha}=&amp;\frac{\sum y_i-\hat{\beta}\sum x_i}{n}
+\\
+\\
+\hat{\alpha}=&amp;\bar{y}-\hat{\beta}\bar{x}
+\end{array}\]</span></p>
+<p>Agora derivando em relação a <span class="math inline">\(\beta\)</span>:</p>
+<p><span class="math display">\[\begin{array}{rlc}
+\frac{\partial S(\alpha, \beta)}{\partial \beta} =&amp; 2\sum (y_i -\hat{\alpha}- \hat{\beta} x_i)(-x_i)=0
+\\
+\\
+0=&amp; -2\sum y_i x_i + 2\sum (x_i \bar{y}-x_i\hat{\beta}\bar{x})+2\hat{\beta}\sum x_i^2
+\\
+\\
+0=&amp; -2\sum y_i x_i + 2\bar{y}\sum x_i -2\hat{\beta}\bar{x}\sum x_i+2\hat{\beta}\sum x_i^2
+\\
+\\
+2\hat{\beta}(\sum x_i^2-\frac{\sum x_i}{n}\sum x_i) =&amp; 2(\sum y_i x_i - \frac{\sum y_i}{n}\sum x_i)
+\\
+\\
+\hat{\beta}(\frac{n\sum x_i^2-(\sum x_i)^2}{n}) =&amp; \frac{n\sum y_i x_i - \sum y_i\sum x_i}{n}
+\\
+\\
+\hat{\beta}=&amp;\frac{n\sum y_i x_i - \sum y_i\sum x_i} {n\sum x_i^2-(\sum x_i)^2}
+\end{array}\]</span></p>
+<p>Podemos reescrever a equação acima como:</p>
+<p><span class="math display">\[\begin{array}{rlc}
+\hat{\beta}=&amp;\frac{n\sum y_i x_i - \sum y_i\sum x_i} {n\sum x_i^2-(\sum x_i)^2}= \frac{\sum (x_i - \bar{x})(\sum y_i-\bar{y})}{\sum (x_i-\bar{x})^2}=
+\frac{\sum y_i x_i - n\bar{y}\bar{x}} {\sum x_i^2-n\bar{x}^2}
+\end{array}\]</span></p>
+<p>Dessa forma temos dois estimadores, do intercepto, <span class="math inline">\(\hat{\alpha}\)</span> e da inclinação <span class="math inline">\(\hat{\beta}\)</span> e eles representam os estimadores de mínimos qudrados para o modelo de regressão que estavamos discutindo!</p>
+<p>Esse é o modelo padrão que iremos estudar em econometria. Entretanto, para fins didáticos podemos utilizar o modelo sem intercepto (ou em casos muito especiais em econometria), o princípio é o mesmo de minimização dos erros ao quadrado conforme derivação abaixo:</p>
+<p>Resolvendo temos que:</p>
+<p><span class="math display">\[\begin{array}{rlc}
+S( \beta)=&amp;\sum_{i=1}^{n}(y_i-\beta.x_i)^2
+\\
+\\
+\frac{\partial S( \beta)}{\partial \beta} =&amp; 2\sum (y_i - \hat{\beta} x_i)(-x_i)=0
+\\
+\\
+0 =&amp; 2(-\sum x_iy_i + \sum \hat{\beta} x_i^2)
+\\
+\\
+\hat{\beta} \sum  x_i^2  =&amp;  \sum x_iy_i
+\\
+\\
+\hat{\beta}_{MQ}=&amp;\frac{\sum x_iy_i}{\sum x_i^2 }
+\end{array}\]</span></p>
+<p>Vamos utilizar os nossos dados apresentados acima e calcular no R o resultado. Faremos na força bruta e utilizando a rotina do programa. Veja abaixo:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Fazendo na mão. Usando a equação que derivamos acima</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>B<span class="ot">&lt;-</span>((<span class="fu">sum</span>(educa<span class="sc">*</span>ln_salario)<span class="sc">-</span><span class="dv">105</span><span class="sc">*</span>(<span class="fu">mean</span>(educa)<span class="sc">*</span><span class="fu">mean</span>(ln_salario))))<span class="sc">/</span></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>  ((<span class="fu">sum</span>(educa<span class="sc">^</span><span class="dv">2</span>)<span class="sc">-</span><span class="dv">105</span><span class="sc">*</span>(<span class="fu">mean</span>(educa)<span class="sc">^</span><span class="dv">2</span>)))</span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>A<span class="ot">&lt;-</span><span class="fu">mean</span>(ln_salario<span class="sc">-</span>B<span class="sc">*</span><span class="fu">mean</span>(educa))</span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>B</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.3568401</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>A</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 6.092204</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Usando a rotina do R para Mínimos Quadrados</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>reg<span class="ot">&lt;-</span><span class="fu">lm</span>(ln_salario<span class="sc">~</span>educa)</span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>reg</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Call:
+lm(formula = ln_salario ~ educa)
+
+Coefficients:
+(Intercept)        educa  
+     6.0922       0.3568  </code></pre>
+</div>
+</div>
+<p>Observe que cada ano a mais de educação que um pais consegue, aumenta em 0.357 o ln da renda per capita. Mostrando que renda e educaçao estão correlacionado! Dessa forma, nossa equação para achar <span class="math inline">\(\hat{Y}\)</span> será:</p>
+<p><span class="math display">\[\hat{Y}=\hat{\alpha}+\hat{\beta}x\]</span> ou seja,</p>
+<p><span class="math display">\[\hat{Y}=6.092+0.357x\]</span></p>
+<p>Dessa forma um país que consiga atingir 10 anos de média de educação terá o ln da renda estimado em <span class="math inline">\(9.66\)</span>. Isso pode ser visto no gráfico acima. Um outro ponto que será estudo em econometria e a interpretação do coeficiente. Aqui somente deixamos a interpretação desse coeficiente e não entramos no detalhe da sua explicação. Como é um modelo com <span class="math inline">\(Y\)</span> em ln e <span class="math inline">\(x\)</span> em nível, modelo log-linear, deveremos fazer <span class="math inline">\(exp(0.35)=1,43\)</span>, isso implica que cada aumento de 1 ano de escolaridade média da população aumenta da renda do país em 43%. Importante que cada modelo, log-log, log-linear e linear-linear tem sua própria maneira de interpretar o coeficiente.</p>
+</section>
+<section id="estimador-de-máxima-verossimilhança" class="level3" data-number="11.4.2">
+<h3 data-number="11.4.2" class="anchored" data-anchor-id="estimador-de-máxima-verossimilhança"><span class="header-section-number">11.4.2</span> Estimador de Máxima Verossimilhança</h3>
+<section id="intuição" class="level4" data-number="11.4.2.1">
+<h4 data-number="11.4.2.1" class="anchored" data-anchor-id="intuição"><span class="header-section-number">11.4.2.1</span> Intuição:</h4>
+<p>Suponha que gostaríamos de saber qual seria uma boa estimativa da esperança da nota do IDEB nos município brasileiros para os primeiros anos do fundamental em 2017. Vamos coletar 500 municipios e vamos plotar o histograma conforme figura 3 abaixo.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Distribuição da nota dos alunos que fizeram ENEM, X. </span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>smp<span class="ot">&lt;-</span><span class="fu">sample</span>(<span class="fu">rnorm</span>(<span class="dv">5500</span>,<span class="at">mean=</span><span class="fl">5.6</span>, <span class="at">sd=</span> <span class="fl">1.0139</span>),<span class="at">replace =</span> <span class="cn">TRUE</span>,<span class="at">size =</span> <span class="dv">500</span>)</span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Plotando as médias obtidas</span></span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(smp, <span class="at">col=</span><span class="st">"steelblue3"</span>,<span class="at">freq =</span> <span class="cn">FALSE</span>, <span class="at">breaks =</span> <span class="dv">25</span>,<span class="at">main=</span><span class="st">""</span>,</span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a>     <span class="at">xlim=</span><span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">10</span>), <span class="at">ylab=</span><span class="st">"Dist. das notas IDEB"</span>, <span class="at">xlab=</span><span class="st">"notas IDEB "</span>,</span>
+<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a>     <span class="at">border=</span><span class="st">"steelblue3"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="cap9_estimacao_files/figure-html/unnamed-chunk-8-1.png" class="img-fluid figure-img" style="width:70.0%"></p>
+<figcaption>Distribuição da amostra das notas do IDEB 2017, para os primeiros anos do fundamental de 500 municípios</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p>Esse são os dados que observamos, ou seja, uma amostra de 500 elementos onde temos <span class="math inline">\(X_1, X_2,...,X_{500}\)</span> as 500 medições sendo que todas elas tem a mesma distribuição de e igual a de <span class="math inline">\(X\)</span>, <span class="math inline">\(f(x;\mu)\)</span>. O gráfico acima apresenta os valores observados das medições, <span class="math inline">\(x_1,x_2,...,x_{500}\)</span>. Dessa forma temos os valores observados mas não temos ideia de qual distribuição eles vieram, ou seja, de qual <span class="math inline">\(f(x;\mu)\)</span> esses dados foram extraídos.</p>
+<p>Supondo que a distribuição populacional é uma normal e que temos os dados acima já observados, a questão é achar qual a fdp de <span class="math inline">\(X\)</span> entre todas as possíveis (alterando o valor do parâmetro) que é a mais provável de ter gerado os dados que observamos.</p>
+<p>Vejamos a simulação abaixo, figura 4, que considera os dados coletados e diversas distribuições normais para diferentes valores do parâmetro <span class="math inline">\(\mu\)</span>.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Distribuição da nota dos alunos que fizeram ENEM, X. </span></span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>smp<span class="ot">&lt;-</span><span class="fu">sample</span>(<span class="fu">rnorm</span>(<span class="dv">5500</span>,<span class="at">mean=</span><span class="fl">5.6</span>, <span class="at">sd=</span> <span class="fl">1.0139</span>),<span class="at">replace =</span> <span class="cn">TRUE</span>,<span class="at">size =</span> <span class="dv">500</span>)</span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a><span class="co">#Desvio padrão e diversas possibilidades de esperança:</span></span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a>sd<span class="ot">&lt;-</span><span class="fl">1.0139</span></span>
+<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a>e1<span class="ot">&lt;-</span><span class="fl">2.5</span></span>
+<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a>e2<span class="ot">&lt;-</span><span class="fl">3.5</span></span>
+<span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a>e3<span class="ot">&lt;-</span><span class="fl">5.6</span></span>
+<span id="cb14-9"><a href="#cb14-9" aria-hidden="true" tabindex="-1"></a>e4<span class="ot">&lt;-</span><span class="fl">7.5</span></span>
+<span id="cb14-10"><a href="#cb14-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-11"><a href="#cb14-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Valores de x que vão de 0 até 10</span></span>
+<span id="cb14-12"><a href="#cb14-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-13"><a href="#cb14-13" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="dv">0</span>, <span class="dv">10</span>, <span class="at">length =</span> <span class="dv">1000</span>) </span>
+<span id="cb14-14"><a href="#cb14-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-15"><a href="#cb14-15" aria-hidden="true" tabindex="-1"></a><span class="co"># Distribuição de probabilidade</span></span>
+<span id="cb14-16"><a href="#cb14-16" aria-hidden="true" tabindex="-1"></a>y1 <span class="ot">&lt;-</span> <span class="fu">dnorm</span>(x, e1, sd)</span>
+<span id="cb14-17"><a href="#cb14-17" aria-hidden="true" tabindex="-1"></a>y2 <span class="ot">&lt;-</span> <span class="fu">dnorm</span>(x, e2, sd)</span>
+<span id="cb14-18"><a href="#cb14-18" aria-hidden="true" tabindex="-1"></a>y3 <span class="ot">&lt;-</span> <span class="fu">dnorm</span>(x, e3, sd)</span>
+<span id="cb14-19"><a href="#cb14-19" aria-hidden="true" tabindex="-1"></a>y4 <span class="ot">&lt;-</span> <span class="fu">dnorm</span>(x, e4, sd)</span>
+<span id="cb14-20"><a href="#cb14-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-21"><a href="#cb14-21" aria-hidden="true" tabindex="-1"></a><span class="co"># Plotando as médias obtidas</span></span>
+<span id="cb14-22"><a href="#cb14-22" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(smp, <span class="at">col=</span><span class="st">"steelblue3"</span>,<span class="at">freq =</span> <span class="cn">FALSE</span>, <span class="at">breaks =</span> <span class="dv">25</span>,<span class="at">main=</span><span class="st">""</span>,</span>
+<span id="cb14-23"><a href="#cb14-23" aria-hidden="true" tabindex="-1"></a>     <span class="at">xlim=</span><span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">10</span>), <span class="at">ylim=</span><span class="fu">c</span>(<span class="dv">0</span>, <span class="fl">0.39</span>), <span class="at">ylab=</span><span class="st">"Dist. das notas IDEB"</span>, </span>
+<span id="cb14-24"><a href="#cb14-24" aria-hidden="true" tabindex="-1"></a>     <span class="at">xlab=</span><span class="st">"notas IDEB "</span>,<span class="at">border=</span><span class="st">"steelblue3"</span>)</span>
+<span id="cb14-25"><a href="#cb14-25" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">new=</span><span class="cn">TRUE</span>)</span>
+<span id="cb14-26"><a href="#cb14-26" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(x, y1, <span class="at">type=</span><span class="st">"n"</span>, <span class="at">xlab =</span> <span class="st">""</span>, <span class="at">ylab =</span> <span class="st">""</span>, <span class="at">axes =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb14-27"><a href="#cb14-27" aria-hidden="true" tabindex="-1"></a><span class="fu">lines</span>(x, y1, <span class="at">col=</span><span class="st">"thistle4"</span>,<span class="at">lwd =</span> <span class="dv">2</span>)</span>
+<span id="cb14-28"><a href="#cb14-28" aria-hidden="true" tabindex="-1"></a><span class="fu">abline</span>(<span class="at">v=</span><span class="fl">2.5</span>, <span class="at">col=</span><span class="st">"black"</span>, <span class="at">lty=</span><span class="dv">2</span>)</span>
+<span id="cb14-29"><a href="#cb14-29" aria-hidden="true" tabindex="-1"></a><span class="fu">text</span>(<span class="fl">2.5</span>, <span class="fl">0.03</span>, <span class="fu">expression</span>(Theta[<span class="dv">1</span>]))</span>
+<span id="cb14-30"><a href="#cb14-30" aria-hidden="true" tabindex="-1"></a><span class="fu">text</span>(<span class="fl">1.9</span>, <span class="fl">0.39</span>, <span class="fu">expression</span>(<span class="fu">paste</span>(<span class="st">"f(x"</span> , <span class="st">";"</span> ,Theta[<span class="dv">1</span>],<span class="st">")"</span>)))</span>
+<span id="cb14-31"><a href="#cb14-31" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-32"><a href="#cb14-32" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">new=</span><span class="cn">TRUE</span>)</span>
+<span id="cb14-33"><a href="#cb14-33" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(x, y2, <span class="at">type=</span><span class="st">"n"</span>, <span class="at">xlab =</span> <span class="st">""</span>, <span class="at">ylab =</span> <span class="st">""</span>, <span class="at">axes =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb14-34"><a href="#cb14-34" aria-hidden="true" tabindex="-1"></a><span class="fu">lines</span>(x, y2, <span class="at">col=</span><span class="st">"slategray4"</span>,<span class="at">lwd =</span> <span class="dv">2</span>)</span>
+<span id="cb14-35"><a href="#cb14-35" aria-hidden="true" tabindex="-1"></a><span class="fu">abline</span>(<span class="at">v=</span><span class="fl">3.5</span>, <span class="at">col=</span><span class="st">"black"</span>, <span class="at">lty=</span><span class="dv">2</span>)</span>
+<span id="cb14-36"><a href="#cb14-36" aria-hidden="true" tabindex="-1"></a><span class="fu">text</span>(<span class="fl">3.5</span>, <span class="fl">0.03</span>, <span class="fu">expression</span>(Theta[<span class="dv">2</span>]))</span>
+<span id="cb14-37"><a href="#cb14-37" aria-hidden="true" tabindex="-1"></a><span class="fu">text</span>(<span class="fl">4.1</span>, <span class="fl">0.39</span>, <span class="fu">expression</span>(<span class="fu">paste</span>(<span class="st">"f(x"</span> , <span class="st">";"</span> ,Theta[<span class="dv">2</span>],<span class="st">")"</span>)))</span>
+<span id="cb14-38"><a href="#cb14-38" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-39"><a href="#cb14-39" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">new=</span><span class="cn">TRUE</span>)</span>
+<span id="cb14-40"><a href="#cb14-40" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(x, y3, <span class="at">type=</span><span class="st">"n"</span>, <span class="at">xlab =</span> <span class="st">""</span>, <span class="at">ylab =</span> <span class="st">""</span>, <span class="at">axes =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb14-41"><a href="#cb14-41" aria-hidden="true" tabindex="-1"></a><span class="fu">lines</span>(x, y3, <span class="at">col=</span><span class="st">"tomato4"</span>, <span class="at">lwd =</span> <span class="dv">2</span>)</span>
+<span id="cb14-42"><a href="#cb14-42" aria-hidden="true" tabindex="-1"></a><span class="fu">abline</span>(<span class="at">v=</span><span class="fl">5.6</span>, <span class="at">col=</span><span class="st">"black"</span>, <span class="at">lty=</span><span class="dv">2</span>)</span>
+<span id="cb14-43"><a href="#cb14-43" aria-hidden="true" tabindex="-1"></a><span class="fu">text</span>(<span class="fl">5.6</span>, <span class="fl">0.03</span>, <span class="fu">expression</span>(Theta[<span class="dv">3</span>]))</span>
+<span id="cb14-44"><a href="#cb14-44" aria-hidden="true" tabindex="-1"></a><span class="fu">text</span>(<span class="fl">6.2</span>, <span class="fl">0.39</span>, <span class="fu">expression</span>(<span class="fu">paste</span>(<span class="st">"f(x"</span> , <span class="st">";"</span> ,Theta[<span class="dv">3</span>],<span class="st">")"</span>)))</span>
+<span id="cb14-45"><a href="#cb14-45" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-46"><a href="#cb14-46" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">new=</span><span class="cn">TRUE</span>)</span>
+<span id="cb14-47"><a href="#cb14-47" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(x, y4, <span class="at">type=</span><span class="st">"n"</span>, <span class="at">xlab =</span> <span class="st">""</span>, <span class="at">ylab =</span> <span class="st">""</span>, <span class="at">axes =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb14-48"><a href="#cb14-48" aria-hidden="true" tabindex="-1"></a><span class="fu">lines</span>(x, y4, <span class="at">col=</span><span class="st">"wheat4"</span>, <span class="at">lwd =</span> <span class="dv">2</span>)</span>
+<span id="cb14-49"><a href="#cb14-49" aria-hidden="true" tabindex="-1"></a><span class="fu">abline</span>(<span class="at">v=</span><span class="fl">7.5</span>, <span class="at">col=</span><span class="st">"black"</span>, <span class="at">lty=</span><span class="dv">2</span>)</span>
+<span id="cb14-50"><a href="#cb14-50" aria-hidden="true" tabindex="-1"></a><span class="fu">text</span>(<span class="fl">7.5</span>, <span class="fl">0.03</span>, <span class="fu">expression</span>(Theta[<span class="dv">4</span>]))</span>
+<span id="cb14-51"><a href="#cb14-51" aria-hidden="true" tabindex="-1"></a><span class="fu">text</span>(<span class="fl">8.1</span>, <span class="fl">0.39</span>, <span class="fu">expression</span>(<span class="fu">paste</span>(<span class="st">"f(x"</span> , <span class="st">";"</span> ,Theta[<span class="dv">4</span>],<span class="st">")"</span>)))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="cap9_estimacao_files/figure-html/unnamed-chunk-9-1.png" class="img-fluid figure-img" style="width:70.0%"></p>
+<figcaption>Distribuição da amostra das notas do IDEB 2017, e diversas possibilidades fdp do ideb populacional</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p>Na figura acima observa-se em azul, o histograma das observações coletadas, ou seja, a amostra de 500 municípios. Foram simuladas diversas distribuições POPULACIONAIS normais cada uma com o mesmo valor de desvio padrão mas diversos valores para a esperança que chamamos de <span class="math inline">\(\Theta\)</span>. A questão que temos é qual seria a distribuição que torna mais provável termos tirado essa amostra? De qual distribuição <span class="math inline">\(f(x;\Theta_1)\)</span>, <span class="math inline">\(f(x;\Theta_2)\)</span>, <span class="math inline">\(f(x;\Theta_3)\)</span> ou <span class="math inline">\(f(x;\Theta_4)\)</span> essa amostra pode ter vindo?</p>
+<p>Para resolver esse problema utilizamos a função de verossimilhança que representa a verossimilhança de um parâmetro <span class="math inline">\(\Theta\)</span> condicional aos valores observados. Dessa forma é função do parâmetro.</p>
+</section>
+<section id="a-função-de-verossimilhança" class="level4" data-number="11.4.2.2">
+<h4 data-number="11.4.2.2" class="anchored" data-anchor-id="a-função-de-verossimilhança"><span class="header-section-number">11.4.2.2</span> A Função de Verossimilhança</h4>
+<p>A <strong>Função de Verossimilhança</strong> <span class="math inline">\(L\)</span> será: <span class="math display">\[\begin{array}{ccc}
+L(\Theta|X_1,...,X_n)= f(x_1|\Theta)f(x_2|\Theta)...f(x_n|\Theta)
+\end{array}\]</span></p>
+<p>A função <span class="math inline">\(L(\Theta|X_1,...,X_n)\)</span> representa a verossimilhança do parâmetro <span class="math inline">\(\Theta\)</span> dado os valores observados <span class="math inline">\(x_i\)</span>. Vamos fazer uma simulação para a função de verossimilhança para o problema anterior das nostas do IDEB. Consideraremos os 500 municipios amostrados<span class="math inline">\(x_i\)</span>, vamos simular valores de <span class="math inline">\(\Theta\)</span> e considerar o <span class="math inline">\(\sigma=1\)</span> por facilidade.</p>
+<p>Haviamos suposto que as notas do IDEB dos município era normalmente distribuída com esperança <span class="math inline">\(\mu\)</span> e variância <span class="math inline">\(1\)</span>. Assim,</p>
+<p><span class="math display">\[f(x)=\frac{1}{\sqrt{2 \pi}} e^{-1/2 (x-\mu)^2}\]</span></p>
+<p>Dessa forma a Função de Verossimilhança será o produtório de normais:</p>
+<p><span class="math display">\[L(\mu| x_1,...,x_n)= \frac{1}{2 \pi ^{n/2}} exp \bigg[-\frac{1}{2} \sum_i^n (x_i - \mu)^2 \bigg]\]</span></p>
+<p>Agora vamos simular diversos valores para os parâmetros populacionais e encontrar a função de verossimilhança, veja figura 5.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co"># amostra da nota dos alunos que fizeram ENEM, X. Valores da esperança </span></span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">149</span>)</span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>xi<span class="ot">&lt;-</span><span class="fu">sample</span>(<span class="fu">rnorm</span>(<span class="dv">5500</span>,<span class="at">mean=</span><span class="fl">5.6</span>, <span class="at">sd=</span> <span class="dv">1</span>),<span class="at">replace =</span> <span class="cn">TRUE</span>,<span class="at">size =</span> <span class="dv">500</span>)</span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>mu <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="dv">0</span>, <span class="dv">10</span>, <span class="at">length =</span> <span class="dv">1000</span>) </span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a>L_mu<span class="ot">&lt;-</span><span class="fu">numeric</span>()</span>
+<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> ( i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">1000</span>){</span>
+<span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a>  <span class="cf">for</span> (j <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">500</span> ){</span>
+<span id="cb15-9"><a href="#cb15-9" aria-hidden="true" tabindex="-1"></a>  L_mu[i]<span class="ot">&lt;-</span>(<span class="dv">1</span><span class="sc">/</span>((<span class="dv">2</span><span class="sc">*</span>pi)<span class="sc">^</span>(<span class="dv">500</span><span class="sc">/</span><span class="dv">2</span>)))<span class="sc">*</span><span class="fu">exp</span>(<span class="sc">-</span><span class="fl">0.5</span><span class="sc">*</span>(<span class="fu">sum</span>((xi[j]<span class="sc">-</span>mu[i])<span class="sc">^</span><span class="dv">2</span>)))</span>
+<span id="cb15-10"><a href="#cb15-10" aria-hidden="true" tabindex="-1"></a>}}</span>
+<span id="cb15-11"><a href="#cb15-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-12"><a href="#cb15-12" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(mu, L_mu, <span class="at">type=</span><span class="st">"n"</span>, <span class="at">xlab =</span> <span class="st">"Valores de Esperanças - E(X)"</span> ,</span>
+<span id="cb15-13"><a href="#cb15-13" aria-hidden="true" tabindex="-1"></a>     <span class="at">ylab =</span> <span class="st">"Verossimilhança"</span>)</span>
+<span id="cb15-14"><a href="#cb15-14" aria-hidden="true" tabindex="-1"></a><span class="fu">lines</span>(mu, L_mu, <span class="at">col=</span><span class="st">"wheat4"</span>, <span class="at">lwd =</span> <span class="dv">3</span>)</span>
+<span id="cb15-15"><a href="#cb15-15" aria-hidden="true" tabindex="-1"></a><span class="fu">abline</span>(<span class="at">v=</span><span class="fl">5.6</span>, <span class="at">col=</span><span class="st">"black"</span>, <span class="at">lty=</span><span class="dv">2</span>)</span>
+<span id="cb15-16"><a href="#cb15-16" aria-hidden="true" tabindex="-1"></a><span class="fu">text</span>(<span class="fl">5.5</span>, <span class="fl">0.00</span>, <span class="fu">expression</span>(mu))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="cap9_estimacao_files/figure-html/unnamed-chunk-10-1.png" class="img-fluid figure-img" style="width:70.0%"></p>
+<figcaption>Simulação da Função de Verossimilhança</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p>O que fizemos? Condicional a amostra que obtivemos simulamos diversos valores de <span class="math inline">\(\mathbb{E}(X)=\mu\)</span> e calculamos a função para cada um dos 1000 valores simulados do parâmetro populacional. Ou seja, obtivemos 1000 valores da função de verossimilhança que está plotada acima. Assim, essa função nos fornece a probabilidade de encontrarmos certo valor de parâmetro condicional aos valores observados de <span class="math inline">\(x_i\)</span>. Observe que o ponto de máximo da função de verossimilhança está localizado bem próximo do verdadeiro parâmetro populacional.</p>
+<p>A maximização da função de verossimilhança nos indicará qual a formulação do estimador que nos levará próximo ao parâmetro populacional como podemos observar na figura acima. Portanto, buscamos o</p>
+<p><span class="math display">\[max L(\hat{\Theta}|x_1,...,x_n)\]</span></p>
+<p>Esse será o estimador <span class="math inline">\(\hat{\Theta}\)</span> preferido pois aumenta a probabilidade de obter valores amostrais como <span class="math inline">\(x_1,...,x_n\)</span>. Agora estamos prontos para prosseguirmos de forma mais técnica.</p>
+<div class="callout callout-style-default callout-note no-icon callout-titled" title="DEFINIÇÃO">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>DEFINIÇÃO
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>O estimador <span class="math inline">\(MV\)</span> Máxima de Verossimilhança de <span class="math inline">\(\Theta\)</span>, isso é, <span class="math inline">\(\hat{\Theta}\)</span> baseado em uma amostra aleatória <span class="math inline">\(x_1,...x_n\)</span>, é aquele que torna máxima <span class="math display">\[L(\Theta|x_1,...,x_n)\]</span></p>
+<p><span class="math inline">\(\rightarrow\)</span> <span class="math inline">\(\hat{\Theta}\)</span> será uma estatística e portanto uma v.a.</p>
+<p><span class="math inline">\(\rightarrow\)</span> <span class="math inline">\(\Theta\)</span> pode ser um vetor quando possuímos mais de um parâmetro desconhecido. Por exemplo, <span class="math inline">\(\Theta=(\mu,\sigma)\)</span></p>
+</div>
+</div>
+<p>Por facilidade computacional e evitar cálculos mais complexos utilizamos a função log-verossimilhança. Essa diminui bastante as exigências computacionais e o ln é uma função crescente, sendo que o máximo na função ln e sem ln serão os mesmos para <span class="math inline">\(\Theta\)</span>.</p>
+<p><span class="math display">\[l(\Theta| x_1,...,x_n) = lnL(\Theta|x_1,...,x_n,)\]</span></p>
+<p>Máximo:</p>
+<p><span class="math display">\[\frac{\partial l(\Theta| x_1,...,x_n)}{\partial \Theta} = 0\]</span></p>
+<p>Se temos <span class="math inline">\(\Theta=(\mu,\sigma)\)</span> teremos equações simultâneas:</p>
+<p><span class="math display">\[\begin{array}{ccc}
+\frac{\partial l(\mu,\sigma|x_1,...,x_n) }{\partial \mu} = 0
+\\
+\\
+\frac{\partial l(\mu,\sigma|x_1,...,x_n) }{\partial \sigma} = 0
+\end{array}\]</span></p>
+</section>
+<section id="propriedades-dos-estimadores-de-m.v." class="level4" data-number="11.4.2.3">
+<h4 data-number="11.4.2.3" class="anchored" data-anchor-id="propriedades-dos-estimadores-de-m.v."><span class="header-section-number">11.4.2.3</span> Propriedades dos Estimadores de M.V.:</h4>
+<ol type="1">
+<li><p>Pode ser tendencioso mas pode ser corrigido pela multiplicação de uma constante apropriada</p></li>
+<li><p>Sob condições gerais as estimativas de M.V. são consistentes, ou seja, assintoticamente não viesados e de variância mínima</p></li>
+<li><p>Importante - <strong>Propriedade de invariância</strong>: Supoha que <span class="math inline">\(\hat{\Theta}\)</span> seja uma estimativa M.V. de <span class="math inline">\(\Theta\)</span>. Pode-se mostrar que uma estimativa M.V. de <span class="math inline">\(g(\Theta)\)</span> seja <span class="math inline">\(g(\hat{\Theta})\)</span>, onde <span class="math inline">\(g(.)\)</span> é uma função monótona contínua. Exemplo: <span class="math inline">\(m^2=\hat{\Theta}\)</span> ou <span class="math inline">\(m=\sqrt{\hat{\Theta}}\)</span></p></li>
+</ol>
+</section>
+<section id="exemplos" class="level4" data-number="11.4.2.4">
+<h4 data-number="11.4.2.4" class="anchored" data-anchor-id="exemplos"><span class="header-section-number">11.4.2.4</span> Exemplos</h4>
+<p>Vejamos dois exemplos que pode nos ajudar a fixar o conceito.</p>
+<div class="callout callout-style-default callout-tip no-icon callout-titled" title="EXEMPLO">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>EXEMPLO
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Considere a distribuição de uma variável <span class="math inline">\(T\)</span> com parâmetro <span class="math inline">\(\beta\)</span>:</p>
+<p><span class="math display">\[\begin{array}{ccc}
+f(t)=\beta e^{-\beta t}, t \geq 0
+\end{array}\]</span></p>
+<p>Suponha <span class="math inline">\(n\)</span> componentes tal que:</p>
+<p><span class="math display">\[\begin{array}{ccc}
+L(\beta|t_1,...,t_n) = f(t_1,\beta)f(t_2,\beta)...f(t_n,\beta)
+\\
+\\
+= \beta e^{-\beta T_1}...\beta e^{-\beta T_n}
+\\
+\\
+= \beta^n e^{-\beta \sum T_i}
+\end{array}\]</span></p>
+<p>Aplicando o log:</p>
+<p><span class="math display">\[\begin{array}{ccc}
+ln L(\beta|t_1,...,t_n) = l(\beta|t_1,...,t_n) = n .ln \beta - \beta \sum T_i
+\end{array}\]</span></p>
+<p>Temos o máximo:</p>
+<p><span class="math display">\[\begin{array}{ccc}
+\frac{\partial l(.)}{\partial \beta}=\frac{n}{\beta} -\sum T_i = 0
+\\
+\\
+\frac{n}{\beta} = \sum T_i
+\\
+\\
+\overline{T}=\frac{1}{\beta}
+\end{array}\]</span></p>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip no-icon callout-titled" title="EXEMPLO">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>EXEMPLO
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Suponha-se que a variável aleatória <span class="math inline">\(X\)</span> seja normalmente distribuída com esperança <span class="math inline">\(\mu\)</span> e variância <span class="math inline">\(1\)</span>.</p>
+<p><span class="math display">\[\begin{array}{ccc}
+f(x)=\frac{1}{\sqrt{2 \pi}} e^{-1/2 (x-\mu)^2}
+\end{array}\]</span></p>
+<p>Encontrando o estimador do parâmetro <span class="math inline">\(\mu\)</span>. Se <span class="math inline">\((X_1,...,X_n)\)</span> uma amostra aleatórida da v.a. <span class="math inline">\(X\)</span> a FMV será:</p>
+<p><span class="math display">\[\begin{array}{ccc}
+L(\mu|x_1,...,x_n)= \frac{1}{2 \pi ^{n/2}} exp[-1/2 \sum_i^n (x_i - \mu)^2 ]
+\end{array}\]</span></p>
+<p>Aplicando o log:</p>
+<p><span class="math display">\[\begin{array}{ccc}
+l(\mu|x_1,...,x_n)= ln 1 - \frac{\mu}{2} ln 2 \pi - \frac{1}{2} \sum_i^n (X_i - \mu)^2
+\end{array}\]</span></p>
+<p>O ponto de máximo será:</p>
+<p><span class="math display">\[\begin{array}{ccc}
+\frac{\partial l(.)}{\partial \mu} = \frac{\partial l(.)}{\partial z}\frac{\partial z}{\partial \mu}
+\\
+\\
+= - \frac{2}{2}\sum_i^n (x_i - \mu)(-1) =0
+\\
+\\
+\sum_i^n (x_i - \mu)=0 \Rightarrow \sum_i^n x_i - n\mu=0
+\\
+\\
+\hat{\mu}=\overline{X}
+\end{array}\]</span></p>
+</div>
+</div>
+</section>
+</section>
+<section id="máxima-verossimilhança-e-minimos-quadrados" class="level3" data-number="11.4.3">
+<h3 data-number="11.4.3" class="anchored" data-anchor-id="máxima-verossimilhança-e-minimos-quadrados"><span class="header-section-number">11.4.3</span> Máxima Verossimilhança e Minimos Quadrados</h3>
+<p>Como já visto anteriormente supondo <span class="math inline">\(X_1, ...X_n\)</span> fixo e <span class="math inline">\(Y_1,..., Y_n\)</span> uma variável aleatória, no nosso exemplo <span class="math inline">\(X\)</span> seria educação e <span class="math inline">\(Y\)</span> o ln da renda per capita, por exemplo. Podemos escrever a relação entre renda e educação como:</p>
+<p><span class="math display">\[Renda=\alpha+\beta . Educação + u_i\]</span></p>
+<p>ou</p>
+<p><span class="math display">\[Y=\alpha+\beta X + u_i,\]</span> sendo que <span class="math inline">\(u_i \sim N(0,\sigma^2)\)</span>.</p>
+<p>Considerando os estimadores dos parâmetro populacionais podemos reescrever os erros como sendo:</p>
+<p><span class="math display">\[e_i=Y-\hat{\alpha}-\hat{\beta}X\]</span></p>
+<p>Dessa forma, o erro nos indica a diferença entre o salário estimado e o salário observado. Considerando e equação dos residuos e sabendo que <span class="math inline">\(e_i \sim N(0,\sigma^2)\)</span> e assumindo que <span class="math inline">\(X_1,..., X_n\)</span> fixos, podemos montar a função de verossimilhança:</p>
+<p><span class="math display">\[L(\alpha, \beta,\sigma^2|Y_1,...,Y_n)= \frac{1}{(2 \pi) ^{n/2}\sigma^n} exp \bigg[ \frac{-1}{(2\sigma^2)} \sum_i^n (e_i - \mu_{e_i})^2 \bigg]\]</span></p>
+<p>Portanto,</p>
+<p><span class="math display">\[L(\alpha, \beta, \sigma^2|Y_1,...,Y_n)= \frac{1}{(2 \pi) ^{n/2}\sigma^n} exp \bigg[ \frac{-1}{(2\sigma^2)} \sum_i^n (Y_i-\hat{\alpha}-\hat{\beta}.X_i)^2 \bigg]\]</span></p>
+<p>Como temos o exponencial de um número negativo maximizar <span class="math inline">\(L(\alpha, \beta, \sigma^2|Y_1,...,Y_n)\)</span> é equivalente e minimizar a seguinte parte da função de verossimilhança:</p>
+<p><span class="math display">\[S=\sum_i^n (Y_i-\hat{\alpha}-\hat{\beta}.X_i)^2\]</span> Que nada mais é do que minimizar os erros ao quadrados que vimos na seção de estimadores de mínimos quadrados. Portanto, podemos dizer que estimadores de mínimos quadrados são equivalentes aos estimadores de verossimilhança.Ou mais, que mínimos quadrados é um caso especial de máxima verossimilhançaa onde <span class="math inline">\(Y\)</span> e <span class="math inline">\(X\)</span> são linearmente relacionados e existe um erro <span class="math inline">\(e_i \sim N(0,\sigma^2)\)</span>.</p>
+</section>
+</section>
+<section id="estimação-de-intervalo" class="level2" data-number="11.5">
+<h2 data-number="11.5" class="anchored" data-anchor-id="estimação-de-intervalo"><span class="header-section-number">11.5</span> Estimação de Intervalo</h2>
+<section id="introdução-1" class="level3" data-number="11.5.1">
+<h3 data-number="11.5.1" class="anchored" data-anchor-id="introdução-1"><span class="header-section-number">11.5.1</span> Introdução</h3>
+<p>Até agora encontramos estatística ou estimadores que geram boas estatimativas de características da função de distribuição populacional, ou seja dos parâmetros. Dessa forma, encontramos estimadores <span class="math inline">\(T\)</span> de <span class="math inline">\(\theta\)</span> que são não viesados, eficiêntes e consistêntes.</p>
+<p>Entretanto, nunca temos certeza que a estatística é igual ao parâmetro populacional, se precisamos de um valor esse é o que devemos escolher. Este é um valor sacado da distribuição do estimador. Nos exemplos anteriores observamos que ao mudar a amostra mudamos o valor da estimativa. Cada novo processo de amostragem, irá gerar um novo valor para nossa estimativa.</p>
+<p>Dada essa incerteza de sabermos se nossa estimativa está próxima do verdadeiro parâmetro populacional, gostariamos de poder dizer que “temos uma grande confiança de que o parâmetro populacional está dentro de certo intervalo”. Precisamos definir mais precisamente o que é uma grande confiança e definir a construição do intervalo.</p>
+</section>
+<section id="intervalo-de-confiança-procedimento-geral" class="level3" data-number="11.5.2">
+<h3 data-number="11.5.2" class="anchored" data-anchor-id="intervalo-de-confiança-procedimento-geral"><span class="header-section-number">11.5.2</span> Intervalo de confiança: Procedimento Geral</h3>
+<p>De forma geral podemos definir um intervalo em termos de variabilidade ao redor da estimativa. Logo podemos utilizar o desvio padrão do nosso estimador para fazer isso. Assim o procedimento geral será:</p>
+<p><span class="math display">\[IC(\theta)=(t-c.\sigma_T; t+c.\sigma_T)\]</span> Aqui temos nossa estimativa <span class="math inline">\(t\)</span> e somamos e subtraímos <span class="math inline">\(c.\sigma_T\)</span>, sendo <span class="math inline">\(c\)</span> um número real podendo ser 2 ou 3, entre outros. A intuição desse princípio é similar ao que estudamos com relação a distribuição normal, que a quantidade de informação que está entre 1 desvio padrão abaixo e acima é de 68,26%, entre 2 desvios 95,44% e entre 3 desvios 99,73%.</p>
+<p>Uma definição geral pode ser assim feita:</p>
+<div class="callout callout-style-default callout-note no-icon callout-titled" title="DEFINIÇÃO">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>DEFINIÇÃO
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Intervalo de Confiança:</p>
+<p>Seja a amostra aleatória de tamanho <span class="math inline">\(n\)</span> e <span class="math inline">\(X_1,...,X_n\)</span> as <span class="math inline">\(n\)</span> medições da variável aleatóri <span class="math inline">\(X\)</span> e <span class="math inline">\(x_1,..., x_n\)</span> os valores observados. Sendo <span class="math inline">\(\theta\)</span> o parâmetro de interesse e <span class="math inline">\(\gamma\)</span> um número entre 0 e 1. Se existirem duas estatística amostrais <span class="math inline">\(L_n=g(X_1,...,X_n)\)</span> e <span class="math inline">\(U_n=h(X_1,...,X_n)\)</span>, tal que:</p>
+<p><span class="math display">\[P(L_n&lt;\theta&lt;U_n)=\gamma\]</span></p>
+<p>Então,</p>
+<p><span class="math display">\[l_n=g(x_1,...,_n),u_n=h(x_1,...,x_n)\]</span> é chamado de intervalo de confiança para <span class="math inline">\(\theta\)</span> com <span class="math inline">\(\gamma\)</span>% de nível de confiança.</p>
+</div>
+</div>
+<p>Podemos definir <span class="math inline">\(l_n\)</span> e <span class="math inline">\(u_n\)</span> de forma similar ao que fizemos no início da seção em termos de desvio padrão. Vamos ver o caso da média quando temos variância conhecida e desconhecida.</p>
+</section>
+<section id="para-dados-com-distribuição-normal-a-média" class="level3" data-number="11.5.3">
+<h3 data-number="11.5.3" class="anchored" data-anchor-id="para-dados-com-distribuição-normal-a-média"><span class="header-section-number">11.5.3</span> Para dados com Distribuição Normal: a média</h3>
+<p>Partimos aqui da distribuição de <span class="math inline">\(\bar{X}\)</span> que como já vimos possui uma distribuição normal, <span class="math inline">\(N(\mu,\sigma_{\bar{X}}^2)\)</span> ou <span class="math inline">\(N(\mu,\frac{\sigma^2}{n})\)</span>. Assumindo aqui que conhecemos <span class="math inline">\(\sigma^2\)</span> e que encontramos com facilidade os valores críticos da distribuição normal padrão, <span class="math inline">\(z_c\)</span>. Temos que:</p>
+<p><span class="math display">\[Z_{\bar{X}}=\frac{\bar{X}-\mu}{\sigma_{\bar{X}}}\]</span> tem distribuição normal padrão <span class="math inline">\(N(0,1)\)</span>. Dessa forma podemos definir:</p>
+<p><span class="math display">\[P(-z_c&lt;Z_{\bar{X}}&lt;z_c)=\gamma\]</span> ou <span class="math display">\[P(|Z_{\bar{X}}|&lt;z_c)=\gamma\]</span>. Se <span class="math inline">\(\gamma\)</span> for, por exemplo, 95% teremos a seguinte situação apresentada na figura 1,</p>
+<p><span class="math inline">\(P(|Z_{\bar{X}}|&lt;1.96)=0.95\)</span>:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>x<span class="ot">&lt;-</span><span class="fu">seq</span>(<span class="sc">-</span><span class="dv">3</span>,<span class="dv">3</span>,<span class="fl">0.1</span>) </span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>fdnorm<span class="ot">&lt;-</span><span class="fu">dnorm</span>(<span class="at">x =</span> x, <span class="at">mean =</span> <span class="dv">0</span>, <span class="at">sd=</span><span class="dv">1</span>)   </span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>fdanorm<span class="ot">&lt;-</span><span class="fu">pnorm</span>(<span class="at">q =</span> x, <span class="at">mean =</span> <span class="dv">0</span>, <span class="at">sd=</span><span class="dv">1</span>)</span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>regiao<span class="ot">=</span><span class="fu">seq</span>(<span class="sc">-</span><span class="dv">3</span>,<span class="sc">-</span><span class="fl">1.96</span>,<span class="fl">0.01</span>)</span>
+<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a>cord.x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="sc">-</span><span class="dv">3</span>,regiao,<span class="sc">-</span><span class="fl">1.96</span>)</span>
+<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a>cord.y <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">0</span>,<span class="fu">dnorm</span>(regiao),<span class="dv">0</span>) </span>
+<span id="cb16-7"><a href="#cb16-7" aria-hidden="true" tabindex="-1"></a>regiao<span class="ot">=</span><span class="fu">seq</span>(<span class="fl">1.96</span>,<span class="dv">3</span>,<span class="fl">0.01</span>)</span>
+<span id="cb16-8"><a href="#cb16-8" aria-hidden="true" tabindex="-1"></a>cord.z <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fl">1.96</span>,regiao,<span class="dv">3</span>)</span>
+<span id="cb16-9"><a href="#cb16-9" aria-hidden="true" tabindex="-1"></a>cord.w <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">0</span>,<span class="fu">dnorm</span>(regiao),<span class="dv">0</span>) </span>
+<span id="cb16-10"><a href="#cb16-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-11"><a href="#cb16-11" aria-hidden="true" tabindex="-1"></a><span class="fu">curve</span>(<span class="fu">dnorm</span>(x,<span class="dv">0</span>,<span class="dv">1</span>),<span class="at">xlim=</span><span class="fu">c</span>(<span class="sc">-</span><span class="dv">3</span>,<span class="dv">3</span>),<span class="at">main=</span><span class="st">'f.d.p'</span>,<span class="at">xlab=</span><span class="st">"z"</span>,<span class="at">type=</span><span class="st">"l"</span>,</span>
+<span id="cb16-12"><a href="#cb16-12" aria-hidden="true" tabindex="-1"></a>      <span class="at">col=</span><span class="st">"darkblue"</span>,<span class="at">lwd=</span><span class="dv">2</span>, <span class="at">ylab=</span><span class="st">"f(z)"</span>,<span class="at">cex.axis=</span><span class="fl">0.65</span>, <span class="at">cex.lab=</span><span class="fl">0.8</span> ) </span>
+<span id="cb16-13"><a href="#cb16-13" aria-hidden="true" tabindex="-1"></a><span class="fu">polygon</span>(cord.x,cord.y,<span class="at">col=</span><span class="st">'wheat4'</span>)</span>
+<span id="cb16-14"><a href="#cb16-14" aria-hidden="true" tabindex="-1"></a><span class="fu">polygon</span>(cord.z,cord.w,<span class="at">col=</span><span class="st">'wheat4'</span>)</span>
+<span id="cb16-15"><a href="#cb16-15" aria-hidden="true" tabindex="-1"></a><span class="fu">text</span>(<span class="dv">0</span>, <span class="fl">0.2</span>, <span class="fu">expression</span>(<span class="fu">paste</span>(gamma , <span class="st">"="</span> ,<span class="dv">95</span>, <span class="st">"%"</span>)))</span>
+<span id="cb16-16"><a href="#cb16-16" aria-hidden="true" tabindex="-1"></a><span class="fu">text</span>(<span class="fl">2.5</span>, <span class="fl">0.1</span>, <span class="fu">expression</span>(<span class="fu">paste</span>(<span class="st">"(1-"</span>, gamma , <span class="st">")/2"</span> , <span class="st">"="</span>,</span>
+<span id="cb16-17"><a href="#cb16-17" aria-hidden="true" tabindex="-1"></a>                                alpha, <span class="st">"/2"</span>, <span class="st">"=2.5"</span>, <span class="st">"%"</span>)))</span>
+<span id="cb16-18"><a href="#cb16-18" aria-hidden="true" tabindex="-1"></a><span class="fu">text</span>(<span class="sc">-</span><span class="fl">2.5</span>, <span class="fl">0.1</span>, <span class="fu">expression</span>(<span class="fu">paste</span>(<span class="st">"(1-"</span>, gamma , <span class="st">")/2"</span> , <span class="st">"="</span>,</span>
+<span id="cb16-19"><a href="#cb16-19" aria-hidden="true" tabindex="-1"></a>                                 alpha, <span class="st">"/2"</span>, <span class="st">"=2.5"</span>, <span class="st">"%"</span>)))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="cap9_estimacao_files/figure-html/unnamed-chunk-11-1.png" class="img-fluid figure-img" style="width:70.0%"></p>
+<figcaption>Intervalo de confiança para Normal com nível de confiança de 0.95</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p>Assim, temos no exemplo <span class="math inline">\(\gamma=0.95\)</span> e <span class="math inline">\(\alpha=1-\gamma\)</span>. Como visto, data a simetria da distribuição dividimos <span class="math inline">\(\alpha\)</span> igualmente entre as duas caldas da distribuição, ou seja, <span class="math inline">\(\frac{\alpha}{2}=0.025\)</span>. De uma maneira genérica podemos proceder da seguinte maneira:</p>
+<p><span class="math display">\[\begin{array}{clc}
+P(|Z_{\bar{X}}|&lt;z_c)=\gamma
+\\
+\\
+P(|\frac{\bar{X}-\mu}{\sigma_{\bar{X}}}|&lt;z_c)=\gamma
+\\
+\\
+P(|\bar{X}-\mu|&lt;z_c\sigma_{\bar{X}})=\gamma
+\\
+\\
+P(-z_c\sigma_{\bar{X}}&lt;\bar{X}-\mu&lt;z_c\sigma_{\bar{X}})=\gamma
+\\
+\\
+P(\bar{X}-z_c\sigma_{\bar{X}} &lt;\mu&lt; \bar{X}+ z_c\sigma_{\bar{X}})=\gamma
+\end{array}\]</span></p>
+<p>Assim, a probabilidade da esperança populacional <span class="math inline">\(\mu\)</span> estar entre o intervalo <span class="math inline">\(\bar{X} \pm z_c\sigma_{\bar{X}}\)</span> é igual <span class="math inline">\(\gamma\)</span>.</p>
+<p>Sabendo que <span class="math inline">\(\sigma_{\bar{X}}=\frac{\sigma}{\sqrt{n}}\)</span>, que dividiremos o nível de confiança nas duas caldas da distribuição, <span class="math inline">\(z_{\frac{\alpha}{2}}\)</span> podemos definir <span class="math inline">\(L_n\)</span> e <span class="math inline">\(U_n\)</span> para os diversos níveis de confiança como:</p>
+<p><span class="math display">\[L_n=\bar{X}-z_{\frac{\alpha}{2}}\frac{\sigma}{\sqrt{n}} \quad \text{e} \quad U_n=\bar{X}+z_{\frac{\alpha}{2}}\frac{\sigma}{\sqrt{n}}\]</span></p>
+<p>Dessa forma, pode-se achar a estimativa do intervalo de confiança para o parâmetro <span class="math inline">\(\mu\)</span> com nível de confiança de <span class="math inline">\(\gamma\)</span>, ou <span class="math inline">\(1-\alpha\)</span>, da seguinte maneira:</p>
+<p><span class="math display">\[IC(\mu;\gamma)=\bigg( \bar{x}-z_{\frac{\alpha}{2}}\frac{\sigma}{\sqrt{n}};\bar{x}+z_{\frac{\alpha}{2}}\frac{\sigma}{\sqrt{n}}\bigg)\]</span> Para o exemplo com <span class="math inline">\(\gamma=95\)</span>% e portanto, <span class="math inline">\(\alpha=0.05\)</span>, tem-se que <span class="math inline">\(z_{0.025}=1.96\)</span> e o seguinte intervalo para 95% de confiança:</p>
+<p><span class="math display">\[IC(\mu;0.95)=\bigg( \bar{x}-1.96\frac{\sigma}{\sqrt{n}};\bar{x}+1.96\frac{\sigma}{\sqrt{n}}\bigg)\]</span></p>
+<p>A interpretação do intervalo de confiança é que se fizessemos 100 intervalos de confiança, 95% deles conteriam o verdadeiro parâmetro populacional. Ou seja, a propabilidade da esperança populacional estar no intervalo descrito acima é de 0.95 A figura abaixo retirada de Bussab e Morettin, representa o que estamos fazendo:</p>
+<div id="fig-particula" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-particula-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../figuras/capitulos/ic.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:60.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-particula-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;11.4: Intervalo de Confiança para a Esperança
+</figcaption>
+</figure>
+</div>
+<p>Para construir a estimativa do intervalo utilizamos a estatística calculada e abrimos um intervalo a direita, que chamamos de <span class="math inline">\(U_n=\bar{x}-z_{\frac{\alpha}{2}}\frac{\sigma}{\sqrt{n}}\)</span> e outro a esquerda que chamamos <span class="math inline">\(L_n=\bar{x}+z_{\frac{\alpha}{2}}\frac{\sigma}{\sqrt{n}}\)</span>. No exemplo, perceba que utilizamos praticamente dois desvios da média para cima e para baixo do valor calculado (<span class="math inline">\(\alpha=0.05\)</span>). Com isso esperamos que a maior parte dos dados estejam dentro desse intervalo, e principalmente que a confiança nos indique quantos intervalos conterão o verdadeiro parâmetro populacional, o qual está no centro da distribuição da média.</p>
+<p>Para solidificar essa ideia, simulamos abaixo a distribuição da estatística <span class="math inline">\(f(\bar{X})\)</span>, que veio de um processo de amostragem aleatória de <span class="math inline">\(X\)</span>, ou seja, <span class="math inline">\(X_1,...,X_n\)</span>. Considerando Leis dos Grandes Números e Teorema do Limite Central sabemos que <span class="math inline">\(\bar{X}\sim N(\mu,\frac{\sigma^2}{n})\)</span> Especificamente sabemos aqui que <span class="math inline">\(\bar{X}\sim N(50.000,1.000^2)\)</span>.</p>
+<p>Foram feitas 50 repetições do processo de amostragem (foi retirado 50 valores de forma aleatória da distribuição da média) e calculado para cada um o intervalo de confiança, conforme visto acima, <span class="math inline">\(U_n\)</span> e <span class="math inline">\(L_n\)</span>.A parte superior da figura apresenta a distribuição da média <span class="math inline">\(f(\bar{X})\)</span> e a parte inferior mostra os 50 intervalos de confiança. Vejamos a simulação abaixo feita no R e baseadas em Grosse, P.<a href="#fn4" class="footnote-ref" id="fnref4" role="doc-noteref"><sup>4</sup></a>.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Simulando um conjunto de 50 médias que vem de uma normal com </span></span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a><span class="co">#Esperança igual a 50.000. Logo distribuição da média será</span></span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Assumimos 1000 como o desvio padrão da média</span></span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(magrittr)</span>
+<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb17-7"><a href="#cb17-7" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggpubr)</span>
+<span id="cb17-8"><a href="#cb17-8" aria-hidden="true" tabindex="-1"></a>meanset <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="dv">50</span>,<span class="dv">50000</span>,<span class="dv">1000</span>)</span>
+<span id="cb17-9"><a href="#cb17-9" aria-hidden="true" tabindex="-1"></a>meanset <span class="ot">&lt;-</span> <span class="fu">as.data.frame</span>(meanset)</span>
+<span id="cb17-10"><a href="#cb17-10" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(meanset) <span class="ot">&lt;-</span> <span class="st">"Mean"</span></span>
+<span id="cb17-11"><a href="#cb17-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-12"><a href="#cb17-12" aria-hidden="true" tabindex="-1"></a><span class="do">##Calculando as bandas superiorees e inferiores L e U - </span></span>
+<span id="cb17-13"><a href="#cb17-13" aria-hidden="true" tabindex="-1"></a><span class="co">#zc*DP(média) = 1960</span></span>
+<span id="cb17-14"><a href="#cb17-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-15"><a href="#cb17-15" aria-hidden="true" tabindex="-1"></a>meanset95 <span class="ot">&lt;-</span> meanset <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">u =</span> Mean <span class="sc">+</span> <span class="dv">1960</span>) <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">l =</span> Mean <span class="sc">-</span> <span class="dv">1960</span>)</span>
+<span id="cb17-16"><a href="#cb17-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-17"><a href="#cb17-17" aria-hidden="true" tabindex="-1"></a>Sample <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="dv">1</span>,<span class="dv">50</span>,<span class="dv">1</span>)</span>
+<span id="cb17-18"><a href="#cb17-18" aria-hidden="true" tabindex="-1"></a>Sample <span class="ot">&lt;-</span> <span class="fu">as.data.frame</span>(Sample)</span>
+<span id="cb17-19"><a href="#cb17-19" aria-hidden="true" tabindex="-1"></a>ci95 <span class="ot">&lt;-</span> <span class="fu">cbind</span>(Sample, meanset95)</span>
+<span id="cb17-20"><a href="#cb17-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-21"><a href="#cb17-21" aria-hidden="true" tabindex="-1"></a><span class="co"># Determinando se um intervalo captura o verdadeiro valor</span></span>
+<span id="cb17-22"><a href="#cb17-22" aria-hidden="true" tabindex="-1"></a>ci95 <span class="ot">&lt;-</span> ci95 <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">Capture =</span> <span class="fu">ifelse</span>(l <span class="sc">&lt;</span> <span class="dv">50000</span>,</span>
+<span id="cb17-23"><a href="#cb17-23" aria-hidden="true" tabindex="-1"></a>                                         <span class="fu">ifelse</span>(u <span class="sc">&gt;</span> <span class="dv">50000</span>, <span class="dv">1</span>, <span class="dv">0</span>), <span class="dv">0</span>))</span>
+<span id="cb17-24"><a href="#cb17-24" aria-hidden="true" tabindex="-1"></a>ci95<span class="sc">$</span>Capture <span class="ot">&lt;-</span> <span class="fu">factor</span>(ci95<span class="sc">$</span>Capture, <span class="at">levels =</span> <span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">1</span>))</span>
+<span id="cb17-25"><a href="#cb17-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-26"><a href="#cb17-26" aria-hidden="true" tabindex="-1"></a><span class="co"># Gerando o Gráfico dos diversos Intervalos</span></span>
+<span id="cb17-27"><a href="#cb17-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-28"><a href="#cb17-28" aria-hidden="true" tabindex="-1"></a><span class="co"># Distribuição da média</span></span>
+<span id="cb17-29"><a href="#cb17-29" aria-hidden="true" tabindex="-1"></a>colorset <span class="ot">=</span> <span class="fu">c</span>(<span class="st">'0'</span><span class="ot">=</span><span class="st">'red'</span>,<span class="st">'1'</span><span class="ot">=</span><span class="st">'black'</span>)</span>
+<span id="cb17-30"><a href="#cb17-30" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-31"><a href="#cb17-31" aria-hidden="true" tabindex="-1"></a>ci_plot_95 <span class="ot">&lt;-</span> ci95 <span class="sc">%&gt;%</span> <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> Sample, <span class="at">y =</span> Mean)) <span class="sc">+</span> </span>
+<span id="cb17-32"><a href="#cb17-32" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">color =</span> Capture)) <span class="sc">+</span> </span>
+<span id="cb17-33"><a href="#cb17-33" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_errorbar</span>(<span class="fu">aes</span>(<span class="at">ymin =</span> l, <span class="at">ymax =</span> u, <span class="at">color =</span> Capture)) <span class="sc">+</span></span>
+<span id="cb17-34"><a href="#cb17-34" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_manual</span>(<span class="at">values =</span> colorset) <span class="sc">+</span> <span class="fu">coord_flip</span>() <span class="sc">+</span> </span>
+<span id="cb17-35"><a href="#cb17-35" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_hline</span>(<span class="at">yintercept =</span> <span class="dv">50000</span>, <span class="at">linetype =</span> <span class="st">"dashed"</span>, <span class="at">color =</span> <span class="st">"blue"</span>)<span class="sc">+</span></span>
+<span id="cb17-36"><a href="#cb17-36" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_hline</span>(<span class="at">yintercept =</span> <span class="dv">51960</span>, <span class="at">linetype =</span> <span class="st">"dashed"</span>, <span class="at">color =</span> <span class="st">"blue"</span>)<span class="sc">+</span></span>
+<span id="cb17-37"><a href="#cb17-37" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_hline</span>(<span class="at">yintercept =</span> <span class="dv">48040</span>, <span class="at">linetype =</span> <span class="st">"dashed"</span>, <span class="at">color =</span> <span class="st">"blue"</span>)<span class="sc">+</span> </span>
+<span id="cb17-38"><a href="#cb17-38" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> ) <span class="sc">+</span> <span class="fu">theme</span>(<span class="at">plot.title =</span></span>
+<span id="cb17-39"><a href="#cb17-39" aria-hidden="true" tabindex="-1"></a>  <span class="fu">element_text</span>(<span class="at">hjust =</span> <span class="fl">0.5</span>)) <span class="sc">+</span> <span class="fu">ylim</span>(<span class="dv">45000</span>,<span class="dv">55000</span>)<span class="sc">+</span> </span>
+<span id="cb17-40"><a href="#cb17-40" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">legend.position=</span><span class="st">"bottom"</span>)<span class="sc">+</span> <span class="fu">labs</span>(<span class="at">y =</span> <span class="st">"Média"</span>, <span class="at">x=</span> <span class="st">"Amostra"</span>) </span>
+<span id="cb17-41"><a href="#cb17-41" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-42"><a href="#cb17-42" aria-hidden="true" tabindex="-1"></a>dist_med <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(<span class="at">data =</span> <span class="fu">data.frame</span>(<span class="at">x =</span> <span class="fu">c</span>(<span class="dv">45000</span>, <span class="dv">55000</span>)), <span class="fu">aes</span>(x)) <span class="sc">+</span></span>
+<span id="cb17-43"><a href="#cb17-43" aria-hidden="true" tabindex="-1"></a>  <span class="fu">stat_function</span>(<span class="at">fun =</span> dnorm, <span class="at">n =</span> <span class="dv">101</span>, <span class="at">args =</span> <span class="fu">list</span>(<span class="at">mean =</span> <span class="dv">50000</span>, <span class="at">sd =</span> <span class="dv">1000</span>)) <span class="sc">+</span></span>
+<span id="cb17-44"><a href="#cb17-44" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">""</span>) <span class="sc">+</span> <span class="fu">scale_y_continuous</span>(<span class="at">breaks =</span> <span class="cn">NULL</span>)<span class="sc">+</span></span>
+<span id="cb17-45"><a href="#cb17-45" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_vline</span>(<span class="at">xintercept =</span> <span class="dv">51960</span>, <span class="at">linetype =</span> <span class="st">"dashed"</span>, <span class="at">color =</span> <span class="st">"blue"</span>)<span class="sc">+</span></span>
+<span id="cb17-46"><a href="#cb17-46" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_vline</span>(<span class="at">xintercept =</span> <span class="dv">48040</span>, <span class="at">linetype =</span> <span class="st">"dashed"</span>, <span class="at">color =</span> <span class="st">"blue"</span>)<span class="sc">+</span></span>
+<span id="cb17-47"><a href="#cb17-47" aria-hidden="true" tabindex="-1"></a>   <span class="fu">labs</span>(<span class="at">y =</span> <span class="fu">expression</span>(<span class="fu">paste</span>(<span class="st">"f("</span>, <span class="st">"x"</span>[média], <span class="st">")"</span>)), <span class="at">x=</span><span class="fu">element_blank</span>())</span>
+<span id="cb17-48"><a href="#cb17-48" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-49"><a href="#cb17-49" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-50"><a href="#cb17-50" aria-hidden="true" tabindex="-1"></a><span class="fu">ggarrange</span>(dist_med, ci_plot_95, <span class="at">heights =</span> <span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">5</span>),</span>
+<span id="cb17-51"><a href="#cb17-51" aria-hidden="true" tabindex="-1"></a>          <span class="at">ncol =</span> <span class="dv">1</span>, <span class="at">nrow =</span> <span class="dv">2</span>, <span class="at">align =</span> <span class="st">"v"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="cap9_estimacao_files/figure-html/unnamed-chunk-12-1.png" class="img-fluid figure-img" style="width:70.0%"></p>
+<figcaption>50 Intervalos de confiança de 0.95</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p>As linhas em azul representam o intervalo do nível de confiança, ou seja, <span class="math inline">\(\gamma=0.95\)</span> para a distribuição da média. As barras em preto são intervalos que contêm a verdadeira média e os intervalos em vermelho são aqueles que não contêm a verdadeira média. Perceba que em poucos casos isso ocorre, apenas para os casos onde a estimativa pontual da média sai fora da linha azul. Isso acontece em apenas 5% das vezes, afinal garantimos isso quanto escolhemos o <span class="math inline">\(z_c\)</span> para o nível de confiança desejado.</p>
+<p>Dessa forma, observe que para níveis de confiança menores, a linha azul estará mais próximo a média e portanto mais valores de intervalos não conterão o parâmetro populacional, pois agora utilizamos um <span class="math inline">\(z_c\)</span> mais próximo da média, o qual produzirá intervalos de amplitudes menores. Com isso, encontraremos mais intervalos que não contêm o parâmetro populacional. Vejamos o gráfico abaixo:</p>
+<div class="cell">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="cap9_estimacao_files/figure-html/unnamed-chunk-13-1.png" class="img-fluid figure-img" style="width:70.0%"></p>
+<figcaption>Comparando Intervalos de confiança de 0.90 e 0.95</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p>A linha azul representa o intervalo para 0.95 de confiança e a linha vermelha o intervalo para 0.90 de confiança, esses representam a amplitude do intervalo aplicados para <span class="math inline">\(\bar{X}=\mu\)</span> pra cada nível de confiança. Essa amplitude é replicadanas demais estimativas. Observe que temos barras de amplitude menores no gráfico inferior (0.90) e isso implica que temos uma quantidade maior de intervalos que não contêm o parâmetro populacional (em vermelho). Logo, a chance de você construir um intervalo e esse não conter o verdadeiro parâmetro é maior para níveis menores de confiança.</p>
+<p>Vejamos agora uma aplicação desse resultado.</p>
+<div class="callout callout-style-default callout-tip no-icon callout-titled" title="EXEMPLO">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>EXEMPLO
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Temos uma máquina de empacotar café. Normalmente com <span class="math inline">\(\mu=500\)</span> e <span class="math inline">\(\sigma^2=100\)</span>. A máquina desregulou e queremos saber qual a nova média <span class="math inline">\(\mu\)</span>.</p>
+<p>Temos uma amostra: <span class="math inline">\(n=25\)</span>; <span class="math inline">\(\overline{X}=485\)</span></p>
+<p>Queremos estimar <span class="math inline">\(\mu\)</span> com <span class="math inline">\(\gamma=0,95\)</span>. Isso representa o seguinte intervalo de confiança:</p>
+<p><span class="math display">\[\begin{array}{ccc}
+IC(\mu;0,95)= 485 \pm 1,96 \sigma_{\overline{X}}
+\\
+\\
+=485 \pm 1,96\sqrt{\frac{100}{25}}= 485 \pm 1,96*2
+\\
+\\
+IC(\mu;0,95)=]481.08,489.96[
+\end{array}\]</span></p>
+</div>
+</div>
+</section>
+<section id="quando-a-variância-é-desconhecida" class="level3" data-number="11.5.4">
+<h3 data-number="11.5.4" class="anchored" data-anchor-id="quando-a-variância-é-desconhecida"><span class="header-section-number">11.5.4</span> Quando a variância é desconhecida</h3>
+<p>Anteriomente tinhamos que:</p>
+<p><span class="math display">\[Z_{\bar{X}}=\frac{\bar{X}-\mu}{\frac{\sigma}{\sqrt{n}}} \sim N(0,1)\]</span></p>
+<p>Entretanto, não possuimos mais os valores de <span class="math inline">\(\sigma\)</span> e a formulação não nos ajuda mais. Uma alternativa é trocar <span class="math inline">\(\sigma\)</span> pelo seu estimador <span class="math inline">\(S_n\)</span>. Assim teriamos a segiunte formulação:</p>
+<p><span class="math display">\[T_{\bar{X}}=\frac{\bar{X}-\mu}{\frac{S_n}{\sqrt{n}}}\]</span></p>
+<p>Essa nova estatística terá a seguinte definição:</p>
+<div class="callout callout-style-default callout-note no-icon callout-titled" title="DEFINIÇÃO">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>DEFINIÇÃO
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Para uma amostra aleatória <span class="math inline">\(X_1,...,X_n\)</span> de uma variável aleatória <span class="math inline">\(X \sim N(\mu, \sigma^2)\)</span> desconhecidos, tem-se que:</p>
+<p><span class="math display">\[T_{{\bar{X}}}=\frac{\bar{X}-\mu}{\frac{S_n}{\sqrt{n}}} \sim t(n-1)\]</span></p>
+<p>tem distribuição t-student com <span class="math inline">\(n-1\)</span> graus de liberdade, <span class="math inline">\(t(n-1)\)</span>, para qualquer valor de <span class="math inline">\(\mu\)</span> e <span class="math inline">\(\sigma\)</span>.</p>
+</div>
+</div>
+<p>Dessa forma podemos definir o intervalo de confiança como:</p>
+<p><span class="math display">\[P(\bar{X}-t_{n-1,\alpha/2}\frac{S_n}{\sqrt{n}} &lt;\mu&lt; \bar{X}+ t_{n-1,\alpha/2}\frac{S_n}{\sqrt{n}})=1-\alpha\]</span></p>
+<p>Ou seja, o intervalo de confiança para a esperança populacional será:</p>
+<p><span class="math display">\[IC(\mu;\gamma)=\bigg( \bar{x}-t_{n-1,\alpha/2}\frac{S_n}{\sqrt{n}};\bar{x}+t_{n-1,\alpha/2}\frac{S_n}{\sqrt{n}}\bigg)\]</span></p>
+<p>Para um amostra suficientemente grande podemos aproximar a distribuição t-student por uma normal padrão e assim calculamos o intervalo de confiança com base na normal mesmo sendo utilizado o estimador da variância.</p>
+
+
+</section>
+</section>
+<section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn1"><p>https://portalfisica.wordpress.com/2018/08/24/acuracia-precisao-e-exatidao/<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2"><p>Extraídos de: Our World in Data<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn3"><p>Dekking, F.M., et al.&nbsp;A Modern Introdution To Statistics<a href="#fnref3" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn4"><p>https://rpubs.com/pgrosse/545955<a href="#fnref4" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="../cap/cap8_inferencia.html" class="pagination-link" aria-label="Inferência Estatística">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Inferência Estatística</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="../cap/cap10_teste_hip.html" class="pagination-link" aria-label="Teste de Hipótese">
+        <span class="nav-page-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Teste de Hipótese</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+
+</body></html>

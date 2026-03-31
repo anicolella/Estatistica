@@ -46,17 +46,17 @@ book:
         - cap/cap6_va_bidimensional.qmd
         - cap/cap7_dist_normal.qmd
 
-#    - part: "Inferência Estatística"
-#      chapters:
-#        - cap/cap8_inferencia.qmd
+    - part: "Inferência Estatística"
+      chapters:
+        - cap/cap8_inferencia.qmd
 
-#    - part: "Estimação Pontual"
-#      chapters:
-#        - cap/cap9_estimacao.qmd
+    - part: "Estimação"
+      chapters:
+        - cap/cap9_estimacao.qmd
 
-#    - part: "Teste de Hipótese"
-#      chapters:
-#        - cap/cap10_teste_hip.qmd
+    - part: "Teste de Hipótese"
+      chapters:
+        - cap/cap10_teste_hip.qmd
 
 bibliography: references.bib
 
