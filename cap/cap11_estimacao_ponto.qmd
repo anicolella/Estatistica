@@ -24,38 +24,30 @@ Um dos esforços da estatística é propor técnicas para estimar caracaterísti
 
 Notamos que para a maior parte das questões que temos sobre o mundo, raramente sabemos o que acontece na população. Temos que tentar construir um modelo que nos ajude nessa tarefa e nos de a segurança que as nossas estimativas da realidade sejam boas. Na inferência estatística existem dois objetivos principais.
 
-\begin{itemize}
 
-\item Estimação de parâmetros: valores populacionais
+1. Estimação de parâmetros: valores populacionais
 
-\item Testes de hipótese sobre os parâmetros
+2. Testes de hipótese sobre os parâmetros
 
-\end{itemize}
 
 Nosso objetivo aqui é estudar técnicas que nos permita avaliar se uma proposta de estimativa de uma caractaristica da população é "boa" e aprender técnicas para encontrar "boas" estimativas. Assim temos duas questões básicas surgem:
 
-\begin{itemize}
 
-\item Quais as características que um "bom" estimador possui? 
+1. Quais as características que um "bom" estimador possui? 
 
-\item Como decidiremos que uma boa estimativa é "melhor" que outras?
+2. Como decidiremos que uma boa estimativa é "melhor" que outras?
 
-\end{itemize}
 
 Para saber se uma estimativa é boa ou não vamos introduzir duas ideias aqui, exatidão e precisão.
 
-\begin{tcolorbox}
 
 **Dois conceitos importantes:**
 
-\begin{itemize}
 
-\item **Exatidão**: proximidade de cada observação do valor do centro do alvo (nosso caso: parâmetro)
+1. **Exatidão**: proximidade de cada observação do valor do centro do alvo (nosso caso: parâmetro)
 
-\item **Precisão**: proximidade de cada observação em relação ao ponto médio de todas, variância. 
+2. **Precisão**: proximidade de cada observação em relação ao ponto médio de todas, variância. 
 
-\end{itemize}
-\end{tcolorbox}
 
 A figura abaixo traz esses dois conceitos[^9]:
 
@@ -69,20 +61,15 @@ Uma outra forma de vermos o mesmo conceito é pelo exmplo clássico dos alvos. V
 
 Cada x no alvo representa uma tentativa sua de estimar o parâmetro de uma população que é o centro do alvo. A ideia seria que uma boa "arma" (arma aqui é a sua equação matemática) é aquela que acerta ao redor do centro do alvo e menos espelhado possível. Vejamos cada um desses alvos:
 
-\begin{tcolorbox}
 
-\begin{itemize}
+1. **A**: Exato (média das tentativas está no centro do alvo.) Pouco Preciso (observações muito dispersas)
 
-\item **A**: Exato (média das tentativas está no centro do alvo.) Pouco Preciso (observações muito dispersas)
+2. **B**: Pouco Exato e Pouco Preciso
 
-\item **B**: Pouco Exato e Pouco Preciso
+3. **C**: Exato e Preciso
 
-\item **C**: Exato e Preciso
+4. **D**: Pouco Exato e Muito Preciso
 
-\item **D**: Pouco Exato e Muito Preciso
-
-\end{itemize}
-\end{tcolorbox}
 
 Portanto, notamos que a melhor arma, ou seja, a melhor forma de estimar é pela "arma" C.
 
@@ -611,15 +598,11 @@ O que precisamos estimar é o parâmetro populacional $\beta$. Assim, deve exist
 
 Existem algumas maneiras para fazermos isso:
 
-\begin{itemize}
-
- \item Estimadores de Momentos
+1. Estimadores de Momentos
  
- \item Estimadores de Máxima Verossimilhança
+2. Estimadores de Máxima Verossimilhança
  
- \item Mínimos Quadrados
- 
-\end{itemize}
+3. Mínimos Quadrados
 
 Veremos duas delas Minimos Quadrados e Máxmia Verossimilhança.
 

@@ -416,6 +416,10 @@ window.Quarto = {
 <h2 data-number="12.1" class="anchored" data-anchor-id="determinação-do-tamanho-da-amostra"><span class="header-section-number">12.1</span> Determinação do tamanho da amostra</h2>
 <p>Iremos considerar aqui apenas a técnica de amostrage alatatória simples. Nosso objetivo é dar a intuição do processo de amostragem e não ensinar a fazer design de pesquisa de campo. Existem disciplinas específicas para isso.</p>
 <p>Duas medidas importantes a serem consideradas.</p>
+<ol type="1">
+<li><p>Distância Máxima tolerável entre a estimativa e o parâmetro real: <span class="math inline">\(d\)</span></p></li>
+<li><p>A probabilidade de que <span class="math inline">\(d\)</span> seja maior que o tolerável: <span class="math inline">\(\alpha\)</span></p></li>
+</ol>
 <section id="tamanho-da-amostra-com-sigma-conhecido" class="level3" data-number="12.1.1">
 <h3 data-number="12.1.1" class="anchored" data-anchor-id="tamanho-da-amostra-com-sigma-conhecido"><span class="header-section-number">12.1.1</span> Tamanho da amostra com <span class="math inline">\(\sigma\)</span> conhecido</h3>
 <p>Considere a desigualdade de Tchebycheff:</p>
@@ -489,6 +493,7 @@ window.Quarto = {
 <p>O tamanho da amostra será tal que:</p>
 <p><span class="math display">\[n=\frac{ Z_{c}^{2}}{d^{2}} p (1-p)\]</span></p>
 <p>se não sabemos nada considerar <span class="math inline">\(p=0,5\)</span>, esse irá gerar a maior amostra para dado <span class="math inline">\(\alpha\)</span> e <span class="math inline">\(d\)</span></p>
+<p><strong>O exemplo no R:</strong></p>
 <p>Vejamos como ficaria o tamanho amostral para uma pesquisa eleitoral onde consideramos que <span class="math inline">\(p=0.4\)</span>, <span class="math inline">\(1-p=0.6\)</span>, <span class="math inline">\(1-\alpha=0,95\)</span> e iremos considerar varios <span class="math inline">\(d\)</span>, margem de erro. Ou seja, a primeira é dois pontos percentuais para mais ou menos, o segundo 1,5 pontos percentuais, o terceiro, 1 ponto e por fim 0,5 pontos percentuais. Vejamos o que essa mudança no que estamos ropensos a aceitar como margem de erro afeta o custo da pesquisa. Vimos que o valor por questionário era de R$53,00.</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Utilizando a tabela normal vimos que para alpha de 5% o </span></span>

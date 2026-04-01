@@ -384,6 +384,11 @@ window.Quarto = {
 <section id="modos-de-convergência" class="level2" data-number="11.1">
 <h2 data-number="11.1" class="anchored" data-anchor-id="modos-de-convergência"><span class="header-section-number">11.1</span> Modos de Convergência</h2>
 <p>Gostariamos de saber se uma sequência de variáveis aleatórias <span class="math inline">\(X_1,X_2,...,X_n\)</span> caminha ou converge na direção de <span class="math inline">\(X\)</span>. Assim, suponha que queiramos saber o valor de <span class="math inline">\(X\)</span>, fazemos uma medida via <span class="math inline">\(X_1\)</span>, podemos aumentar o número de medidas para <span class="math inline">\(X_2\)</span> e observamos se chega mais próximo de <span class="math inline">\(X\)</span>, e constinuamos até <span class="math inline">\(X_n\)</span> e vemos se essa sequencia de medidas vai convergindo para <span class="math inline">\(X\)</span>.Veremos aqui 3 tipos de convergência.</p>
+<ol type="1">
+<li><p>Convergência em probabilidade</p></li>
+<li><p>Convergência em Média Quadratica</p></li>
+<li><p>Convergência em Distribuição</p></li>
+</ol>
 <section id="convergência-de-uma-sequência-numérica" class="level3" data-number="11.1.1">
 <h3 data-number="11.1.1" class="anchored" data-anchor-id="convergência-de-uma-sequência-numérica"><span class="header-section-number">11.1.1</span> Convergência de uma sequência numérica</h3>
 <div class="callout callout-style-default callout-note no-icon callout-titled" title="DEFINIÇÃO">
@@ -559,6 +564,10 @@ window.Quarto = {
 </div>
 <p>Ou seja, a Lei forte coloca que <span class="math inline">\(X_n\)</span> converge para <span class="math inline">\(\mu\)</span> com probabilidade igual a 1. Aqui é a probabilidade do limite e antes o limite da probabilidade! Assim, a média da amostra converge quase certamente para o valor esperado.</p>
 <p>É um tipo de convergência pouco utilizado na Econometria. Vejamos em palavras a diferença entre as duas para um <span class="math inline">\(n\)</span> grande</p>
+<ol type="1">
+<li><p><strong>Lei Fraca:</strong> <span class="math inline">\(\overline{X}_n\)</span> está próximo de <span class="math inline">\(\mu\)</span> e portanto <span class="math inline">\(|\overline{X}_n-\mu|&gt;\varepsilon\)</span> pode existir mas não é frequente</p></li>
+<li><p><strong>Lei Forte:</strong> <span class="math inline">\(|\overline{X}_n-\mu|&lt;\varepsilon\)</span> para todo <span class="math inline">\(n\)</span></p></li>
+</ol>
 </section>
 </section>
 <section id="convergência-em-média-quadrática" class="level3" data-number="11.1.7">

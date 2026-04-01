@@ -382,7 +382,7 @@ window.Quarto = {
   <li><a href="#estabelencendo-valor-crítico-e-região-crítica." id="toc-estabelencendo-valor-crítico-e-região-crítica." class="nav-link" data-scroll-target="#estabelencendo-valor-crítico-e-região-crítica."><span class="header-section-number">15.3.3</span> Estabelencendo Valor Crítico e Região Crítica.</a></li>
   <li><a href="#o-teste-de-hipótese" id="toc-o-teste-de-hipótese" class="nav-link" data-scroll-target="#o-teste-de-hipótese"><span class="header-section-number">15.3.4</span> O Teste de Hipótese</a></li>
   <li><a href="#relação-entre-a-probabilidade-de-cauda-p-valor-e-região-crítica" id="toc-relação-entre-a-probabilidade-de-cauda-p-valor-e-região-crítica" class="nav-link" data-scroll-target="#relação-entre-a-probabilidade-de-cauda-p-valor-e-região-crítica"><span class="header-section-number">15.3.5</span> Relação entre a Probabilidade de cauda, p-valor, e região crítica</a></li>
-  <li><a href="#os-cinco-passos-para-a-contrução-do-teste-de-hipótese" id="toc-os-cinco-passos-para-a-contrução-do-teste-de-hipótese" class="nav-link" data-scroll-target="#os-cinco-passos-para-a-contrução-do-teste-de-hipótese"><span class="header-section-number">15.3.6</span> Os Cinco passos para a contrução do teste de hipótese</a></li>
+  <li><a href="#os-cinco-passos-para-a-construção-do-teste-de-hipótese" id="toc-os-cinco-passos-para-a-construção-do-teste-de-hipótese" class="nav-link" data-scroll-target="#os-cinco-passos-para-a-construção-do-teste-de-hipótese"><span class="header-section-number">15.3.6</span> Os Cinco passos para a construção do teste de hipótese</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -424,6 +424,13 @@ window.Quarto = {
 <section id="introdução" class="level2" data-number="15.1">
 <h2 data-number="15.1" class="anchored" data-anchor-id="introdução"><span class="header-section-number">15.1</span> Introdução</h2>
 <p>Até o momento estimamos características da população, fizemos a estimativa pontual e a estimativa de intervalo de um parâmetro. Neste último associamos um grau de confiabilidade de que encontrariamos o verdadeiro parâmetro dentro desse intervalo. Entretanto algumas vezes temos teorias diferentes e gostariamos de testar se uma teoria é mais plausível do que outra com base na realidade. Dessa forma, gostariamos de testar se uma sobre a população é mais plausível, ou seja, se os dados amostrais trazem evidências que apoiam ou não essa hipótese. Por exemplo:</p>
+<ol type="1">
+<li><p>Verificar se um determinado medicamento não tem efeito sobre a mortalidade causada por um determinado virus ou se possui efeito.</p></li>
+<li><p>Verificar se a quantidade de gordura anunciado pelo fabricante de um produto realmente está correta ou é maior.</p></li>
+<li><p>Se a afirmativa de um canditado de que possui a maioria dos votos é verdadeira ou é menor.</p></li>
+<li><p>Verificar se as rendas entre duas comunidades são as mesmas para podermos lançar uma política de apoio.</p></li>
+<li><p>Verifcar se uma política do aumento do recurso as empresas não afeta falência ou se tem efeito.</p></li>
+</ol>
 <p>Aqui faremos algo muito parecido com os tribunais, assumimos que a pessoa ou empresa é “inocente”. Que o medicamento não tem efeito, que o teor de gordura está certo, que o candidato tem maioria, que as comunidades possuem a mesma renda e que o recurso não afeta o número de falências. Partimos da premissa de que a hipótese inicial é a correta e tentamos verificar com os fatos (dados amostrais) se essa hipótese colocada é verossímil.</p>
 </section>
 <section id="construindo-a-hipótese-nula" class="level2" data-number="15.2">
@@ -501,8 +508,9 @@ Figure&nbsp;15.1: Teste de Hipótese - intuição
 <section id="probabilidade-da-cauda-e-o-p-valor" class="level3" data-number="15.2.2">
 <h3 data-number="15.2.2" class="anchored" data-anchor-id="probabilidade-da-cauda-e-o-p-valor"><span class="header-section-number">15.2.2</span> Probabilidade da cauda e o p-valor</h3>
 <p>Uma outra maneira que podemos olhar o valor de 700 é por meio da probabilidade da cauda acima dele. Vamos considerar a figura acima que mostra a distribuição da média retirada de uma população sob <span class="math inline">\(H_0\)</span>, ou seja, <span class="math inline">\(N(600,100^2)\)</span>. Podemos estimar qual seria a probabilidade de acharmos valores iguais ou maiores do que 700 nessa distribuição. Essa é chamada probabilidade de cauda a direita <span class="math inline">\(P(\bar{X}\geq 700|H_0)\)</span> e mais conhecida como . Podemos computar esse valor para a cauda inferior, para a superior ou para ambas, a depender da hipótese feita. Esse valor nos mostra que quando mais a direita estiver o nosso valor calculado, menor será essa probabilidade e maior serão as evidências contra <span class="math inline">\(H_0\)</span>. Para o nosso exemplo anterior temos:</p>
-<p><span class="math display">\[P(\bar{X}\geq 700|H_0 \Rightarrow \bar{X} \sim N(600,\frac{100^2}{25}))\]</span></p>
-<p><span class="math display">\[P(Z_{\bar{X}}\geq \frac{700-600}{100/5}|H_0)\]</span> <span class="math display">\[P(Z_{\bar{X}} \geq  \frac{100}{20})=P(Z_{\bar{X}} \geq 5)=0\]</span></p>
+<p><span class="math display">\[P \bigg(\bar{X}\geq 700|H_0 \Rightarrow \bar{X} \sim N \bigg(600,\frac{100^2}{25}\bigg)\bigg)\]</span></p>
+<p><span class="math display">\[P \bigg(Z_{\bar{X}}\geq \frac{700-600}{100/5} \Bigg|H_0 \bigg)\]</span></p>
+<p><span class="math display">\[P \bigg(Z_{\bar{X}} \geq  \frac{100}{20} \bigg)=P(Z_{\bar{X}} \geq 5)=0\]</span></p>
 <p>Notamos que esse valor de <span class="math inline">\(z_c\)</span> é muito alto e nem aparece na tabela da normal padrão. Mostrando que essa probabilidade é de zero. Ou seja, o p-valor nesse caso é igual a 0, mostrando uma forte evidência de que a ONG está enganada com relação a sua medida da renda dessa população.</p>
 <p>Esse foi um exemplo extremo para compreender a intuição do processo. Entretanto, precisamos decidir a partir de que ponto exatamente dizemos que pertence a população sob <span class="math inline">\(H_0\)</span> e a partir de que ponto não pertence. Para isso precisamos entender os erros que podemos cometer ao fazer esse julgamento.</p>
 </section>
@@ -526,8 +534,12 @@ Figure&nbsp;15.1: Teste de Hipótese - intuição
 </div>
 </div>
 <p>Nosso desafio agora é estabelecer um critério de decisão, o ponto a partir do qual dizemos que <span class="math inline">\(H_0\)</span> não parece mais provável,ou seja, rejeitamos <span class="math inline">\(H_0\)</span>. Essa chamaremos de região crítica ou de rejeição, que são os valores a partir dos quais entendemos que <span class="math inline">\(H_0\)</span> não é mais plausível. Conforme a Figura 1 - a interrogação. Vejamos o nosso problema em termos de erros:</p>
+<ol type="1">
+<li><p>EI <span class="math inline">\((\alpha)\)</span>- Dizer que a renda é maior que 600, quando na realizadade ela é de 600.</p></li>
+<li><p>EII <span class="math inline">\((\beta)\)</span>- Dizer que a renda é de 600 quando na realidade ela é maior do que 600.</p></li>
+</ol>
 <p>Nota-se que conseguimos calcular o Erro Tipo I <span class="math inline">\((\alpha)\)</span> com base na distribuição sob <span class="math inline">\(H_0\)</span>, entretanto, como não sabemos qual é a distribuição sob <span class="math inline">\(H_1\)</span>, fica difícil calcular o EII <span class="math inline">\((\beta)\)</span>. Veremos isso com mais detalhe a frente.</p>
-<p>Vamos retomar o nosso exemplo onde a ONG afirma que uma comunidade tem renda de R$600 e portanto deveria estar inclusa no programa de governo. O governo contexta. Foi retirada uma amostra de <span class="math inline">\(n=25\)</span> e a distribuição de <span class="math inline">\(\bar{X}\)</span> sob <span class="math inline">\(H_0\)</span> será <span class="math inline">\(N(600,\frac{100^2}{25})\)</span> e a hipótese a ser testada será:</p>
+<p>Vamos retomar o nosso exemplo onde a ONG afirma que uma comunidade tem renda de R$600 e portanto deveria estar inclusa no programa de governo. O governo contexta. Foi retirada uma amostra de <span class="math inline">\(n=25\)</span> e a distribuição de <span class="math inline">\(\bar{X}\)</span> sob <span class="math inline">\(H_0\)</span> será <span class="math inline">\(N \bigg(600,\frac{100^2}{25} \bigg)\)</span> e a hipótese a ser testada será:</p>
 <p><span class="math display">\[H_0: \qquad \mu=600\]</span> <span class="math display">\[H_1: \qquad \mu&gt;600\]</span></p>
 <p>Uma maneira de acharmos o valor a partir do qual teremos a região crítica ou de rejeição, seria controlar o Erro Tipo I <span class="math inline">\((\alpha)\)</span>. Podemos dizer que gostariamos de cometer o Erro Tipo I em apenas 5% dos casos. Ou seja, a chance de retirarmos um amostra e o valor da estimativa ser maior que o valor de decisão é de 5% dos casos, os outros 95% sempre cairão na área de aceitação. Vejamos como podemos encontrar o critério de decisão para o nosso caso, unicaudal.</p>
 <p><span class="math display">\[P(Z_{\bar{X}} \geq z_c|H_0)=0.05= \alpha\]</span></p>
@@ -576,7 +588,7 @@ P(E II)=P(\overline{X} \notin R C |H_1 \quad \text { verdadeiro })=\beta
 =P(\overline{X} &lt; 633 )| \overline{X} \sim N (660;100^{2}/25)).
 \\
 \\
-=P (z &lt; \frac{633-660}{20})
+=P \bigg(z &lt; \frac{633-660}{20} \bigg)
 \\
 \\
 =P(z&lt;-1,35)=8.85\%=\beta
@@ -682,7 +694,7 @@ P(E II)=P(\overline{X} \notin R C |H_1 \quad \text { verdadeiro })=\beta
 <p><span class="math inline">\(RC =\{\bar{x} \in \mathbb{R} | \bar{x} \geq 633\}\)</span></p>
 <p>Vamos supor agora que realizamos uma nova amostragem e a estimativa do nosso teste com base em uma amostragem de 25 elementos foi de 645. Com base no valor do teste e na nossa região crítica construída, rejeitariamos <span class="math inline">\(H_0\)</span>. Podemos agora calcular a probbilidade de cauda, ou seja, o p-valor, o qual mostra a probabilidade de obtermos valores iguais ou maiores do que 645 sob a hipótese nula. Assim:</p>
 <p><span class="math display">\[P \bigg(\bar{X}\geq 645|H_0 \Rightarrow \bar{X} \sim N \bigg(600,\frac{100^2}{25} \bigg) \bigg)\]</span></p>
-<p><span class="math display">\[P \bigg(Z_{\bar{X}}\geq \frac{645-600}{100/5}|H_0 \bigg)\]</span></p>
+<p><span class="math display">\[P \bigg(Z_{\bar{X}}\geq \frac{645-600}{100/5} \Bigg|H_0 \bigg)\]</span></p>
 <p><span class="math display">\[P \bigg(Z_{\bar{X}} \geq  \frac{45}{20} \bigg)=P(Z_{\bar{X}} \geq 2.25)=0.0122\]</span></p>
 <p>Logo a chance de termos valores iguais ou maiores de 645 para o teste estatístico considerando <span class="math inline">\(H_0\)</span> como verdadeiro é de 1.22%. Veja o gráfico abaixo que possui a região crítica e o p-valor.</p>
 <div class="cell">
@@ -722,8 +734,15 @@ P(E II)=P(\overline{X} \notin R C |H_1 \quad \text { verdadeiro })=\beta
 </div>
 <p>Em marrom, linha mais a esquerda, temos o limite da região crítica, ou seja, o valor a partir do qual rejeitariamos <span class="math inline">\(H_0\)</span>. Note que podemos montar essa região sem efetivamente retiramos uma amostra, somente com base na teoria e no tamanho amostral que poderiamos coletar. Ela especifica todas os valores sob os quais rejeitamos <span class="math inline">\(H_0\)</span>. O p-valor está indicado pela linha azul no gráfico e nos fornece a ideia de quão forte é essa rejeição, observa-se que quanto menor o p-valor (valores mais extremos) mais evidências temos de que a hipótese nula <span class="math inline">\(H_0\)</span> não é adequada, ou seja, mais forte são as evidências para a rejeição.</p>
 </section>
-<section id="os-cinco-passos-para-a-contrução-do-teste-de-hipótese" class="level3" data-number="15.3.6">
-<h3 data-number="15.3.6" class="anchored" data-anchor-id="os-cinco-passos-para-a-contrução-do-teste-de-hipótese"><span class="header-section-number">15.3.6</span> Os Cinco passos para a contrução do teste de hipótese</h3>
+<section id="os-cinco-passos-para-a-construção-do-teste-de-hipótese" class="level3" data-number="15.3.6">
+<h3 data-number="15.3.6" class="anchored" data-anchor-id="os-cinco-passos-para-a-construção-do-teste-de-hipótese"><span class="header-section-number">15.3.6</span> Os Cinco passos para a construção do teste de hipótese</h3>
+<ol type="1">
+<li><p>Estabeleça a hipótese nula <span class="math inline">\(H_0\)</span> e a hipótese alternativa <span class="math inline">\(H_1\)</span>.</p></li>
+<li><p>Defina qual estimador do parâmetro populacional <span class="math inline">\(\theta\)</span> será usado para testar <span class="math inline">\(H_0\)</span>: média, desvio padrão amostral, proporção amostral, etc.</p></li>
+<li><p>Defina o nível de significância <span class="math inline">\(\alpha\)</span> e estabeleça qual o valor e a região crítica.</p></li>
+<li><p>Calcule a estimativa do teste estatístico.</p></li>
+<li><p>Se não pertencer à Região Crítica, não rejeitamos <span class="math inline">\(H_0\)</span>; caso contrário, rejeitamos a hipótese nula <span class="math inline">\(H_0\)</span>.</p></li>
+</ol>
 
 
 </section>

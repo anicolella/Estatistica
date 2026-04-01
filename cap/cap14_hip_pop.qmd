@@ -457,13 +457,10 @@ Var(\overline{X}-\overline{Y})=Var(\overline{X})+Var(\overline{Y})=\frac{\sigma^
 
 Sob a hipótese de que $H_0$ é verdadeira:
 
-$$\begin{array}{ccc}
-T=\frac{(\overline{X}-\overline{Y})-(\mu_X-\mu_Y)}{\sqrt{\frac{\sigma^2_X}{n}+\frac{\sigma^2_Y}{m}}}
-\\
-\\
-T=\frac{(\overline{X}-\overline{Y})}{\sqrt{\frac{\sigma^2_X}{n}+\frac{\sigma^2_Y}{m}}}\sim N(0,1)
-\\
-\end{array}$$
+$$T=\frac{(\overline{X}-\overline{Y})-(\mu_X-\mu_Y)}{\sqrt{\frac{\sigma^2_X}{n}+\frac{\sigma^2_Y}{m}}}$$
+
+
+$$T=\frac{(\overline{X}-\overline{Y})}{\sqrt{\frac{\sigma^2_X}{n}+\frac{\sigma^2_Y}{m}}}\sim N(0,1)$$
 
 Dessa forma construímos nossa região crítica com base nos valores críticos determinados pelo nosso nível de significância ($\alpha$) na normal padrão $(\phi)$, ou seja, $z_{c,\alpha}$
 
@@ -491,7 +488,7 @@ $$IC(\theta;\gamma)=(\overline{x_0}-\overline{y_0})\pm t_{\gamma,(n+m-2)}S_p\sqr
 
 
 
-**2.3 - Caso 3:  Para variância desconhecida e desiguais**
+**2.3 - Caso 3:  Para variâncias desconhecidas e desiguais**
 
 Agora a hipótese de igualdade de variância for rejeitada, as duas populações possuem variâncias distintas, logo:
 
@@ -515,7 +512,7 @@ Vejamos agora dois exemplos. O primeiro é para as variâncias conhecidas e o se
 
 ::: {.callout-tip  icon="false" title="EXEMPLO"}
 
-**Teste de diferença de médias com variância conhecidas**
+**Teste de diferença de médias com variâncias conhecidas**
 
 Uma empresa propos um novo sistema de monitoramento de processo e quer verificar se esse faz com que os funcionarios tenham melhor performance. Foi feito um ensaio com 8 funcionários sob o monitoramento atual $(X)$ e a performance média registrada foi de 80.5 pontos. Sabe-se que o desvio padrão populacional, $\sigma_X=1.5$. Foi feito outro ensaio com 10 funcionários sob o novo monitoramento $(Y)$ e a performance foi de 81.3 pontos. Aqui também conhecemos o desvio padrão populacional, $\sigma_X=3.8$   
 :::
@@ -585,7 +582,7 @@ abline(v=81.3, col="wheat4", lty=2, lwd=2)
 
 ::: {.callout-tip  icon="false" title="EXEMPLO"}
 
-**Teste de diferença de médias com variância desconhecidas e iguais**
+**Teste de diferença de médias com variâncias desconhecidas e iguais**
 
 Uma empresa está testando duas misturas de concretos os quais são feitos com cimento de diferentes minas. A mistura 1 é a mistura padrão feita com o cimento já conhecido. A mistura 2 usa a mesma receita mas utiliza um cimento vindo de uma nova mina. A empresa quer saber se as duas misturas produzem a mesma qualidade de produto, ou seja, que a carga de ruptura do concreto após 28 dias é a mesma em $kg/cm^2$. A tabela abaixo traz os testes laboratoriais e gostariamos de saber se ao nível de 5\% de confiança as duas misturas possuem a mesma esperança?  
 :::
@@ -795,6 +792,7 @@ $$RC=\{t \in \mathbb{R} | t \leq -1.645 \}$$
 
 
 **4 - Cálculo do Teste Estatístico**
+
 A mostra de 200 elementos mostrou que 104 lares estavam ligado no programa, ou seja, 52%. Dessa forma podemos calcular nosso Teste Estatístico:
 
 $$t=\frac{0.52-0.6}{\sqrt{0.6(0.4)}}\sqrt{200} = -2.309$$
@@ -813,4 +811,5 @@ Como $\hat{p}=0.52$ esse pertence a região crítica. Os resultados são análog
 
 
 **5 - Teste de hipótese**
+
 Assim, como -2.309 (ou 0.52) está na região crítica rejeitamos $H_0$. Há evidências de que a emissora não teve $60\%$ da audiência e sim menos.

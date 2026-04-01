@@ -424,8 +424,21 @@ window.Quarto = {
 <h2 data-number="13.1" class="anchored" data-anchor-id="introdução"><span class="header-section-number">13.1</span> Introdução</h2>
 <p>Um dos esforços da estatística é propor técnicas para estimar caracaterísticas populacionais que auxiliem os tomadores de decisão a fazerem melhores escolhas. Se vamos fazer um programa para treinamento para mulheres desempregadas de baixa renda, precisamos saber qual a taxa de desemprego daquela população e assim propor um número de vagas adequado. Se queremos melhorar o sistema de logística de um entreposto, precisamos entender qual a intensidade de chegada de caminhões nesse entreposto. Se vamos fazer um programa de auxílio para pessoas em situaçao de extrema pobreza, precisamos saber quantas pessoas vivem nessa situação nessa localidade.</p>
 <p>Notamos que para a maior parte das questões que temos sobre o mundo, raramente sabemos o que acontece na população. Temos que tentar construir um modelo que nos ajude nessa tarefa e nos de a segurança que as nossas estimativas da realidade sejam boas. Na inferência estatística existem dois objetivos principais.</p>
+<ol type="1">
+<li><p>Estimação de parâmetros: valores populacionais</p></li>
+<li><p>Testes de hipótese sobre os parâmetros</p></li>
+</ol>
 <p>Nosso objetivo aqui é estudar técnicas que nos permita avaliar se uma proposta de estimativa de uma caractaristica da população é “boa” e aprender técnicas para encontrar “boas” estimativas. Assim temos duas questões básicas surgem:</p>
+<ol type="1">
+<li><p>Quais as características que um “bom” estimador possui?</p></li>
+<li><p>Como decidiremos que uma boa estimativa é “melhor” que outras?</p></li>
+</ol>
 <p>Para saber se uma estimativa é boa ou não vamos introduzir duas ideias aqui, exatidão e precisão.</p>
+<p><strong>Dois conceitos importantes:</strong></p>
+<ol type="1">
+<li><p><strong>Exatidão</strong>: proximidade de cada observação do valor do centro do alvo (nosso caso: parâmetro)</p></li>
+<li><p><strong>Precisão</strong>: proximidade de cada observação em relação ao ponto médio de todas, variância.</p></li>
+</ol>
 <p>A figura abaixo traz esses dois conceitos<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>:</p>
 <div id="fig-particula" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
 <figure class="quarto-float quarto-float-fig figure">
@@ -449,6 +462,12 @@ Figure&nbsp;13.2: Alvo e os conceitos de Exatidão e precisão
 </figure>
 </div>
 <p>Cada x no alvo representa uma tentativa sua de estimar o parâmetro de uma população que é o centro do alvo. A ideia seria que uma boa “arma” (arma aqui é a sua equação matemática) é aquela que acerta ao redor do centro do alvo e menos espelhado possível. Vejamos cada um desses alvos:</p>
+<ol type="1">
+<li><p><strong>A</strong>: Exato (média das tentativas está no centro do alvo.) Pouco Preciso (observações muito dispersas)</p></li>
+<li><p><strong>B</strong>: Pouco Exato e Pouco Preciso</p></li>
+<li><p><strong>C</strong>: Exato e Preciso</p></li>
+<li><p><strong>D</strong>: Pouco Exato e Muito Preciso</p></li>
+</ol>
 <p>Portanto, notamos que a melhor arma, ou seja, a melhor forma de estimar é pela “arma” C.</p>
 </section>
 <section id="estimadores-e-estimação" class="level2" data-number="13.2">
@@ -938,6 +957,11 @@ Var(\hat{\sigma^{2}})= (\frac{n-1}{n})^{2} Var(S^{2}) = \frac{(n-1)^2}{n^{2}} \f
 <p>Essa é a linha de regressão sendo que <span class="math inline">\(\alpha\)</span> e <span class="math inline">\(\beta\)</span> parâmetros populacionais. O parâmetro <span class="math inline">\(\beta\)</span> representa a influência de um ano a mais de educação sobre a renda per capita e sendo <span class="math inline">\(\mathbb{E}(u_i)=0\)</span> para <span class="math inline">\(i=1,...n\)</span></p>
 <p>O que precisamos estimar é o parâmetro populacional <span class="math inline">\(\beta\)</span>. Assim, deve existir uma estimador <span class="math inline">\(\hat{\beta}=h(Y_i,X_j)\)</span> que nos permitir estimar quanto que cada a ano a mais de educação poderia nos trazer a mais de renda. Diferentemente do que fizemos para Esperança, agora temos pouco ou nenhuma intuição do que seria a formulação de <span class="math inline">\(h\)</span>.</p>
 <p>Existem algumas maneiras para fazermos isso:</p>
+<ol type="1">
+<li><p>Estimadores de Momentos</p></li>
+<li><p>Estimadores de Máxima Verossimilhança</p></li>
+<li><p>Mínimos Quadrados</p></li>
+</ol>
 <p>Veremos duas delas Minimos Quadrados e Máxmia Verossimilhança.</p>
 <section id="estimadores-de-mínimos-quadrados" class="level3" data-number="13.4.1">
 <h3 data-number="13.4.1" class="anchored" data-anchor-id="estimadores-de-mínimos-quadrados"><span class="header-section-number">13.4.1</span> Estimadores de Mínimos Quadrados</h3>

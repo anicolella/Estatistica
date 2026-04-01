@@ -349,9 +349,9 @@ Portanto, a probabilidade é praticamente zero.
 
 :::
 
-\begin{tcolorbox}
-O exemplo no R:
-\end{tcolorbox}
+
+**O exemplo no R:**
+
 
 ```{r}
 #| echo = TRUE,
@@ -485,9 +485,9 @@ $$= e^{-1}= 0,3678$$
 Portanto, a probabilidade é de 36,7\%
 
 :::
-\begin{tcolorbox}
+
 **Fazendo o exemplo no R:**
-\end{tcolorbox}
+
 
 ```{r}
 #| echo = TRUE,
@@ -613,9 +613,9 @@ onde $Z \sim N(0,1)$
 
 -   Formalmente, justifica-se tal aproximação pelo Teorema do Limite Central.
 
-    \begin{tcolorbox}
-    **Fazendo o exemplo no R:**
-    \end{tcolorbox}
+    
+**Fazendo o exemplo no R:**
+    
 
 $P(Y \geq 7)$
 

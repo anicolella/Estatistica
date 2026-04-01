@@ -436,9 +436,15 @@ Figure&nbsp;10.1: Valor de pesquisa eleitoral em 2018
 </div>
 <p>Espero que tenha ficado claro que olhar todo mundo, na grande maioria das vezes, é fisicamente, temporalmente e financeiramente impossível.</p>
 <p>Dessa forma nosso objetivo aqui é:</p>
+<p><strong>A partir de uma amostra da população realizar inferência sobre toda a população.</strong></p>
 <section id="exemplos-do-príncipio-no-dia-a-dia" class="level3" data-number="10.1.1">
 <h3 data-number="10.1.1" class="anchored" data-anchor-id="exemplos-do-príncipio-no-dia-a-dia"><span class="header-section-number">10.1.1</span> Exemplos do príncipio no dia a dia</h3>
 <p>Pense nessas situações:</p>
+<ul>
+<li><p>Para medir a glicose muitos pacientes usam uma gota de sangue e um pequeno aparelho. A partir dele sabem quanto tem no corpo todo, basta uma gota para termos boa certeza de quanto é taxa de glicose!</p></li>
+<li><p>Para saber se a quantidade de sal está adequada em uma grande panela de arroz, basta uma pequena colher de chá para termios uma boa certeza!</p></li>
+<li><p>Abacaxis às vezes são vendidos em caminhões na rua. Quando paramos provamos e são doces. Compramos 4 por 10. Qual a certeza que esses que vc está levando estejam também doces? É diferente das situações anteriores?</p></li>
+</ul>
 <p>Com certeza vc deve ter pensado que sim é diferente. A certeza é muito menor na segunda. A diferença está em quão homogênea é a característica na população, o sal no arroz e a glicose no sangue devem ser muito bem distribuidas, ou seja, bem homogêneas. Já a doçura no abacaxi deve ter distribuição pior e provar apenas um abacaxi não nos dá uma ideia do todo.</p>
 <p>Esse é um erro muito comum, a partir de uma ou poucas observações dizer que o todo se comporta da mesma maneira, esse erro se agrava quando maior é a heterogeneidade!!!</p>
 </section>
@@ -463,6 +469,7 @@ Figure&nbsp;10.1: Valor de pesquisa eleitoral em 2018
 </div>
 </div>
 <p>A definição da população depende da pergunta de pesquisa ou análise. Se queremos saber qual o salário médio dos empregados do setor industrial no estado de São Paulo para determinado ano, nossa população são todos os funcionários das indústrias instaladas no estado de São Paulo para esse ano. Se queremos os determinantes do desempenho escolar dos alunos do ensino fundamental no Brasil em 2019, nossa população será esse grupo de aluno nesse ano. Se quisermos avaliar o gasto municipal no ano anterior as eleições no Brasil, temos nossa população formada pelos municípios para o ano de análise.</p>
+<p><strong>Quem define a população é o objetivo do seu trabalho</strong></p>
 </section>
 <section id="amostragem-aleatória-simples" class="level3" data-number="10.2.2">
 <h3 data-number="10.2.2" class="anchored" data-anchor-id="amostragem-aleatória-simples"><span class="header-section-number">10.2.2</span> Amostragem Aleatória Simples</h3>
@@ -675,6 +682,7 @@ Figure&nbsp;10.3: Tipos de amostragem aleatórias
 <section id="distribuições-amostrais" class="level2" data-number="10.3">
 <h2 data-number="10.3" class="anchored" data-anchor-id="distribuições-amostrais"><span class="header-section-number">10.3</span> Distribuições amostrais</h2>
 <p>Nosso objetivo agora é ser mais específico que o colocado anteriormente. Nosso objetivo específico é:</p>
+<p><strong>Fazer uma afirmativa sobre o parâmetro, característica da população, por meio de um estatística, característica da amostra.</strong></p>
 <p>Ou seja, utilizamos uma estatística amostral <span class="math inline">\(T\)</span> para inferir o parâmetro populacional <span class="math inline">\(\Theta\)</span>.</p>
 <p>Como <span class="math inline">\(T\)</span> é uma variável aleatória e possui distribuição de probabilidade, precisamos saber:</p>
 <p><span class="math inline">\(\rightarrow\)</span> Qual a distribuição de T?</p>
@@ -781,15 +789,15 @@ Figure&nbsp;10.3: Tipos de amostragem aleatórias
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>  <span class="co"># 2 mil rodadas de amostragem</span></span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(xbar15)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 165.9665</code></pre>
+<pre><code>[1] 166.1684</code></pre>
 </div>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(xbar50)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 165.9752</code></pre>
+<pre><code>[1] 166.161</code></pre>
 </div>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(xbar150)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 165.9879</code></pre>
+<pre><code>[1] 166.1601</code></pre>
 </div>
 </div>
 <p>Observe que todas ficaram muito próximas da verdadeira esperança da população, mostrando empiricamente o teorema apresentado. Pode-se verificar também a variância amostral <span class="math inline">\(Var(\overline{X})=\frac{\sigma^{2}}{n}\)</span>. Vejamos:</p>
@@ -798,15 +806,15 @@ Figure&nbsp;10.3: Tipos de amostragem aleatórias
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>  <span class="co"># 2 mil rodadas de amostragem</span></span>
 <span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="fu">var</span>(xbar15)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 0.945971</code></pre>
+<pre><code>[1] 1.121122</code></pre>
 </div>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">var</span>(xbar50)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 0.2694787</code></pre>
+<pre><code>[1] 0.3419732</code></pre>
 </div>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">var</span>(xbar150)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 0.09427188</code></pre>
+<pre><code>[1] 0.119035</code></pre>
 </div>
 </div>
 <p>Percebemos que a partir que o tamanho amostral vai aumentando o resultado vai convergindo para <span class="math inline">\(Var(\overline{X})=\frac{\sigma^{2}}{n}\)</span>, lembre-se que <span class="math inline">\(\sigma^{2}=25\)</span> para a simulação feita.</p>

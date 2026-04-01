@@ -22,11 +22,13 @@ execute:
 
 Gostariamos de saber se uma sequência de variáveis aleatórias $X_1,X_2,...,X_n$ caminha ou converge na direção de $X$. Assim, suponha que queiramos saber o valor de $X$, fazemos uma medida via $X_1$, podemos aumentar o número de medidas para $X_2$ e observamos se chega mais próximo de $X$, e constinuamos até $X_n$ e vemos se essa sequencia de medidas vai convergindo para $X$.Veremos aqui 3 tipos de convergência.
 
-\begin{enumerate}
- \item Convergência em probabilidade
- \item Convergência em Média Quadratica
- \item Convergência em Distribuição
-\end{enumerate}
+
+1. Convergência em probabilidade
+
+2. Convergência em Média Quadratica
+ 
+3. Convergência em Distribuição
+
 
 ### Convergência de uma sequência numérica
 
@@ -231,13 +233,11 @@ Ou seja, a Lei forte coloca que $X_n$ converge para $\mu$ com probabilidade igua
 
 É um tipo de convergência pouco utilizado na Econometria. Vejamos em palavras a diferença entre as duas para um $n$ grande
 
-\begin{enumerate}
 
-  \item **Lei Fraca:** $\overline{X}_n$ está próximo de $\mu$ e portanto $|\overline{X}_n-\mu|>\varepsilon$ pode existir mas não é frequente
+1. **Lei Fraca:** $\overline{X}_n$ está próximo de $\mu$ e portanto $|\overline{X}_n-\mu|>\varepsilon$ pode existir mas não é frequente
   
-  \item **Lei Forte:** $|\overline{X}_n-\mu|<\varepsilon$ para todo $n$
+2. **Lei Forte:** $|\overline{X}_n-\mu|<\varepsilon$ para todo $n$
   
-\end{enumerate}
 
 ### Convergência em Média Quadrática
 

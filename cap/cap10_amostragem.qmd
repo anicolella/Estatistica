@@ -24,13 +24,11 @@ Iremos considerar aqui apenas a técnica de amostrage alatatória simples. Nosso
 
 Duas medidas importantes a serem consideradas.
 
-\begin{enumerate}
 
-  \item Distância Máxima tolerável entre a estimativa e o parâmetro real: $d$
+1. Distância Máxima tolerável entre a estimativa e o parâmetro real: $d$
   
-  \item A probabilidade de que $d$ seja maior que o tolerável: $\alpha$
+2. A probabilidade de que $d$ seja maior que o tolerável: $\alpha$
   
-\end{enumerate}
 
 ### Tamanho da amostra com $\sigma$ conhecido
 
@@ -121,9 +119,7 @@ $$n=\frac{ Z_{c}^{2}}{d^{2}} p (1-p)$$
 
 se não sabemos nada considerar $p=0,5$, esse irá gerar a maior amostra para dado $\alpha$ e $d$
 
-\begin{tcolorbox}
-O exemplo no R:
-\end{tcolorbox}
+**O exemplo no R:**
 
 Vejamos como ficaria o tamanho amostral para uma pesquisa eleitoral onde consideramos que $p=0.4$, $1-p=0.6$, $1-\alpha=0,95$ e iremos considerar varios $d$, margem de erro. Ou seja, a primeira é dois pontos percentuais para mais ou menos, o segundo 1,5 pontos percentuais, o terceiro, 1 ponto e por fim 0,5 pontos percentuais. Vejamos o que essa mudança no que estamos ropensos a aceitar como margem de erro afeta o custo da pesquisa. Vimos que o valor por questionário era de R\$53,00.
 

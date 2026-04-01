@@ -22,19 +22,17 @@ execute:
 
 Até o momento estimamos características da população, fizemos a estimativa pontual e a estimativa de intervalo de um parâmetro. Neste último associamos um grau de confiabilidade de que encontrariamos o verdadeiro parâmetro dentro desse intervalo. Entretanto algumas vezes temos teorias diferentes e gostariamos de testar se uma teoria é mais plausível do que outra com base na realidade. Dessa forma, gostariamos de testar se uma \textit{hipótese} sobre a população é mais plausível, ou seja, se os dados amostrais trazem evidências que apoiam ou não essa hipótese. Por exemplo:
 
-\begin{itemize}
 
-\item Verificar se um determinado medicamento não tem efeito sobre a mortalidade causada por um determinado virus ou se possui efeito. 
+1. Verificar se um determinado medicamento não tem efeito sobre a mortalidade causada por um determinado virus ou se possui efeito. 
 
-\item Verificar se a quantidade de gordura anunciado pelo fabricante de um produto realmente está correta ou é maior. 
+2. Verificar se a quantidade de gordura anunciado pelo fabricante de um produto realmente está correta ou é maior. 
 
-\item Se a afirmativa de um canditado de que possui a maioria dos votos é verdadeira ou é menor. 
+3. Se a afirmativa de um canditado de que possui a maioria dos votos é verdadeira ou é menor. 
 
-\item Verificar se as rendas entre duas comunidades são as mesmas para podermos lançar uma política de apoio.
+4. Verificar se as rendas entre duas comunidades são as mesmas para podermos lançar uma política de apoio.
 
-\item Verifcar se uma política do aumento do recurso as empresas não afeta falência ou se tem efeito.
+5. Verifcar se uma política do aumento do recurso as empresas não afeta falência ou se tem efeito.
 
-\end{itemize}
 
 Aqui faremos algo muito parecido com os tribunais, assumimos que a pessoa ou empresa é "inocente". Que o medicamento não tem efeito, que o teor de gordura está certo, que o candidato tem maioria, que as comunidades possuem a mesma renda e que o recurso não afeta o número de falências. Partimos da premissa de que a hipótese inicial é a correta e tentamos verificar com os fatos (dados amostrais) se essa hipótese colocada é verossímil.
 
@@ -119,9 +117,11 @@ Portanto, existem evidências de que essa amostra não veio de uma população c
 Uma outra maneira que podemos olhar o valor de 700 é por meio da probabilidade da cauda acima dele. Vamos considerar a figura acima que mostra a distribuição da média retirada de uma população sob $H_0$, ou seja, $N(600,100^2)$. Podemos estimar qual seria a probabilidade de acharmos valores iguais ou maiores do que 700 nessa distribuição. Essa é chamada probabilidade de cauda a direita $P(\bar{X}\geq 700|H_0)$ e mais conhecida como \textit{p-valor}. Podemos computar esse valor para a cauda inferior, para a superior ou para ambas, a depender da hipótese feita.
 Esse valor nos mostra que quando mais a direita estiver o nosso valor calculado, menor será essa probabilidade e maior serão as evidências contra $H_0$. Para o nosso exemplo anterior temos:
 
-$$P(\bar{X}\geq 700|H_0 \Rightarrow \bar{X} \sim N(600,\frac{100^2}{25}))$$
+$$P \bigg(\bar{X}\geq 700|H_0 \Rightarrow \bar{X} \sim N \bigg(600,\frac{100^2}{25}\bigg)\bigg)$$
 
-$$P(Z_{\bar{X}}\geq \frac{700-600}{100/5}|H_0)$$ $$P(Z_{\bar{X}} \geq  \frac{100}{20})=P(Z_{\bar{X}} \geq 5)=0$$
+$$P \bigg(Z_{\bar{X}}\geq \frac{700-600}{100/5} \Bigg|H_0 \bigg)$$
+
+$$P \bigg(Z_{\bar{X}} \geq  \frac{100}{20} \bigg)=P(Z_{\bar{X}} \geq 5)=0$$
 
 Notamos que esse valor de $z_c$ é muito alto e nem aparece na tabela da normal padrão. Mostrando que essa probabilidade é de zero. Ou seja, o p-valor nesse caso é igual a 0, mostrando uma forte evidência de que a ONG está enganada com relação a sua medida da renda dessa população.
 
@@ -158,16 +158,15 @@ Erro Tipo II (EII) ocorre quando "indevidamente" não rejeitamos $H_0$. Nesse ca
 
 Nosso desafio agora é estabelecer um critério de decisão, o ponto a partir do qual dizemos que $H_0$ não parece mais provável,ou seja, rejeitamos $H_0$. Essa chamaremos de região crítica ou de rejeição, que são os valores a partir dos quais entendemos que $H_0$ não é mais plausível. Conforme a Figura 1 - a interrogação. Vejamos o nosso problema em termos de erros:
 
-\begin{itemize}
 
-\item EI $(\alpha)$- Dizer que a renda é maior que 600, quando na realizadade ela é de 600.
+1. EI $(\alpha)$- Dizer que a renda é maior que 600, quando na realizadade ela é de 600.
 
-\item EII $(\beta)$- Dizer que a renda é de 600 quando na realidade ela é maior do que 600. 
-\end{itemize}
+2. EII $(\beta)$- Dizer que a renda é de 600 quando na realidade ela é maior do que 600. 
+
 
 Nota-se que conseguimos calcular o Erro Tipo I $(\alpha)$ com base na distribuição sob $H_0$, entretanto, como não sabemos qual é a distribuição sob $H_1$, fica difícil calcular o EII $(\beta)$. Veremos isso com mais detalhe a frente.
 
-Vamos retomar o nosso exemplo onde a ONG afirma que uma comunidade tem renda de R\$600 e portanto deveria estar inclusa no programa de governo. O governo contexta. Foi retirada uma amostra de $n=25$ e a distribuição de $\bar{X}$ sob $H_0$ será $N(600,\frac{100^2}{25})$ e a hipótese a ser testada será:
+Vamos retomar o nosso exemplo onde a ONG afirma que uma comunidade tem renda de R\$600 e portanto deveria estar inclusa no programa de governo. O governo contexta. Foi retirada uma amostra de $n=25$ e a distribuição de $\bar{X}$ sob $H_0$ será $N \bigg(600,\frac{100^2}{25} \bigg)$ e a hipótese a ser testada será:
 
 $$H_0: \qquad \mu=600$$ $$H_1: \qquad \mu>600$$
 
@@ -232,7 +231,7 @@ P(E II)=P(\overline{X} \notin R C |H_1 \quad \text { verdadeiro })=\beta
 =P(\overline{X} < 633 )| \overline{X} \sim N (660;100^{2}/25)).
 \\
 \\
-=P (z < \frac{633-660}{20})
+=P \bigg(z < \frac{633-660}{20} \bigg)
 \\
 \\
 =P(z<-1,35)=8.85\%=\beta
@@ -342,7 +341,7 @@ Vamos supor agora que realizamos uma nova amostragem e a estimativa do nosso tes
 $$P \bigg(\bar{X}\geq 645|H_0 \Rightarrow \bar{X} \sim N \bigg(600,\frac{100^2}{25} \bigg) \bigg)$$
 
 
-$$P \bigg(Z_{\bar{X}}\geq \frac{645-600}{100/5}|H_0 \bigg)$$
+$$P \bigg(Z_{\bar{X}}\geq \frac{645-600}{100/5} \Bigg|H_0 \bigg)$$
 
 $$P \bigg(Z_{\bar{X}} \geq  \frac{45}{20} \bigg)=P(Z_{\bar{X}} \geq 2.25)=0.0122$$
 
@@ -382,18 +381,14 @@ text(665, 0.002, expression(paste("p-value=0.0122")))
 
 Em marrom, linha mais a esquerda, temos o limite da região crítica, ou seja, o valor a partir do qual rejeitariamos $H_0$. Note que podemos montar essa região sem efetivamente retiramos uma amostra, somente com base na teoria e no tamanho amostral que poderiamos coletar. Ela especifica todas os valores sob os quais rejeitamos $H_0$. O p-valor está indicado pela linha azul no gráfico e nos fornece a ideia de quão forte é essa rejeição, observa-se que quanto menor o p-valor (valores mais extremos) mais evidências temos de que a hipótese nula $H_0$ não é adequada, ou seja, mais forte são as evidências para a rejeição.
 
-### Os Cinco passos para a contrução do teste de hipótese
+### Os Cinco passos para a construção do teste de hipótese
 
-\begin{enumerate}
+1. Estabeleça a hipótese nula $H_0$ e a hipótese alternativa $H_1$.
 
-\item Estabeleça as hipótese nula $H_0$ e a hipótese alternativa $H_1$
+2. Defina qual estimador do parâmetro populacional $\theta$ será usado para testar $H_0$: média, desvio padrão amostral, proporção amostral, etc.
 
-\item Defina qual estimador do parâmetro populacional $\theta$ que será usado para testar $H_0$: média, desvio padrão amostral, proporção amostral etc
+3. Defina o nível de significância $\alpha$ e estabeleça qual o valor e a região crítica.
 
-\item Defina o nível de significância - $\alpha$ e estabeleça qual o valor e a região crítica.
+4. Calcule a estimativa do teste estatístico.
 
-\item Calcule a estimativa do teste estatístico.
-
-\item Se não pertencer a Região Crítica não rejeitamos $H_0$, caso contrário rejeitamos a hipótese nula $H_0$.
-
-\end{enumerate}
+5. Se não pertencer à Região Crítica, não rejeitamos $H_0$; caso contrário, rejeitamos a hipótese nula $H_0$.
