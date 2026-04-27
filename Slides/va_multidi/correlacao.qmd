@@ -30,17 +30,15 @@ author:
 date: last-modified
 ---
 
-
-
 # Covariância e Coeficiente de Correlação {background-color="#87806b"}
 
 # Coeficiente de Correlação {background-color="#4c6073"}
+
 ## Definindo 📖
 
-- Até o momento medimos a $E(X)$ e a $Var(X)$, ou seja, uma medida de posição e de variabilidade em relação a $R_x$, 
+-   Até o momento medimos a $E(X)$ e a $Var(X)$, ou seja, uma medida de posição e de variabilidade em relação a $R_x$,
 
-- Quando temos um vetor bidimensional $(X,Y)$ uma outra medida surge, o "grau de associação" linear entre $X$ e $Y$.
-
+-   Quando temos um vetor bidimensional $(X,Y)$ uma outra medida surge, o "grau de associação" linear entre $X$ e $Y$.
 
 ::: {.callout-note icon="false" title="DEFINIÇÃO"}
 Seja $(X,Y)$ uma variável aleatória bidimensional. O **Coeficiente de Correlação** $\rho_{X,Y}$ entre $X$ e $Y$ será:
@@ -53,49 +51,43 @@ $$
 :::
 
 # A Covariância {background-color="#4c6073"}
+
 ## Definindo 📖
 
-- Um termo muito importante surge na expressão acima, a **Covariância**. 
+-   Um termo muito importante surge na expressão acima, a **Covariância**.
 
-- Ela mede a variabilidade conjunta de uma variável aleátoria multidimensional.
-
+-   Ela mede a variabilidade conjunta de uma variável aleátoria multidimensional.
 
 ::: {.callout-note icon="false" title="DEFINIÇÃO"}
-A **Covariância** entre $X$ e $Y$, $Cov(X,Y)$, é dada por:
-$$
+A **Covariância** entre $X$ e $Y$, $Cov(X,Y)$, é dada por: $$
 \begin{array}{ccc}
 Cov(X,Y)=E[(X-E(X))(Y-E(Y))]
 \end{array}
 $$
 :::
 
-- Para tirar o efeito das escalas de medidas, dividimos pelos desvio-padrões. 
-
+-   Para tirar o efeito das escalas de medidas, dividimos pelos desvio-padrões.
 
 # Propriedades do Coef. de Correlação {background-color="#4c6073"}
 
 ## Definindo 📖
 
-- Novamente, a correlação mede o **GRAU DE ASSOCIAÇÃO LINEAR**. 
+-   Novamente, a correlação mede o **GRAU DE ASSOCIAÇÃO LINEAR**.
 
-- Vejamos algumas Propriedades da Correlação:
+-   Vejamos algumas Propriedades da Correlação:
 
-::: {.callout-note icon="false" title="TEOREMA"} 
-O coeficiente de correlação $\rho_{X,Y}$ entre $X$ e $Y$ pode ser apresentado como:
-$$
+::: {.callout-note icon="false" title="TEOREMA"}
+O coeficiente de correlação $\rho_{X,Y}$ entre $X$ e $Y$ pode ser apresentado como: $$
 \begin{array}{ccc}
 \rho_{X,Y}=\frac{E(XY)-E(X)E(Y)}{\sqrt{Var(X)Var(Y)}}
 \end{array}
 $$
-
 :::
 
 ## Definindo 📖
 
-::: {.callout-note icon="false" title="TEOREMA"} 
-
-**Prova:**
-$$
+::: {.callout-note icon="false" title="TEOREMA"}
+**Prova:** $$
 \begin{array}{ccc}
 E[(X-E(X))(Y-E(Y))]\\
 \\
@@ -109,22 +101,19 @@ $$
 :::
 
 ## Independência e a Correlação
-  
+
 ::: {.callout-note icon="false" title="TEOREMA"}
-Se $X$ e $Y$ forem independentes então:
-$$
+Se $X$ e $Y$ forem independentes então: $$
 \begin{array}{ccc}
 \rho_{X,Y}=0
 \end{array}
 $$
 
----
+------------------------------------------------------------------------
 
 **Prova:**
 
-
-Da propriedade da independência, se $X$ e $Y$ forem independentes então:
-$$
+Da propriedade da independência, se $X$ e $Y$ forem independentes então: $$
 \begin{array}{ccc}
 E(X,Y)=E(X)E(Y)
 \end{array}
@@ -133,30 +122,26 @@ $$
 
 Considerando o teorema acima, e sabendo que as variáveis são independentes, então $\rho_{X,Y}=0$
 
+## Importante:
 
-## Importante: 
+-   Note que Independência $\Rightarrow \rho_{X,Y}=0$
 
-- Note que Independência $\Rightarrow \rho_{X,Y}=0$ 
-
-- Mas **não** é verdade que $\rho_{X,Y}=0 \Rightarrow Independência$
-
+-   Mas **não** é verdade que $\rho_{X,Y}=0 \Rightarrow Independência$
 
 ## O Intervalo da Correlação
 
 ::: {.callout-note icon="false" title="TEOREMA"}
-O Coeficiente de Correlação possui valores entre -1 e 1, ou seja:
-$$
+O Coeficiente de Correlação possui valores entre -1 e 1, ou seja: $$
 \begin{array}{ccc}
 -1 \leq \rho \leq 1
 \end{array}
-$$ 
+$$
 
----
+------------------------------------------------------------------------
 
 **Prova:**
 
-Considere a seguinte desigualdade verdadeira:
-$$
+Considere a seguinte desigualdade verdadeira: $$
 \begin{array}{ccc}
 (\frac{x-\mu_x}{\sigma_x}\mp \frac{Y-\mu_y}{\sigma_y} )^{2}\geq 0
 \end{array}
@@ -169,17 +154,14 @@ $$
 E(\frac{x-\mu_x}{\sigma_x}\mp \frac{Y-\mu_y}{\sigma_y} )^{2}\geq 0
 \end{array}
 $$
-
 :::
 
 ## O Intervalo da Correlação
 
 ::: {.callout-note icon="false" title="TEOREMA"}
-
 **Continuação Prova:**
 
-Desenvolvendo, temos que:
-$$
+Desenvolvendo, temos que: $$
 \begin{array}{ccc}
 E[(\frac{x-\mu_x}{\sigma_x})^{2}+(\frac{Y-\mu_y}{\sigma_y})^{2} \mp 2 (\frac{x-\mu_x}{\sigma_x})(\frac{Y-\mu_y}{\sigma_y}) ]\geq 0
 \end{array}
@@ -207,16 +189,14 @@ $$
 \therefore \rho \geq -1 \ e \ \rho \leq 1
 \end{array}
 $$
-
 :::
-
 
 ## Correlação: Associação linear
 
 ::: {.callout-note icon="false" title="TEOREMA"}
 Se X e Y forem duas variáveis aleatórias, onde $Y=AX+B$, onde A e B são constantes. Então $\rho^{2}=1$. Se $A>0$, $\rho=1$. Se $A<0$, $\rho=-1$
 
----
+------------------------------------------------------------------------
 
 **Prova:**
 
@@ -230,20 +210,18 @@ E(XY)=E(AX^{2}+BX) \ \rightarrow AE(X^{2})+BE(X)
 \end{array}
 $$
 
-Então: 
-$$
+Então: $$
 \begin{array}{ccc}
 \rho^{2}=\frac{A^{2}{Var(X)}}{A^{2}{Var(X)}}=1
 \end{array}
 $$
-
 :::
 
 ## O Coeficiente de Correlação
 
-- Assim, com base no exposto, temos que o coeficiente de correlação é uma medida do grau de linearidade entre X e Y. 
+-   Assim, com base no exposto, temos que o coeficiente de correlação é uma medida do grau de linearidade entre X e Y.
 
-- Dessa forma, $\rho$ próximo a 1 e -1 indicam alto grau de linearidade e $\rho$ próximo a zero indica ausência de relação linear - mas não diz nada sobre relações não-lineares. 
+-   Dessa forma, $\rho$ próximo a 1 e -1 indicam alto grau de linearidade e $\rho$ próximo a zero indica ausência de relação linear - mas não diz nada sobre relações não-lineares.
 
 # Correlação: Graficamente {background-color="#4c6073"}
 
@@ -257,15 +235,14 @@ data$v5 = -(data$var1 ** 2)
 pairs.panels(data)
 ```
 
-
 ## Correlação
-- Vamos começar pelas variáveis v5 e v4, elas tem um comportantamento conjunto totalmente linear, ou seja, saber de v4 te informa corretmente o que acontecerá com v5. Aqui quando v5 sobe, v4 desce.
 
-- Vejamos agora as variáveis v3 e v2, observe como os dados estão disperso, sem nenhum padrão de comportamento linear. Nesse caso a correlação é próxima a zero (-0.0135). 
+-   Vamos começar pelas variáveis v5 e v4, elas tem um comportantamento conjunto totalmente linear, ou seja, saber de v4 te informa corretmente o que acontecerá com v5. Aqui quando v5 sobe, v4 desce.
+
+-   Vejamos agora as variáveis v3 e v2, observe como os dados estão disperso, sem nenhum padrão de comportamento linear. Nesse caso a correlação é próxima a zero (-0.0135).
 
 ## Correlação: Visualização gráfica
 
-- Perceba que a relação não-linear entre v1 e v4 e v1 e v5, faz com que a correlação seja menor que 1 e não perfeita. 
+-   Perceba que a relação não-linear entre v1 e v4 e v1 e v5, faz com que a correlação seja menor que 1 e não perfeita.
 
-- Já as variáveis v1 e v2 mostram comportamento conjunto positivo, mas não perfeito, reativamente disperso. Quando v1 sobe, v2 também sobe, entretanto não cosneguimos prever esse comportamento perfeitamente. 
-
+-   Já as variáveis v1 e v2 mostram comportamento conjunto positivo, mas não perfeito, reativamente disperso. Quando v1 sobe, v2 também sobe, entretanto não cosneguimos prever esse comportamento perfeitamente.

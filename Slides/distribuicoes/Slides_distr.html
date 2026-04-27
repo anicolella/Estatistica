@@ -1,0 +1,1832 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.8.25">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Alexandre Nicolella">
+<meta name="dcterms.date" content="2026-03-16">
+
+<title>Alguns Modelos para Variáveis Aleatórias Contínuas</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="Slides_distr_files/libs/clipboard/clipboard.min.js"></script>
+<script src="Slides_distr_files/libs/quarto-html/quarto.js" type="module"></script>
+<script src="Slides_distr_files/libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="Slides_distr_files/libs/quarto-html/axe/axe-check.js" type="module"></script>
+<script src="Slides_distr_files/libs/quarto-html/popper.min.js"></script>
+<script src="Slides_distr_files/libs/quarto-html/tippy.umd.min.js"></script>
+<script src="Slides_distr_files/libs/quarto-html/anchor.min.js"></script>
+<link href="Slides_distr_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="Slides_distr_files/libs/quarto-html/quarto-syntax-highlighting-7b89279ff1a6dce999919e0e67d4d9ec.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="Slides_distr_files/libs/bootstrap/bootstrap.min.js"></script>
+<link href="Slides_distr_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="Slides_distr_files/libs/bootstrap/bootstrap-9e3ffae467580fdb927a41352e75a2e0.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+</head>
+
+<body class="quarto-light">
+
+<div id="quarto-content" class="page-columns page-rows-contents page-layout-article">
+<div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+<div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="Slides_distr.html"><i class="bi bi-file-slides"></i>RevealJS</a></li></ul></div></div>
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Alguns Modelos para Variáveis Aleatórias Contínuas</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Alexandre Nicolella </p>
+          </div>
+  </div>
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">March 16, 2026</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="modelos-para-variáveis-aleatórias-contínuas" class="level1">
+<h1>Modelos para Variáveis Aleatórias Contínuas</h1>
+<section id="a-distribuição-de-probabilidade-normal" class="level2">
+<h2 class="anchored" data-anchor-id="a-distribuição-de-probabilidade-normal">A Distribuição de Probabilidade Normal</h2>
+<section id="o-modelo" class="level3">
+<h3 class="anchored" data-anchor-id="o-modelo">O Modelo</h3>
+<p>Um dos principais modelos de probabilidade. É essencial para inferência estatística (distribuição Gaussiana).</p>
+<div class="callout callout-style-default callout-note no-icon callout-titled" title="DEFINIÇÃO">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>DEFINIÇÃO
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>A variável aleatória <span class="math inline">\(X\)</span> tem distribuição normal com Média <span class="math inline">\(\mu\)</span> e Variância <span class="math inline">\(\sigma^{2}\)</span>, onde <span class="math inline">\(-\infty&lt;\mu&lt;+\infty\)</span> e <span class="math inline">\(0&lt; \sigma^{2}&lt; \infty\)</span>. Sua densidade é dada por:</p>
+<p><span class="math display">\[\begin{array}{ccc}
+f(x;\mu, \sigma^{2})=\frac{1}{\sigma \sqrt{2 \pi }} e^{\frac{-(x-\mu)^{2}}{2 \sigma^{2}}}
+\end{array}\]</span></p>
+<p>Onde <span class="math inline">\(-\infty&lt;x&lt;+\infty\)</span></p>
+</div>
+</div>
+</section>
+<section id="representação-gráfica" class="level3">
+<h3 class="anchored" data-anchor-id="representação-gráfica">Representação Gráfica:</h3>
+<p>Uma Distribuição Normal com parâmetros <span class="math inline">\(\mu\)</span> e <span class="math inline">\(\sigma^{2}\)</span> pode ser representada graficamente como:</p>
+<div class="cell">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="Slides_distr_files/figure-html/unnamed-chunk-1-1.png" class="img-fluid figure-img" width="480"></p>
+<figcaption>Distribuição Normal</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="desvios-e-probabilidade-no-modelo-normal" class="level3">
+<h3 class="anchored" data-anchor-id="desvios-e-probabilidade-no-modelo-normal">Desvios e probabilidade no Modelo Normal</h3>
+<ul>
+<li>Para entender melhor a distribuição Normal e a relação entre a média e o desvio padrão <span class="math inline">\(\sigma\)</span> (- lembrando que <span class="math inline">\(\sigma=\sqrt{variância}\)</span>) é interessante notar a proporção nos intervalos de desvio-padrão.</li>
+</ul>
+</section>
+<section id="desvios-e-probabilidade-no-modelo-normal-1" class="level3">
+<h3 class="anchored" data-anchor-id="desvios-e-probabilidade-no-modelo-normal-1">Desvios e probabilidade no Modelo Normal</h3>
+<ul>
+<li>Ou seja, a fração da área abaixo da curva <span class="math inline">\(f(x)\)</span> quando temos as seguintes amplitudes,tabela 1, da variável x na distribuição:</li>
+</ul>
+<center>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th style="text-align: center;">Amplitude</th>
+<th style="text-align: center;">Proporção</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;"><span class="math inline">\(\mu\pm\sigma\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(68,3\%\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><span class="math inline">\(\mu\pm2\sigma\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(95,5\%\)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><span class="math inline">\(\mu\pm3\sigma\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(99,7\%\)</span></td>
+</tr>
+</tbody>
+</table>
+</center>
+</section>
+<section id="representação-gráfica-1" class="level3">
+<h3 class="anchored" data-anchor-id="representação-gráfica-1">Representação gráfica</h3>
+<ul>
+<li><p>Considere 3 distribuições normais, <span class="math inline">\(X~N(10,9)\)</span>, <span class="math inline">\(Y~N(200,100)\)</span> e <span class="math inline">\(Z~N(0,1)\)</span>.</p></li>
+<li><p>Chance de estar entre <span class="math inline">\(\mu\)</span> e <span class="math inline">\(\sigma\)</span>, ou seja, entre 10 e 13 para X, entre 200 e 210 para Y e entre 0 e 1 para Z, é de 34,15%.</p></li>
+</ul>
+</section>
+<section id="representação-gráfica-2" class="level3">
+<h3 class="anchored" data-anchor-id="representação-gráfica-2">Representação gráfica</h3>
+<ul>
+<li>Isso vale para qualquer intervalo de desvio (-1,+1); (-1.3,+1.3); (-3,+3) !!!!</li>
+</ul>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="../figuras/capitulos/Imagem2.png" class="img-fluid figure-img" style="width:50.0%"></p>
+<figcaption>Relação entre o desvio padrão e amplitude da Normal</figcaption>
+</figure>
+</div>
+</section>
+<section id="os-momentos" class="level3">
+<h3 class="anchored" data-anchor-id="os-momentos">Os Momentos:</h3>
+<p>Os primeiros dois momentos da distribuição normal são:</p>
+<div class="callout callout-style-default callout-note no-icon callout-titled" title="DEFINIÇÃO">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>DEFINIÇÃO
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Esperança: <span class="math inline">\(E(X)=\mu\)</span></p>
+<hr>
+<p>Variância:<span class="math inline">\(Var(X)=\sigma^{2}\)</span></p>
+</div>
+</div>
+</section>
+<section id="os-momentos-1" class="level3">
+<h3 class="anchored" data-anchor-id="os-momentos-1">Os Momentos:</h3>
+<p>Dessa forma para a distribuição normal as seguintes características são verdadeiras:</p>
+<ul>
+<li><p>Se X é normalmente distribuída então <span class="math inline">\(X \sim N(\mu ,\sigma ^{2})\)</span></p></li>
+<li><p>Como pode ser visto na figura 1, a densidade da distribuição é simétrica. Ou seja, para todo <span class="math inline">\(x\)</span> real é verdade que:</p></li>
+</ul>
+<p><span class="math display">\[\begin{array}{ccc}
+f(\mu + x; \mu, \sigma ^{2}) = f(\mu - x; \mu, \sigma ^{2})
+\end{array}\]</span></p>
+</section>
+</section>
+<section id="normal-padronizada" class="level2">
+<h2 class="anchored" data-anchor-id="normal-padronizada">Normal Padronizada</h2>
+<section id="o-modelo-normal-padrão" class="level3">
+<h3 class="anchored" data-anchor-id="o-modelo-normal-padrão">O Modelo Normal Padrão</h3>
+<p>Um caso especial da distribuição normal é aquela que possui média 0 e desvio padrão igual a 1. Recebe até um nome diferenciado, distribuição normal padrão.</p>
+<div class="callout callout-style-default callout-note no-icon callout-titled" title="DEFINIÇÃO">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>DEFINIÇÃO
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Uma variável Z normal padrão (ou reduzida) é uma distribuição Normal com parâmetros <span class="math inline">\(\mu=0\)</span> e <span class="math inline">\(\sigma=1\)</span>, tal que <span class="math inline">\(Z \sim N(0 ,1)\)</span>.</p>
+<p>Assim, essa variável aleatória Z, possui a seguinte f.d.p.: <span class="math display">\[\begin{array}{ccc}
+\phi(Z)= \frac{1}{\sqrt{2\pi}} e^{\frac{-z^{2} }{2}}
+\end{array}\]</span></p>
+<p><span class="math inline">\(-\infty &lt; Z &lt; \infty\)</span></p>
+</div>
+</div>
+</section>
+<section id="graficamente" class="level3">
+<h3 class="anchored" data-anchor-id="graficamente">Graficamente</h3>
+<p>A figura abaixo representa graficamente a Distribuição Normal Padrão:</p>
+<div class="cell">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="Slides_distr_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid figure-img" width="480"></p>
+<figcaption>Distribuição Normal</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="padronização" class="level3">
+<h3 class="anchored" data-anchor-id="padronização">Padronização</h3>
+<div class="callout callout-style-default callout-note no-icon callout-titled" title="TEOREMA">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>TEOREMA
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Seja <span class="math inline">\(X\)</span> uma variável distribuída normalmente, tal que <span class="math inline">\(X \sim N(\mu ,\sigma ^{2})\)</span> então temos uma variável <span class="math inline">\(Z\)</span> padronizada a partir de <span class="math inline">\(X\)</span> tal que:</p>
+<p><span class="math display">\[\begin{array}{ccc}
+Z=\frac{X-\mu}{\sigma}
+\end{array}\]</span></p>
+<p>E a variável <span class="math inline">\(Z\)</span> terá os seguintes momentos: <span class="math inline">\(E(Z)=0\)</span> e <span class="math inline">\(Var(Z)=1\)</span></p>
+</div>
+</div>
+</section>
+<section id="padronização-1" class="level3">
+<h3 class="anchored" data-anchor-id="padronização-1">Padronização</h3>
+<div class="callout callout-style-default callout-note no-icon callout-titled" title="TEOREMA">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>TEOREMA
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><strong>Prova:</strong></p>
+<ol type="I">
+<li>Média:</li>
+</ol>
+<p><span class="math display">\[\begin{array}{ccc}
+E(Z)=E(\frac{X-\mu}{\sigma})
+\\
+=\frac{1}{\sigma} E(X-\mu)
+\\
+=\frac{1}{\sigma} [E(X)-E(\mu)]
+\\
+=\frac{1}{\sigma} [E(\mu)-E(\mu)] =0
+\end{array}\]</span></p>
+</div>
+</div>
+</section>
+<section id="padronização-2" class="level3">
+<h3 class="anchored" data-anchor-id="padronização-2">Padronização</h3>
+<div class="callout callout-style-default callout-note no-icon callout-titled" title="TEOREMA">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>TEOREMA
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ol start="2" type="I">
+<li>Variância:</li>
+</ol>
+<p><span class="math display">\[\begin{array}{ccc}
+Var(Z)=E(Z ^{2})-E(Z) ^{2}
+\end{array}\]</span></p>
+<p>Note que:</p>
+<p><span class="math display">\[\begin{array}{ccc}
+E(Z ^{2}) = \frac{1}{\sigma^{2}}[E(x-\mu)]^{2}
+\end{array}\]</span> <span class="math display">\[\begin{array}{ccc}
+=\frac{\sigma^{2}}{\sigma^{2}}
+\end{array}\]</span> <span class="math display">\[\begin{array}{ccc}
+=1
+\end{array}\]</span></p>
+<p>E encontramos acima que <span class="math inline">\(E(Z)=0\)</span>. Portanto:</p>
+<p><span class="math display">\[\begin{array}{ccc}
+Var(Z)=E(Z ^{2})-E(Z) ^{2}
+= 1 -0
+= 1
+\end{array}\]</span></p>
+</div>
+</div>
+</section>
+<section id="função-distribuição-acumulada" class="level3">
+<h3 class="anchored" data-anchor-id="função-distribuição-acumulada">Função Distribuição Acumulada</h3>
+<div class="callout callout-style-default callout-note no-icon callout-titled" title="DEFINIÇÃO">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>DEFINIÇÃO
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>A f.d.a. <span class="math inline">\(F(y)\)</span> de uma v.a. normalmente distribuída <span class="math inline">\(X\)</span> com média <span class="math inline">\(\mu\)</span> e variância <span class="math inline">\(\sigma^{2}\)</span> é:</p>
+<p><span class="math display">\[\begin{array}{ccc}
+F(y)=\int_{-\infty}^{y} f(x;\mu,\sigma^{2})dx\ \ \ \ \ y \in \mathbb{R}
+\end{array}\]</span></p>
+<p>Onde <span class="math inline">\(f()\)</span> é a função de densidade de probabilidade.</p>
+<p><br>
+</p>
+<p>Para a normal padrão temos a seguinte f.d.a:</p>
+<p><span class="math display">\[\begin{array}{ccc}
+\Phi(y)=\int_{-\infty}^{y} \phi(Z)= \frac{1}{\sqrt{2\pi}}\int_{-\infty}^{y} e^{\frac{-z^{2} }{2}}dz
+\end{array}\]</span></p>
+<p>Onde <span class="math inline">\(\phi(Z)\)</span> é a função de densidade de probabilidade.</p>
+</div>
+</div>
+</section>
+<section id="função-distribuição-acumulada-1" class="level3">
+<h3 class="anchored" data-anchor-id="função-distribuição-acumulada-1">Função Distribuição Acumulada</h3>
+<p>A figura abaixo representa a área entre <span class="math inline">\(-\infty\)</span> e <span class="math inline">\(y\)</span> (figura à esquerda) de uma normal padrão com função de densidade <span class="math inline">\(\phi()\)</span> . Já a figura à direita representa a densidade acumulada <span class="math inline">\(\Phi()\)</span>.</p>
+<div class="cell">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="Slides_distr_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid figure-img" width="672"></p>
+<figcaption>Função Distribuição de Probabilidade Normal e Função Distribuição Acumulada Normal</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="calculando-as-probabilidades-para-a-distribuição-normal" class="level3">
+<h3 class="anchored" data-anchor-id="calculando-as-probabilidades-para-a-distribuição-normal">Calculando as probabilidades para a Distribuição Normal</h3>
+<ul>
+<li>Suponha que <span class="math inline">\(X \sim N(\mu ,\sigma ^{2})\)</span> e queremos calcular: <span class="math inline">\(P(a&lt;X&lt;b)=\int_{a}^{b}f(x) dx\)</span>. Sendo <span class="math inline">\(f(x)\)</span> a f.d.p. da Dist. Normal.</li>
+</ul>
+<div class="cell">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="Slides_distr_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid figure-img" width="384"></p>
+<figcaption>Calculando a probabilidade para a Distribuição Normal</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="calculando-as-probabilidades-para-a-distribuição-normal-1" class="level3">
+<h3 class="anchored" data-anchor-id="calculando-as-probabilidades-para-a-distribuição-normal-1">Calculando as probabilidades para a Distribuição Normal</h3>
+<ul>
+<li><p>É importante ressaltar que o cálculo da área só pode ser obtido por integração numérica. Para cada distribuição, com seu <span class="math inline">\(\mu\)</span> e <span class="math inline">\(\sigma\)</span> próprios, teríamos que calcular qual a <span class="math inline">\(P(a&lt;X&lt;b)\)</span>.</p></li>
+<li><p>Então, para simplificar o problema, transformamos a distribuição em uma Normal Padrão, a qual temos as probabilidades calculadas e disponibilizadas na tabela da Normal Padrão.</p></li>
+</ul>
+</section>
+<section id="calculando-as-probabilidades-para-a-distribuição-normal-2" class="level3">
+<h3 class="anchored" data-anchor-id="calculando-as-probabilidades-para-a-distribuição-normal-2">Calculando as probabilidades para a Distribuição Normal</h3>
+<ul>
+<li><p>Ou seja, após a transformação em Normal padrão, passamos do cálculo da <span class="math inline">\(P(a&lt;X&lt;b)\)</span> para a <span class="math inline">\(P(a*&lt;Z&lt;b*)\)</span>, onde <span class="math inline">\(Z \sim N(0 , 1)\)</span></p></li>
+<li><p>Assim, podemos consultar o valor da <span class="math inline">\(P(a*&lt;Z&lt;b*)\)</span> já calculado e reportado na tabela da Normal Padrão.</p></li>
+</ul>
+</section>
+<section id="calculando-as-probabilidades-para-a-distribuição-normal-3" class="level3">
+<h3 class="anchored" data-anchor-id="calculando-as-probabilidades-para-a-distribuição-normal-3">Calculando as probabilidades para a Distribuição Normal</h3>
+<div class="cell">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="Slides_distr_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid figure-img" width="432"></p>
+<figcaption>Relação entre as Distribuições Normais e a Normal Padrão</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="um-exemplo" class="level3">
+<h3 class="anchored" data-anchor-id="um-exemplo">Um Exemplo</h3>
+<div class="callout callout-style-default callout-tip no-icon callout-titled" title="EXEMPLO">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>EXEMPLO
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Calcule a <span class="math inline">\(P(0\leq Z \leq z_c)\)</span> para <span class="math inline">\(z_c=1,73\)</span></p>
+</div>
+</div>
+<div class="fragment callout callout-style-default callout-caution no-icon callout-titled" title="RESPOSTA">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Caution</span>RESPOSTA
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Consultando a tabela da Normal Padrão:</p>
+<p><span class="math inline">\(P(0\leq Z \leq 1,73)=0,45818\)</span></p>
+<p>A Figura a seguir mostra como consultamos tal valor na tabela Normal Padrão.</p>
+</div>
+</div>
+</section>
+<section id="tabela-normal" class="level3">
+<h3 class="anchored" data-anchor-id="tabela-normal">Tabela Normal</h3>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="../figuras/capitulos/Imagem8.jpeg" class="img-fluid figure-img" style="width:70.0%"></p>
+<figcaption>Consulta à tabela Normal Padrão para o exemplo apresentado</figcaption>
+</figure>
+</div>
+</section>
+<section id="mais-um-exemplo" class="level3">
+<h3 class="anchored" data-anchor-id="mais-um-exemplo">Mais um exemplo</h3>
+<div class="callout callout-style-default callout-tip no-icon callout-titled" title="EXEMPLO">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>EXEMPLO
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Depósitos no Banco Ribeirão em janeiro (x) são distribuídos normalmente com média 10000,00 e d.p. 1500,00</p>
+<p>Seleciona-se um depósito ao acaso, qual a probabilidade de o depósito ser de:</p>
+<ol type="a">
+<li><p>10 000 ou menos</p></li>
+<li><p>Um valor entre 12 000 e 15 000</p></li>
+<li><p>Maior que 20 000</p></li>
+</ol>
+</div>
+</div>
+<div class="fragment callout callout-style-default callout-caution no-icon callout-titled" title="RESPOSTA">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Caution</span>RESPOSTA
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ol type="a">
+<li><span class="math display">\[\begin{array}{ccc}
+P(X&lt;10000)=P(Z \leq \frac{10000-10000}{15000})=P(Z\leq 0) = 0,5
+\end{array}\]</span> Portanto, a probabilidade é de <span class="math inline">\(50\%\)</span></li>
+</ol>
+</div>
+</div>
+</section>
+<section id="mais-um-exemplo-1" class="level3">
+<h3 class="anchored" data-anchor-id="mais-um-exemplo-1">Mais um exemplo</h3>
+<div class="callout callout-style-default callout-tip no-icon callout-titled" title="EXEMPLO">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>EXEMPLO
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ol start="2" type="a">
+<li><p><span class="math display">\[\begin{array}{ccc}
+P(12000&lt;X&lt;15000)=P(\frac{12000-10000}{15000} &lt; Z &lt; \frac{10000-10000}{15000})
+\end{array}\]</span> <span class="math display">\[\begin{array}{ccc}
+= P(\frac{4}{3} &lt; Z &lt; \frac{10}{3})
+\end{array}\]</span> <span class="math display">\[\begin{array}{ccc}
+=P(1,33&lt;Z&lt;3,333)
+\end{array}\]</span> <span class="math display">\[\begin{array}{ccc}
+=0,49957 - 0,40824 = 0,09133
+\end{array}\]</span> Portanto, a probabilidade é de <span class="math inline">\(9,1\%\)</span></p></li>
+<li><p><span class="math display">\[\begin{array}{ccc}
+P(X&gt;20000)=P( Z &gt; \frac{20000-10000}{15000})
+\end{array}\]</span> <span class="math display">\[\begin{array}{ccc}
+= P(Z&gt;6,67) \cong 0
+\end{array}\]</span> Portanto, a probabilidade é praticamente zero.</p></li>
+</ol>
+</div>
+</div>
+</section>
+<section id="mais-um-exemplo-2" class="level3">
+<h3 class="anchored" data-anchor-id="mais-um-exemplo-2">Mais um exemplo</h3>
+<ul>
+<li>No R:</li>
+</ul>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">pnorm</span>(<span class="dv">10000</span>,<span class="at">mean=</span><span class="dv">10000</span>,<span class="at">sd=</span><span class="dv">1500</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.5</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">pnorm</span>(<span class="dv">15000</span>,<span class="at">mean=</span><span class="dv">10000</span>,<span class="at">sd=</span><span class="dv">1500</span>)<span class="sc">-</span><span class="fu">pnorm</span>(<span class="dv">12000</span>,<span class="at">mean=</span><span class="dv">10000</span>,<span class="at">sd=</span><span class="dv">1500</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.09078216</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span><span class="sc">-</span><span class="fu">pnorm</span>(<span class="dv">20000</span>,<span class="at">mean=</span><span class="dv">10000</span>,<span class="at">sd=</span><span class="dv">1500</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 1.308398e-11</code></pre>
+</div>
+</div>
+</section>
+<section id="um-terceiro-exemplo" class="level3">
+<h3 class="anchored" data-anchor-id="um-terceiro-exemplo">Um terceiro exemplo</h3>
+<div class="callout callout-style-default callout-tip no-icon callout-titled" title="EXEMPLO">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>EXEMPLO
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>A altura de 10000 alunos tem distribuição normal com <span class="math inline">\(\mu=170\)</span> cm e <span class="math inline">\(\sigma=5\)</span> cm.</p>
+<ol type="a">
+<li><p>Qual o número esperado de alunos com altura superior a 165 cm?</p></li>
+<li><p>Qual é o intervalo simétrico ao redor da média que contém 75% dos alunos?</p></li>
+</ol>
+</div>
+</div>
+<div class="fragment callout callout-style-default callout-caution no-icon callout-titled" title="RESPOSTA">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Caution</span>RESPOSTA
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ol type="a">
+<li></li>
+</ol>
+<span class="math display">\[\begin{array}{ccc}
+P(X&gt;165)= P(Z&gt;\frac{165-170}{5})
+\\
+= P(Z&gt;-1)
+\\
+=P(Z&lt;1) = 0,34134 + 0,5 = 0,84134
+\end{array}\]</span>
+<p>Portanto, o número espero de alunos é de 8413 (84,13% de 10000)</p>
+</div>
+</div>
+</section>
+<section id="um-terceiro-exemplo-1" class="level3">
+<h3 class="anchored" data-anchor-id="um-terceiro-exemplo-1">Um terceiro exemplo</h3>
+<div class="callout callout-style-default callout-tip no-icon callout-titled" title="EXEMPLO">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>EXEMPLO
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ol start="2" type="a">
+<li></li>
+</ol>
+<span class="math display">\[\begin{array}{ccc}
+P(-a&lt;Z&lt;a)=0,75
+\\
+P(Z&lt;a)=0,375
+\\
+a=1,15
+\end{array}\]</span>
+<p>Disto segue que:</p>
+<span class="math display">\[\begin{array}{ccc}
+1,15= \frac{X-170}{5}
+\\
+X_1= 175,75 \ e \ X_2=164,25
+\end{array}\]</span>
+</div>
+</div>
+</section>
+</section>
+<section id="a-densidade-de-probabilidade-exponencial" class="level2">
+<h2 class="anchored" data-anchor-id="a-densidade-de-probabilidade-exponencial">A Densidade de Probabilidade Exponencial</h2>
+<section id="o-modelo-1" class="level3">
+<h3 class="anchored" data-anchor-id="o-modelo-1">O Modelo</h3>
+<p>Útil nas aplicações de contabilidade de sistemas.</p>
+<div class="callout callout-style-default callout-note no-icon callout-titled" title="DEFINIÇÃO">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>DEFINIÇÃO
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>A v.a T tem distribuição exponencial com parâmetros <span class="math inline">\(\beta&gt;0\)</span> se sua f.d.p. tem a seguinte forma</p>
+<span class="math display">\[\begin{array}{ccc}
+f(t,\beta)=\left\{\begin{matrix} \frac{1}{\beta}e^{\frac{-t}{\beta}}, \ se\ t\geq 0
+\\ 0 , \ se\ t&lt; 0
+
+\end{matrix}\right.
+\end{array}\]</span>
+<p>Tal que <span class="math inline">\(T \sim Exp(\beta )\)</span></p>
+</div>
+</div>
+</section>
+<section id="os-momentos-2" class="level3">
+<h3 class="anchored" data-anchor-id="os-momentos-2">Os Momentos</h3>
+<div class="callout callout-style-default callout-note no-icon callout-titled" title="DEFINIÇÃO">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>DEFINIÇÃO
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Esperança:</p>
+<p><span class="math inline">\(E(T)=\beta\)</span></p>
+<hr>
+<p>Variância:</p>
+<p><span class="math inline">\(Var(T)=\beta^{2}\)</span></p>
+</div>
+</div>
+</section>
+<section id="graficamente-1" class="level3">
+<h3 class="anchored" data-anchor-id="graficamente-1">Graficamente</h3>
+<p>Considere a distribuição Exponencial para <span class="math inline">\(\beta=1\)</span> e <span class="math inline">\(\beta=4\)</span>, ou seja, as esperanças.<br>
+</p>
+<div class="cell">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="Slides_distr_files/figure-html/unnamed-chunk-7-1.png" class="img-fluid figure-img" width="480"></p>
+<figcaption>Distribuição de probabilidade exponecial e Distribuição exponencial acumulada</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="função-distribuição-acumulada-2" class="level3">
+<h3 class="anchored" data-anchor-id="função-distribuição-acumulada-2">Função Distribuição Acumulada</h3>
+<div class="callout callout-style-default callout-note no-icon callout-titled" title="DEFINIÇÃO">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>DEFINIÇÃO
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>A Distribuição Exponencial possui a seguinte F.d.a.</p>
+<span class="math display">\[\begin{array}{ccc}
+F(t)=\left\{\begin{matrix} 1 - e^{\frac{-t}{\beta}} , \ se\ t\geq 0
+\\ 0 , \ se\ t&lt; 0
+
+\end{matrix}\right.
+\end{array}\]</span>
+</div>
+</div>
+</section>
+<section id="um-exemplo-1" class="level3">
+<h3 class="anchored" data-anchor-id="um-exemplo-1">Um Exemplo</h3>
+<div class="callout callout-style-default callout-tip no-icon callout-titled" title="EXEMPLO">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>EXEMPLO
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>O tempo de vida de uma bactéria é uma v.a. com distribuição exponecial com parâmetro <span class="math inline">\(\beta=500\)</span>, portanto, E(T)=500. Qual a probabilidade de que uma bactéria viva acima da média?</p>
+</div>
+</div>
+<div class="fragment callout callout-style-default callout-caution no-icon callout-titled" title="RESPOSTA">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Caution</span>RESPOSTA
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><span class="math display">\[
+\begin{aligned}
+P(T &gt; 500) &amp;= \int_{500}^{\infty} f(t) \, dt = \frac{1}{500} \int_{500}^{\infty} e^{\frac{-t}{500}} \, dt \\
+&amp;= \frac{1}{500} \left[ -500e^{\frac{-t}{500}} \right]^{\infty}_{500} = e^{-1} = 0,3678
+\end{aligned}
+\]</span></p>
+<p>Portanto, a probabilidade é de 36,7%</p>
+</div>
+</div>
+</section>
+<section id="um-exemplo-2" class="level3">
+<h3 class="anchored" data-anchor-id="um-exemplo-2">Um Exemplo</h3>
+<ul>
+<li>No R:</li>
+</ul>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span><span class="sc">-</span><span class="fu">pexp</span>(<span class="dv">500</span>,<span class="at">rate=</span><span class="dv">1</span><span class="sc">/</span><span class="dv">500</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.3678794</code></pre>
+</div>
+</div>
+</section>
+</section>
+<section id="aproximação-da-normal-pela-binomial" class="level2">
+<h2 class="anchored" data-anchor-id="aproximação-da-normal-pela-binomial">Aproximação da Normal pela Binomial</h2>
+<section id="relembrando-a-dist-binomial" class="level3">
+<h3 class="anchored" data-anchor-id="relembrando-a-dist-binomial">Relembrando a Dist Binomial</h3>
+<div class="callout callout-style-default callout-tip no-icon callout-titled" title="EXEMPLO">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>EXEMPLO
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Considere uma moeda honesta tal que sair cara indica sucesso e coroa indica fracasso. Lançando a moeda 3 vezes, qual a probabilidade de 2 sucessos?</p>
+</div>
+</div>
+<div class="fragment callout callout-style-default callout-caution no-icon callout-titled" title="RESPOSTA">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Caution</span>RESPOSTA
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Temos as seguintes possibilidades:</p>
+<p><span class="math display">\[\begin{array}{ccc}
+A =\{SSF, SFS, FSS\}
+\end{array}\]</span></p>
+<p>Então segue que:</p>
+<p><span class="math display">\[\begin{array}{ccc}
+P(SSF)= \frac{1}{2}. \frac{1}{2}. \frac{1}{2} = \frac{1}{8}
+\\
+= p p . q = p^{2}. q
+\end{array}\]</span></p>
+<p>Logo <span class="math inline">\(P(A)=\frac{3}{8} = 3 p^{2}. q\)</span></p>
+</div>
+</div>
+</section>
+<section id="relembrando-a-dist-binomial-1" class="level3">
+<h3 class="anchored" data-anchor-id="relembrando-a-dist-binomial-1">Relembrando a Dist Binomial</h3>
+<p>A tabela abaixo contém o cálculo da probabilidade do problema acima:</p>
+<center>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Sucessos</th>
+<th>Prob</th>
+<th>p=1/2</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>0</td>
+<td><span class="math inline">\(q^{3}\)</span></td>
+<td>1/8</td>
+</tr>
+<tr class="even">
+<td>1</td>
+<td><span class="math inline">\(3pq^{2}\)</span></td>
+<td>3/8</td>
+</tr>
+<tr class="odd">
+<td>2</td>
+<td><span class="math inline">\(3p^{2}q\)</span></td>
+<td>3/8</td>
+</tr>
+<tr class="even">
+<td>3</td>
+<td><span class="math inline">\(p^{3}\)</span></td>
+<td>1/8</td>
+</tr>
+</tbody>
+</table>
+</center>
+</section>
+<section id="momentos" class="level3">
+<h3 class="anchored" data-anchor-id="momentos">Momentos:</h3>
+<div class="callout callout-style-default callout-note no-icon callout-titled" title="DEFINIÇÃO">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>DEFINIÇÃO
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>A distribuição binomial possui os seguintes Momentos:</p>
+<p>Esperança: <span class="math inline">\(E(x)=n. p\)</span></p>
+<hr>
+<p>Variância: <span class="math inline">\(Var(x)=n.p.q\)</span></p>
+<p>E temos que:</p>
+<span class="math display">\[\begin{array}{ccc}
+P(x=k)=\begin{pmatrix} n
+\\  k
+\end{pmatrix} p ^{k} q ^{n-k}
+\end{array}\]</span>
+</div>
+</div>
+</section>
+<section id="aproximação-normal-à-binomial" class="level3">
+<h3 class="anchored" data-anchor-id="aproximação-normal-à-binomial">Aproximação Normal à Binomial</h3>
+<p>Suponha uma variável Y distribuída pela binomial com parâmetros <span class="math inline">\(n=10\)</span> e <span class="math inline">\(p=\frac{1}{2}\)</span> . Suponha que queremos calcular <span class="math inline">\(P(Y \geq 7)\)</span>. Isso equivale a calcular:</p>
+<center>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Sucessos</th>
+<th>Prob</th>
+<th>p=1/2</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>7</td>
+<td><span class="math inline">\(\binom{10}{7}p^{7}q^{3}\)</span></td>
+<td>0,11718</td>
+</tr>
+<tr class="even">
+<td>8</td>
+<td><span class="math inline">\(\binom{10}{8}p^{8}q^{2}\)</span></td>
+<td>0,04394</td>
+</tr>
+<tr class="odd">
+<td>9</td>
+<td><span class="math inline">\(\binom{10}{9}p^{9}q^{1}\)</span></td>
+<td>0,00977</td>
+</tr>
+<tr class="even">
+<td>10</td>
+<td><span class="math inline">\(\binom{10}{10}p^{10}\)</span></td>
+<td>0,00098</td>
+</tr>
+</tbody>
+</table>
+</center>
+</section>
+<section id="aproximação-normal-à-binomial-1" class="level3">
+<h3 class="anchored" data-anchor-id="aproximação-normal-à-binomial-1">Aproximação Normal à Binomial</h3>
+<ul>
+<li>Note que :</li>
+</ul>
+<span class="math display">\[\begin{array}{ccc}
+\binom{10}{7}=\frac{10!}{7! 3!}= \frac{10.9.8}{6}=120
+\\
+P(X=7)=120 . \frac{1}{2}^{7}\frac{1}{2}^{3}=0,117
+\end{array}\]</span>
+</section>
+<section id="aproximação-normal-à-binomial-2" class="level3">
+<h3 class="anchored" data-anchor-id="aproximação-normal-à-binomial-2">Aproximação Normal à Binomial</h3>
+<ul>
+<li>Aproximando, temos que:</li>
+</ul>
+<span class="math display">\[\begin{array}{ccc}
+n=10
+\\
+\\
+\mu=n.p=10 . \frac{1}{2}=5
+\\
+\\
+\sigma^{2}=n.p (1-p)=10 \frac{1}{2} \frac{1}{2}=2,5
+\end{array}\]</span>
+</section>
+<section id="aproximação-graficamente" class="level3">
+<h3 class="anchored" data-anchor-id="aproximação-graficamente">Aproximação Graficamente</h3>
+<div class="cell">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="Slides_distr_files/figure-html/unnamed-chunk-9-1.png" class="img-fluid figure-img" width="528"></p>
+<figcaption>Aproximação da Binomial pela Normal</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="exemplo" class="level3">
+<h3 class="anchored" data-anchor-id="exemplo">Exemplo</h3>
+<ul>
+<li>Sendo X uma v.a. com distribuição normal então:</li>
+</ul>
+<p><span class="math display">\[\begin{array}{ccc}
+P(Y \geq 7) \cong P(X \geq 6,5)= P(\frac{x-\mu}{\sigma}\geq \frac{6,5-\mu}{\sigma})
+\\
+\\
+P(Z \geq \frac{6,5-\mu}{\sigma})= P(Z \geq 0,94) = 0,1714
+\end{array}\]</span></p>
+<p>onde <span class="math inline">\(Z \sim N(0,1)\)</span></p>
+</section>
+<section id="exemplo-1" class="level3">
+<h3 class="anchored" data-anchor-id="exemplo-1">Exemplo</h3>
+<ul>
+<li><p>A probabilidade encontrada pela Normal é de 0,172 enquanto pela aproximação encontramos que é de 0,1714.</p></li>
+<li><p>Formalmente, justifica-se tal aproximação pelo Teorema do Limite Central.</p></li>
+</ul>
+</section>
+<section id="exemplo-2" class="level3">
+<h3 class="anchored" data-anchor-id="exemplo-2">Exemplo</h3>
+<ul>
+<li>No R: <span class="math inline">\(P(Y \geq 7)\)</span></li>
+</ul>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span><span class="sc">-</span><span class="fu">pbinom</span>(<span class="dv">6</span>,<span class="at">size=</span><span class="dv">10</span>,<span class="at">prob=</span><span class="dv">1</span><span class="sc">/</span><span class="dv">2</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.171875</code></pre>
+</div>
+</div>
+<p><span class="math inline">\(P(X \geq 6.5)\)</span></p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span><span class="sc">-</span><span class="fu">pnorm</span>(<span class="fl">6.5</span>,<span class="at">mean=</span><span class="dv">5</span>,<span class="at">sd=</span><span class="fu">sqrt</span>(<span class="fl">2.5</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.1713909</code></pre>
+</div>
+</div>
+</section>
+<section id="um-outro-exemplo" class="level3">
+<h3 class="anchored" data-anchor-id="um-outro-exemplo">Um outro exemplo</h3>
+<div class="callout callout-style-default callout-tip no-icon callout-titled" title="EXEMPLO">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>EXEMPLO
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>De um lote de produtos manufaturados, sorteamos 100 itens ao acaso. Sabemos que 10% dos itens produzidos possuem defeitos. Qual a chance que dos 100 sorteados 12 sejam defeituosos? Use a aproximação pela normal.</p>
+</div>
+</div>
+<div class="fragment callout callout-style-default callout-caution no-icon callout-titled" title="RESPOSTA">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Caution</span>RESPOSTA
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><span class="math inline">\(X \sim b(100;0,)\)</span></p>
+<p>Considere p= número de defeituosos. Pela aproximação pela Normal temos que <span class="math inline">\(E (x)=100.0,1=10\)</span> e <span class="math inline">\(Var(x)=100. 0,1 . 0,9 =9\)</span>. Disto segue que:</p>
+<p><span class="math display">\[\begin{array}{ccc}
+P(x-12)=\binom{100}{12}. (0,1)^{12} (0,9)^{88}
+=\frac{100!}{12! 88!}(0,1)^{12} (0,9)^{88}= 0,0987
+\end{array}\]</span></p>
+</div>
+</div>
+</section>
+<section id="um-outro-exemplo-1" class="level3">
+<h3 class="anchored" data-anchor-id="um-outro-exemplo-1">Um outro exemplo</h3>
+<div class="callout callout-style-default callout-tip no-icon callout-titled" title="EXEMPLO">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>EXEMPLO
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Portanto, aproximando pela Normal temos a distribuição:</p>
+<p><span class="math inline">\(Y \sim N(10;9)\)</span></p>
+<p><span class="math display">\[\begin{array}{ccc}
+P(Y=12)=P(11,5\leq X \leq 12,5)
+\\
+=P(\frac{11,5-10}{9}\leq Z \leq \frac{12,5-10}{9})
+\\
+=P(0,5 \leq Z \leq 0,83)
+\\
+=0,29673-0,19146=0,1052
+\end{array}\]</span></p>
+<p>Portanto, a probabilidade é de 10,5%</p>
+</div>
+</div>
+</section>
+</section>
+<section id="outras-distribuições-importantes" class="level2">
+<h2 class="anchored" data-anchor-id="outras-distribuições-importantes">Outras Distribuições importantes:</h2>
+</section>
+<section id="distribuição-gamma" class="level2">
+<h2 class="anchored" data-anchor-id="distribuição-gamma">Distribuição Gamma</h2>
+<section id="o-modelo-gamma" class="level3">
+<h3 class="anchored" data-anchor-id="o-modelo-gamma">O Modelo Gamma</h3>
+<div class="callout callout-style-default callout-note no-icon callout-titled" title="DEFINIÇÃO">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>DEFINIÇÃO
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Uma variável aleatória contínua X que assume valores positivos tem distribuição Gama, com parâmetros <span class="math inline">\(\alpha \geq 1\)</span> e <span class="math inline">\(\beta&gt;0\)</span>, com f.d.p. dada por:</p>
+<p><span class="math display">\[
+\begin{array}{ccc}
+f(x;\beta,\alpha)=\left\{\begin{matrix} \frac{1}{\Gamma (\alpha)\beta^{\alpha}}x^{\alpha -1} e^{\frac{-x}{\beta}} \ , \ x&gt;0
+\\
+\\
+0 \  \ \ \ \ \ \ \ \ , \ x \leq 0
+\end{matrix}\right.
+\\
+\Gamma(x) \rightarrow Função \ Gama
+\\
+\Gamma(x)=\int_{0}^{\infty}e^{-x}x^{\alpha-1}.dx \
+\\
+\alpha &gt;0
+\end{array}
+\]</span></p>
+</div>
+</div>
+</section>
+<section id="graficamente-2" class="level3">
+<h3 class="anchored" data-anchor-id="graficamente-2">Graficamente</h3>
+<p>O gráfico abaixo mostra como a distribuição muda com a alteração dos parâmetros <span class="math inline">\(\alpha\)</span> e para <span class="math inline">\(\beta=1\)</span>:<br>
+</p>
+<div class="cell">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="Slides_distr_files/figure-html/unnamed-chunk-12-1.png" class="img-fluid figure-img" width="528"></p>
+<figcaption>Distribuição Gamma, para Beta=1 e Alfa variando</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="momentos-1" class="level3">
+<h3 class="anchored" data-anchor-id="momentos-1">Momentos</h3>
+<div class="callout callout-style-default callout-note no-icon callout-titled" title="DEFINIÇÃO">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>DEFINIÇÃO
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Se <span class="math inline">\(X \sim Gama(\alpha, \beta)\)</span> então possui os seguintes momentos:</p>
+<p>Esperança: <span class="math inline">\(E(X)=\alpha \beta\)</span></p>
+<hr>
+<p>Variância: <span class="math inline">\(Var(X)=\alpha \beta^{2}\)</span></p>
+</div>
+</div>
+</section>
+</section>
+<section id="distribuição-qui-quadrado" class="level2">
+<h2 class="anchored" data-anchor-id="distribuição-qui-quadrado">Distribuição Qui-Quadrado</h2>
+<section id="o-modelo-2" class="level3">
+<h3 class="anchored" data-anchor-id="o-modelo-2">O Modelo</h3>
+<div class="callout callout-style-default callout-note no-icon callout-titled" title="DEFINIÇÃO">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>DEFINIÇÃO
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Uma variável aleatória contínua Y que assume valores positivos tem distribuição Qui-Quadrado com v graus de liberdade - <span class="math inline">\(\chi^ {2}(v)\)</span> - e possui a seguinte f.d.p.:</p>
+<span class="math display">\[\begin{array}{ccc}
+f(x;\beta,\alpha)=\left\{\begin{matrix} \frac{1}{\Gamma (v/2) 2^{v/2}}y^{(v/2) -1} e^{\frac{-y}{2}} \ , \ y&gt;0
+\\
+\\
+0 \  \ \ \ \ \ \ \ \ , \ y\leq 0
+\end{matrix}\right.
+\end{array}\]</span>
+</div>
+</div>
+</section>
+<section id="graficamente-3" class="level3">
+<h3 class="anchored" data-anchor-id="graficamente-3">Graficamente</h3>
+<p>Abaixo temos a representação gráfica da Qui-Quadrado com diversos graus de liberdade (d.f.):</p>
+<div class="cell">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="Slides_distr_files/figure-html/unnamed-chunk-13-1.png" class="img-fluid figure-img" width="576"></p>
+<figcaption>Distribuição Qui-Quadrado para diferentes graus de liberdade (gl)</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="momentos-2" class="level3">
+<h3 class="anchored" data-anchor-id="momentos-2">Momentos</h3>
+<div class="callout callout-style-default callout-note no-icon callout-titled" title="DEFINIÇÃO">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>DEFINIÇÃO
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>A distribuição Qui-Quadrado com <span class="math inline">\(v\)</span> graus de liberdade possui os seguintes momentos:</p>
+<p>Esperança: <span class="math inline">\(E(Y)=v\)</span></p>
+<hr>
+<p>Variância: <span class="math inline">\(Var(Y)=2v\)</span></p>
+</div>
+</div>
+</section>
+<section id="momentos-3" class="level3">
+<h3 class="anchored" data-anchor-id="momentos-3">Momentos</h3>
+<ul>
+<li><p>Existem tabelas para obter uma probabilidade <span class="math inline">\(P(Y&gt;y_0)\)</span> quando Y é uma variável com distribuição Qui-Quadrado.</p></li>
+<li><p>Com <span class="math inline">\(v&gt;30\)</span> podemos utilizar a aproximação normal para a distribuição Qui-Quadrado.</p></li>
+<li><p>Temos dois resultados importantes que serão definidos a seguir:</p></li>
+</ul>
+</section>
+<section id="resultados-importantes" class="level3">
+<h3 class="anchored" data-anchor-id="resultados-importantes">Resultados importantes</h3>
+<div class="callout callout-style-default callout-note no-icon callout-titled" title="DEFINIÇÃO">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>DEFINIÇÃO
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ol type="1">
+<li>O quadrado de uma v.a. com distribuição normal padrão é uma v.a. com distribuição <span class="math inline">\(\chi^{2}(1)\)</span></li>
+</ol>
+<hr>
+<ol start="2" type="1">
+<li>Uma variável aleatória <span class="math inline">\(\chi^{2}(v)\)</span> é equivalente à soma de <span class="math inline">\(v\)</span> normais padrões ao quadrado</li>
+</ol>
+</div>
+</div>
+</section>
+</section>
+<section id="distribuição-t-student" class="level2">
+<h2 class="anchored" data-anchor-id="distribuição-t-student">Distribuição t-student</h2>
+<section id="o-modelo-3" class="level3">
+<h3 class="anchored" data-anchor-id="o-modelo-3">O Modelo</h3>
+<div class="callout callout-style-default callout-note no-icon callout-titled" title="DEFINIÇÃO">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>DEFINIÇÃO
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Sejam as v.a. independentes <span class="math inline">\(X \sim N(0,1)\)</span> e <span class="math inline">\(Y \sim \chi^{2}(v)\)</span>. Considere T:</p>
+<span class="math display">\[\begin{array}{ccc}
+T =\frac{X}{\sqrt{\frac{Y}{v}}}
+\end{array}\]</span>
+<p>Então T tem distribuição t-student com <span class="math inline">\(v\)</span> graus de liberdade. Então, uma variável aleatória contínua com distribuição T tem a seguinte f.d.p.:</p>
+<span class="math display">\[\begin{array}{ccc}
+f(t,;v)= \frac{\Gamma((v+1)/2) }{\Gamma(v/2)\sqrt{\pi v}} (1+ t^{2}/v)^{\frac{-(v+1)}{2}}
+
+\end{array}\]</span>
+<p><span class="math inline">\(\infty &lt; t &lt; \infty\)</span></p>
+</div>
+</div>
+</section>
+<section id="graficamente-4" class="level3">
+<h3 class="anchored" data-anchor-id="graficamente-4">Graficamente</h3>
+<p>Para <span class="math inline">\(v\)</span> suficientemente grande, a densidade de <span class="math inline">\(t\)</span> aproxima-se da <span class="math inline">\(N(0,1)\)</span>. Vejamos:<br>
+</p>
+<div class="cell">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="Slides_distr_files/figure-html/unnamed-chunk-14-1.png" class="img-fluid figure-img" width="528"></p>
+<figcaption>Distribuição t-student para diferentes graus de liberdade (gl)</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p>Observe que quanto maior o grau de liberdade, gl, mais próximo à normal padrão a distribuição de t-student se encontra.</p>
+</section>
+<section id="os-momentos-3" class="level3">
+<h3 class="anchored" data-anchor-id="os-momentos-3">Os Momentos</h3>
+<div class="callout callout-style-default callout-note no-icon callout-titled" title="DEFINIÇÃO">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>DEFINIÇÃO
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>A distribuição t-student com <span class="math inline">\(v\)</span> graus de liberdade possui os seguintes momentos:</p>
+<p>Esperança: <span class="math inline">\(E(t)=0\)</span></p>
+<hr>
+<p>Variância: <span class="math inline">\(Var(t)=\frac{v}{v-2}\)</span></p>
+</div>
+</div>
+</section>
+</section>
+<section id="distribuição-f" class="level2">
+<h2 class="anchored" data-anchor-id="distribuição-f">Distribuição F</h2>
+<section id="o-modelo-4" class="level3">
+<h3 class="anchored" data-anchor-id="o-modelo-4">O Modelo</h3>
+<div class="callout callout-style-default callout-note no-icon callout-titled" title="DEFINIÇÃO">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>DEFINIÇÃO
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Sejam U e V duas v.a. independentes, cada uma com distribuição qui-quadrado com <span class="math inline">\(v_1\)</span> e <span class="math inline">\(v_2\)</span> graus de liberdade. Então a v.a.</p>
+<p><span class="math display">\[\begin{array}{ccc}
+W=\frac{U/v_1}{V/v_2}
+\end{array}\]</span></p>
+<p>possui distribuição F com <span class="math inline">\(v_1\)</span> e <span class="math inline">\(v_2\)</span> graus de liberdade, tal que <span class="math inline">\(W \sim F(v_1,v_2)\)</span>. Dessa forma, uma variável aleatória contínua com distribuição F tem a seguinte f.d.p.:</p>
+<p><span class="math display">\[\begin{array}{ccc}
+f(t,;v)= \frac{\Gamma((v_1+v_2)/2) }{\Gamma(v_1/2)\Gamma(v_2/2) } {(\frac{v_1}{v_2})}^{v1/2}\frac{w^{(v_1-2)/2}}{(1+v_1w/v_2)^{(v_1+v_2)/2}}
+\end{array}\]</span> Para <span class="math inline">\(w&gt;0\)</span></p>
+</div>
+</div>
+</section>
+<section id="os-momentos-4" class="level3">
+<h3 class="anchored" data-anchor-id="os-momentos-4">Os Momentos</h3>
+<div class="callout callout-style-default callout-note no-icon callout-titled" title="DEFINIÇÃO">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>DEFINIÇÃO
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>A distribuição F possui os seguites momentos:</p>
+<p>Esperança:</p>
+<span class="math display">\[\begin{array}{ccc}
+E(W)=\frac{v_1}{v_1-v_2}
+\end{array}\]</span>
+<hr>
+<p>Variância:</p>
+<span class="math display">\[\begin{array}{ccc}
+Var(W)=\frac{2 v_2^{2}(v_1+v_2-2)}{v_1(v_2-2)^{2}(v_2-4)}
+\end{array}\]</span>
+</div>
+</div>
+</section>
+<section id="graficamente-5" class="level3">
+<h3 class="anchored" data-anchor-id="graficamente-5">Graficamente</h3>
+<p>Gráficos da distribuição para diferentes combinações de <span class="math inline">\(v_1\)</span> e <span class="math inline">\(v_2\)</span>.</p>
+<div class="cell">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="Slides_distr_files/figure-html/unnamed-chunk-15-1.png" class="img-fluid figure-img" width="528"></p>
+<figcaption>Distribuição de Probabilidade F</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="um-exemplo-3" class="level3">
+<h3 class="anchored" data-anchor-id="um-exemplo-3">Um Exemplo</h3>
+<div class="callout callout-style-default callout-tip no-icon callout-titled" title="EXEMPLO">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>EXEMPLO
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Seja <span class="math inline">\(W \sim F(5,7)\)</span>.Calcule o valor de <span class="math inline">\(F_{\alpha}\)</span> tal que:</p>
+<p><br>
+</p>
+<p><span class="math inline">\(P(F&gt;F_{\alpha})=0,05\)</span> e <span class="math inline">\(P(F \leq F_{\alpha})=0,95\)</span></p>
+</div>
+</div>
+<div class="fragment callout callout-style-default callout-caution no-icon callout-titled" title="RESPOSTA">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Caution</span>RESPOSTA
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Consultando a tabela para a distribuição F representada abaixo temos que:</p>
+<p><br>
+</p>
+<p><span class="math inline">\(P(F&gt;F_{\alpha})=0,05\)</span> e <span class="math inline">\(P(F \leq F_{\alpha})=0,95\)</span> para <span class="math inline">\(F_{\alpha}=3,97\)</span></p>
+</div>
+</div>
+</section>
+<section id="tabela-da-distribuição-f" class="level3">
+<h3 class="anchored" data-anchor-id="tabela-da-distribuição-f">Tabela da Distribuição F</h3>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="../figuras/capitulos/Imagem14.jpeg" class="img-fluid figure-img" style="width:80.0%"></p>
+<figcaption>Tabela da Distribuição F</figcaption>
+</figure>
+</div>
+</section>
+</section>
+</section>
+
+</main>
+<!-- /main column -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>
