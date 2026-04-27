@@ -1012,443 +1012,496 @@ Códigos utilizados nas aulas em Python.
 
 ## Exercícios
 
-### Exercício 1 (ANPEC 2022 — Questão 02) {.unnumbered}
+### Exercício 1 (Morettin & Bussab, cap. 7, ex. 15)
 
-**Tema:** Distribuições contínuas, momentos e transformação linear.
+**Tema:** Distribuição normal: cálculo de probabilidades e intervalo central.
 
-Seja $X$ uma variável aleatória com a seguinte função densidade de probabilidade
-$$f(x)= \begin{cases} \dfrac{x}{8}, & \text{para } 0 \le x \le 4,\\ 0, & \text{caso contrário.} \end{cases}$$
-
-Julgue as afirmativas abaixo:
-
-0. $E(X)=\dfrac{1}{8}$.
-
-1. $E(X^2)=8$.
-
-2. A mediana de $X$ é 3.
-
-3. Se $Z=2+3X$, então $E(Z)=5$.
-
-4. Se $Z=2+3X$, então $Var(Z)=80$.
-
-::: {.callout-caution icon="false" collapse="true" title="RESPOSTA"}
-Primeiro, confirme a densidade
-$$\int_0^4 \frac{x}{8}\,dx=\frac{1}{8}\cdot \frac{4^2}{2}=1.$$
-
-Agora, calculamos a esperança
-$$E[X]=\int_0^4 x\cdot \frac{x}{8}\,dx =\frac{1}{8}\int_0^4 x^2\,dx =\frac{1}{8}\cdot \frac{64}{3} =\frac{8}{3}.$$
-
-Logo, o item 0 é **F**.
-
-Além disso,
-$$E[X^2]=\int_0^4 x^2\cdot \frac{x}{8}\,dx =\frac{1}{8}\int_0^4 x^3\,dx =\frac{1}{8}\cdot 64 =8.$$
-Então o item 1 é **V**.
-
-A função distribuição acumulada, para $0\le x\le 4$, é
-$$F(x)=\int_0^x \frac{t}{8}\,dt=\frac{x^2}{16}.$$
-A mediana $m$ satisfaz a condição
-$$\frac{m^2}{16}=\frac12 \quad \Rightarrow \quad m=\sqrt{8}=2\sqrt{2}\approx 2{,}83.$$
-Portanto, o item 2 é **F**.
-
-Se $Z=2+3X$, então
-$$E[Z]=2+3E[X]=2+3\cdot \frac{8}{3}=10,$$
-logo o item 3 é **F**.
-
-Como a variância é
-$$Var(X)=E[X^2]-E[X]^2=8-\left(\frac{8}{3}\right)^2 =8-\frac{64}{9} =\frac{8}{9},$$
-segue que
-$$Var(Z)=9Var(X)=9\cdot \frac{8}{9}=8.$$
-Portanto, o item 4 é **F**.
-
-
-**Comentário econômico:** a questão reforça como momentos e transformações lineares mudam escala e localização, mas não alteram a lógica básica da distribuição.
-:::
-
-### Exercício 2 {.unnumbered}
-
-**Tema:** Distribuição Bernoulli.
-
-Uma fintech acompanha se um novo cliente permanece adimplente no primeiro ano do contrato. Defina
-$$X= \begin{cases} 1, & \text{se o cliente permanecer adimplente},\\ 0, & \text{caso contrário.} \end{cases}$$
-Suponha que $P(X=1)=0{,}85$.
-
-a) Escreva a função de probabilidade de $X$.
-
-b) Calcule $E(X)$ e $Var(X)$.
-
-c) Se o retorno líquido por cliente for $R=200X-50$, calcule $E(R)$.
-
-**Interpretação econômica pedida:** interprete $X$ como um indicador de bom desempenho de crédito.
-
-::: {.callout-caution icon="false" collapse="true" title="RESPOSTA"}
-Como $X\sim \text{Bernoulli}(0{,}85)$, sua função de probabilidade é
-$$P(X=1)=0{,}85, \qquad P(X=0)=0{,}15.$$
-
-Logo, os momentos são
-$$E[X]=p=0{,}85, \qquad Var(X)=p(1-p)=0{,}85\cdot 0{,}15=0{,}1275.$$
-
-Para a função linear
-$$R=200X-50,$$
-temos
-$$E[R]=200E[X]-50=200(0{,}85)-50=120.$$
-
-**Comentário econômico:** em média, cada novo cliente gera retorno líquido esperado de 120 unidades monetárias.
-:::
-
-### Exercício 3 {.unnumbered}
-
-**Tema:** Distribuição Binomial.
-
-Um banco concede 20 novos empréstimos independentes. A probabilidade de atraso na primeira parcela para cada contrato é de $0{,}05$. Seja $Y$ o número de contratos com atraso.
-
-a) Identifique a distribuição de $Y$.
-
-b) Calcule $P(Y=0)$.
-
-c) Calcule $P(Y\le 1)$.
-
-d) Calcule $E(Y)$ e $Var(Y)$.
-
-**Interpretação econômica pedida:** interprete $Y$ como número de inadimplências em uma carteira pequena.
-
-::: {.callout-caution icon="false" collapse="true" title="RESPOSTA"}
-Como há 20 contratos independentes e probabilidade de atraso igual a 0,05, a distribuição de $Y$ é
-$$Y\sim \text{Binomial}(n=20,p=0{,}05).$$
-
-a) Identificação
-   $$Y\sim \text{Bin}(20,0{,}05).$$
-
-b) Probabilidade de nenhum atraso
-   $$P(Y=0)=0{,}95^{20}\approx 0{,}3585.$$
-
-c) Probabilidade de no máximo 1 atraso
-   $$P(Y\le 1)=P(Y=0)+P(Y=1).$$
-   Como a probabilidade de exatamente 1 atraso é
-   $$P(Y=1)=\binom{20}{1}(0{,}05)(0{,}95)^{19}\approx 0{,}3774,$$
-   então
-   $$P(Y\le 1)\approx 0{,}3585+0{,}3774=0{,}7358.$$
-
-d) Esperança e Variância
-   $$E[Y]=np=20\cdot 0{,}05=1, \qquad Var(Y)=np(1-p)=20\cdot 0{,}05\cdot 0{,}95=0{,}95.$$
-
-**Comentário econômico:** a carteira tem, em média, 1 atraso inicial, com dispersão relativamente baixa.
-:::
-
-### Exercício 4 (ANPEC 2021 — Questão 06) {.unnumbered}
-
-**Tema:** Distribuição Poisson.
-
-Suponha que a variável aleatória $X$ tem Distribuição de Poisson com média $\tau$ (em que $\tau>0$), e que a variável aleatória $Y$ tem Distribuição de Poisson com média $\mu$ (em que $\mu>0$). Considere que $X$ e $Y$ são variáveis aleatórias independentes. Supondo também que $k$ e $n$ são inteiros tais que $0\le k\le n$, são corretas as afirmativas abaixo:
-
-0. Usando o fato de que
-   $$(\tau+\mu)^n=\sum_{k=0}^{n}\binom{n}{k}\mu^{\,n-k}\tau^k, \quad \text{em que } \binom{n}{k}=\frac{n!}{(n-k)!k!}$$
-   podemos dizer que, para qualquer $n>0$,
-   $$P(X+Y=n)=\frac{e^{-\tau-\mu}}{n!}.$$
-   
-1. Se $Z=X+Y$, então $E(Z)=\tau+\mu$.
-
-2. $$P[(Y=k)\cap (X+Y=n)] = \frac{e^{-\tau}\tau^k}{k!}\cdot \frac{e^{-\mu}\mu^{n-k}}{(n-k)!}.$$
-
-3. $$P(Y=k\mid X+Y=n) = \frac{n!}{k!(n-k)!}\cdot \frac{\tau^k\mu^{n-k}}{(\tau+\mu)^n}.$$
-
-4. A distribuição condicional de $Y$, dado que $X+Y=n$, é uma binomial com parâmetros $n$ e $(\tau+\mu)$.
-
-::: {.callout-caution icon="false" collapse="true" title="RESPOSTA"}
-Sabemos que, se $X\sim \text{Poisson}(\tau)$ e $Y\sim \text{Poisson}(\mu)$ são independentes, então
-$$X+Y\sim \text{Poisson}(\tau+\mu).$$
-
-0. **F.** O correto é a fórmula abaixo
-   $$P(X+Y=n)=e^{-(\tau+\mu)}\frac{(\tau+\mu)^n}{n!}.$$
-   Falta o fator $(\tau+\mu)^n$.
-   
-1. **V.** Se $Z=X+Y$, então
-   $$E[Z]=E[X]+E[Y]=\tau+\mu.$$
-   
-2. **F.** O evento $\{Y=k,\ X+Y=n\}$ equivale a $\{Y=k,\ X=n-k\}$. Logo,
-   $$P[(Y=k)\cap(X+Y=n)] = \frac{e^{-\mu}\mu^k}{k!} \cdot \frac{e^{-\tau}\tau^{n-k}}{(n-k)!}.$$
-   
-   A afirmativa troca os papéis de $\tau$ e $\mu$.
-3. **F.** Pela razão entre a conjunta e a marginal de $X+Y$, temos
-   $$P(Y=k\mid X+Y=n) = \binom{n}{k} \left(\frac{\mu}{\tau+\mu}\right)^k \left(\frac{\tau}{\tau+\mu}\right)^{n-k}.$$
-   A expressão dada novamente troca os papéis de $\tau$ e $\mu$.
-   
-4. **F.** A condicional é binomial com os parâmetros
-   $$n \quad \text{e} \quad \frac{\mu}{\tau+\mu},$$
-   e não com parâmetro $(\tau+\mu)$.
-
-
-**Comentário econômico:** a soma de duas contagens independentes de eventos raros continua Poisson, o que é muito útil para agregar chegadas, falhas ou demandas.
-:::
-
-### Exercício 5 {.unnumbered}
-
-**Tema:** Distribuição Geométrica.
-
-Uma startup realiza reuniões mensais com potenciais investidores. A probabilidade de fechar o primeiro aporte em cada reunião é $0{,}25$, independentemente das reuniões anteriores. Seja $T$ o número da reunião em que ocorre o primeiro aporte.
-
-a) Identifique a distribuição de $T$.
-
-b) Calcule $P(T=1)$.
-
-c) Calcule $P(T>3)$.
-
-d) Calcule $E(T)$ e $Var(T)$.
-
-**Interpretação econômica pedida:** interprete $T$ como tempo de espera até o primeiro sucesso.
-
-
-::: {.callout-caution icon="false" collapse="true" title="RESPOSTA"}
-
-Como a probabilidade de sucesso em cada reunião é $p=0{,}25$, a distribuição é
-$$T\sim \text{Geométrica}(0{,}25),$$
-com suporte $t=1,2,3,\dots$
-
-Sua função de probabilidade é
-$$P(T=t)=(1-p)^{t-1}p=(0{,}75)^{t-1}0{,}25.$$
-
-a) Identificação
-   $$T\sim \text{Geométrica}(0{,}25).$$
-
-b) Probabilidade no primeiro mês
-   $$P(T=1)=0{,}25.$$
-
-c) Probabilidade de demorar mais de 3 meses
-   $$P(T>3)=(1-p)^3=0{,}75^3=0{,}421875.$$
-
-d) Para a geométrica com suporte em $\{1,2,\dots\}$, os momentos são
-   $$E[T]=\frac{1}{p}=\frac{1}{0{,}25}=4,$$
-   $$Var(T)=\frac{1-p}{p^2} =\frac{0{,}75}{0{,}25^2} =12.$$
-
-**Comentário econômico:** em média, o primeiro aporte ocorre na 4ª reunião.
-:::
-
-### Exercício 6 (ANPEC 2015) {.unnumbered}
-
-**Tema:** Distribuição Uniforme.
-
-Seja $X$ uma variável aleatória cuja f.d.p. é dada por
-$$f(x)=\frac{1}{2\alpha}, \qquad \text{em que } -\alpha\le x\le \alpha \text{ e } \alpha>0.$$
-
-Podemos afirmar que:
-
-0. A probabilidade de que $X$ se situe entre $-\alpha$ e $-\alpha/4$ é igual a $3/8$.
-
-1. A mediana de $X$ é igual a zero.
-
-2. A probabilidade de que $X$ se situe entre $-\alpha/2$ e $\alpha/2$ é igual a $3/4$.
-
-3. $E[X]=0$.
-
-4. A variância de $X$ é igual a $\alpha^2/3$.
-
-::: {.callout-caution icon="false" collapse="true" title="RESPOSTA"}
-
-Como $X\sim U[-\alpha,\alpha]$, probabilidades são comprimentos de intervalo divididos por $2\alpha$, e a distribuição é simétrica.
-
-0. **V.** O comprimento do intervalo $[-\alpha,-\alpha/4]$ é
-   $$-\frac{\alpha}{4}-(-\alpha)=\frac{3\alpha}{4}.$$
-   Então, calculamos
-   $$P\left(-\alpha\le X\le -\frac{\alpha}{4}\right) =\frac{3\alpha/4}{2\alpha}=\frac{3}{8}.$$
-   
-1. **V.** Pela simetria em torno de 0, a mediana é zero.
-
-2. **F.** O comprimento de $[-\alpha/2,\alpha/2]$ é $\alpha$, logo
-   $$P\left(-\frac{\alpha}{2}\le X\le \frac{\alpha}{2}\right) =\frac{\alpha}{2\alpha}=\frac12.$$
-   
-3. **V.** Pela simetria, a esperança é nula
-   $$E[X]=0.$$
-   
-4. **V.** Para uniforme contínua em $[a,b]$, a variância é
-   $$Var(X)=\frac{(b-a)^2}{12}.$$
-   Aqui, $a=-\alpha$ e $b=\alpha$, então
-   $$Var(X)=\frac{(2\alpha)^2}{12}=\frac{\alpha^2}{3}.$$
-
-**Comentário econômico:** a uniforme é útil quando todos os valores em um intervalo são igualmente plausíveis.
-:::
-
-### Exercício 7 {.unnumbered}
-
-**Tema:** Distribuição Exponencial.
-
-O tempo de espera, em horas, até a chegada do próximo pedido em uma plataforma digital segue distribuição exponencial com média 2 horas. Seja $W$ esse tempo.
-
-a) Determine o parâmetro $\lambda$ da distribuição.
-
-b) Calcule $P(W>3)$.
-
-c) Calcule $P(W>5\mid W>2)$.
-
-d) Calcule $E(W)$ e $Var(W)$.
-
-**Interpretação econômica pedida:** interprete a propriedade sem memória no contexto de chegada de pedidos.
-
-
-::: {.callout-caution icon="false" collapse="true" title="RESPOSTA"}
-
-Se a média da exponencial é 2 horas, então
-$$E[W]=\frac{1}{\lambda}=2 \quad \Rightarrow \quad \lambda=\frac12.$$
-
-Logo, a distribuição é
-$$W\sim \text{Exponencial}\left(\lambda=\frac12\right).$$
-
-a) Parâmetro
-   $$\lambda=\frac12.$$
-
-b) Para exponencial, a probabilidade acumulada complementar é
-   $$P(W>t)=e^{-\lambda t}.$$
-   Assim,
-   $$P(W>3)=e^{-(1/2)\cdot 3}=e^{-1{,}5}\approx 0{,}2231.$$
-
-c) Pela propriedade sem memória, o cálculo se simplifica
-   $$P(W>5\mid W>2)=P(W>3)=e^{-1{,}5}\approx 0{,}2231.$$
-
-d) Momentos
-   $$E(W)=\frac{1}{\lambda}=2, \qquad Var(W)=\frac{1}{\lambda^2}=4.$$
-
-**Comentário econômico:** se já esperamos 2 horas sem pedido, a distribuição do tempo adicional até o próximo pedido continua a mesma em termos probabilísticos.
-:::
-
-### Exercício 8 (Morettin & Bussab, Cap. 7, Ex. 15) {.unnumbered}
-
-**Tema:** Distribuição Normal.
-
-Para $X\sim N(100,100)$, calcule:
+Para $X \sim N(100,100)$, calcule:
 
 a) $P(X<115)$;
 
-b) $P(X\ge 80)$;
+b) $P(X\geq 80)$;
 
-c) $P(|X-100|\le 10)$;
+c) $P(|X-100|\leq 10)$;
 
-d) o valor $a$, tal que $P(100-a\le X\le 100+a)=0{,}95$.
+d) o valor $a$ tal que
 
-**Interpretação econômica pedida:** interprete o item (d) como uma faixa central de cobertura de 95%.
+$$P(100-a \leq X \leq 100+a)=0{,}95.$$
+
+**Interpretação econômica pedida:** interprete $X$ como uma variável econômica sujeita a flutuações em torno de um valor-alvo de 100.
 
 ::: {.callout-caution icon="false" collapse="true" title="RESPOSTA"}
+Temos
+$$X\sim N(100,100).$$
+Na convenção usada no curso e no livro, isso significa que
+$$\mu=100 \qquad \text{e} \qquad \sigma^2=100,$$
+logo
+$$\sigma=10.$$
+Padronizando,
+$$Z=\frac{X-\mu}{\sigma}=\frac{X-100}{10}\sim N(0,1).$$
 
-Como $X\sim N(100,100)$, então sabemos que
-$$\mu=100, \qquad \sigma=10.$$
+**a) Calcular $P(X<115)$**
 
-a) Padronizando
-   $$P(X<115)=P\left(Z<\frac{115-100}{10}\right)=P(Z<1{,}5)\approx 0{,}9332.$$
+$$P(X<115)=P\!\left(\frac{X-100}{10}<\frac{115-100}{10}\right)=P(Z<1{,}5).$$
+Da tabela da normal padrão,
+$$P(Z<1{,}5)\approx 0{,}9332.$$
+Portanto,
+$$\boxed{P(X<115)\approx 0{,}9332.}$$
 
-b) Pela simetria da Normal
-   $$P(X\ge 80)=P\left(Z\ge \frac{80-100}{10}\right)=P(Z\ge -2)=P(Z\le 2)\approx 0{,}9772.$$
+**b) Calcular $P(X\ge 80)$**
 
-c) Intervalo central
-   $$P(|X-100|\le 10)=P(90\le X\le 110)=P(-1\le Z\le 1)\approx 0{,}6827.$$
+$$P(X\ge 80)=P\!\left(\frac{X-100}{10}\ge \frac{80-100}{10}\right)=P(Z\ge -2).$$
+Pela simetria da normal padrão,
+$$P(Z\ge -2)=P(Z\le 2)\approx 0{,}9772.$$
+Logo,
+$$\boxed{P(X\ge 80)\approx 0{,}9772.}$$
 
-d) Queremos encontrar a margem
-   $$P\left(-\frac{a}{10}\le Z\le \frac{a}{10}\right)=0{,}95.$$
-   Logo, o valor crítico é
-   $$\frac{a}{10}=z_{0{,}975}\approx 1{,}96 \quad \Rightarrow \quad a\approx 19{,}6.$$
+**c) Calcular $P(|X-100|\le 10)$**
 
-**Comentário econômico:** a faixa central de 95% é aproximadamente $100\pm 19{,}6$.
+A condição $|X-100|\le 10$ equivale a
+$$90\le X\le 110.$$
+Padronizando os limites,
+$$P(90\le X\le 110)=P\!\left(\frac{90-100}{10}\le Z\le \frac{110-100}{10}\right)=P(-1\le Z\le 1).$$
+Da tabela,
+$$P(-1\le Z\le 1)\approx 0{,}6827.$$
+Assim,
+$$\boxed{P(|X-100|\le 10)\approx 0{,}6827.}$$
+
+**d) Encontrar $a$ tal que $P(100-a\le X\le 100+a)=0{,}95$**
+
+Padronizando,
+$$P(100-a\le X\le 100+a)=P\!\left(-\frac{a}{10}\le Z\le \frac{a}{10}\right)=0{,}95.$$
+Na normal padrão, o intervalo central de 95% é aproximadamente
+$$-1{,}96\le Z\le 1{,}96.$$
+Logo,
+$$\frac{a}{10}=1{,}96 \quad \Longrightarrow \quad a=19{,}6.$$
+Portanto,
+$$\boxed{a=19{,}6.}$$
+
+**Interpretação econômica:** esse item fornece uma faixa de oscilação "normal" em torno de um valor-alvo 100, algo útil para metas de inflação, vendas ou produção.
 :::
 
-### Exercício 9 (Morettin & Bussab, Cap. 7, Ex. 18) {.unnumbered}
+### Exercício 2 (Morettin & Bussab, cap. 7, ex. 18)
 
-**Tema:** Distribuição Normal aplicada.
+**Tema:** Distribuição normal aplicada a demanda.
 
 As vendas de determinado produto têm distribuição aproximadamente normal, com média 500 unidades e desvio padrão 50 unidades. Se a empresa decide fabricar 600 unidades no mês em estudo, qual é a probabilidade de que não possa atender a todos os pedidos desse mês, por estar com a produção esgotada?
 
-**Interpretação econômica pedida:** interprete o resultado como risco de ruptura de estoque.
+**Interpretação econômica pedida:** interprete o resultado como probabilidade de ruptura de estoque.
 
 ::: {.callout-caution icon="false" collapse="true" title="RESPOSTA"}
+Seja $X$ a demanda mensal. O enunciado diz que
+$$X\sim N(500,50^2).$$
+Assim,
+$$\mu=500, \qquad \sigma=50.$$
+Haverá falta de estoque quando a demanda for maior que 600 unidades. Então queremos
+$$P(X>600).$$
+Padronizando,
+$$P(X>600)=P\!\left(\frac{X-500}{50}>\frac{600-500}{50}\right)=P(Z>2).$$
+Da tabela da normal padrão,
+$$P(Z>2)=1-\Phi(2)\approx 1-0{,}9772=0{,}0228.$$
+Logo,
+$$\boxed{P(X>600)\approx 0{,}0228.}$$
 
-Seja $D$ a demanda mensal. Então a distribuição é
-$$D\sim N(500,50^2).$$
-
-A empresa produz 600 unidades. Haverá falta quando a demanda for superior à produção
-$$D>600.$$
-
-Padronizando para a normal padrão
-$$P(D>600)=P\left(Z>\frac{600-500}{50}\right)=P(Z>2).$$
-
-Portanto, consultando a tabela
-$$P(D>600)=1-\Phi(2)\approx 1-0{,}9772=0{,}0228.$$
-
-**Comentário econômico:** o risco de produção insuficiente é de aproximadamente 2,28%.
+**Interpretação econômica:** a probabilidade de ruptura de estoque é de aproximadamente 2,28%, indicando que produzir 600 unidades gera uma margem relativamente confortável para atender à demanda.
 :::
 
-### Exercício 10 (Morettin & Bussab, Cap. 7, Ex. 19) {.unnumbered}
+### Exercício 3 (Morettin & Bussab, cap. 7, ex. 19)
 
 **Tema:** Comparação entre distribuições normais.
 
-Suponha que as amplitudes de vida de dois aparelhos elétricos, $D_1$ e $D_2$, tenham distribuições $N(42,36)$ e $N(45,9)$, respectivamente. Se os aparelhos são feitos para ser usados por um período de 45 horas, qual aparelho deve ser preferido? E se for por um período de 49 horas?
+Suponha que as amplitudes de vida de dois aparelhos elétricos, $D_1$ e $D_2$, tenham distribuições
 
-**Interpretação econômica pedida:** interprete a escolha como decisão sob risco entre duas tecnologias.
+$$D_1 \sim N(42,36) \qquad \text{e} \qquad D_2 \sim N(45,9),$$
+
+respectivamente. Se os aparelhos são feitos para ser usados por um período de 45 horas, qual aparelho deve ser preferido? E se for por um período de 49 horas?
+
+**Interpretação econômica pedida:** interprete a escolha como uma decisão entre dois ativos com diferentes médias e riscos.
 
 ::: {.callout-caution icon="false" collapse="true" title="RESPOSTA"}
-Temos as distribuições de cada aparelho
-$$D_1\sim N(42,36)\quad (\sigma_1=6), \qquad D_2\sim N(45,9)\quad (\sigma_2=3).$$
+A ideia é comparar, para cada horizonte de uso, qual aparelho tem maior probabilidade de durar *mais* do que o tempo necessário.
 
-Para uso por 45 horas, interessa comparar o risco de falha
-$$P(D_1>45) \quad \text{e} \quad P(D_2>45).$$
+Temos:
+$$D_1\sim N(42,36) \quad \Longrightarrow \quad \mu_1=42,\; \sigma_1=6,$$
+$$D_2\sim N(45,9) \quad \Longrightarrow \quad \mu_2=45,\; \sigma_2=3.$$
 
-Para $D_1$ calculamos
-$$P(D_1>45)=P\left(Z>\frac{45-42}{6}\right)=P(Z>0{,}5)\approx 0{,}3085.$$
+**Para 45 horas**
 
-Para $D_2$
-$$P(D_2>45)=P\left(Z>\frac{45-45}{3}\right)=P(Z>0)=0{,}5.$$
+Precisamos comparar $P(D_1>45)$ e $P(D_2>45)$.
 
-Logo, para 45 horas, **prefere-se $D_2$**.
+Para $D_1$:
+$$P(D_1>45)=P\!\left(Z>\frac{45-42}{6}\right)=P(Z>0{,}5)\approx 0{,}3085.$$
 
-Agora, para 49 horas
-$$P(D_1>49)=P\left(Z>\frac{49-42}{6}\right)=P(Z>1{,}1667)\approx 0{,}1217,$$
+Para $D_2$:
+$$P(D_2>45)=P\!\left(Z>\frac{45-45}{3}\right)=P(Z>0)=0{,}5.$$
 
-$$P(D_2>49)=P\left(Z>\frac{49-45}{3}\right)=P(Z>1{,}3333)\approx 0{,}0912.$$
+Como
+$$0{,}5>0{,}3085,$$
+o aparelho preferível para uso de 45 horas é **$D_2$**.
 
-Logo, para 49 horas, **prefere-se $D_1$**.
+**Para 49 horas**
 
-**Comentário econômico:** um aparelho tem maior média, o outro maior dispersão; a escolha depende do horizonte mínimo exigido.
+Agora comparamos $P(D_1>49)$ e $P(D_2>49)$.
+
+Para $D_1$:
+$$P(D_1>49)=P\!\left(Z>\frac{49-42}{6}\right)=P(Z>1{,}1667)\approx 0{,}1217.$$
+
+Para $D_2$:
+$$P(D_2>49)=P\!\left(Z>\frac{49-45}{3}\right)=P(Z>1{,}3333)\approx 0{,}0912.$$
+
+Como
+$$0{,}1217>0{,}0912,$$
+o aparelho preferível para uso de 49 horas é **$D_1$**.
+
+**Interpretação econômica:** um ativo com maior média não é necessariamente melhor em todos os horizontes; o risco, medido pela dispersão, também afeta a decisão.
 :::
 
-### Exercício 11 (Morettin & Bussab, Cap. 7, Ex. 22) {.unnumbered}
+### Exercício 4 (Morettin & Bussab, cap. 7, ex. 22)
 
-**Tema:** Aproximação normal da binomial.
+**Tema:** Aproximação normal da distribuição binomial.
 
 Seja $Y$ com distribuição binomial de parâmetros $n=10$ e $p=0{,}4$. Determine a aproximação normal para:
 
 a) $P(3<Y<8)$;
 
-b) $P(Y\ge 7)$;
+b) $P(Y\geq 7)$;
 
 c) $P(Y<5)$.
 
-**Interpretação econômica pedida:** explique por que a correção de continuidade ajuda na aproximação.
+**Interpretação econômica pedida:** explique por que a aproximação normal pode ser útil quando a distribuição exata é discreta.
 
 ::: {.callout-caution icon="false" collapse="true" title="RESPOSTA"}
-Se a variável original é
+Se
+$$Y\sim \operatorname{Bin}(10,0{,}4),$$
+então a aproximação normal é
+$$Y\approx N(np,np(1-p))=N(4,2{,}4).$$
+Assim,
+$$\mu=np=4, \qquad \sigma=\sqrt{2{,}4}\approx 1{,}549.$$
+Como a variável original é discreta, vamos usar **correção de continuidade**.
 
-$$Y\sim \text{Bin}(10; 0,4),$$
+**a) Aproximar $P(3<Y<8)$**
 
-então, pela aproximação normal, utilizamos
+Como $Y$ é discreta,
+$$3<Y<8 \iff Y\in\{4,5,6,7\} \iff 4\le Y\le 7.$$
+Com correção de continuidade,
+$$P(4\le Y\le 7)\approx P(3{,}5<Y<7{,}5).$$
+Padronizando,
+$$P(3{,}5<Y<7{,}5)=P\!\left(\frac{3{,}5-4}{1{,}549}<Z<\frac{7{,}5-4}{1{,}549}\right).$$
+Logo,
+$$P(-0{,}323<Z<2{,}259).$$
+Da tabela,
+$$P(-0{,}323<Z<2{,}259)\approx 0{,}6146.$$
+Portanto,
+$$\boxed{P(3<Y<8)\approx 0{,}6146.}$$
 
-$$Y\approx N(np,np(1-p))=N(4;2,4).$$
+**b) Aproximar $P(Y\ge 7)$**
 
-Logo, os parâmetros são
+Com correção de continuidade,
+$$P(Y\ge 7)\approx P(Y>6{,}5).$$
+Então,
+$$P(Y>6{,}5)=P\!\left(Z>\frac{6{,}5-4}{1{,}549}\right)=P(Z>1{,}614).$$
+Da tabela,
+$$P(Z>1{,}614)\approx 0{,}0533.$$
+Logo,
+$$\boxed{P(Y\ge 7)\approx 0{,}0533.}$$
 
-$$\mu=4, \qquad \sigma=\sqrt{2,4}\approx 1,549.$$
+**c) Aproximar $P(Y<5)$**
 
-Usando correção de continuidade:
+Como $Y$ é discreta,
+$$Y<5 \iff Y\le 4.$$
+Com correção de continuidade,
+$$P(Y\le 4)\approx P(Y<4{,}5).$$
+Padronizando,
+$$P(Y<4{,}5)=P\!\left(Z<\frac{4{,}5-4}{1{,}549}\right)=P(Z<0{,}323).$$
+Da tabela,
+$$P(Z<0{,}323)\approx 0{,}6266.$$
+Portanto,
+$$\boxed{P(Y<5)\approx 0{,}6266.}$$
 
-a) Intervalo aberto
-   $$P(3<Y<8)=P(4\le Y\le 7)\approx P(3{,}5<Y<7{,}5).$$
-   
-   Então, padronizando obtemos
-   
-   $$P(3{,}5<Y<7{,}5) = P\left(\frac{3{,}5-4}{1{,}549}<Z<\frac{7{,}5-4}{1{,}549}\right)$$
-   
-   $$= P(-0{,}323<Z<2{,}259) \approx 0{,}6146.$$
+**Interpretação econômica:** a aproximação normal simplifica cálculos de probabilidades binomiais, especialmente quando se quer obter rapidamente uma aproximação para eventos discretos.
+:::
 
-b) Cauda direita
+### Exercício 5 (Morettin & Bussab, cap. 7, ex. 23)
 
-   $$P(Y\ge 7)\approx P(Y>6{,}5) = P\left(Z>\frac{6{,}5-4}{1{,}549}\right) = P(Z>1{,}614) \approx 0{,}0533.$$
+**Tema:** Probabilidade pontual na binomial e aproximação normal.
 
-c) Cauda esquerda
+De um lote de produtos manufaturados, extraímos 100 itens ao acaso; se 10% do lote são defeituosos, calcule a probabilidade de 12 itens serem defeituosos. Use também a aproximação normal.
 
-   $$P(Y<5)=P(Y\le 4)\approx P(Y<4{,}5) = P\left(Z<\frac{4{,}5-4}{1{,}549}\right) = P(Z<0{,}323) \approx 0{,}6266.$$
+**Interpretação econômica pedida:** interprete o resultado como a chance de um desvio específico em relação à taxa média de defeitos.
 
-**Comentário econômico:** a correção de continuidade melhora a passagem de uma variável discreta para a aproximação contínua normal.
+::: {.callout-caution icon="false" collapse="true" title="RESPOSTA"}
+Se a proporção de defeituosos é 10% e retiramos 100 itens ao acaso, então o número de defeituosos pode ser modelado por
+$$X\sim \operatorname{Bin}(100,0{,}1).$$
+
+**1) Probabilidade exata**
+
+A fórmula da binomial é
+$$P(X=k)=\binom{n}{k}p^k(1-p)^{n-k}.$$
+Neste caso, $n=100$, $k=12$ e $p=0{,}1$. Logo,
+$$P(X=12)=\binom{100}{12}(0{,}1)^{12}(0{,}9)^{88}.$$
+Calculando numericamente,
+$$\boxed{P(X=12)\approx 0{,}0988.}$$
+
+**2) Aproximação normal**
+
+Como
+$$\mu=np=100\cdot 0{,}1=10,$$
+$$\sigma^2=np(1-p)=100\cdot 0{,}1\cdot 0{,}9=9,$$
+segue que
+$$\sigma=3.$$
+Assim,
+$$X\approx N(10,9).$$
+
+Queremos aproximar a probabilidade pontual $P(X=12)$. Como a variável original é discreta, usamos correção de continuidade:
+$$P(X=12)\approx P(11{,}5<X<12{,}5).$$
+Padronizando os limites,
+$$P(11{,}5<X<12{,}5)=P\!\left(\frac{11{,}5-10}{3}<Z<\frac{12{,}5-10}{3}\right).$$
+Isto é,
+$$P(0{,}5<Z<0{,}8333).$$
+Então,
+$$P(X=12)\approx \Phi(0{,}8333)-\Phi(0{,}5)\approx 0{,}1062.$$
+Logo,
+$$\boxed{P(X=12)\approx 0{,}1062 \quad \text{(aproximação normal).}}$$
+
+**Comparação final**
+$$\text{Exata }\approx 0{,}0988, \qquad \text{Normal }\approx 0{,}1062.$$
+
+**Interpretação econômica:** o resultado mede a chance de observar 12 defeituosos, isto é, um número ligeiramente acima da média esperada de 10 defeitos em 100 itens.
+:::
+
+### Exercício 6 (Morettin & Bussab, cap. 7, ex. 34)
+
+**Tema:** Distribuição normal em controle de qualidade.
+
+O peso bruto de latas de conserva é uma v.a. normal, com média 1.000 g e desvio padrão 20 g.
+
+a) Qual a probabilidade de uma lata pesar menos de 980 g?
+
+b) Qual a probabilidade de uma lata pesar mais de 1010 g?
+
+**Interpretação econômica pedida:** relacione os resultados a problemas de subenchimento e excesso de peso.
+
+::: {.callout-caution icon="false" collapse="true" title="RESPOSTA"}
+Se
+$$X\sim N(1000,20^2),$$
+então
+$$\mu=1000, \qquad \sigma=20.$$
+
+**a) Calcular $P(X<980)$**
+
+$$P(X<980)=P\!\left(\frac{X-1000}{20}<\frac{980-1000}{20}\right)=P(Z<-1).$$
+Da tabela da normal padrão,
+$$P(Z<-1)\approx 0{,}1587.$$
+Portanto,
+$$\boxed{P(X<980)\approx 0{,}1587.}$$
+
+**b) Calcular $P(X>1010)$**
+
+$$P(X>1010)=P\!\left(\frac{X-1000}{20}>\frac{1010-1000}{20}\right)=P(Z>0{,}5).$$
+Da tabela,
+$$P(Z>0{,}5)\approx 0{,}3085.$$
+Logo,
+$$\boxed{P(X>1010)\approx 0{,}3085.}$$
+
+**Interpretação econômica:** a parte (a) mede o risco de subenchimento; a parte (b), o risco de exceder o peso-alvo, o que pode elevar custos de produção.
+:::
+
+### Exercício 7 (Morettin & Bussab, cap. 7, ex. 59)
+
+**Tema:** Aproximação normal da distribuição qui-quadrado.
+
+Usando a aproximação normal a uma variável qui-quadrado, calcular:
+
+a) $$P\bigl(\chi^2_{(35)} > 49{,}76\bigr);$$
+
+b) o valor $y$ tal que $$P\bigl(\chi^2_{(40)} > y\bigr)=0{,}05.$$
+
+**Interpretação econômica pedida:** discuta brevemente por que aproximações são úteis quando a distribuição exata é menos prática para cálculo manual.
+
+::: {.callout-caution icon="false" collapse="true" title="RESPOSTA"}
+Usaremos a aproximação
+$$\chi^2(\nu)\approx N(\nu,2\nu).$$
+
+**a) Aproximar $P(\chi^2(35)>49{,}76)$**
+
+Se $\nu=35$, então
+$$\chi^2(35)\approx N(35,70).$$
+Logo,
+$$P(\chi^2(35)>49{,}76)\approx P\!\left(Z>\frac{49{,}76-35}{\sqrt{70}}\right).$$
+Calculando o valor padronizado,
+$$\frac{49{,}76-35}{\sqrt{70}}\approx 1{,}764.$$
+Assim,
+$$P(\chi^2(35)>49{,}76)\approx P(Z>1{,}764)\approx 0{,}0389.$$
+Portanto,
+$$\boxed{P(\chi^2(35)>49{,}76)\approx 0{,}0389.}$$
+
+**b) Encontrar $y$ tal que $P(\chi^2(40)>y)=0{,}05$**
+
+Se $\nu=40$, então
+$$\chi^2(40)\approx N(40,80).$$
+A condição
+$$P(\chi^2(40)>y)=0{,}05$$
+é equivalente a
+$$P(\chi^2(40)\le y)=0{,}95.$$
+Na normal padrão, o percentil de 95% é aproximadamente 1,645. Portanto,
+$$\frac{y-40}{\sqrt{80}}=1{,}645.$$
+Logo,
+$$y=40+1{,}645\sqrt{80}.$$
+Como
+$$\sqrt{80}\approx 8{,}944,$$
+obtemos
+$$y\approx 40+1{,}645\cdot 8{,}944\approx 54{,}71.$$
+Portanto,
+$$\boxed{y\approx 54{,}71.}$$
+
+**Interpretação econômica:** aproximações desse tipo são úteis quando a distribuição exata é menos prática para cálculo manual ou quando se quer uma resposta rápida sem recorrer a tabelas específicas.
+:::
+
+### Exercício 8 (ANPEC 2006)
+
+**Tema:** Relações fundamentais entre as distribuições Normal, $\chi^2$, $t$ e $F$.
+
+São corretas as afirmativas:
+
+a) Se $Y$ é uma variável aleatória Normal, com média 0 e variância 1; se $X$ segue uma Qui-quadrado com $r$ graus de liberdade; e se $Y$ e $X$ são independentes, então
+
+$$Z=\frac{Y}{\sqrt{X/r}}$$
+
+segue uma distribuição $t$ com $r$ graus de liberdade.
+
+b) Sejam $Y$ e $X$ variáveis aleatórias com distribuições Qui-quadrado com $p$ e $q$ graus de liberdade, respectivamente. Portanto,
+
+$$Z=\frac{Y/p}{X/q}$$
+
+segue uma distribuição $F$ com $p$ e $q$ graus de liberdade.
+
+::: {.callout-caution icon="false" collapse="true" title="RESPOSTA"}
+
+a) **V** Se $Y\sim N(0,1)$, $X\sim \chi^2(r)$ e $Y$ e $X$ são independentes, então por definição
+$$Z=\frac{Y}{\sqrt{X/r}}\sim t(r).$$
+Portanto, o item (a) é verdadeiro.
+
+b) **F** A caracterização da distribuição $F$ exige que as duas variáveis qui-quadrado envolvidas sejam independentes. A forma correta seria:
+$$\text{se } Y\sim \chi^2(p),\; X\sim \chi^2(q) \text{ e } X \text{ e } Y \text{ são independentes, então}$$
+$$Z=\frac{Y/p}{X/q}\sim F(p,q).$$
+Como o enunciado do item (b) não informa independência, ele está incompleto e, portanto, deve ser considerado falso *como escrito*.
+
+**Gabarito:** **V, F**.
+
+**Interpretação econômica:** essas relações são fundamentais para testes de hipótese e construção de intervalos de confiança em econometria e estatística aplicada.
+:::
+
+### Exercício 9 (ANPEC 2023 --- Questão 06)
+
+**Tema:** Distribuição binomial em contexto econômico.
+
+Supondo que a taxa de desemprego de determinado país corresponda a 10% da população economicamente ativa (PEA), verifique se as afirmativas abaixo sobre esse país são corretas:
+
+a) Em uma amostra aleatória de 10 indivíduos da PEA, a probabilidade de que nenhum desses 10 indivíduos esteja desempregado é
+
+$$10 \times (0{,}9)^{10}.$$
+
+b) Em uma amostra aleatória de 10 indivíduos da PEA, a probabilidade de encontrar exatamente dois desempregados é
+
+$$45 \times (0{,}1)^2 \times (0{,}9)^8.$$
+
+c) Em uma amostra aleatória de 5 indivíduos da PEA, a probabilidade de 2 ou mais desses indivíduos estarem desempregados é
+
+$$1-(0{,}9)^5-0{,}5\times (0{,}9)^4.$$
+
+d) A probabilidade de encontrar 10 desempregados em uma amostra aleatória de 10 indivíduos da PEA é igual à probabilidade de encontrar 5 desempregados em uma amostra aleatória de 5 indivíduos da PEA.
+
+e) Em uma amostra aleatória de 3 indivíduos da PEA, a probabilidade de encontrar exatamente dois desempregados é igual a 0,027.
+
+::: {.callout-caution icon="false" collapse="true" title="RESPOSTA"}
+Aqui modelamos o número de desempregados em cada amostra por uma binomial com
+$$p=0{,}1.$$
+
+a) **F** Em uma amostra de 10 indivíduos, a probabilidade de nenhum desempregado é
+$$P(X=0)=\binom{10}{0}(0{,}1)^0(0{,}9)^{10}=(0{,}9)^{10}.$$
+O fator $10\times (0{,}9)^{10}$ está errado. Portanto, o item é falso.
+
+b) **V** Em uma amostra de 10 indivíduos, a probabilidade de exatamente 2 desempregados é
+$$P(X=2)=\binom{10}{2}(0{,}1)^2(0{,}9)^8.$$
+Como
+$$\binom{10}{2}=45,$$
+obtemos exatamente a expressão do enunciado:
+$$45(0{,}1)^2(0{,}9)^8.$$
+
+c) **V** Seja agora $X\sim \operatorname{Bin}(5,0{,}1)$. Queremos a probabilidade de 2 ou mais desempregados:
+$$P(X\ge 2)=1-P(X=0)-P(X=1).$$
+Calculando cada parcela:
+$$P(X=0)=(0{,}9)^5,$$
+$$P(X=1)=\binom{5}{1}(0{,}1)(0{,}9)^4=5\cdot 0{,}1\cdot (0{,}9)^4=0{,}5(0{,}9)^4.$$
+Logo,
+$$P(X\ge 2)=1-(0{,}9)^5-0{,}5(0{,}9)^4,$$
+exatamente como no item. Portanto, ele é verdadeiro.
+
+d) **F** A probabilidade de encontrar 10 desempregados em uma amostra de 10 é
+$$(0{,}1)^{10}.$$
+Já a probabilidade de encontrar 5 desempregados em uma amostra de 5 é
+$$(0{,}1)^5.$$
+Esses valores não são iguais. Portanto, o item é falso.
+
+e) **V** Em uma amostra de 3 indivíduos, a probabilidade de exatamente 2 desempregados é
+$$P(X=2)=\binom{3}{2}(0{,}1)^2(0{,}9)=3\cdot 0{,}01\cdot 0{,}9=0{,}027.$$
+Logo, o item é verdadeiro.
+
+**Gabarito:** **F, V, V, F, V**.
+
+**Interpretação econômica:** a binomial permite quantificar, em pequenas amostras, a chance de observar determinados números de desempregados quando a taxa populacional é conhecida.
+:::
+
+### Exercício 10 (ANPEC 2014)
+
+**Tema:** Combinação linear de variáveis normais.
+
+Sejam $X_1$ e $X_2$ variáveis aleatórias independentes, cujas distribuições são representadas por
+
+$$X_1 \sim N(\mu_1,\sigma_1^2) \qquad \text{e} \qquad X_2 \sim N(\mu_2,\sigma_2^2).$$
+
+Considere a seguinte combinação linear:
+
+$$Y=aX_1+bX_2,$$
+
+em que $a$ e $b$ são constantes. É correto afirmar que:
+
+a) $Y$ tem distribuição normal;
+
+b) $Y$ tem média igual a $a\mu_1+b\mu_2$;
+
+c) $Y$ tem variância igual a $\sigma_1^2+\sigma_2^2$;
+
+d) a distribuição de $X_1$ é simétrica em torno de zero;
+
+e) se $b=0$, $Y$ tem variância igual a $\sigma_1^2$.
+
+::: {.callout-caution icon="false" collapse="true" title="RESPOSTA"}
+Temos $X_1$ e $X_2$ independentes, com
+$$X_1\sim N(\mu_1,\sigma_1^2), \qquad X_2\sim N(\mu_2,\sigma_2^2),$$
+e a combinação linear
+$$Y=aX_1+bX_2.$$
+Vamos julgar cada afirmativa.
+
+a) **V** Uma combinação linear de variáveis normais independentes também tem distribuição normal. Portanto, $Y$ é normal.
+
+b) **V** Pela linearidade da esperança,
+$$E(Y)=E(aX_1+bX_2)=aE(X_1)+bE(X_2)=a\mu_1+b\mu_2.$$
+Logo, o item é verdadeiro.
+
+c) **F** A variância correta é
+$$\operatorname{Var}(Y)=\operatorname{Var}(aX_1+bX_2)=a^2\sigma_1^2+b^2\sigma_2^2,$$
+porque a independência implica covariância nula. O item omite os coeficientes $a^2$ e $b^2$, então é falso.
+
+d) **F** A distribuição de $X_1$ é simétrica em torno de sua média $\mu_1$, e não necessariamente em torno de zero. Só seria simétrica em torno de zero se $\mu_1=0$.
+
+e) **F** Se $b=0$, então
+$$Y=aX_1.$$
+Nesse caso,
+$$\operatorname{Var}(Y)=\operatorname{Var}(aX_1)=a^2\sigma_1^2,$$
+e não simplesmente $\sigma_1^2$, exceto no caso especial $a=\pm 1$.
+
+**Gabarito:** **V, V, F, F, F**.
+
+**Interpretação econômica:** quando um indicador é combinação linear de componentes normais independentes, sua média soma os efeitos médios e sua variância depende dos pesos e das dispersões de cada componente.
 :::

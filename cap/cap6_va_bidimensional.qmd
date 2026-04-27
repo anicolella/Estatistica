@@ -867,26 +867,41 @@ Encontre o valor esperado de $X+3Y$.
 
 **Interpretação econômica pedida:** interprete $X$ e $Y$ como dois componentes de custo/receita e $X+3Y$ como um índice econômico ponderado.
 
-::: {.callout-caution  icon="false" collapse="true" title="RESPOSTA"}
-Como está escrito,
-$$\int_0^4 \int_1^2 xy\,dy\,dx = 12 \neq 1.$$
+::: {.callout-caution icon="false" collapse="true" title="RESPOSTA"}
+O enunciado escreve a "densidade" como
+$$f(x,y)=xy, \qquad 0\le x\le 4,\; 1\le y\le 2.$$
 
-Para tratar como densidade conjunta, use a versão normalizada
-$$f_{X,Y}(x,y)=kxy$$
+Antes de calcular a esperança, precisamos conferir se essa função realmente integra 1 no suporte. De fato,
+$$\int_0^4\int_1^2 xy\,dy\,dx=\left(\int_0^4 x\,dx\right)\left(\int_1^2 y\,dy\right)=8\cdot \frac{3}{2}=12\neq 1.$$
 
-no suporte, com $k\cdot 12=1$, logo
-$$k=\frac{1}{12}.$$
+Logo, para tratá-la como densidade conjunta, precisamos normalizá-la. Seja
+$$f_{X,Y}(x,y)=kxy, \qquad 0\le x\le 4,\;1\le y\le 2.$$
 
-Então,
-$$E[X]=\int_0^4\int_1^2 x\cdot \frac{1}{12}xy\,dy\,dx =\frac{1}{12}\left(\int_0^4 x^2\,dx\right)\left(\int_1^2 y\,dy\right) =\frac{1}{12}\cdot \frac{64}{3}\cdot \frac{3}{2} =\frac{8}{3}.$$
+Como a integral do termo $xy$ no suporte é 12, deve valer
+$$12k=1 \quad \Longrightarrow \quad k=\frac{1}{12}.$$
 
-Além disso,
-$$E[Y]=\int_0^4\int_1^2 y\cdot \frac{1}{12}xy\,dy\,dx =\frac{1}{12}\left(\int_0^4 x\,dx\right)\left(\int_1^2 y^2\,dy\right) =\frac{1}{12}\cdot 8\cdot \frac{7}{3} =\frac{14}{9}.$$
+Assim, usamos a densidade correta
+$$f_{X,Y}(x,y)=\frac{1}{12}xy, \qquad 0\le x\le 4,\;1\le y\le 2.$$
 
-Logo,
-$$E[X+3Y]=E[X]+3E[Y]=\frac{8}{3}+3\cdot \frac{14}{9}=\frac{22}{3}.$$
+Agora calculamos $E[X]$:
+$$E[X]=\int_0^4\int_1^2 x\,f_{X,Y}(x,y)\,dy\,dx=\int_0^4\int_1^2 x\cdot \frac{1}{12}xy\,dy\,dx.$$
 
-**Comentário econômico:** trata-se de um índice ponderado de dois componentes; a esperança é obtida pela linearidade.
+Separando as integrais,
+$$E[X]=\frac{1}{12}\left(\int_0^4 x^2\,dx\right)\left(\int_1^2 y\,dy\right)=\frac{1}{12}\cdot \frac{64}{3}\cdot \frac{3}{2}=\frac{8}{3}.$$
+
+Agora calculamos $E[Y]$:
+$$E[Y]=\int_0^4\int_1^2 y\,f_{X,Y}(x,y)\,dy\,dx=\int_0^4\int_1^2 y\cdot \frac{1}{12}xy\,dy\,dx.$$
+
+Separando as integrais,
+$$E[Y]=\frac{1}{12}\left(\int_0^4 x\,dx\right)\left(\int_1^2 y^2\,dy\right)=\frac{1}{12}\cdot 8\cdot \frac{7}{3}=\frac{14}{9}.$$
+
+Pela linearidade da esperança,
+$$E[X+3Y]=E[X]+3E[Y]=\frac{8}{3}+3\cdot \frac{14}{9}=\frac{8}{3}+\frac{14}{3}=\frac{22}{3}.$$
+
+Portanto,
+$$\boxed{E[X+3Y]=\frac{22}{3}}.$$
+
+**Interpretação econômica:** se $X$ e $Y$ forem dois componentes de custo ou receita, então $X+3Y$ é um índice ponderado, e seu valor esperado é a soma dos valores esperados ponderados.
 :::
 
 ### Exercício 2 (Morettin & Bussab, Cap. 8) {.unnumbered}
@@ -916,29 +931,68 @@ e) Calcule $\operatorname{Cov}(X,Y)$ e interprete.
 
 **Interpretação econômica pedida:** use $X$ como "sinal" (choque discreto) e $Y$ como "estado" (regime) e discuta independência.
 
-::: {.callout-caution  icon="false" collapse="true" title="RESPOSTA"}
-a) Espaço amostral:
-   $$\Omega=\{(m_1,m_2,d): m_1,m_2\in\{C,K\},\ d\in\{1,2,3,4,5,6\}\},$$
-   com 24 resultados equiprováveis.
+::: {.callout-caution icon="false" collapse="true" title="RESPOSTA"}
+Temos dois lançamentos de uma moeda perfeita e um lançamento de um dado. Define-se:
+$$X=\text{número de caras nos dois lançamentos da moeda}, \qquad Y=\text{face do dado}.$$
 
-b) $X\in\{0,1,2\}$, com
-   $$P(X=0)=\frac14,\qquad P(X=1)=\frac12,\qquad P(X=2)=\frac14.$$
-   E
-   $$P(Y=y)=\frac16,\qquad y=1,\dots,6.$$
-   Como os experimentos são independentes,
-   $$P(X=x,Y=y)=P(X=x)P(Y=y).$$
+**a) Espaço amostral**
 
-c) Sim. A distribuição conjunta fatoriza nas marginais, então $X$ e $Y$ são independentes.
+O espaço amostral pode ser escrito como
+$$\Omega=\{(m_1,m_2,d): m_1,m_2\in\{C,K\},\; d\in\{1,2,3,4,5,6\}\}.$$
 
-d) Valores das probabilidades solicitadas:
-   $$P(X=1)=\frac12,\qquad P(X\le 1)=\frac14+\frac12=\frac34,$$
-   $$P(X=2,Y=3)=\frac14\cdot \frac16=\frac{1}{24},$$
-   $$P(X=0,Y\ge 1)=P(X=0)=\frac14.$$
+Como a moeda é lançada duas vezes e o dado uma vez, há
+$$2\cdot 2\cdot 6=24$$
+resultados elementares equiprováveis.
 
-e) Como a independência implica covariância nula,
-   $$\operatorname{Cov}(X,Y)=0.$$
+**b) Distribuição conjunta de $(X,Y)$**
 
-**Comentário econômico:** ausência de correlação, aqui por independência, sugere que sinal e estado não se movem juntos.
+Primeiro, a distribuição de $X$:
+* $X=0$ quando saem duas coroas: probabilidade $\frac{1}{4}$.
+* $X=1$ quando sai uma cara e uma coroa: probabilidade $\frac{2}{4}=\frac{1}{2}$.
+* $X=2$ quando saem duas caras: probabilidade $\frac{1}{4}$.
+
+A distribuição de $Y$ é uniforme em $\{1,2,3,4,5,6\}$:
+$$P(Y=y)=\frac{1}{6}, \qquad y=1,2,3,4,5,6.$$
+
+Como o resultado da moeda e o resultado do dado vêm de experimentos independentes,
+$$P(X=x,Y=y)=P(X=x)P(Y=y).$$
+
+Logo, a distribuição conjunta fica:
+* Para $x=0$, temos $P(X=0,Y=y)=\frac{1}{24}$ para todo $y \in \{1,2,3,4,5,6\}$.
+* Para $x=1$, temos $P(X=1,Y=y)=\frac{1}{12}$ para todo $y \in \{1,2,3,4,5,6\}$.
+* Para $x=2$, temos $P(X=2,Y=y)=\frac{1}{24}$ para todo $y \in \{1,2,3,4,5,6\}$.
+
+**c) Independência**
+
+Como vimos,
+$$P(X=x,Y=y)=P(X=x)P(Y=y)$$
+para todo $x$ e todo $y$. Portanto, **$X$ e $Y$ são independentes**.
+
+**d) Probabilidades pedidas**
+
+**(i)**
+$$P(X=1)=\frac{1}{2}.$$
+
+**(ii)**
+$$P(X\le 1)=P(X=0)+P(X=1)=\frac{1}{4}+\frac{1}{2}=\frac{3}{4}.$$
+
+**(iii)**
+$$P(X=2,Y=3)=P(X=2)P(Y=3)=\frac{1}{4}\cdot \frac{1}{6}=\frac{1}{24}.$$
+
+**(iv)** Como $Y\ge 1$ é sempre verdadeiro no dado,
+$$P(X=0,Y\ge 1)=P(X=0)=\frac{1}{4}.$$
+
+**e) Covariância**
+
+Como $X$ e $Y$ são independentes,
+$$\operatorname{Cov}(X,Y)=0.$$
+
+Se quisermos ver isso pela definição:
+$$\operatorname{Cov}(X,Y)=E[XY]-E[X]E[Y].$$
+
+A independência implica $E[XY]=E[X]E[Y]$, então a covariância é nula.
+
+**Interpretação econômica:** se $X$ for um "sinal" e $Y$ um "estado", a independência significa que observar o sinal não altera a distribuição do estado.
 :::
 
 ### Exercício 3 (Morettin & Bussab, Cap. 8) {.unnumbered}
@@ -954,33 +1008,79 @@ b) Calcule $P(0<X<1,\ 1<Y<2)$.
 
 c) Calcule as esperanças condicionais $E(Y\mid X=x)$ e $E(X\mid Y=y)$.
 
+d) Calcule a correlação $\rho(X,Y).$
+
 **Interpretação econômica pedida:** interprete $X$ e $Y$ como durações/tempos de dois processos econômicos e discuta o que significa independência.
 
-::: {.callout-caution  icon="false" collapse="true" title="RESPOSTA"}
-a) Marginais
-   $$f_X(x)=\int_0^\infty e^{-(x+y)}\,dy=e^{-x},\qquad x>0,$$
-   $$f_Y(y)=\int_0^\infty e^{-(x+y)}\,dx=e^{-y},\qquad y>0.$$
+::: {.callout-caution icon="false" collapse="true" title="RESPOSTA"}
+A densidade conjunta é
+$$f(x,y)=e^{-(x+y)}, \qquad x>0,\; y>0.$$
 
-b) Como a conjunta fatoriza nas marginais
-   $$f(x,y)=f_X(x)f_Y(y),$$
-   segue que $X$ e $Y$ são independentes. Portanto,
-   $$P(0<X<1,\ 1<Y<2)=P(0<X<1)\,P(1<Y<2).$$
-   Logo,
-   $$P(0<X<1)=1-e^{-1}, \qquad P(1<Y<2)=e^{-1}-e^{-2},$$
-   e
-   $$P(0<X<1,\ 1<Y<2)=(1-e^{-1})(e^{-1}-e^{-2}).$$
+Observe que
+$$e^{-(x+y)}=e^{-x}e^{-y},$$
+o que já sugere independência.
 
-c) Pela independência,
+**a) Densidades marginais**
 
-   $$f_{Y\mid X}(y\mid x)=f_Y(y), \qquad f_{X\mid Y}(x\mid y)=f_X(x).$$
-   
-   
-Como ambas são Exponencial(1),
+Para $X$:
+$$f_X(x)=\int_0^{\infty} e^{-(x+y)}\,dy=e^{-x}\int_0^{\infty}e^{-y}\,dy=e^{-x}\cdot 1=e^{-x}, \qquad x>0.$$
 
-   $$E(Y\mid X=x)=E(Y)=1, \qquad E(X\mid Y=y)=E(X)=1.$$
+Para $Y$:
+$$f_Y(y)=\int_0^{\infty} e^{-(x+y)}\,dx=e^{-y}\int_0^{\infty}e^{-x}\,dx=e^{-y}\cdot 1=e^{-y}, \qquad y>0.$$
 
-**Comentário econômico:** condicionar não muda a média quando os processos são independentes.
+Logo, $X$ e $Y$ têm marginais Exponencial$(1)$.
 
+**b) Probabilidade da região**
+
+Queremos
+$$P(0<X<1,\,1<Y<2).$$
+
+Como a densidade conjunta fatoriza nas marginais, $X$ e $Y$ são independentes. Assim,
+$$P(0<X<1,\,1<Y<2)=P(0<X<1)\,P(1<Y<2).$$
+
+Agora,
+$$P(0<X<1)=\int_0^1 e^{-x}\,dx=1-e^{-1},$$
+e
+$$P(1<Y<2)=\int_1^2 e^{-y}\,dy=e^{-1}-e^{-2}.$$
+
+Portanto,
+$$P(0<X<1,\,1<Y<2)=(1-e^{-1})(e^{-1}-e^{-2}).$$
+
+**c) Esperanças condicionais**
+
+A densidade condicional de $Y$ dado $X=x$ é
+$$f_{Y|X}(y|x)=\frac{f(x,y)}{f_X(x)}=\frac{e^{-(x+y)}}{e^{-x}}=e^{-y}, \qquad y>0.$$
+
+Ou seja, a distribuição condicional de $Y$ dado $X=x$ é a mesma marginal de $Y$. Então,
+$$E(Y|X=x)=E(Y)=1.$$
+
+Do mesmo modo,
+$$f_{X|Y}(x|y)=\frac{f(x,y)}{f_Y(y)}=\frac{e^{-(x+y)}}{e^{-y}}=e^{-x}, \qquad x>0,$$
+logo,
+$$E(X|Y=y)=E(X)=1.$$
+
+Portanto,
+$$\boxed{E(Y|X=x)=1 \quad \text{e} \quad E(X|Y=y)=1.}$$
+
+**d) Correlação**
+
+Como a densidade fatoriza no produto de uma função só de $x$ por uma função só de $y$, concluímos que $X$ e $Y$ são independentes.
+
+Quando duas variáveis são independentes,
+$$E(XY)=E(X)E(Y),$$
+portanto,
+$$\operatorname{Cov}(X,Y)=E(XY)-E(X)E(Y)=0.$$
+
+A correlação é dada por
+$$\rho(X,Y)=\frac{\operatorname{Cov}(X,Y)}{\sqrt{\operatorname{Var}(X)\operatorname{Var}(Y)}}.$$
+
+Como a covariância é zero,
+$$\rho(X,Y)=0.$$
+
+Logo,
+$$\boxed{\rho(X,Y)=0.}$$
+
+**Interpretação econômica:** se $X$ e $Y$ representam durações de dois processos independentes, saber o valor de um deles não altera a duração média esperada do outro.
 :::
 
 ### Exercício 4 (Morettin & Bussab, Cap. 8) {.unnumbered}
@@ -992,16 +1092,52 @@ $$f(x,y)=\frac{1}{64}(x+y), \qquad 0\le x\le 4,\ 0\le y\le 4.$$
 
 **Interpretação econômica pedida:** interprete a condicional como a distribuição de $X$ dado um nível de $Y$ (por exemplo, risco dado o estado).
 
-::: {.callout-caution  icon="false" collapse="true" title="RESPOSTA"}
-Marginais
-$$f_X(x)=\int_0^4 \frac{1}{64}(x+y)\,dy =\frac{1}{64}(4x+8) =\frac{x+2}{16},\qquad 0\le x\le 4,$$
-$$f_Y(y)=\int_0^4 \frac{1}{64}(x+y)\,dx =\frac{1}{64}(8+4y) =\frac{y+2}{16},\qquad 0\le y\le 4.$$
+::: {.callout-caution icon="false" collapse="true" title="RESPOSTA"}
+A densidade conjunta é
+$$f(x,y)=\frac{1}{64}(x+y), \qquad 0\le x\le 4,\; 0\le y\le 4.$$
 
-Condicionais
-$$f_{X\mid Y}(x\mid y)=\frac{f(x,y)}{f_Y(y)} =\frac{\frac{1}{64}(x+y)}{(y+2)/16} =\frac{x+y}{4(y+2)},\qquad 0\le x\le 4,$$
-$$f_{Y\mid X}(y\mid x)=\frac{f(x,y)}{f_X(x)} =\frac{\frac{1}{64}(x+y)}{(x+2)/16} =\frac{x+y}{4(x+2)},\qquad 0\le y\le 4.$$
+**Marginal de $X$**
 
-**Comentário econômico:** a distribuição condicional fica mais inclinada para valores maiores quando o outro componente está alto.
+Integramos em relação a $y$:
+$$f_X(x)=\int_0^4 \frac{1}{64}(x+y)\,dy=\frac{1}{64}\left(\int_0^4 x\,dy+\int_0^4 y\,dy\right).$$
+
+Como $x$ é constante em relação a $y$,
+$$\int_0^4 x\,dy=4x \qquad \text{e} \qquad \int_0^4 y\,dy=\frac{4^2}{2}=8.$$
+
+Então,
+$$f_X(x)=\frac{1}{64}(4x+8)=\frac{x+2}{16}, \qquad 0\le x\le 4.$$
+
+**Marginal de $Y$**
+
+De modo análogo,
+$$f_Y(y)=\int_0^4 \frac{1}{64}(x+y)\,dx=\frac{1}{64}\left(\int_0^4 x\,dx+\int_0^4 y\,dx\right).$$
+
+Agora,
+$$\int_0^4 x\,dx=8 \qquad \text{e} \qquad \int_0^4 y\,dx=4y.$$
+
+Logo,
+$$f_Y(y)=\frac{1}{64}(8+4y)=\frac{y+2}{16}, \qquad 0\le y\le 4.$$
+
+**Condicional de $X$ dado $Y=y$**
+
+Pela definição,
+$$f_{X|Y}(x|y)=\frac{f(x,y)}{f_Y(y)}.$$
+
+Substituindo,
+$$f_{X|Y}(x|y)=\frac{\frac{1}{64}(x+y)}{(y+2)/16}=\frac{x+y}{4(y+2)}, \qquad 0\le x\le 4.$$
+
+**Condicional de $Y$ dado $X=x$**
+
+Analogamente,
+$$f_{Y|X}(y|x)=\frac{f(x,y)}{f_X(x)}=\frac{\frac{1}{64}(x+y)}{(x+2)/16}=\frac{x+y}{4(x+2)}, \qquad 0\le y\le 4.$$
+
+Portanto,
+$$\boxed{f_X(x)=\frac{x+2}{16}, \; 0\le x\le 4}$$
+$$\boxed{f_Y(y)=\frac{y+2}{16}, \; 0\le y\le 4}$$
+$$\boxed{f_{X|Y}(x|y)=\frac{x+y}{4(y+2)}, \; 0\le x\le 4}$$
+$$\boxed{f_{Y|X}(y|x)=\frac{x+y}{4(x+2)}, \; 0\le y\le 4.}$$
+
+**Interpretação econômica:** a distribuição de um componente muda quando o outro é fixado em um valor maior, o que altera o peso relativo dos valores possíveis na condicional.
 :::
 
 ### Exercício 5 (Morettin & Bussab, Cap. 8) {.unnumbered}
@@ -1019,23 +1155,91 @@ c) Calcule $f_{X\mid Y}(x\mid y)$ e $f_{Y\mid X}(y\mid x)$.
 
 **Interpretação econômica pedida:** destaque como a restrição $-x<y<x$ cria dependência econômica entre as variáveis.
 
-::: {.callout-caution  icon="false" collapse="true" title="RESPOSTA"}
-a) Marginal de $X$
-   $$f_X(x)=\int_{-x}^{x}\frac18 x(x-y)\,dy =\frac{x^3}{4},\qquad 0<x<2.$$
-   Para $f_Y(y)$, dado $y\in(-2,2)$, o suporte impõe $x\in(|y|,2)$. Então,
-   $$f_Y(y)=\int_{|y|}^{2}\frac18 x(x-y)\,dx,\qquad -2<y<2.$$
-   Uma forma explícita é
-   $$f_Y(y)= \begin{cases} \frac13-\frac{y}{4}+\frac{5y^3}{48}, & -2<y<0,\\[0.4em] \frac13-\frac{y}{4}+\frac{y^3}{48}, & 0\le y<2. \end{cases}$$
+::: {.callout-caution icon="false" collapse="true" title="RESPOSTA"}
+A densidade conjunta é
+$$f(x,y)=\frac{1}{8}x(x-y), \qquad 0<x<2,\; -x<y<x.$$
 
-b) Probabilidade acumulada
-   $$P(X\le 1)=\int_0^1 \frac{x^3}{4}\,dx=\frac{1}{16}.$$
+Aqui o ponto central é entender bem o **suporte**: para cada valor de $x$, o valor de $y$ deve ficar entre $-x$ e $x$; equivalentemente, para um valor fixo de $y$, o valor de $x$ deve satisfazer $|y|<x<2$.
 
-c) Condicional de $Y$ dado $X=x$
-   $$f_{Y\mid X}(y\mid x)=\frac{f(x,y)}{f_X(x)} =\frac{\frac18 x(x-y)}{x^3/4} =\frac{x-y}{2x^2}, \qquad -x<y<x.$$
-   E para $X$ dado $Y=y$
-   $$f_{X\mid Y}(x\mid y)=\frac{f(x,y)}{f_Y(y)}, \qquad |y|<x<2.$$
+**a) Marginais**
 
-**Comentário econômico:** a faixa $-x<y<x$ impõe uma restrição conjunta, gerando dependência entre as variáveis.
+**Marginal de $X$**
+
+Integramos em $y$:
+$$f_X(x)=\int_{-x}^{x} \frac{1}{8}x(x-y)\,dy, \qquad 0<x<2.$$
+
+Como $x$ é constante nessa integral,
+$$f_X(x)=\frac{x}{8}\int_{-x}^{x}(x-y)\,dy.$$
+
+Agora,
+$$\int_{-x}^{x}(x-y)\,dy=\int_{-x}^{x}x\,dy-\int_{-x}^{x}y\,dy.$$
+
+Temos:
+$$\int_{-x}^{x}x\,dy=x\cdot (2x)=2x^2,$$
+
+e, por simetria,
+$$\int_{-x}^{x}y\,dy=0.$$
+
+Logo,
+$$f_X(x)=\frac{x}{8}\cdot 2x^2=\frac{x^3}{4}, \qquad 0<x<2.$$
+
+**Marginal de $Y$**
+
+Agora fixamos $y$ e determinamos o intervalo possível para $x$. Como o suporte impõe $-x<y<x$, isso equivale a $|y|<x$. Além disso, $0<x<2$. Portanto,
+$$|y|<x<2, \qquad -2<y<2.$$
+
+Assim,
+$$f_Y(y)=\int_{|y|}^{2} \frac{1}{8}x(x-y)\,dx, \qquad -2<y<2.$$
+
+Vamos integrar:
+$$f_Y(y)=\frac{1}{8}\int_{|y|}^{2}(x^2-yx)\,dx=\frac{1}{8}\left[\frac{x^3}{3}-\frac{y x^2}{2}\right]_{|y|}^{2}.$$
+
+Daí surge uma forma por partes.
+
+Se $-2<y<0$, então $|y|=-y$, e obtemos
+$$f_Y(y)=\frac{1}{3}-\frac{y}{4}+\frac{5y^3}{48}, \qquad -2<y<0.$$
+
+Se $0\le y<2$, então $|y|=y$, e obtemos
+$$f_Y(y)=\frac{1}{3}-\frac{y}{4}+\frac{y^3}{48}, \qquad 0\le y<2.$$
+
+Portanto,
+$$\boxed{f_X(x)=\frac{x^3}{4}, \qquad 0<x<2}$$
+
+e
+$$\boxed{f_Y(y)=\begin{cases}\dfrac{1}{3}-\dfrac{y}{4}+\dfrac{5y^3}{48}, & -2<y<0,\\[0.4em]\dfrac{1}{3}-\dfrac{y}{4}+\dfrac{y^3}{48}, & 0\le y<2.\end{cases}}$$
+
+**b) Probabilidade $P(X\le 1)$**
+
+Usamos a marginal de $X$:
+$$P(X\le 1)=\int_0^1 f_X(x)\,dx=\int_0^1 \frac{x^3}{4}\,dx=\frac{1}{4}\left[\frac{x^4}{4}\right]_0^1=\frac{1}{16}.$$
+
+Logo,
+$$\boxed{P(X\le 1)=\frac{1}{16}}.$$
+
+**c) Densidades condicionais**
+
+**Condicional de $Y$ dado $X=x$**
+
+Pela definição,
+$$f_{Y|X}(y|x)=\frac{f(x,y)}{f_X(x)}.$$
+
+Substituindo,
+$$f_{Y|X}(y|x)=\frac{\frac{1}{8}x(x-y)}{x^3/4}=\frac{x-y}{2x^2}, \qquad -x<y<x,\; 0<x<2.$$
+
+Logo,
+$$\boxed{f_{Y|X}(y|x)=\frac{x-y}{2x^2}, \qquad -x<y<x.}$$
+
+**Condicional de $X$ dado $Y=y$**
+
+Agora,
+$$f_{X|Y}(x|y)=\frac{f(x,y)}{f_Y(y)}, \qquad |y|<x<2.$$
+
+Portanto,
+$$\boxed{f_{X|Y}(x|y)=\frac{\frac{1}{8}x(x-y)}{f_Y(y)}, \qquad |y|<x<2,}$$
+onde $f_Y(y)$ é a função por partes obtida acima. De forma explícita,
+$$f_{X|Y}(x|y)=\begin{cases}\dfrac{\frac18 x(x-y)}{\frac13-\frac{y}{4}+\frac{5y^3}{48}}, & -2<y<0,\; -y<x<2,\\[0.8em]\dfrac{\frac18 x(x-y)}{\frac13-\frac{y}{4}+\frac{y^3}{48}}, & 0\le y<2,\; y<x<2.\end{cases}$$
+
+**Interpretação econômica:** a restrição $-x<y<x$ faz com que os valores possíveis de $Y$ dependam diretamente de $X$, o que gera dependência entre as variáveis.
 :::
 
 ### Exercício 6 (Morettin & Bussab, Cap. 8) {.unnumbered}
@@ -1054,76 +1258,115 @@ d) Como seriam as respostas anteriores se a primeira tira de papel não fosse de
 
 **Interpretação econômica pedida:** interprete "com reposição" versus "sem reposição" como "choques independentes" versus "restrição de recursos".
 
-::: {.callout-caution  icon="false" collapse="true" title="RESPOSTA"}
-Com reposição, os valores possíveis são $\{1,3,5,7\}$ com
-$$P(1)=\frac15,\qquad P(3)=\frac15,\qquad P(5)=\frac25,\qquad P(7)=\frac15.$$
+::: {.callout-caution icon="false" collapse="true" title="RESPOSTA"}
+Os números possíveis em cada sorteio são $1,3,5,5,7$. Assim, para um sorteio isolado,
+$$P(1)=\frac{1}{5}, \qquad P(3)=\frac{1}{5}, \qquad P(5)=\frac{2}{5}, \qquad P(7)=\frac{1}{5}.$$
 
-a) Como há reposição, a conjunta é o produto das marginais
-   $$P(X_1=a,X_2=b)=P(X_1=a)P(X_2=b).$$
+**a) Distribuição conjunta com reposição**
 
-b) As marginais de $X_1$ e $X_2$ são as mesmas acima e as variáveis são independentes.
+Como a primeira tira é recolocada antes do segundo sorteio, os dois sorteios são independentes. Logo,
+$$P(X_1=a,X_2=b)=P(X_1=a)P(X_2=b).$$
 
-c) Para cada sorteio,
-   $$E[X]=\frac{1+3+5+5+7}{5}=\frac{21}{5}=4{,}2,$$
-   $$E[X^2]=\frac{1+9+25+25+49}{5}=\frac{109}{5}=21{,}8,$$
-   $$\operatorname{Var}(X)=E[X^2]-E[X]^2=21{,}8-(4{,}2)^2=4{,}16=\frac{104}{25}.$$
-   Logo,
-   $$E[X_1]=E[X_2]=4{,}2,\qquad \operatorname{Var}(X_1)=\operatorname{Var}(X_2)=4{,}16.$$
+Por exemplo,
+$$P(X_1=1,X_2=3)=\frac{1}{5}\cdot \frac{1}{5}=\frac{1}{25},$$
+$$P(X_1=5,X_2=5)=\frac{2}{5}\cdot \frac{2}{5}=\frac{4}{25},$$
+$$P(X_1=7,X_2=1)=\frac{1}{5}\cdot \frac{1}{5}=\frac{1}{25}.$$
 
-d) Sem reposição, as marginais continuam iguais, mas não há independência. Por exemplo,
-   $$P(X_1=5,X_2=5)=\frac25\cdot \frac14=\frac{1}{10} \neq \frac25\cdot \frac25=\frac{4}{25}.$$
+A distribuição conjunta com reposição é:
 
-**Comentário econômico:** sem reposição surge dependência por escassez de recursos.
+* **Para $X_1 = 1$:** $P(X_2=1)=\frac{1}{25}$, $P(X_2=3)=\frac{1}{25}$, $P(X_2=5)=\frac{2}{25}$, $P(X_2=7)=\frac{1}{25}$.
+* **Para $X_1 = 3$:** $P(X_2=1)=\frac{1}{25}$, $P(X_2=3)=\frac{1}{25}$, $P(X_2=5)=\frac{2}{25}$, $P(X_2=7)=\frac{1}{25}$.
+* **Para $X_1 = 5$:** $P(X_2=1)=\frac{2}{25}$, $P(X_2=3)=\frac{2}{25}$, $P(X_2=5)=\frac{4}{25}$, $P(X_2=7)=\frac{2}{25}$.
+* **Para $X_1 = 7$:** $P(X_2=1)=\frac{1}{25}$, $P(X_2=3)=\frac{1}{25}$, $P(X_2=5)=\frac{2}{25}$, $P(X_2=7)=\frac{1}{25}$.
+
+**b) Marginais e independência com reposição**
+
+As marginais de $X_1$ e $X_2$ são as mesmas:
+$$P(1)=\frac{1}{5},\quad P(3)=\frac{1}{5},\quad P(5)=\frac{2}{5},\quad P(7)=\frac{1}{5}.$$
+
+Como a conjunta fatoriza nas marginais, **$X_1$ e $X_2$ são independentes**.
+
+**c) Média e variância com reposição**
+
+Para um sorteio qualquer $X$,
+$$E[X]=1\cdot \frac{1}{5} + 3\cdot \frac{1}{5} + 5\cdot \frac{2}{5} + 7\cdot \frac{1}{5}=\frac{1+3+10+7}{5}=\frac{21}{5}=4{,}2.$$
+
+Agora,
+$$E[X^2]=1^2\cdot \frac{1}{5} + 3^2\cdot \frac{1}{5} + 5^2\cdot \frac{2}{5} + 7^2\cdot \frac{1}{5}=\frac{1+9+50+49}{5}=\frac{109}{5}=21{,}8.$$
+
+Logo,
+$$\operatorname{Var}(X)=E[X^2]-\big(E[X]\big)^2=\frac{109}{5}-\left(\frac{21}{5}\right)^2=\frac{545-441}{25}=\frac{104}{25}=4{,}16.$$
+
+Portanto,
+$$E[X_1]=E[X_2]=4{,}2, \qquad \operatorname{Var}(X_1)=\operatorname{Var}(X_2)=4{,}16.$$
+
+**d) Caso sem reposição**
+
+Agora a segunda extração depende da primeira, porque a primeira tira não volta para a urna. Portanto, **não há independência**.
+
+Por exemplo,
+$$P(X_1=5,X_2=5)=\frac{2}{5}\cdot \frac{1}{4}=\frac{1}{10},$$
+enquanto
+$$P(X_1=5)P(X_2=5)=\frac{2}{5}\cdot \frac{2}{5}=\frac{4}{25}.$$
+
+Como
+$$\frac{1}{10}\neq \frac{4}{25},$$
+segue que $X_1$ e $X_2$ não são independentes.
+
+As **marginais**, porém, continuam as mesmas para cada sorteio, pois antes de observar qualquer resultado cada posição da amostra tem a mesma composição da urna:
+$$P(1)=\frac{1}{5},\quad P(3)=\frac{1}{5},\quad P(5)=\frac{2}{5},\quad P(7)=\frac{1}{5}.$$
+
+Por isso, também permanecem iguais a média e a variância marginais:
+$$E[X_1]=E[X_2]=4{,}2, \qquad \operatorname{Var}(X_1)=\operatorname{Var}(X_2)=4{,}16.$$
+
+A diferença é que agora a **distribuição conjunta** não fatoriza mais.
+
+**Interpretação econômica:** com reposição, os choques são independentes; sem reposição, surge dependência porque o primeiro sorteio altera os recursos disponíveis para o segundo.
 :::
 
 ### Exercício 7 (Morettin & Bussab, Cap. 8) {.unnumbered}
 
 **Tema:** Esperança condicional: Lei das Expectativas Iteradas (LIE).
 
-Prove a igualdade abaixo
+Prove que
 $$E[E(X\mid Y)] = E(X).$$
 
 **Interpretação econômica pedida:** interprete como "média agregada = média das médias por grupo (tipo, setor, região)".
 
-::: {.callout-caution  icon="false" collapse="true" title="RESPOSTA"}
-Pela definição,
-$$E(X)=\int\!\!\int x\,f_{X,Y}(x,y)\,dx\,dy.$$
+::: {.callout-caution icon="false" collapse="true" title="RESPOSTA"}
+Queremos provar a **Lei das Expectativas Iteradas**:
+$$E[E(X|Y)]=E(X).$$
 
-Além disso,
-$$E(X\mid Y=y)=\int x\,f_{X\mid Y}(x\mid y)\,dx.$$
+Seja $m(Y)=E(X|Y)$. Pela definição de esperança de uma função de $Y$,
+$$E[E(X|Y)]=E[m(Y)].$$
+
+No caso contínuo,
+$$E[E(X|Y)]=\int_{-\infty}^{\infty} E(X|Y=y)f_Y(y)\,dy.$$
+
+Agora usamos a definição de esperança condicional:
+$$E(X|Y=y)=\int_{-\infty}^{\infty} x f_{X|Y}(x|y)\,dx.$$
+
+Substituindo isso na expressão anterior,
+$$E[E(X|Y)]=\int_{-\infty}^{\infty}\left(\int_{-\infty}^{\infty} x f_{X|Y}(x|y)\,dx\right)f_Y(y)\,dy.$$
+
+Como
+$$f_{X|Y}(x|y)=\frac{f_{X,Y}(x,y)}{f_Y(y)},$$
+obtemos
+$$E[E(X|Y)]=\int_{-\infty}^{\infty}\int_{-\infty}^{\infty} x\,\frac{f_{X,Y}(x,y)}{f_Y(y)}\,f_Y(y)\,dx\,dy.$$
+
+Cancelando $f_Y(y)$,
+$$E[E(X|Y)]=\int_{-\infty}^{\infty}\int_{-\infty}^{\infty} x f_{X,Y}(x,y)\,dx\,dy.$$
+
+Mas essa é exatamente a definição de $E(X)$:
+$$E(X)=\int_{-\infty}^{\infty}\int_{-\infty}^{\infty} x f_{X,Y}(x,y)\,dx\,dy.$$
 
 Portanto,
-$$E[E(X\mid Y)] =\int E(X\mid Y=y)\,f_Y(y)\,dy.$$
+$$\boxed{E[E(X|Y)]=E(X).}$$
 
-Substituindo a expressão da condicional
-$$f_{X\mid Y}(x\mid y)=\frac{f_{X,Y}(x,y)}{f_Y(y)},$$
-temos
-$$E[E(X\mid Y)] = \int\left(\int x\,\frac{f_{X,Y}(x,y)}{f_Y(y)}\,dx\right)f_Y(y)\,dy = \int\!\!\int x\,f_{X,Y}(x,y)\,dx\,dy = E(X).$$
-
-**Comentário econômico:** a média total é igual à média das médias por grupo.
+**Interpretação econômica:** a média total de uma variável é igual à média das médias calculadas dentro de cada grupo definido por $Y$.
 :::
 
 ### Exercício 8 (Morettin & Bussab, Cap. 8) {.unnumbered}
-
-**Tema:** Correlação: cálculo de $\rho(X,Y)$ a partir de uma densidade conjunta.
-
-Suponha que as v.a. $X$ e $Y$ tenham f.d.p. expressa como
-$$f(x,y)= \begin{cases} e^{-(x+y)}, & x>0,\ y>0,\\ 0, & \text{nos demais casos.} \end{cases}$$
-
-a) Calcule $\rho(X,Y)$.
-
-**Interpretação econômica pedida:** interprete $\rho$ como o comovimento linear entre dois choques.
-
-::: {.callout-caution  icon="false" collapse="true" title="RESPOSTA"}
-Como em Exercício 3, a conjunta fatoriza
-$$f(x,y)=f_X(x)f_Y(y),$$
-então $X$ e $Y$ são independentes. Logo,
-$$\operatorname{Cov}(X,Y)=0 \qquad \text{e} \qquad \rho(X,Y)=\frac{\operatorname{Cov}(X,Y)}{\sqrt{\operatorname{Var}(X)\operatorname{Var}(Y)}}=0.$$
-
-**Comentário econômico:** ausência de comovimento linear entre os dois choques.
-:::
-
-### Exercício 9 (Morettin & Bussab, Cap. 8) {.unnumbered}
 
 **Tema:** Correlação zero $\neq$ independência (exemplo discreto).
 
@@ -1141,27 +1384,62 @@ b) Justifique por que $X$ e $Y$ não são independentes.
 
 **Interpretação econômica pedida:** dê um exemplo econômico em que variáveis com correlação zero ainda possam ser dependentes por não linearidade ou por restrições.
 
-::: {.callout-caution  icon="false" collapse="true" title="RESPOSTA"}
-a) Por simetria,
-   $$E(X)=0,\qquad E(Y)=0.$$
-   Além disso, os termos com $xy$ se cancelam e resulta
-   $$E(XY)=0.$$
-   Portanto,
-   $$E(XY)=E(X)E(Y)=0,$$
-   donde a correlação é nula
-   $$\rho=0.$$
+::: {.callout-caution icon="false" collapse="true" title="RESPOSTA"}
+A tabela da distribuição conjunta é:
 
-b) Não são independentes, pois por exemplo
-   $$P(X=0,Y=0)=0,$$
-   enquanto
-   $$P(X=0)=\frac14,\qquad P(Y=0)=\frac14,$$
-   de modo que a igualdade falha
-   $$P(X=0)P(Y=0)=\frac{1}{16}\neq 0.$$
+| | $x=-1$ | $x=0$ | $x=1$ |
+| :---: | :---: | :---: | :---: |
+| **$y=-1$** | $\frac{1}{8}$ | $\frac{1}{8}$ | $\frac{1}{8}$ |
+| **$y=0$** | $\frac{1}{8}$ | $0$ | $\frac{1}{8}$ |
+| **$y=1$** | $\frac{1}{8}$ | $\frac{1}{8}$ | $\frac{1}{8}$ |
 
-**Comentário econômico:** correlação zero não exclui dependência quando há restrições ou relações não lineares.
+**a) Mostrar que $E(XY)=E(X)E(Y)$**
+
+Primeiro, calculamos $E(X)$. Pela simetria da tabela em relação a $x=-1$ e $x=1$,
+$$P(X=-1)=\frac{3}{8}, \qquad P(X=0)=\frac{1}{4}, \qquad P(X=1)=\frac{3}{8}.$$
+
+Assim,
+$$E(X)=(-1)\cdot \frac{3}{8} + 0\cdot \frac{1}{4} + 1\cdot \frac{3}{8}=0.$$
+
+De modo análogo,
+$$P(Y=-1)=\frac{3}{8}, \qquad P(Y=0)=\frac{1}{4}, \qquad P(Y=1)=\frac{3}{8},$$
+logo,
+$$E(Y)=(-1)\cdot \frac{3}{8} + 0\cdot \frac{1}{4} + 1\cdot \frac{3}{8}=0.$$
+
+Agora, calculamos $E(XY)$. Os termos com $x=0$ ou $y=0$ não contribuem, porque o produto $xy$ é zero nesses casos. Restam apenas os quatro cantos:
+$$(-1,-1),\; (-1,1),\; (1,-1),\; (1,1),$$
+cada um com probabilidade $\frac{1}{8}$.
+
+Então,
+$$E(XY)=1\cdot \frac{1}{8} + (-1)\cdot \frac{1}{8} + (-1)\cdot \frac{1}{8} + 1\cdot \frac{1}{8}=0.$$
+
+Logo,
+$$E(XY)=0=E(X)E(Y).$$
+
+Assim,
+$$\operatorname{Cov}(X,Y)=E(XY)-E(X)E(Y)=0,$$
+e, consequentemente,
+$$\rho(X,Y)=0.$$
+
+**b) Por que não são independentes?**
+
+Se fossem independentes, teríamos
+$$P(X=0,Y=0)=P(X=0)P(Y=0).$$
+
+Mas,
+$$P(X=0,Y=0)=0,$$
+enquanto
+$$P(X=0)=\frac{1}{4}, \qquad P(Y=0)=\frac{1}{4}.$$
+
+Logo,
+$$P(X=0)P(Y=0)=\frac{1}{4}\cdot \frac{1}{4}=\frac{1}{16}\neq 0.$$
+
+Portanto, **$X$ e $Y$ não são independentes**, embora a correlação seja zero.
+
+**Interpretação econômica:** duas variáveis podem ter correlação zero e ainda assim serem dependentes quando existe uma restrição estrutural ou uma relação não linear entre elas.
 :::
 
-### Exercício 10 (Morettin & Bussab, Cap. 8) {.unnumbered}
+### Exercício 9 (Morettin & Bussab, Cap. 8) {.unnumbered}
 
 **Tema:** Independência, covariância e variância de soma.
 
@@ -1178,24 +1456,62 @@ c) Existe alguma relação entre os parâmetros encontrados em (b)? Por quê?
 
 **Interpretação econômica pedida:** conecte $S=X+Y$ à soma de choques (componentes) e à decomposição de risco.
 
-::: {.callout-caution  icon="false" collapse="true" title="RESPOSTA"}
-a) $X$ depende apenas dos dois primeiros lançamentos e $Y$ apenas do terceiro. Logo, são independentes e a covariância é nula
-   $$\operatorname{Cov}(X,Y)=0.$$
+::: {.callout-caution icon="false" collapse="true" title="RESPOSTA"}
+Temos três lançamentos de uma moeda perfeita. Definem-se:
+$$X=\text{número de caras nos dois primeiros lançamentos}, \qquad Y=\text{número de caras no terceiro lançamento},$$
+$$S=\text{número total de caras}.$$
 
-b) Como $X\sim \text{Bin}(2,1/2)$, temos
-   $$E[X]=2\cdot \frac12=1, \qquad \operatorname{Var}(X)=2\cdot \frac12\cdot \frac12=\frac12.$$
-   Como $Y\sim \text{Bernoulli}(1/2)$, segue que
-   $$E[Y]=\frac12, \qquad \operatorname{Var}(Y)=\frac14.$$
-   Como $S=X+Y$, temos
-   $$E[S]=E[X]+E[Y]=\frac32,$$
-   $$\operatorname{Var}(S)=\operatorname{Var}(X)+\operatorname{Var}(Y)+2\operatorname{Cov}(X,Y) =\frac12+\frac14=\frac34.$$
+Observe que
+$$S=X+Y.$$
 
-c) Sim. Como $S=X+Y$ e $\operatorname{Cov}(X,Y)=0$, a variância total é a soma das variâncias dos componentes.
+**a) Independência e covariância**
 
-**Comentário econômico:** o risco total é a soma dos riscos dos componentes quando não há comovimento.
+$X$ depende apenas dos dois primeiros lançamentos, enquanto $Y$ depende apenas do terceiro. Como os lançamentos da moeda são independentes, concluímos que **$X$ e $Y$ são independentes**.
+
+Logo,
+$$\operatorname{Cov}(X,Y)=0.$$
+
+**b) Médias e variâncias**
+
+Como $X$ conta o número de caras em 2 lançamentos independentes com probabilidade $1/2$, temos
+$$X\sim \operatorname{Binomial}(2,1/2).$$
+Portanto,
+$$E[X]=np=2\cdot \frac{1}{2}=1,$$
+$$\operatorname{Var}(X)=np(1-p)=2\cdot \frac{1}{2}\cdot \frac{1}{2}=\frac{1}{2}.$$
+
+Já $Y$ conta caras em apenas um lançamento, então
+$$Y\sim \operatorname{Bernoulli}(1/2).$$
+Logo,
+$$E[Y]=\frac{1}{2}, \qquad \operatorname{Var}(Y)=\frac{1}{2}\left(1-\frac{1}{2}\right)=\frac{1}{4}.$$
+
+Como $S=X+Y$, temos
+$$E[S]=E[X]+E[Y]=1+\frac{1}{2}=\frac{3}{2}.$$
+
+Além disso,
+$$\operatorname{Var}(S)=\operatorname{Var}(X+Y)=\operatorname{Var}(X)+\operatorname{Var}(Y)+2\operatorname{Cov}(X,Y).$$
+
+Como a covariância é zero,
+$$\operatorname{Var}(S)=\frac{1}{2}+\frac{1}{4}=\frac{3}{4}.$$
+
+Portanto,
+$$\boxed{E[X]=1, \quad \operatorname{Var}(X)=\frac{1}{2}}$$
+$$\boxed{E[Y]=\frac{1}{2}, \quad \operatorname{Var}(Y)=\frac{1}{4}}$$
+$$\boxed{E[S]=\frac{3}{2}, \quad \operatorname{Var}(S)=\frac{3}{4}.}$$
+
+**c) Relação entre os parâmetros**
+
+Sim. Como
+$$S=X+Y,$$
+a esperança total é a soma das esperanças:
+$$E[S]=E[X]+E[Y].$$
+
+E, como $X$ e $Y$ são independentes (logo, têm covariância zero), a variância total é a soma das variâncias:
+$$\operatorname{Var}(S)=\operatorname{Var}(X)+\operatorname{Var}(Y).$$
+
+**Interpretação econômica:** o total $S$ pode ser visto como a soma de dois componentes de risco; quando eles são independentes, o risco total é a soma dos riscos individuais.
 :::
 
-### Exercício 11 (Morettin & Bussab, Cap. 8) {.unnumbered}
+### Exercício 10 (Morettin & Bussab, Cap. 8) {.unnumbered}
 
 **Tema:** Correlação amostral (Pearson): medida de associação linear em dados.
 
@@ -1208,17 +1524,52 @@ Depois de um tratamento, seis operários submeteram-se a um teste e, mais tarde,
 
 **Interpretação econômica pedida:** interprete o sinal e a magnitude como evidência (ou não) de associação entre qualificação e produtividade.
 
-::: {.callout-caution  icon="false" collapse="true" title="RESPOSTA"}
-Médias amostrais
-$$\bar x=18,\qquad \bar y=32.$$
+::: {.callout-caution icon="false" collapse="true" title="RESPOSTA"}
+Os dados são:
+$$X=(9,17,20,19,20,23), \qquad Y=(22,34,29,33,42,32).$$
 
-Calcule as somas
-$$S_{xy}=\sum_{i=1}^{6}(x_i-\bar x)(y_i-\bar y)=103,$$
-$$S_{xx}=\sum_{i=1}^{6}(x_i-\bar x)^2=116,$$
-$$S_{yy}=\sum_{i=1}^{6}(y_i-\bar y)^2=214.$$
+Queremos calcular o coeficiente de correlação amostral de Pearson:
+$$r=\frac{S_{xy}}{\sqrt{S_{xx}S_{yy}}},$$
+onde
+$$S_{xy}=\sum_{i=1}^{6}(x_i-\bar x)(y_i-\bar y), \qquad S_{xx}=\sum_{i=1}^{6}(x_i-\bar x)^2, \qquad S_{yy}=\sum_{i=1}^{6}(y_i-\bar y)^2.$$
 
-Logo, a correlação amostral é
-$$r=\frac{S_{xy}}{\sqrt{S_{xx}S_{yy}}} =\frac{103}{\sqrt{116\cdot 214}} \approx 0{,}654.$$
+**Passo 1: calcular as médias**
 
-**Comentário econômico:** há associação linear positiva moderada entre nota e produtividade, sem implicar causalidade.
+$$\bar x=\frac{9+17+20+19+20+23}{6}=\frac{108}{6}=18.$$
+
+$$\bar y=\frac{22+34+29+33+42+32}{6}=\frac{192}{6}=32.$$
+
+**Passo 2: montar os desvios e produtos**
+
+| $i$ | $x_i$ | $y_i$ | $x_i-\bar x$ | $y_i-\bar y$ | $(x_i-\bar x)(y_i-\bar y)$ |
+| :---: | :---: | :---: | :---: | :---: | :---: |
+| 1 | 9 | 22 | -9 | -10 | 90 |
+| 2 | 17 | 34 | -1 | 2 | -2 |
+| 3 | 20 | 29 | 2 | -3 | -6 |
+| 4 | 19 | 33 | 1 | 1 | 1 |
+| 5 | 20 | 42 | 2 | 10 | 20 |
+| 6 | 23 | 32 | 5 | 0 | 0 |
+
+Somando a última coluna:
+$$S_{xy}=90-2-6+1+20+0=103.$$
+
+Agora calculamos $S_{xx}$:
+$$S_{xx}=(-9)^2+(-1)^2+2^2+1^2+2^2+5^2=81+1+4+1+4+25=116.$$
+
+E $S_{yy}$:
+$$S_{yy}=(-10)^2+2^2+(-3)^2+1^2+10^2+0^2=100+4+9+1+100+0=214.$$
+
+**Passo 3: substituir na fórmula**
+
+$$r=\frac{103}{\sqrt{116\cdot 214}}.$$
+
+Como
+$$116\cdot 214=24824,$$
+temos
+$$r=\frac{103}{\sqrt{24824}}\approx 0{,}654.$$
+
+Portanto,
+$$\boxed{r\approx 0{,}654}.$$
+
+**Interpretação econômica:** existe uma associação linear positiva moderada entre nota no teste e produtividade, embora isso não implique causalidade.
 :::

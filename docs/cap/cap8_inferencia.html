@@ -789,15 +789,15 @@ Figure&nbsp;10.3: Tipos de amostragem aleatórias
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>  <span class="co"># 2 mil rodadas de amostragem</span></span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(xbar15)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 166.1684</code></pre>
+<pre><code>[1] 165.6144</code></pre>
 </div>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(xbar50)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 166.161</code></pre>
+<pre><code>[1] 165.5713</code></pre>
 </div>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(xbar150)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 166.1601</code></pre>
+<pre><code>[1] 165.5921</code></pre>
 </div>
 </div>
 <p>Observe que todas ficaram muito próximas da verdadeira esperança da população, mostrando empiricamente o teorema apresentado. Pode-se verificar também a variância amostral <span class="math inline">\(Var(\overline{X})=\frac{\sigma^{2}}{n}\)</span>. Vejamos:</p>
@@ -806,15 +806,15 @@ Figure&nbsp;10.3: Tipos de amostragem aleatórias
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>  <span class="co"># 2 mil rodadas de amostragem</span></span>
 <span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="fu">var</span>(xbar15)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 1.121122</code></pre>
+<pre><code>[1] 1.561006</code></pre>
 </div>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">var</span>(xbar50)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 0.3419732</code></pre>
+<pre><code>[1] 0.4126655</code></pre>
 </div>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">var</span>(xbar150)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 0.119035</code></pre>
+<pre><code>[1] 0.1487852</code></pre>
 </div>
 </div>
 <p>Percebemos que a partir que o tamanho amostral vai aumentando o resultado vai convergindo para <span class="math inline">\(Var(\overline{X})=\frac{\sigma^{2}}{n}\)</span>, lembre-se que <span class="math inline">\(\sigma^{2}=25\)</span> para a simulação feita.</p>
