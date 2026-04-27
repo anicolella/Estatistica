@@ -1,0 +1,25 @@
+project:
+  type: default
+
+format:
+  revealjs:
+    theme: serif
+    highlight: zenburn
+    incremental: false
+    center: true
+    slide-number: c/t
+    width: 1200
+    height: 800
+    controlsLayout: edges
+    controls: true
+    progress: true
+    history: true
+    mouseWheel: true
+    transition: slide
+    hash: true
+    scrollable: true
+    mathjax: true
+    embed-resources: true
+
+execute:
+  echo: false

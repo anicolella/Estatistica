@@ -1,0 +1,1433 @@
+---
+title: "Teste de Hipótese"
+format: 
+  revealjs:
+    menu: true
+    theme: serif
+    highlight: zenburn
+    incremental: false
+    center: true
+    slide-number: c/t
+    width: 1200
+    height: 800
+    controlsLayout: edges
+    controls: true
+    progress: true
+    history: true
+    mouseWheel: true
+    transition: 'slide'
+    hash: true
+    scrollable: true
+    mathjax: true
+    mathjax-config: TeX-AMS-MML_HTMLorMML
+    embed-resources: true
+author:
+  - name: Alexandre Nicolella
+    orcid: 0000-0002-1006-6527
+    email: nicolella@usp.br
+    affiliations: FEARP/USP
+date: last-modified
+---
+
+# Teste de Hipótese
+
+## Procedimento Geral
+
+## Introdução
+
+- Estimamos características da população: estimativa pontual e a estimativa de intervalo de um parâmetro. 
+
+- Gostariamos de testar se uma teoria é mais plausível do que outra com base na realidade. 
+
+- Testar se uma **hipótese** sobre a população é mais plausível
+
+- Se os dados amostrais trazem evidências que apoiam ou não essa hipótese. 
+
+## Introdução: Exemplo
+
+::: {.callout-tip icon="false" title="EXEMPLO"}
+
+- Verificar se um determinado medicamento não tem efeito sobre a mortalidade causada por um determinado virus ou se possui efeito. 
+
+- Verificar se a quantidade de gordura anunciado pelo fabricante de um produto realmente está correta ou é maior. 
+
+- Se a afirmativa de um canditado de que possui a maioria dos votos é verdadeira ou é menor. 
+
+- Verificar se as rendas entre duas comunidades são as mesmas para podermos lançar uma política de apoio
+
+- Verifcar se uma política do aumento do recurso as empresas não afeta falência ou se tem efeito.
+
+:::
+
+## Introdução: Lógica
+
+* Faremos algo muito parecido com os tribunais, assumimos que a pessoa ou empresa é "inocente". 
+    + Que o medicamento não tem efeito, 
+    + Que o teor de gordura está certo, 
+    + Que o candidato tem maioria, 
+    + Que as comunidades possuem a mesma renda,
+    + Que o recurso não afeta o número de falências. 
+    + Partimos da premissa de que a hipótese inicial é a correta e tentamos verificar com os fatos (dados amostrais) se essa hipótese colocada é verossímil. 
+
+
+## Construíndo a Hipótese Nula
+  
+::: {.callout-tip icon="false" title="EXEMPLO"}
+Uma ONG que combate fome e pobreza afirma que uma determinada comunidade deveria receber um programa do governo pois possui renda per capita de R$600,00, a qual a torna elegível ao programa. Entretanto, os gestores do programa acham que esse valor está subestimado e que na verdade a renda seria maior. A questão é como saber quem está correto, a ONG ou o Governo? 
+:::
+
+## Construíndo a Hipótese Nula
+* Dessa forma temos duas hipóteses distintas:
+    + A que diz que a esperança da renda pc é de R$600 
+    + A outra proposição que diz que a renda dessa população é maior que R$600. 
+    
+* Vamos assumir que a ONG tem razão e chamaremos essa afirmativa de **hipótese nula** ou $H_0$, $\mu$ é de R$600. Podemos de forma condensada dizer:
+
+$$H_0: \qquad \mu=600$$
+
+* Já o governo que está contextando chamaremos sua hipótese de alternativa, $H_1$. Dessa forma:
+
+$$H_1: \qquad \mu>600$$
+
+## Construíndo a Hipótese Nula
+
+* Quem tem razão nessa história?
+    + Devemos aceitar ou rejeitar a hipótese nula $H_0$ - de que a esperança da renda pc é de 600 - em detrimento a hipótese alternativa $H_1$ que afirma que a renda é maior do que 600.  Juntas:
+
+$$H_0: \qquad \mu=600$$
+$$H_1: \qquad \mu>600$$
+
+
+
+## O Teste Estatístico
+
+* Temos as as duas teorias concorrentes, 
+* Como testar qual é mais plausível? 
+* Faremos um processo de amostragem, onde faremos $n$ medições da renda pc (que chamaremos de X), $X_1, X_2, ..., X_n$, e obteremos os valores de renda pc $x_1, x_2,...x_n$. 
+* Com dados amostrais faremos algum tipo de cálculo que nos permite inferir se $H_0$ é plausível ou não
+* Teste Estaístico:
+
+## O Teste Estatístico
+  
+::: {.callout-note icon="false" title="DEFINIÇÃO"}
+
+**Teste Estatístico**:
+
+Suponha um processo de amostragem com $n$ medições de $X$, $X_1, X_2, ...,X_n$, com valores observados $x_1, x_2, ...,x_n$. Um teste estatístico é uma estatística:
+ $$T = h(X_1,X_2, . . .,X_n)$$
+a qual será utilizada para decidir se aceitamos ou rejeitamos $H_0$
+:::
+
+
+## O Teste Estatístico: a distribuição
+
+* Qual a distribuição dessa estatística sob a condição de que a hipótese $H_0$ for a verdadeira?
+
+* Queremos saber se a amostra tivesse sido extraída de uma população com esperança da renda pc, $\mathbb{E}(X)$, de R\$ 600, quais seriam os valores típicos para a distribuição do estimador T? 
+
+* Depois comparamos com o que obtivemos no processo de amostragem.
+
+---
+
+::: {.callout-tip icon="false" title="EXEMPLO"}
+
+Gostariamos de verificar a hipótese de que a esperança da renda pc, $\mu$ é de R\$600. Uma alternativa de teste estatístico é a média, $\bar{X}$. O teste estatístico seria:
+
+$\bar{X} = \frac{\sum_i^n(X_i)}{n}$
+
+Com base na amostra observada $x_1, x_2, ..., x_3$ poderiamos obter a estimativa da renda pc. Como decidir  se essa média calculada nos traz mais evidência a favor de $H_0$ ou $H_1$? 
+
+:::
+
+
+## O Teste Estatístico: a distribuição
+
+![Teste de Hipótese - intuição  \label{testehipo1}](../../figuras/capitulos/testehipot1.png){fig-align="center" width="70%"}
+
+
+## O Teste Estatístico: a decisão 
+
+* A figura considera o estimador $\bar{X}$. 
+
+* A esquerda temos os valores do estimador que atestam que a hipótese $H_0$ é a mais plausível, 
+    + Quando mais próxima a estimativa de R\$600 maior evidência que $H_0$ é verdadeira.
+    
+* Ao caminhar para a direita, os valores do estimador se distanciam de 600, e mais evidência de que $H_0$ não é plausível. 
+
+---
+
+* Precisamos de um ponto de corte  (interrogação na figura) onde valores menores do estimador são favoráveis a hipótese nula e valores maiores são mais favoráveis a hipótese alternativa. 
+
+* Se no nosso processo de amostragem obtivemos a estimativa de $\bar{x}=700$, isso é mais favorável a $H_0$ ou $H_1$?
+
+
+## O Teste Estatístico: a distribuição 
+
+* Para saber se esse valor é mais favorável a qual hipótese, precisamos descobrir quais seriam os valores típicos do estimador $\bar{X}$ se viesse de $H_0$.
+
+* Isso está presente a esquerda da figura, quais os valores típicos para $\bar{X}$ que veio de uma população com $\mu=600$? 
+
+---
+
+* Considere que a população $X$ seja $N(600,100^2)$, ou seja, tem esperança 600 e desvio padrão populacional de 100. 
+    + Essa é a afirmação da ONG, ou seja, nosso $H_0$. 
+
+* Sabemos que o estimador $\bar{X}$ terá uma distribuição $N(600,\frac{100^2}{n})$. 
+    + Supondo uma amostra de 25 pessoas, sob $H_0$, tem-se $N(600,\frac{100^2}{25})$. 
+* Veja a simulação abaixo
+
+## O Teste Estatístico: a distribuição 
+
+```{r echo = FALSE, fig.cap= "Valores típicos da distribuiçao da média sob H0",fig.height = 3.5, fig.width = 7}
+x<-seq(500,700,0.1) 
+fdnorm<-dnorm(x = x, mean = 600, sd=20)   
+regiao=seq(560,640,0.01)
+cord.x <- c(min(regiao),regiao,max(regiao))
+cord.y <- c(0,dnorm(regiao,mean=600, sd=20),0) 
+curve(dnorm(x,600,20),xlim=c(500,700),xlab=expression(bar(x)),type="l",
+      col="steelblue4",lwd=2, ylab=expression(paste("f(", bar(x),
+      ")")),xaxt="n",cex.axis=0.65, cex.lab=0.8 ) 
+axis(1,at=c(500,540,560,580, 600, 620, 640,660, 700),labels =
+       c(500,540,560,580, 600, 620, 640,660, 700),cex.axis=0.7, cex.lab=0.8) 
+polygon(cord.x,cord.y,col='lightgray')
+abline(v=600, col="steelblue4", lty=2, lwd=2)
+text(602, 0.001, expression(mu))
+
+```
+
+
+## O Teste Estatístico: a distribuição 
+
+* No centro temos a $E(\bar{X})=\mu=600$.
+
+* Dado a amostra e sob $H_0$ os valores típicos oscilam mais ou menos entre 560 e 640 - dois desvios padrão para cima e para baixo 
+    + lembrem-se que nesse intervalo temos mais de 95\% das observaçoes. 
+ 
+    
+---
+
+* Na nossa amostragem obtivemos $\bar{x}=700$. 
+    + Observe no gráfico  o valor de 700 - muita a frente 
+    + A probabilidade de obtermos esse valor de média com uma amostra retirada da população $N(600,100^2)$, é praticamente 0. 
+   
+
+* Existem evidências de que essa amostra não veio de uma população conforme descrita pela ONG e sim de uma população com esperança maior do que R\$600. 
+
+* Portanto, dizemos que rejeitamos $H_0$
+
+## Probabilidade da cauda e o p-valor
+
+* Uma outra maneira que podemos olhar 
+
+* Considere a figura acima da distribuição da média retirada de uma população sob $H_0$, ou seja, $N(600,100^2)$. 
+
+* Qual seria a probabilidade de acharmos valores iguais ou maiores do que 700 nessa distribuição?
+
+* Essa é chamada probabilidade de cauda a direita $P(\bar{X}\geq 700|H_0)$ e mais conhecida como **p-valor.** 
+
+---
+
+* Podemos computar esse valor para a cauda inferior, para a superior ou para ambas, a depender da hipótese feita.  
+* Quando mais a direita estiver o nosso valor calculado, menor será essa probabilidade e maior serão as evidências contra $H_0$. 
+
+## Probabilidade da cauda e o p-valor
+  
+::: {.callout-tip icon="false" title="EXEMPLO"}  
+
+No nosso exemplo:
+
+$$P(\bar{X}\geq 700|H_0 \Rightarrow \bar{X} \sim N(600,\frac{100^2}{25}))$$
+
+$$P(Z_{\bar{X}}\geq \frac{700-600}{100/5}|H_0)$$
+
+$$P(Z_{\bar{X}} \geq  \frac{100}{20})=P(Z_{\bar{X}} \geq 5)=0$$
+:::
+
+---
+
+* Notamos que esse valor de $z_c$ é muito alto, probabilidade é de zero.
+
+* O p-valor nesse caso é igual a 0
+    + Mostrando uma forte evidência de que a ONG está enganada 
+
+
+## Como decidir para casos mais próximos?
+
+* Exemplo extremo para compreender a intuição do processo.
+
+* Precisamos decidir a partir de que ponto exatamente dizemos que pertence a população sob $H_0$.
+
+* E a partir de que ponto não pertence.
+
+* Para isso precisamos entender os erros que podemos cometer ao fazer esse julgamento. 
+
+
+## Erro Tipo I (EI) e Erro Tipo II (EII): o conceito
+
+* Duas ideias,
+    + A primeiro é a existência da verdadeira população 
+    + A segunda é o que achamos ser a verdadeira população com base na análise que fizemos. 
+* Surge o que chamamos de erro estatístico. 
+    + Não temos como fugir dele, somente controlá-lo. Vejamos a tabela abaixo que resume as possibilidades:
+
+---
+
+: Tipos de Erros em Estatística, EI e EII. {#tbl-erro}
+
+| A Decisão | $H_0$ é verdadeiro | $H_1$ é verdadeiro |
+|:-----------|:-------------------:|:-------------------:|
+| **Rejeitar $H_0$** | <span style="color:red">Erro Tipo I (EI)</span> | Correto |
+| **Não Rejeitar $H_0$** | Correto | <span style="color:red">Erro Tipo II (EII)</span> |
+
+
+## Erro Tipo I (EI) e Erro Tipo II (EII): o conceito
+
+* O Erro Tipo I (EI) o qual informa que erramos ao rejeitar que a população veio de $H_0$ e na realidade tinha vindo. 
+* Erro Tipo II (EII) que nos diz que aceitamos $H_0$ quando na verdade não veio de $H_0$.
+
+    + O primeiro erro é as vezes é chamado de falso negativo, ou seja, classifica a pessoa não portadora da doença (negativa) e na verdade ela possui. 
+    
+    + O segundo tipo é o falso positivo, onde classifica-se a pessoa com a doença quando na realidade ela não possui. 
+
+## Erro Tipo I (EI) e Erro Tipo II (EII): o conceito
+  
+::: {.callout-note icon="false" title="DEFINIÇÃO"}
+
+**Erro Tipo I e Erro Tipo II**
+
+Erro Tipo I (EI) ocorre quando "indevidamente" rejeitamemos $H_0$. Nesse caso $H_0$ era verdadeira e rejeitamos.
+
+Erro Tipo II (EII) ocorre quando "indevidamente" não rejeitamos $H_0$. Nesse caso não rejeitamos $H_0$ e na verdade $H_1$ é verdadeira.
+
+:::
+
+## EI e EII: encontrando um critério de decisão
+
+* Nosso desafio agora é estabelecer um critério de decisão,
+    + ponto a partir do qual dizemos que $H_0$ não parece mais provável
+    
+* Essa chamaremos de valor crítico.
+
+* Acima ou abaixo desse valor chamaremos de região crítica ou de rejeição, 
+    + que são os valores a partir dos quais entendemos que $H_0$ não é mais plausível. 
+
+---
+
+::: {.callout-tip icon="false" title="EXEMPLO"} 
+
+- EI $(\alpha)$- Dizer que a renda é maior que 600, quando na realizadade ela é de 600.
+
+- EII $(\beta)$- Dizer que a renda é de 600 quando na realidade ela é maior do que 600.
+
+:::
+
+## EI e EII: encontrando um critério de decisão
+* Conseguimos calcular o Erro Tipo I $(\alpha)$ com base na distribuição sob $H_0$, entretanto, 
+* Como não sabemos qual é a distribuição sob $H_1$,  fica difícil calcular o EII $(\beta)$. 
+
+## EI e EII: encontrando um critério de decisão
+
+* Retomando nosso exemplo:  ONG afirma que uma comunidade tem renda de R\$600.
+* Sob $H_0$, e uma amostra de 25, $N \bigg(600,\frac{100^2}{25} \bigg)$
+* Hipóteses eram:
+
+$$H_0: \qquad \mu=600$$
+
+$$H_1: \qquad \mu>600$$
+
+---
+
+* Controlar o Erro Tipo I $(\alpha)$ para encontrar a região crítica.
+
+* Gostariamos de cometer o Erro Tipo I em apenas 5\% dos casos. 
+    + A chance de retirarmos um amostra da pop sob $H_0$ e o valor da estimativa ser maior que o valor de decisão é de 5\% dos casos, os outros 95\% sempre cairão na área de aceitação.
+    
+## EI e EII: encontrando um critério de decisão
+
+* Vejamos como podemos encontrar o critério de decisão para o nosso caso, unicaudal. 
+
+---
+  
+::: {.callout-tip icon="false" title="EXEMPLO"} 
+$$P(Z_{\bar{X}} \geq z_c|H_0)=0.05= \alpha$$
+
+Olhando a tabela temos:
+
+$$P(Z_{\bar{X}} \geq 1.65|H_0)=0.05= \alpha$$
+
+$$z_c =\frac{\bar{X}+600}{100/5} \Rightarrow 1.65 = \frac{\bar{X}+600}{20} \Rightarrow \bar{X}=600+1.65*20=633$$
+
+Portanto,
+
+$$P(\bar{X}\geq 633|H_0)=0.05= \alpha$$
+
+:::
+
+
+## EI e EII: encontrando um critério de decisão
+
+* Nossa regra controla o Erro Tipo I. 
+* Para nosso exemplo: Rejeitar $H_0$ toda vez que o valor calculado da estimativa de $\bar{X}$ for maior do que 633 e aceitar quando for menor.
+
+---
+
+* Assim nossa região crítica será:
+
+$$RC =\{\bar{x} \in \mathbb{R} | \bar{x} \geq 633\}$$
+
+* Essa regra implica que a probabilidade de rejeitarmos $H_0$ (de que a renda média não é de 600), e na verdade ela ser de 600 é de 5\%. 
+
+* Vejamos o gráfico e a região em cinza indicando a RC:
+
+## EI e EII: encontrando um critério de decisão
+
+```{r echo = FALSE, fig.cap= "Erro Tipo I e a Região Crítica",fig.height = 3.5, fig.width = 7}
+x<-seq(500,700,0.1) 
+fdnorm<-dnorm(x = x, mean = 600, sd=20)  
+fdnorm1<-dnorm(x = x, mean = 660, sd=20)
+regiao=seq(633,700,0.01)
+cord.x <- c(min(regiao),regiao,max(regiao))
+cord.y <- c(0,dnorm(regiao,mean=600, sd=20),0) 
+curve(dnorm(x,600,20),xlim=c(500,700),xlab=expression(bar(x)),type="l",
+      col="steelblue4",lwd=2, ylab=expression(paste("f(", bar(x),
+      ")")),xaxt="n",cex.axis=0.65, cex.lab=0.8 ) 
+axis(1,at=c(500,540,560,580, 600, 620, 633,660, 700),labels =
+       c(500,540,560,580, 600, 620, 633,660, 700),cex.axis=0.7, cex.lab=0.8) 
+polygon(cord.x,cord.y,col='wheat4')
+abline(v=633, col="steelblue4", lty=2, lwd=2)
+text(600, 0.001, expression(mu))
+text(660, 0.005, expression(paste("EI=", alpha, "=0.05")))
+
+```
+
+
+## O Erro Tipo II
+
+* Como não sabemos a distribuição sob $H_1$ não conseguimos calcular a probabilidade de não rejeitar $H_0$ e na verdade ela pertencer a distribuição de $H_1$. 
+
+* Vamos supor que o governo diga que a renda é de R\$ 660 com a mesma variância que a ONG afirmou. 
+
+* Nesse caso temos as duas teorias concorrentes explicitadas. Agora sabemos $H_1$ e $H_0$.  Dada a nossa regra de decisão, temos:
+
+## O Erro Tipo II
+* Regra de Decisão e Erros:
+
+$$P(EI)=P (\overline{X} \in RC |  H_0 \quad \text {é verdadeira}\Rightarrow \overline{X} \sim N (600;100^{2}/25))=\alpha=0.05$$
+
+
+---
+
+* Podemos calcular também o Erro Tipo II:
+$$\begin{array}{ccc}
+P(E II)=P(\overline{X} \notin R C |H_1 \quad \text { verdadeiro })=\beta
+\\
+\\
+=P(\overline{X} < 633 )| \overline{X} \sim N (660;100^{2}/25)).
+\\
+\\
+=P (z < \frac{633-660}{20})
+\\
+\\
+=P(z<-1,35)=8.85\%=\beta
+\end{array}$$
+
+## O Erro Tipo II
+
+```{r echo = FALSE, fig.cap= "Erro Tipo I e a Região Crítica",fig.height = 3.5, fig.width = 7}
+x<-seq(500,700,0.1) 
+fdnorm<-dnorm(x = x, mean = 600, sd=20)  
+fdnorm1<-dnorm(x = x, mean = 660, sd=20)
+regiao=seq(633,700,0.01)
+cord.x <- c(min(regiao),regiao,max(regiao))
+cord.y <- c(0,dnorm(regiao,mean=600, sd=20),0) 
+curve(dnorm(x,600,20),xlim=c(500,700),xlab=expression(bar(x)),type="l",
+      col="steelblue4",lwd=2, ylab=expression(paste("f(", bar(x),
+      ")")),xaxt="n",cex.axis=0.65, cex.lab=0.8 ) 
+axis(1,at=c(500,540,560,580, 600, 620, 633,660, 700),labels =
+       c(500,540,560,580, 600, 620, 633,660, 700),cex.axis=0.7, cex.lab=0.8) 
+polygon(cord.x,cord.y,col='wheat4')
+abline(v=633, col="steelblue4", lty=2, lwd=2)
+text(600, 0.001, expression(mu))
+text(660, 0.005, expression(paste("EI=", alpha, "=0.05")))
+par(new=TRUE)
+curve(dnorm(x,660,20),xlim=c(500,700),xlab=expression(bar(x)),type="l",
+      col="steelblue4",lwd=2, ylab=expression(paste("f(", bar(x),
+      ")")),xaxt="n",cex.axis=0.65, cex.lab=0.8 ) 
+regiao=seq(500,633,0.01)
+cord.x <- c(min(regiao),regiao,max(regiao))
+cord.y <- c(0,dnorm(regiao,mean=660, sd=20),0)
+polygon(cord.x,cord.y,col='steelblue4')
+text(600, 0.005, expression(paste("EII=", beta, "=0.088")))
+
+```
+
+## O Erro Tipo I e o Erro Tipo II
+
+* Note que se mudarmos o ponto de corte de 633 para 640, por exemplo, o valor do EI diminui e o valor do EII aumenta. 
+* Se mudarmos o ponto de corte de 633 para 620 aumentamos o EI e diminuimos o erro EII.
+
+* Importante notar que em geral não conhecemos qual a distribuição está sob $H_1$, 
+    + a afirmativa concorrente dizia que era maior
+    + Prática mais comum e 
+    + Controlamos então o EI o qual conseguimos calcular e a partir desse controle encontramos os valores da nossa região crítica e montamos nosso teste de hipótese. 
+
+
+## Procedimento Geral do Teste de Hipótese 
+
+## Teste para um parâmetro populacional
+
+* Interesse em uma caracteristica da população. 
+* Teste sob parâmetro populacional
+* Unicaudal ou bicaudal:
+
+**Hipótese Unicaudal**: 
+\
+Occore quanto temos algum conhecimento do processo. Como no caso anterior, observamos que a ONG tinha dito que a renda era 600 e o governo contextava e dizia que era maior. Logo temos a seguinte formulação geral para o teste unilateral:
+
+$$H_0: \quad \theta=\theta_0$$
+$$H_1: \quad \theta>\theta_0 \quad ou \quad \theta<\theta_0$$
+
+## Teste para um parâmetro populacional
+
+**Hipótese Bicaudal**: 
+\
+Já para o teste bilateral ou bicaudal podemos observar valores maiores ou menores em relação a hipótese nula. Temos a seguinte formulação geral:
+$$H_0: \quad \theta=\theta_0$$
+$$H_1: \quad \theta \neq \theta_0$$
+
+## Nível de significância
+
+  
+* Tentamos controlar o Erro Tipo I (EI) e achar o valor crítico
+* Temos que definir qual seria o tamanho desse erro, 10\%, 5\%, 1\% etc. 
+* Esse percentual é o que chamamos de nível de significância. 
+    + Quem define esse tamanho é o pesquisador, em economia, utilizamos os níveis acima.
+    
+---
+
+::: {.callout-note icon="false" title="DEFINIÇÃO"}
+
+**Nível de Significância**:
+
+É a probabilidade máxima aceitável de cometer o erro tipo I e chamamos de $\alpha$, sendo um valor entre $0<\alpha<1$
+:::
+
+* Dessa forma, faremos o teste de hipótese para o parâmetro $\theta$ ao nível de significância de $\alpha$. 
+* No nosso caso dizemos que iremos testar se a renda pc é de 600,  $H_0: \mu=600$, ao nível de 5\% de significância.
+
+
+## Estabelencendo Valor Crítico e Região Crítica.   
+
+  
+* Com base no nível de significância conseguiremos estabelecer qual é o valor crítico e  a região de rejeição. 
+* Para o nosso caso encontramos o valor crítico de 633 e a nossa região foi estabelecida como $RC =\{\bar{x} \in R | \bar{x} \geq 633\}$. 
+
+* Engloba os valores que julgamos não serem mais pertencentes a distribuição sob $H_0$.
+
+---
+
+::: {.callout-note icon="false" title="DEFINIÇÃO"}
+
+**Valor e região crítica**:
+
+Ao relizar o teste de hipótese de $H_0$ contra $H_1$ utilizando o teste estatístico $T$ ao nível de significância de $\alpha$, o conjunto $C \subset \mathbb{R}$ o  qual corresponde a todos os valores de $T$ para os quais rejeitamos a hipótese nula $H_0$, é chamado de **Região Crítica**. O valor na fronteira é o chamado valor crítico
+
+:::
+
+
+## Estabelencendo Valor Crítico e Região Crítica. 
+
+* Assim, de forma geral tem-se:
+
+$$RC =\{T \in C| H_0\}$$
+$$P(T \in C|H_0)\leq\alpha$$
+
+---
+
+* A região crítica depende do teste estatístico escolhido e se a hipótese é unilateral ou bilateral
+    + No caso unilateral utilizamos o nível de siginifcância, $\alpha$, todo de um lado. 
+    + No teste bilateral dividimos o nível de significância, ou seja, utilizamos$\alpha /2$, metade para cada lado.
+
+* Quando mais alto $\alpha$ maior a probabilidade de se obter uma amostra com estimativas pertencentes a região crítica.
+    + $\alpha$ maiores implicam em maiores regiões crítica. 
+
+## O Teste de Hipótese
+
+* Fazemos nosso processo de amostragem e obtemos o valor do teste estatístico. 
+* Se o valor do teste ficar fora da região crítica dizemos que não rejeitamos $H_0$. 
+    + Para o nosso caso, que não existe evidências de que a renda é maior do 600 reais.
+
+* Caso o teste estatítico produza uma estimativa na região crítica, rejeitamos $H_0$ 
+    + Há evidências de que a renda pc é maior do que aquela postulada pela ONG. 
+
+## Relação entre o p-valor  e região crítica
+
+* Retomando nosso exemplo
+* $H_0: \mu=600$. 
+* Nível de significância de 5\%, teste unilateral
+* Região Crítica: 
+
+$RC =\{\bar{x} \in \mathbb{R} | \bar{x} \geq 633\}$
+
+* Supor agora que realizamos uma nova amostragem e a estimativa do nosso teste com base em uma amostragem de 25 elementos foi de 645. 
+* Com base no valor do teste e na nossa região crítica construída, rejeitariamos $H_0$. 
+
+
+## Relação entre o p-valor e região crítica
+
+* Podemos agora calcular a probbilidade de cauda, ou seja, o p-valor,
+* Probabilidade de obtermos valores iguais ou maiores do que 645 sob $H_0$
+
+$$P(\bar{X}\geq 645|H_0) \Rightarrow \bar{X} \sim N\bigg(600,\frac{100^2}{25}\bigg)$$
+
+---
+
+$$P\bigg(Z_{\bar{X}}\geq \frac{645-600}{100/5}\Bigg|H_0\bigg)$$
+$$P\bigg(Z_{\bar{X}} \geq  \frac{45}{20}\bigg)=P(Z_{\bar{X}} \geq 2.25)=0.0122$$
+
+* Logo a chance de termos valores iguais ou maiores de 645 para o teste estatístico considerando $H_0$ como verdadeiro é de 1.22\%. 
+* Veja o gráfico a seguir  que possui a região crítica e o p-valor. 
+
+## Relação entre o p-valor e região crítica
+
+```{r echo = FALSE, fig.cap= "Nível de significância e p-valor",fig.height = 3.5, fig.width = 7}
+x<-seq(500,700,0.1) 
+fdnorm<-dnorm(x = x, mean = 600, sd=20)  
+fdnorm1<-dnorm(x = x, mean = 600, sd=20)
+regiao=seq(633,700,0.01)
+cord.x <- c(min(regiao),regiao,max(regiao))
+cord.y <- c(0,dnorm(regiao,mean=600, sd=20),0) 
+curve(dnorm(x,600,20),xlim=c(500,700),xlab=expression(bar(x)),type="l",
+      col="steelblue4",lwd=2, ylab=expression(paste("f(", bar(x),
+      ")")),xaxt="n",cex.axis=0.65, cex.lab=0.8 ) 
+axis(1,at=c(500,540,560,580, 600, 620, 633,645,660, 700),labels =
+       c(500,540,560,580, 600, 620, 633,645, 660, 700),cex.axis=0.7, cex.lab=0.8) 
+polygon(cord.x,cord.y,col='wheat4')
+abline(v=633, col="wheat4", lty=2, lwd=2)
+text(600, 0.001, expression(mu))
+text(670, 0.005, expression(paste("EI=", alpha, "=0.05=Região Crítica")))
+par(new=TRUE)
+curve(dnorm(x,600,20),xlim=c(500,700),xlab=expression(bar(x)),type="l",
+      col="steelblue4",lwd=2, ylab=expression(paste("f(", bar(x),
+      ")")),xaxt="n",cex.axis=0.65, cex.lab=0.8 ) 
+regiao=seq(645,700,0.01)
+cord.x <- c(min(regiao),regiao,max(regiao))
+cord.y <- c(0,dnorm(regiao,mean=600, sd=20),0)
+polygon(cord.x,cord.y,col='steelblue4')
+abline(v=645, col="steelblue4", lty=2, lwd=2)
+text(665, 0.002, expression(paste("p-value=0.0122")))
+```
+
+
+## Relação entre o  p-valor e região crítica
+
+* Em marrom, linha mais a esquerda, temos o limite da região crítica, ou seja, o valor a partir do qual rejeitariamos $H_0$. 
+    + Note que podemos montar essa região sem efetivamente retiramos uma amostra, somente com base na teoria e no tamanho amostral que poderiamos coletar. 
+    + Especifica todas os valores sob os quais rejeitamos $H_0$. 
+
+* O p-valor está indicado pela linha azul no gráfico e nos fornece a ideia de quão forte é essa rejeição
+    + Quanto menor o p-valor (valores mais extremos) mais evidências temos de que a hipótese nula $H_0$ não é adequada
+
+
+
+## Os Cinco passos para a contrução do teste de hipótese
+
+
+1. Estabeleça as hipótese nula $H_0$ e a hipótese alternativa $H_1$
+
+2. Defina qual estimador do parâmetro populacional $\theta$ que será usado para testar $H_0$: média, desvio padrão amostral, proporção amostral etc
+
+3. Defina o nível de significância - $\alpha$ e estabeleça qual o valor e a região crítica.
+
+4. Calcule a estimativa do teste estatístico.
+
+5. Se não pertencer a Região Crítica não rejeitamos $H_0$, caso contrário rejeitamos a hipótese nula $H_0$.
+
+
+# Teste de Hipótese na Prática
+
+## Teste sobre parâmetros locacionais
+
+## Testes para Esperança pop. com variância conhecida
+- Conhecemos $\sigma$
+ 
+**1- Definindo a Hipótese**: 
+\
+$$H_0: \mu=\mu_0$$
+$$H_1: \mu \neq \mu_0$$
+ou 
+
+$$H_0:  \mu=\mu_0$$
+$$H_1:  \mu >\mu_0 \quad ou \quad H_1: \mu<\mu_0$$
+    
+## Testes para Esperança pop. com variância conhecida
+**2 - Definindo o Estimador**: 
+
+- Média é um bom estimador para a esperança:
+$$\bar{X}\sim N(\mu,\sigma^2/n)$$
+
+- Sob $H_0$ temos o seguinte:
+$$\bar{X}\overset{H_0}{\sim} N(\mu_0,\sigma_0^2/n)$$
+
+---
+
+- Logo o nosso Teste Estatístico $T$, sob $H_0$ será :
+
+$$T=\frac{\bar{X}-\mu_0}{\sigma_0/\sqrt{n}}\overset{H_0}{\sim} N(0,1)$$
+
+
+## Testes para Esperança pop. com variância conhecida
+
+**3 - Nivel de Significância e Região Crítica**
+
+- Em economia utilizamos 10\%, 5\% e 1\%. Regiões críticas para o teste:
+$$H_0: \mu=\mu_0$$
+$$H_1: \mu \neq \mu_0$$
+$$RC=\{t \in \mathbb{R} |t\leq - z_{c,\alpha/2} \quad \cup \quad t\geq  z_{c,\alpha/2}\}$$
+
+---
+
+$$H_0: \mu=\mu_0$$
+$$H_1: \mu >\mu_0 \quad ou \quad H_1: \mu<\mu_0$$
+$$RC_1=\{t \in \mathbb{R} | t\geq  z_{c,\alpha}\}$$ ou $$RC_2=\{t \in \mathbb{R} |t\leq - z_{c,\alpha} \}$$
+
+
+## Testes para Esperança pop. com variância conhecida
+**4 - Cálculo do Teste Estatístico**
+
+- Logo o valor do nosso teste estatístico será:
+$$t=\frac{\bar{x}-\mu_0}{\sigma_0/\sqrt{n}}$$
+
+- Podemos comparar esse valor obtido com os valores ditos mais prováveis de ocorrerem sob $H_0$. 
+- Basicamente faremos isso comparando o valor obtido, $t$ com a nossa região crítica.
+
+## Testes para Esperança pop. com variância conhecida
+
+**5 - Teste de hipótese**
+
+Assim se a nossa estimativa $t$ pertencer a regiao crítica rejeitamos $H_0$, ou seja, há evidências de que a afirmativa esteja errada. Caso não esteja na RC não rejeitamos $H_0$ e portanto temos evidência de que esteja correto.
+
+## Exemplo
+
+## Testes para Esperança pop. com variância conhecida
+
+::: {.callout-tip icon="false" title="EXEMPLO"}
+
+Suponha que temos uma máquina de empacotar que tem uma regulagem original com $\mu=500$ e $\sigma^{2}=400$. O gerente de qualidade da empresa mensalmente faz a aferição para verificar se a máquina está desregulada. Ele coleta aleatóriamente $n=16$ pacotes e obteve a média $\bar{x}=492$. O gerente deve parar a produção e chamar a equipe de manutenção ao nível de 1\% de significância? 
+
+:::
+
+## Testes para Esperança pop. com variância conhecida
+
+**1 - Definindo a hipótese**: 
+
+- Nesse caso utilizamos a hipótese bilateral.
+
+$$H_0: \mu=500 g$$
+
+$$H_{1}: \mu \neq 500 g$$
+
+---
+
+**2 - Definindo o Estimador**: 
+
+- O estimador de $\mu$ é a média $\bar{X}$: 
+
+- O Teste Estatístico $T$, sob $H_0$ será :
+
+$$T=\frac{\bar{X}-500}{20/\sqrt{16}}\overset{H_0}{\sim} N(0,1)$$
+
+## Testes para Esperança pop. com variância conhecida
+
+**3 - Nivel de Significância e Região Crítica**: 
+
+- Considerando o nível de 1\% de significância temos:
+
+
+$$RC= \{ t \in \mathbb{R}| t\leq -2.58 \quad \cup \quad t\geq 2,58 \}$$
+
+---
+
+**4 - Cálculo do Teste Estatístico**: 
+- Com base nas 16 elementos amostrados de $X$, obtivemos: 
+$$\bar{x}=\frac{\sum_i{x_i}}{16}=492$$
+Logo o valor do nosso teste estatístico será:
+
+$$t=\frac{492-500}{20/4}=\frac{-8}{5}=-1.6$$
+
+## Testes para Esperança pop. com variância conhecida
+
+**5 - Teste de Hipótese**: 
+
+- Com base no $t$ calculado procedemos o teste de hipótese. Sabendo que a RC é:
+$$RC= \{ t \in \mathbb{R}| t\leq -2.58 \quad \cup \quad t\geq 2,58 \}$$
+
+Como $t=-1.6$ ele não pertence a região, logo não rejeitamos $H_0$, não há evidências de que a máquina desregulou e o gerente não deveria parar a produção para fazer a manutenção. 
+
+## Testes para Esperança pop. com variância conhecida
+
+- Uma outra maneira é encontrarmos quais são os limites da região crítica na distribuição de $\bar{X}$. 
+- Assim ao nível de significância, $\alpha$ de 1\%:
+$$z_{c_1}=-2,58=(\overline{x}_{c1}-500)/5=487,1$$
+$$Z_{c_2}=2,58=(\overline{x}_{c2}-500)/5=512,9$$
+
+---
+
+- Logo a região crítica análoga na distribuição de $\bar{X}$ será:
+
+$$RC=\{\overline{x} \in R | \overline{x} \leq 487,1 \ \text{ou} \  \overline{x}\geq512,9  \}$$
+
+Como a amostra tem média $\overline{x}=492$ ela não pertence à região críitica então não rejeitamos $H_0$. 
+
+
+## Testes para Esperança pop. com variância conhecida
+
+
+```{r echo = FALSE, fig.cap= "Nível de significância e p-valor",fig.height = 3, fig.width = 5}
+x<-seq(480,520,0.1) 
+fdnorm<-dnorm(x = x, mean = 500, sd=5)  
+fdnorm1<-dnorm(x = x, mean = 500, sd=5)
+regiao=seq(512.9,520,0.01)
+cord.x <- c(min(regiao),regiao,max(regiao))
+cord.y <- c(0,dnorm(regiao,mean=500, sd=5),0) 
+curve(dnorm(x,500,5),xlim=c(480,520),xlab=expression(bar(x)),type="l",
+      col="steelblue4",lwd=2, ylab=expression(paste("f(", bar(x),
+      ")")),xaxt="n",cex.axis=0.65, cex.lab=0.8 ) 
+axis(1,at=c(487.1, 492, 495, 500, 505, 510, 512.9, 515),labels =
+       c(487.1, 492, 495, 500, 505, 510, 512.9, 515),cex.axis=0.7, cex.lab=0.8) 
+polygon(cord.x,cord.y,col='steelblue4')
+abline(v=512.9, col="steelblue4", lty=2, lwd=2)
+abline(v=492, col="wheat4", lty=2, lwd=2)
+text(500, 0.001, expression(mu))
+text(517, 0.01, expression(paste(alpha,"/2", "=0.025")))
+text(517, 0.04, expression("RC"))
+text(494, 0.01, expression(paste(bar(x),"=492")))
+
+par(new=TRUE)
+curve(dnorm(x,500,5),xlim=c(480,520),xlab=expression(bar(x)),type="l",
+      col="steelblue4",lwd=2, ylab=expression(paste("f(", bar(x),
+      ")")),xaxt="n",cex.axis=0.65, cex.lab=0.8 ) 
+axis(1,at=c(487.1, 492, 495, 500, 505, 510, 512.9, 515),labels =
+       c(487.1, 492, 495, 500, 505, 510, 512.9, 515),cex.axis=0.7, cex.lab=0.8) 
+regiao=seq(480,487.1,0.01)
+cord.x <- c(min(regiao),regiao,max(regiao))
+cord.y <- c(0,dnorm(regiao,mean=500, sd=5),0)
+polygon(cord.x,cord.y,col='steelblue4')
+abline(v=487.1, col="steelblue4", lty=2, lwd=2)
+text(483, 0.01, expression(paste(alpha,"/2", "=0.025")))
+text(483, 0.04, expression("RC"))
+```
+
+
+
+## Utilizando o p-valor 
+
+- Faremos agora um teste de hipótese o p-valor. 
+- Não construiremos mais a região crítica e iremos calcular com base no valor do teste estatístico:
+
+$$P(T\geq t_0|H_0)=p-valor=\hat{\alpha}$$
+
+## Utilizando o p-valor
+  
+::: {.callout-tip icon="false" title="EXEMPLO"}
+Uma empresa de transporte intermunicipal que ganhou uma concessão do Estado afirma que o tempo de viagem, $X$, entre duas cidades de acordo com seus estudos preliminares pode ser assim descrito:
+
+$$\begin{array}{ccc}
+X \sim N (300,30^{2})
+\end{array}$$
+
+Inclusive esse tempo foi um dos critérios utilizados no processo de cessão. O Ministério Público desconfia e acredita que esse valor é maior. O MP faz um estudo considerando 10 viagens aleatórias e encontra que  $\overline{x}=314$. O MP deve se reunir com a empresa e pedir um ajustamento de conduta?
+:::
+
+## Utilizando o p-valor 
+
+**1 - Definindo a hipótese**: 
+
+$$H_0: \mu=300$$
+
+$$H_1: \mu\geq 300$$
+
+**2 - Definindo o Estimador**: Sabemos que $\bar{X}$ será:
+
+- Considerando que a empresa está correta, ou seja, sob $H_0$:
+
+$$\begin{array}{ccc}
+\overline{X} \sim N (300; 900/10)
+\end{array}$$
+
+**3 - Nivel de Significância e Região Crítica**: Não precisamos mais calcular!!
+
+## Utilizando o p-valor 
+
+**4 - Cálculo do Teste Estatístico**: 
+
+- Calculamos a probabilidade de ocorrência de amostras com o valor iguais ou superiores a $\overline{x}=314$ sob $H_0$:
+$$\begin{array}{ccc}
+P(\bar{x}>314)=P(z>\frac{314-300}{9.49})=P(z>1,48)=0,07
+\end{array}$$
+
+$$\begin{array}{ccc}
+\hat{\alpha}=p-valor=7\%
+\end{array}$$
+
+- Caso fosse bicaudal e sabendo que a distribuição é simétrica poderiamos considerar: $\hat{\alpha}=14\%$
+
+
+## Utilizando o p-valor 
+
+**5 - Teste de Hipótese**: Considerando o teste unilateral, temos agora a força da rejeição. A chance de retirarmos 314 ou mais é de 7\%. Apesar de baixo poderia ocorrer. Não parece muito improvável, tanto que se considerarmos $\alpha=1\%$ ou $\alpha=5\%$ não rejeitamos. Só rejeitariamos $H_0$ se $\alpha=10\%$.  Podemos concluir que as evidências não nos revelam que a empresa está tendo um tempo maior de viagem, apesar dessa conclusão não ser tão forte. 
+
+## Teste sobre a Esperança de uma pop. normal com variância desconhecida 
+
+- O procedimento aqui é análogo ao que fizemos anteriormente 
+
+- Entretanto o novo teste estatístico será:
+
+$$T=\frac{\bar{X}-\mu_0}{S_X/\sqrt{n}}$$
+
+---
+
+- Nossa questão agora é qual a distruibuição desse teste? 
+- Agora tanto $\bar{X}$ como $S_X$ são variáveis aleatórias e possuem distriuição. 
+- Temos a divisão de uma normal $N(0,1)$ por $\sqrt{\chi^2_{n-1}}$ dividido pelo número de graus de liberdade
+
+- Portanto nosso teste estatístico será:
+
+$$T=\frac{\sqrt{n}(\bar{X}-\mu)}{S_X} \sim t(n-1)$$
+
+- E terá uma distribuição t-student com n-1 graus de liberdade. 
+
+## Teste sobre a Esperança de uma pop. normal com variância desconhecida 
+
+
+- Região crítica tem que ser construída com base na tabela da distribuição t.Para o caso bicaudal:
+
+
+$$RC=\{t \in \mathbb{R} |t\leq - t_{c,\alpha/2} \quad ou \quad t\geq  t_{c,\alpha/2}\}$$
+Para o caso unicaudal:
+
+$$RC_1=\{t \in \mathbb{R} | t\geq  t_{c,\alpha}\} \quad ou \quad RC_2=\{t \in \mathbb{R} |t\leq -t_{c,\alpha} \}$$
+
+
+## Exemplo
+
+
+## Teste sobre a Esperança de uma pop. normal com variância desconhecida
+  
+::: {.callout-tip icon="false" title="EXEMPLO"}
+Um fabricante afirma que seus cigarros não contém mais do que 30mg de nicotina. O Ministério da Saúde está desconfiado dessa afirmativa e acredita que o conteúdo de nicotina é maior do que o anunciado (teste unilateral). Foi realizada uma amostra de 25 cigarros e o teor médio de nicotina nos mesmos foi $\overline{x_0}=31,5mg$ e o desvio padrão amostral $S_X=3mg$. Com $\alpha=5\%$ os dados confirmam a informação?
+
+:::
+
+
+## Teste sobre a Esperança de uma pop. normal com variância desconhecida
+
+**1 - Definindo a hipótese**:
+\
+$$H_0: \mu=30$$
+$$H_1: \mu\geq30$$
+
+
+**2 - Definindo o Estimador**:
+- O Teste Estatístico $T$, que nesse caso é a padronização de $\bar{X}$ e considerando o estimador da variância será, sob $H_0$:
+
+$$T=\frac{\bar{X}-30}{3/\sqrt{25}}\overset{H_0}{\sim} t(24)$$
+
+---
+
+**3 - Nivel de Significância e Região Crítica**: 
+- Considerando o nível de 5\% de significância e teste unilateral temos:
+
+
+$$RC=\{t \in \mathbb{R} |t\geq t_{24,0.05} \}= \{t \in \mathbb{R} |t\geq 1,711 \}$$
+
+**4 - Cálculo do Teste Estatístico**:
+
+- Foram amostrado 25 elementos de $X$, obtivemos  $\bar{x}=31.5$
+
+- Logo o valor do nosso teste estatístico será:
+$$t=\frac{31.5-30}{3/5}=\frac{1.5}{0.6}=2.5$$
+
+---
+
+**5 - Teste de Hipótese**: Nosso teste foi $T=2.5$ e nossa região crítica $RC=\{t\geq 1,711 \}$. Logo pertence à região crítica. Dessa forma, rejeitamos $H_0$ mostrando que há evidências de que o teor de nicotina é maior do que o anunciado pela firma. 
+
+
+**6 - Extra 1: p-valor**: 
+
+- Probabilidade de encontrarmos os valores $T=2.5$ ou maiores em uma amostra que veio de uma população sob $H_0$ ou seja, $\mu=30g$. 
+
+$$\hat{\alpha}=P\left(T>t_{0}| H_{0}\right)=P\left(T>2,5 | H_{0}\right)=0,01$$
+
+- O que também leva à rejeição de $H_0$ ao nível de 5\% de confiança. 
+
+
+## Teste sobre a Esperança de uma pop. normal com variância desconhecida
+
+**7 - Extra 2: O Intervalo e Confiança**: 
+- Como rejeitamos, poderiamos estar interessados em descobrir onde estaria a verdadeira média populacional ao nível de 5\% de confiança. 
+- Vamos calcular o intervalo de confiança para 5\% ( $t_\gamma=2,064$):
+
+$$\begin{array}{ccc}
+I C(\mu ; 0.95)=31,5 \pm(2.064) 3/\sqrt{25}
+\\
+\\
+I C(\mu ; 0.95)=\{30.26 ; 32.74\}
+\\
+\\
+\end{array}$$
+
+- Logo o verdadeiro parâmetro populacional $\mu$ estaria entre $30.26$ e $32.74$. 
+
+---
+
+**8 - Extra 3: Simulando o nosso problema**:
+
+## Teste sobre a Esperança de uma pop. normal com variância desconhecida
+
+```{r echo = FALSE, fig.cap= "Nível de significância e p-valor para distribuição t-student",fig.height = 3, fig.width = 5}
+x<-seq(-4,4,0.1) 
+fdt<-dt(x = x, df = 24)  
+fdt1<-dt(x = x, df = 24)
+regiao=seq(1.711,4,0.01)
+cord.x <- c(min(regiao),regiao,max(regiao))
+cord.y <- c(0,dt(regiao,df=24),0) 
+curve(dt(x,df = 24),xlim=c(-4,4),xlab=expression(t),type="l",
+      col="steelblue4",lwd=2, ylab=expression(paste("f(", bar(t),
+      ")")),xaxt="n",cex.axis=0.65, cex.lab=0.8 ) 
+axis(1,at=c(-4,-3,-2,-1, 0, 1, 1.71,2.5,3, 4),labels =
+       c(-4,-3,-2,-1, 0, 1, 1.71,2.5,3, 4),cex.axis=0.7, cex.lab=0.8) 
+polygon(cord.x,cord.y,col='wheat4')
+abline(v=1.711, col="wheat4", lty=2, lwd=2)
+text(0, 0.001, expression(mu))
+text(2.2, 0.15, expression(paste(alpha, "=0.05")))
+text(3, 0.25, expression("Região Crítica"))
+
+par(new=TRUE)
+curve(dt(x,df = 24),xlim=c(-4,4),xlab=expression(t),type="l",
+      col="steelblue4",lwd=2, ylab=expression(paste("f(", bar(t),
+      ")")),xaxt="n",cex.axis=0.65, cex.lab=0.8 )  
+regiao=seq(2.5,4,0.01)
+cord.x <- c(min(regiao),regiao,max(regiao))
+cord.y <- c(0,dt(regiao,df=24),0)
+polygon(cord.x,cord.y,col='steelblue4')
+abline(v=2.5, col="steelblue4", lty=2, lwd=2)
+text(3.3, 0.05, expression(paste("p-value=0.01")))
+```
+
+## Comparação de duas populações normais: amostra independente
+
+- Saber se uma população possui o mesmo valor de esperança que a outra população. - Por exemplo se a renda per capita é da cidade é igual a renda per capita no campo. 
+- Agora comparamos duas médias $H_0:\mu_1=\mu_2$. Aqui assumimos que elas são normais e as amostras são independentes: 
+$$P_1 \sim N(\mu_1,\sigma^2_1)$$
+$$P_2 \sim N(\mu_2,\sigma^2_2)$$
+
+
+## Comparação de duas populações normais: amostra independente
+
+**1 - Definindo a hipótese**:
+$$H_0: \mu_1=\mu_2$$
+$$H_1: \mu_1\neq\mu_2$$
+
+---
+
+**2 - Definindo o Estimador**:
+
+- Supondo que retiramos uma amostra de $n$ elementos da população 1 $X$ e de $m$ elementos da população 2, $Y$. Sob $H_0$ temos:
+$$\begin{array}{ccc}
+\mathbb{E}(\overline{X}-\overline{Y})=\mathbb{E}(\overline{X})-\mathbb{E}(\overline{Y})=\mu_X-\mu_Y=0
+\\
+Var(\overline{X}-\overline{Y})=Var(\overline{X})+Var(\overline{Y})=\frac{\sigma^2_X}{n}+\frac{\sigma^2_Y}{m}
+\end{array}$$
+
+
+## Comparação de duas populações normais: amostra independente
+
+**2.1 - Caso 1: Para variâncias conhecidas**
+
+- Sob a hipótese de que $H_0$ é verdadeira:
+
+
+$$T=\frac{(\overline{X}-\overline{Y})-(\mu_X-\mu_Y)}{\sqrt{\frac{\sigma^2_X}{n}+\frac{\sigma^2_Y}{m}}}\Rightarrow T=\frac{(\overline{X}-\overline{Y})}{\sqrt{\frac{\sigma^2_X}{n}+\frac{\sigma^2_Y}{m}}}\sim N(0,1)$$
+
+- Construímos a região crítica com base na normal padrão 
+
+---
+
+- O intervalo de confiança nesse casos seria:
+$$IC(\theta;\gamma)=(\overline{x_0}-\overline{y_0})\pm z_{\gamma}\sqrt{\frac{\sigma^2_X}{n}+\frac{\sigma^2_Y}{m}}$$
+
+
+## Comparação de duas populações normais: amostra independente
+
+**2.2 - Caso 2:  Para variância desconhecida e iguais**
+
+- No teste de igualdade de variância essa não foi rejeitada. 
+
+- Temos que $S_1^2$ e $S_2^2$ são dois estimadores não viesados de $\sigma^2$. 
+
+- Retiramos uma amostra de $n$ elementos da população 1 $X$ e de $m$ elementos da população 2, $Y$. Assim:
+ 
+ 
+$$S_p^2=\frac{(n-1)S_X^2+(m-1)S_Y^2}{n+m-2}$$
+
+---
+
+- Para testar a hipótese nula utiliza-se:
+
+$$T=\frac{\overline{X}-\overline{Y}}{S_p\sqrt{\frac{1}{n}+\frac{1}{m}}}\sim t_{(n+m-2)}$$
+
+
+## Comparação de duas populações normais: amostra independente
+
+**2.2 - Caso 2:  Para variância desconhecida e iguais**
+
+- Construímos nossa região crítica com base na distribuição t-student $t_{\alpha,(n+m-2)}$
+
+
+ - O Intervalo de confiança será:
+
+
+ $$\begin{array}{ccc}
+IC(\theta;\gamma)=(\overline{x_0}-\overline{y_0})\pm t_{\gamma,(n+m-2)}S_p\sqrt{\frac{1}{n}+\frac{1}{m}}
+\end{array}$$
+
+
+
+## Comparação de duas populações normais: amostra independente
+
+**2.3 - Caso 3:  Para variância desconhecida e desiguais**
+
+- Hipótese de igualdade  de variância for rejeitada:
+$$T=\frac{\overline{X}-\overline{Y}}{\sqrt{S_X^2/n+S_Y^2/m}}\sim t_{(v)}$$
+
+---
+
+- Para encontrar o grau de liberdade $v$:
+
+$$v=\frac{(A+B)^2}{\frac{A^2}{(n-1)}+\frac{B^2}{(m-1)}}$$
+onde: 
+$$A=\frac{S_X^2}{n} \qquad B=\frac{S_Y^2}{m}$$
+
+
+## Comparação de duas populações normais: amostra independente
+
+**2.3 - Caso 3:  Para variância desconhecida e desiguais**
+
+- Região crítica é elaborada com base na distribuição t-student $t_{\alpha,(v)}$
+
+
+- O Intervalo de confiança será:
+
+
+ $$\begin{array}{ccc}
+IC(\theta;\gamma)=(\overline{x_0}-\overline{y_0})\pm t_{\gamma,(v)}\sqrt{S_1^2/n+S_2^2/m}
+\end{array}$$
+
+
+## Exemplos
+
+## Comparação de duas populações normais: amostra independente
+  
+::: {.callout-tip icon="false" title="EXEMPLO"}
+
+**Teste de diferença de médias com variância conhecidas**:
+
+Uma empresa propos um novo sistema de monitoramento de processo e quer verificar se esse faz com que os funcionarios tenham melhor performance. Foi feito um ensaio com 8 funcionários sob o monitoramento atual $(X)$ e a performance média registrada foi de 80.5 pontos. Sabe-se que o desvio padrão populacional, $\sigma_X=1.5$. Foi feito outro ensaio com 10 funcionários sob o novo monitoramento $(Y)$ e a performance foi de 81.3 pontos. Aqui também conhecemos o desvio padrão populacional, $\sigma_X=3.8$   
+:::
+
+
+## Comparação de duas populações normais: amostra independente
+
+**1 - Definindo a hipótese**: 
+
+- Teste unilateral:
+$$H_0: \mu_X=\mu_Y$$
+$$H_1: \mu_X\leq\mu_Y$$
+
+---
+
+**2 - Defindo o Estimador**:  
+- Para variância conhecida e sob a hipótese nula temos:
+
+$$T=\frac{(\overline{X}-\overline{Y})}{\sqrt{\frac{\sigma^2_X}{n}+\frac{\sigma^2_Y}{m}}}\sim N(0,1)$$
+
+
+**3 - Nivel de Significância e Região Crítica**: 
+- Considerando o nível de 5\% de significância e teste unilateral temos: 
+
+$$RC=\{t \in \mathbb{R} |t\leq z_{c,0.05} \} = \{t \in \mathbb{R} |t\leq -1.645 \}$$
+
+
+## Comparação de duas populações normais: amostra independente
+
+**4 - Cálculo do Teste Estatístico**:
+
+- Calculando:
+
+$$T=\frac{(\overline{X}-\overline{Y})}{\sqrt{\frac{\sigma^2_X}{n}+\frac{\sigma^2_Y}{m}}}= \frac{(80.5-81.3)}{\sqrt{\frac{1.5^2}{8}+\frac{3.8^2}{10}}}= -0.61\sim N(0,1)$$
+
+---
+
+**5 - Teste de Hipótese**:
+
+Como -0.61 não está na região crítica, não rejeitamos a hipótese nula de que os dois processos de monitoramento produzem o mesmo resultado. Isso indica que se houver algum custo adicional na implementação do monitoramento 2, esse será um prejuízo para a empresa. 
+
+**6 - Simulando as duas distribuições**:
+
+## Comparação de duas populações normais: amostra independente
+
+```{r echo = FALSE, fig.cap= "Simulando as duas distribuições do monitoramento, supondo normal",fig.height = 3, fig.width = 5}
+x<-seq(77,85,0.1) 
+curve(dnorm(x,80.5,0.53),xlim=c(77,85),xlab=expression(bar(x)),type="l",
+      col="steelblue4",lwd=2, ylab=expression(paste("f(", bar(x),
+      ")")),xaxt="n",cex.axis=0.65, cex.lab=0.8 ) 
+axis(1,at=c(77,80.5,81.3, 85),labels =
+       c(77,80.5,81.3, 85),cex.axis=0.7, cex.lab=0.8) 
+abline(v=80.5, col="steelblue4", lty=2, lwd=2)
+par(new=TRUE)
+curve(dnorm(x,81.3,1.2),xlim=c(77,85),xlab=expression(bar(x)),type="l",
+      col="wheat4",lwd=2, ylab=expression(paste("f(", bar(x),
+      ")")),xaxt="n",yaxt="n",cex.axis=0.65, cex.lab=0.8 ) 
+abline(v=81.3, col="wheat4", lty=2, lwd=2)
+
+```
+
+## Exemplo
+
+## Comparação de duas populações normais: amostra independente
+  
+::: {.callout-tip icon="false" title="EXEMPLO"}
+
+**Teste de diferença de médias com variância desconhecidas e iguais**:
+
+Uma empresa está testando duas misturas de concretos os quais são feitos com cimento de diferentes minas. A mistura 1 é a mistura padrão feita com o cimento já conhecido. A mistura 2 usa a mesma receita mas utiliza um cimento vindo de uma nova mina. A empresa quer saber se as duas misturas produzem a mesma qualidade de produto, ou seja, que a carga de ruptura do concreto após 28 dias é a mesma em $kg/cm^2$. A tabela abaixo traz os testes laboratoriais e gostariamos de saber se ao nível de 5\% de confiança as duas misturas possuem a mesma esperança?  
+:::
+
+
+## Comparação de duas populações normais: amostra independente
+
+- Os dados: 
+
+: Resistência de diversas amostras de concreto (Carga de Ruptura $kg/cm^2$) {#tbl-concreto}
+
+| Mistura | Amostras |
+|:---|:---|
+| **Mistura 1** | 15,4; 15,7; 14,8; 15,7; 14,8; 15,6; 15,4; 14,6; 15,8; 15,3; 15,5; 15,2 |
+| **Mistura 2** | 14,7; 14,3; 14,5; 14,2; 15,0; 14,8; 15,2; 15,3; 14,9; 15,4 |
+
+
+## Comparação de duas populações normais: amostra independente
+
+- Considerando que $X$ é a carga de ruptura da mistura 1  $Y$ é a carga de ruptura da mistura 2. Temos:
+
+$$\begin{array}{ccc}
+n=12 \ \qquad \sum_iX_i=183.8 \ \qquad \sum_iX_i^2=2816.92
+\\
+\\
+m=10 \ \qquad \sum_iY_i=148.3 \ \qquad \sum_iY_i^2=2200.81
+\\
+\\
+\overline{X}=\frac{\sum_iX_i}{n}=15.316 \qquad \overline{Y}=\frac{\sum_iY_i}{n}=14.83
+\end{array}$$
+
+
+---
+
+$$\begin{array}{ccc}
+S_X^2=\frac{\sum_iX_i^2-2\overline{X}\sum_iX_i+n\overline{X}^2}{n-1}=0.1561 \Rightarrow S_X=0.395
+\\
+\\
+S_Y^2=0,1690 \Rightarrow  S_Y=0.411
+\end{array}$$
+
+## Comparação de duas populações normais: amostra independente
+
+**1 - Definindo a hipótese**: 
+$$H_0: \mu_X=\mu_Y$$
+$$H_1: \mu_X\neq\mu_Y$$
+
+---
+
+**2 - Defindo o Estimador**:  
+
+- Para variância desconhecida e iguais e ambas as populações normal.
+
+- Sob a hipótese nula tem-se:
+
+$$T=\frac{\overline{X}-\overline{Y}}{S_p\sqrt{\frac{1}{n}+\frac{1}{m}}}\sim t_{(n+m-2)}$$
+Sendo:
+$$S_p^2=\frac{(n-1)S_X^2+(m-1)S_Y^2}{n+m-2}$$
+
+
+## Comparação de duas populações normais: amostra independente
+
+**3 - Nivel de Significância e Região Crítica**: 
+
+- Considerando o nível de 5\% de significância e teste bilateral temos
+
+$t_{(12+10-2)}=t_{(20;0.025)}$:
+
+$$RC= \{t \in \mathbb{R} |t\leq -2.086 \quad \cup \quad t\geq 2.086 \}$$
+
+---
+
+**4 - Cálculo do Teste Estatístico**:
+
+Calculando a variância ponderada:
+
+$$S_p^2=\frac{(n-1)S_X^2+(m-1)S_Y^2}{n+m-2}=\frac{(11)0.1561+(9)0.169}{12+10-2}= 0.1619$$
+
+Portanto o teste estatístico será:
+
+$$T=\frac{\overline{X}-\overline{Y}}{S_p\sqrt{\frac{1}{n}+\frac{1}{m}}}=\frac{15.316-14.83}{0.1619\sqrt{\frac{1}{12}+\frac{1}{10}}}= 2.84\sim t_{(12+10-2)}$$
+
+## Comparação de duas populações normais: amostra independente
+
+**5 - Teste de Hipótese**:
+
+Como 2.84 está na região crítica rejeitamos a hipótese de que as duas misturas produzem concretos com a mesma carga de ruptura, indicando que há evidências de que a carga de ruptura da nova mistura 2 é menor do que a mistura original. 
+
+
+**6 - Extra: Simulando as duas distribuições**:
+
+- Podemos observar as duas distribuições da média para a mistura 1 e para a mistura 2. 
+- Observa-se que elas estão distantes uma da outra indicando visualmente que elas vem de populações distintas. 
+
+## Comparação de duas populações normais: amostra independente
+
+```{r echo = FALSE, fig.cap= "Simulando as duas distribuições do monitoramento, supondo normal",fig.height = 3, fig.width = 5}
+x<-seq(14.3,15.8,0.1) 
+curve(dnorm(x,15.316,0.1140),xlim=c(14.3,15.8),xlab=expression(bar(x)),type="l",
+      col="steelblue4",lwd=2, ylab=expression(paste("f(", bar(x),
+      ")")),xaxt="n",cex.axis=0.65, cex.lab=0.8 ) 
+axis(1,at=c( 14.5, 14.83, 15, 15.31,15.5),labels =
+       c( 14.5, 14.83, 15, 15.31,15.5),cex.axis=0.7, cex.lab=0.8) 
+abline(v=15.316, col="steelblue4", lty=2, lwd=2)
+text(14.83, 1.5, expression(paste("Mistura 1")))
+par(new=TRUE)
+curve(dnorm(x,14.83,0.13),xlim=c(14.3,15.8),xlab=expression(bar(x)),type="l",
+      col="wheat4",lwd=2, ylab=expression(paste("f(", bar(x),
+      ")")),xaxt="n",yaxt="n",cex.axis=0.65, cex.lab=0.8 ) 
+abline(v=14.83, col="wheat4", lty=2, lwd=2)
+text(15.31, 1.5, expression(paste("Mistura 2")))
+```
+
+
+## Testes Paramétricos sobre Probabilidades
+
+## Teste para proporção
+
+- Respostas binárias
+
+- Pesquisas eleitorais, pessoas favoráveis a uma política, empresas que entraram em recuperação judicial, indivíduos que possuem dívida em atraso etc.
+Vamos trabalhar aqui com a estratégia de aproximação da binomial pela normal. 
+
+---
+
+**1- Definindo a Hipótese**: 
+- Podemos definir de forma Bicaudal ou Unicaudal
+$$H_0: p=p_0$$
+$$H_1: p \neq p_0$$
+ou 
+
+$$H_0: p=p_0$$
+$$H_1: p >p_0 \quad ou \quad H_1: p<p_0$$
+
+
+## Teste para proporção
+
+**2 - Definindo o Estimador**: 
+
+- O estimador para a proporção seria $\hat{p}=\frac{\sum_i{X_i}}{n}$. 
+
+- $X$ tem distribuição binomial. $\mu=np$ e que $\sigma^2=np(1-p)$. 
+- Para um $n$ suficientemente grande,$X \sim b(n,p)$ pode ser aproximado por $N(np,np(1-p))$.
+
+---
+
+- Como, $\hat{p}=\frac{\sum_i{X_i}}{n}$, a distribuição da proporção amostral será $\hat{p} \sim N(p,p(1-p)/n)$
+- Portanto Sob $H_0$ o nosso Teste Estatístico $T$, será :
+
+$$T=\frac{\hat{p}-p_0}{\sqrt{p_0(1-p_0)}}\sqrt{n}\overset{H_0}{\sim} N(0,1)$$
+
+
+
+## Teste para proporção
+
+**3 - Nivel de Significância e Região Crítica**
+
+- Novamente em economia utilizamos 10\%, 5\% e 1\%:
+$$H_0:  p=p_0$$
+$$H_1:  p \neq p_0$$
+$$RC=\{t \in \mathbb{R} |t\leq - z_{c,\alpha/2} \quad \cup \quad t\geq  z_{c,\alpha/2}\}$$
+
+---
+
+$$H_0:  p=p_0$$
+$$H_1:  p >p_0 \quad ou \quad H_1: p<p_0$$
+$$RC_1=\{t \in \mathbb{R} | t\geq  z_{c,\alpha}\}$$
+ou
+$$RC_2=\{t \in \mathbb{R} |t\leq - z_{c,\alpha} \}$$
+
+
+## Teste para proporção
+
+**4 - Cálculo do Teste Estatístico**
+
+- Nosso teste estatístico será:
+
+$$t=\frac{\hat{p}-p_0}{\sqrt{p_0(1-p_0)}/\sqrt{n}}$$
+
+**5 - Teste de hipótese**
+
+- Assim se a nossa estimativa $t$ pertencer a região crítica rejeitamos $H_0$. Caso não esteja na RC não rejeitamos $H_0$. 
+
+
+## Exemplo
+
+## Teste para proporção
+  
+::: {.callout-tip icon="false" title="EXEMPLO"}
+Temos uma estação de TV que afirma que $60\%$ das Tv's estavam sintonizadas no seu programa as 20h. Uma emissora concorrente contesta essa afirmação dizendo que na verdade esse percentual é bem menor. Ela contrata uma empresa para verificar quem está com a razão, pois isso tem impactos diretos sobre a quantidade de propaganda que conseguem negociar. Essa empresa contratou você para realizar o teste. Já antecipando fez um processo de amostragem com  200 famílias e ao nível de significância de 5\% quem teria razão? (teste unilateral) 
+
+:::
+
+## Teste para proporção
+
+**1- Definindo a Hipótese**: 
+- Definindo de forma Unicaudal
+$$H_0: p=0,60$$
+$$H_1: p<0,60$$
+
+
+**2 - Definindo o Estimador**: 
+
+- Sob $H_0$ temos o seguinte Teste Estatístico. 
+
+$$T=\frac{\hat{p}-p_0}{\sqrt{p_0(1-p_0)}/\sqrt{n}}=\frac{\hat{p}-0.6}{\sqrt{0.6(0.4)}}\sqrt{200} \sim N(0;1)$$
+
+
+## Teste para proporção
+
+**3 - Nivel de Significância e Região Crítica**:
+- Supondo $H_0$ verdadeira, $\alpha=0,05$ e utilizando a tabela da Normal Padrão:
+
+$$RC=\{t \in \mathbb{R} | t \leq -1.645 \}$$
+
+
+**4 - Cálculo do Teste Estatístico**:
+- A mostra de 200 elementos mostrou que 104 lares estavam ligado no programa, ou seja, 52\%. 
+- Dessa forma podemos calcular nosso Teste Estatístico:
+
+$$t=\frac{0.52-0.6}{\sqrt{0.6(0.4)}}\sqrt{200} = -2.309$$
+
+
+- O qual pertence a região crítica.
+
+
+## Teste para proporção
+
+**5 - Teste de hipótese**:
+
+Assim, como -2.309 está na região crítica rejeitamos, $H_0$. Há evidências de que a emissora não teve $60\%$ da audiência, e sim menos. 
