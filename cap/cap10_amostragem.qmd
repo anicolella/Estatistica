@@ -157,3 +157,239 @@ Vejamos como ficaria o tamanho amostral para uma pesquisa eleitoral onde conside
 ```
 
 Notamos que para sairmos de uma margem de erro de 2 pontos para uma margem de erro de 0.5 pontos percentuais o custo sai de R\$122 mil para quase R\$ 2 milhões. O custo cresce de forma exponencial com o aumento da precisão.
+
+
+
+## Links 
+
+::: {.grid}
+
+::: {.g-col-3}
+🎞️ <span style="font-size:20px; font-weight:bold;">SLIDES</span>  
+
+<!-- [Slides VA Multidi](https://drive.google.com/file/d/1LmwZ2DJQ1EF0awGGthYC1nYTBPiOBysM/view?usp=sharing)
+
+[Slides Marg. e Cond.](https://drive.google.com/file/d/1AeRgvXxchfQ91fwPS5APN2BAYZLLbPd1/view?usp=sharing)
+
+[Slides Correlação](https://drive.google.com/file/d/1qWVvjy75q6ABd31vl-8KE7LYdiYOeFuz/view?usp=sharing) -->
+
+
+Arquivos em HTML (zip) das aulas.
+:::
+
+::: {.g-col-3}
+📊 <span style="font-size:20px; font-weight:bold;">MATERIAL APLICADO</span>  
+
+<!-- [Acessar Material](https://docs.google.com/spreadsheets/d/1ho_UZXTqqTCUp2NGSMCfd6su5eIlEx7Z/edit?usp=sharing&ouid=113043354924613672342&rtpof=true&sd=true) -->
+
+Bases de dados e exercícios em Excel.
+:::
+
+::: {.g-col-3}
+💻 <span style="font-size:20px; font-weight:bold;">SCRIPT R</span>  
+
+<!-- [Acessar Scripts R](https://SEU_LINK_R) -->
+
+Códigos utilizados nas aulas em R.
+:::
+
+::: {.g-col-3}
+🐍 <span style="font-size:20px; font-weight:bold;">SCRIPT PYTHON</span>  
+
+<!-- [Acessar Scripts Python](https://SEU_LINK_PYTHON) -->
+
+Códigos utilizados nas aulas em Python.
+:::
+
+:::
+
+## Exercícios
+
+### Exercício 1 (Morettin & Bussab, cap. 10, ex. 17)
+
+**Tema:** Tamanho amostral para estimar uma proporção populacional.
+
+Uma indústria farmacêutica deseja testar uma nova vacina. Quantos voluntários ela deve selecionar para o estudo? Considere que se deseja que a proporção amostral de pessoas imunizadas difira em no máximo 2 pontos percentuais da verdadeira proporção populacional com probabilidade de 90%.
+
+**Interpretação econômica pedida:** explique por que, na ausência de informação prévia sobre a proporção verdadeira, utiliza-se o caso mais conservador para o cálculo da amostra.
+
+::: {.callout-caution icon="false" collapse="true" title="RESPOSTA"}
+**Problema.** Queremos determinar o tamanho da amostra necessário para estimar uma **proporção populacional** com:
+
+* margem de erro máxima: $E=0{,}02$;
+* nível de confiança: 90%;
+* sem informação prévia sobre o valor de $p$.
+
+**Passo 1: identificar a fórmula correta.**
+
+Quando queremos estimar uma proporção populacional, o tamanho amostral é dado por
+$$n = \frac{z_{\alpha/2}^2\,p(1-p)}{E^2}.$$
+
+Aqui:
+
+* $z_{\alpha/2}$ é o valor crítico da normal padrão;
+* $p$ é a proporção populacional;
+* $E$ é a margem de erro tolerada.
+
+**Passo 2: usar o caso mais conservador.**
+
+Como o enunciado **não informa nenhuma estimativa prévia para $p$**, usamos o valor que torna a variância de uma Bernoulli a maior possível, isto é,
+$$p(1-p)$$
+no seu máximo.
+
+Sabemos que essa expressão é máxima em
+$$p=0{,}5,$$
+pois
+$$0\leq p(1-p)\leq 0{,}25.$$
+
+Assim, usamos
+$$p(1-p)=0{,}25.$$
+
+**Passo 3: substituir os valores.**
+
+Como a confiança é de 90%, temos
+$$z_{0{,}95}\approx 1{,}645.$$
+Além disso,
+$$E=0{,}02.$$
+
+Logo,
+$$n = \frac{(1{,}645)^2(0{,}5)(0{,}5)}{(0{,}02)^2}.$$
+
+Calculando por etapas:
+$$(1{,}645)^2 = 2{,}706025,$$
+$$(0{,}5)(0{,}5)=0{,}25,$$
+$$(0{,}02)^2=0{,}0004.$$
+
+Então,
+$$n = \frac{2{,}706025\cdot 0{,}25}{0{,}0004} = \frac{0{,}67650625}{0{,}0004} = 1691{,}265625.$$
+
+**Passo 4: arredondar corretamente.**
+
+Como o tamanho da amostra precisa ser um número inteiro e devemos **garantir** a margem de erro pedida, arredondamos **para cima**:
+$$\boxed{n=1692.}$$
+
+**Conferência do gabarito atual.** O resultado numérico do gabarito está **correto dentro da convenção adotada**, isto é, usando $z_{0{,}95}\approx 1{,}645$. Se alguém usar mais casas decimais para o quantil da normal, pode obter um valor intermediário ligeiramente diferente, mas o procedimento do gabarito está correto e didaticamente consistente.
+
+**Interpretação econômica:** sem informação prévia sobre a taxa de imunização, usa-se o cenário mais conservador, isto é, o de maior incerteza. Isso evita escolher uma amostra pequena demais e comprometer a precisão do estudo.
+:::
+
+### Exercício 2 (Morettin & Bussab, cap. 10, ex. 18)
+
+**Tema:** Tamanho amostral com informação prévia sobre a proporção.
+
+Considerando o exercício anterior, suponha agora que a indústria tenha a informação prévia de que a proporção de imunizados pela vacina satisfaz
+$$p \geq 0{,}80.$$
+Qual é o novo tamanho amostral necessário? Houve redução em relação ao exercício anterior? Justifique.
+
+**Interpretação econômica pedida:** discuta por que informação prévia sobre o parâmetro pode reduzir o custo de coleta de dados.
+
+::: {.callout-caution icon="false" collapse="true" title="RESPOSTA"}
+Agora o problema continua sendo de **estimação de uma proporção populacional**, com:
+
+* margem de erro: $E=0{,}02$;
+* confiança: 90%;
+* informação prévia: $p\geq 0{,}80$.
+
+**Passo 1: usar novamente a fórmula do tamanho amostral para proporção.**
+
+A fórmula continua sendo
+$$n = \frac{z_{\alpha/2}^2\,p(1-p)}{E^2}.$$
+
+Como no exercício anterior,
+$$z_{0{,}95}\approx 1{,}645, \qquad E=0{,}02.$$
+
+**Passo 2: identificar o pior caso dentro da restrição $p\geq 0{,}80$.**
+
+A expressão
+$$p(1-p)$$
+mede a variabilidade da Bernoulli e determina o tamanho da amostra. Para $p>0{,}5$, essa expressão é decrescente. Portanto, no conjunto
+$$p\geq 0{,}80,$$
+o maior valor de $p(1-p)$ ocorre em
+$$p=0{,}80.$$
+
+De fato,
+$$0{,}80\cdot 0{,}20=0{,}16.$$
+
+Esse é o caso mais conservador compatível com a informação do enunciado.
+
+**Passo 3: substituir os valores.**
+
+Temos então
+$$n = \frac{(1{,}645)^2(0{,}8)(0{,}2)}{(0{,}02)^2}.$$
+
+Calculando por etapas:
+$$(1{,}645)^2 = 2{,}706025,$$
+$$(0{,}8)(0{,}2)=0{,}16,$$
+$$(0{,}02)^2=0{,}0004.$$
+
+Logo,
+$$n = \frac{2{,}706025\cdot 0{,}16}{0{,}0004} = \frac{0{,}432964}{0{,}0004} = 1082{,}41.$$
+
+**Passo 4: arredondar para cima.**
+
+Portanto,
+$$\boxed{n=1083.}$$
+
+**Passo 5: comparar com o exercício anterior.**
+
+No Exercício 1, tínhamos obtido
+$$n=1692.$$
+Agora obtemos
+$$n=1083.$$
+Assim, houve redução de
+$$1692-1083=609.$$
+
+Portanto, a nova informação prévia permitiu reduzir o tamanho necessário da amostra em 609 observações.
+
+**Por que a amostra caiu?** Porque, ao sabermos que $p$ já está em uma região alta (acima de 0,80), a variabilidade possível da Bernoulli fica menor do que no caso mais incerto $p=0,5$. Menor variabilidade implica menor necessidade de amostra para atingir a mesma precisão.
+
+**Interpretação econômica:** informação prévia confiável sobre o parâmetro reduz a incerteza estatística e, portanto, diminui o custo de coleta de dados para manter a mesma margem de erro.
+:::
+
+### Exercício 3 (adaptação didática de Morettin & Bussab)
+
+**Tema:** Tamanho amostral para estimar uma média populacional.
+
+Uma empresa pretende entrar no mercado de entregas em determinada região da cidade. Como sua receita depende do gasto dos clientes com os produtos entregues, deseja estimar o gasto médio dos lares dessa região. Quantos lares devem ser amostrados para que a média amostral não difira da verdadeira média populacional em mais de R$ 10, com 95% de confiança? Suponha que o desvio padrão populacional seja conhecido e igual a R$ 69,5.
+
+**Interpretação econômica pedida:** explique como o nível de precisão desejado e a variabilidade do gasto afetam o tamanho da amostra.
+
+::: {.callout-caution icon="false" collapse="true" title="RESPOSTA"}
+Agora queremos estimar uma **média populacional**, e o enunciado informa que o desvio padrão populacional é conhecido.
+
+Os dados do problema são:
+
+* parâmetro de interesse: $\mu$ (gasto médio dos lares);
+* margem de erro máxima: $E=10$ reais;
+* nível de confiança: 95%;
+* desvio padrão populacional conhecido: $\sigma=69{,}5$.
+
+**Passo 1: identificar a fórmula correta.**
+
+Quando queremos estimar uma média populacional com $\sigma$ conhecido, usamos
+$$n = \left(\frac{z_{\alpha/2}\sigma}{E}\right)^2.$$
+
+Como a confiança é de 95%, temos
+$$z_{0{,}975}\approx 1{,}96.$$
+
+**Passo 2: substituir os valores.**
+
+Logo,
+$$n = \left(\frac{1{,}96\cdot 69{,}5}{10}\right)^2.$$
+
+Primeiro, calculemos o numerador:
+$$1{,}96\cdot 69{,}5 = 136{,}22.$$
+
+Então,
+$$n = \left(\frac{136{,}22}{10}\right)^2 = (13{,}622)^2 \approx 185{,}56.$$
+
+**Passo 3: arredondar para cima.**
+
+Como precisamos garantir a margem de erro pedida,
+$$\boxed{n=186.}$$
+
+**Leitura do resultado.** Isso significa que, para garantir com 95% de confiança que a média amostral fique a no máximo R$ 10 da média populacional verdadeira, a empresa deve observar pelo menos 186 lares.
+
+**Interpretação econômica:** quanto maior a dispersão dos gastos dos lares, maior a amostra necessária. Além disso, exigir uma margem de erro pequena (aqui, R$ 10) também aumenta o tamanho da amostra, pois mais precisão exige mais informação.
+:::
+

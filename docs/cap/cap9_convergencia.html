@@ -760,13 +760,10 @@ window.Quarto = {
 <p>Como <span class="math display">\[E(X_i)=\theta_1 \qquad \text{e} \qquad \mathrm{Var}(X_i)=\theta_2&lt;\infty,\]</span> a Lei dos Grandes Números afirma que <span class="math display">\[T_n \xrightarrow{p} \theta_1.\]</span> Isso significa que a média amostral converge para a média populacional.</p>
 <p>Mas o enunciado pergunta se, <strong>pela LGN</strong>, <span class="math inline">\(T_n\)</span> converge em distribuição para uma normal com média <span class="math inline">\(\theta_1\)</span>. Isso está errado por dois motivos:</p>
 <ol type="i">
-<li><p>a LGN fala em <strong>convergência da média amostral para uma constante</strong>, e não em normalidade assintótica;</p></li>
-<li><p>o resultado de normalidade assintótica é dado pelo <strong>Teorema Central do Limite</strong>, e não pela LGN.</p></li>
+<li>a LGN fala em <strong>convergência da média amostral para uma constante</strong>, e não em normalidade assintótica;</li>
+<li>o resultado de normalidade assintótica é dado pelo <strong>Teorema Central do Limite</strong>, e não pela LGN.</li>
 </ol>
-<p>Pelo TCL, <span class="math display">\[\frac{\sqrt n\,(T_n-\theta_1)}{\sqrt{\theta_2}} \xrightarrow{d} N(0,1).\]</span></p>
-<p>Equivalente a dizer que, para <span class="math inline">\(n\)</span> grande,</p>
-<p><span class="math display">\[T_n \approx N\!\left(\theta_1,\frac{\theta_2}{n}\right).\]</span></p>
-<p>Observe que essa normal depende de <span class="math inline">\(n\)</span> e sua variância vai para zero. Portanto, o limite final de <span class="math inline">\(T_n\)</span> não é uma normal não degenerada, mas sim a constante <span class="math inline">\(\theta_1\)</span>.</p>
+<p>Pelo TCL, <span class="math display">\[\frac{\sqrt n\,(T_n-\theta_1)}{\sqrt{\theta_2}} \xrightarrow{d} N(0,1).\]</span> Equivalente a dizer que, para <span class="math inline">\(n\)</span> grande, <span class="math display">\[T_n \approx N\!\left(\theta_1,\frac{\theta_2}{n}\right).\]</span> Observe que essa normal depende de <span class="math inline">\(n\)</span> e sua variância vai para zero. Portanto, o limite final de <span class="math inline">\(T_n\)</span> não é uma normal não degenerada, mas sim a constante <span class="math inline">\(\theta_1\)</span>.</p>
 <p>Assim, <span class="math display">\[\boxed{\text{Não. Pela LGN, } T_n \xrightarrow{p} \theta_1, \text{ e não para uma normal.}}\]</span></p>
 <p><strong>Interpretação econômica:</strong> consistência diz <em>para onde</em> a média amostral vai; normalidade assintótica diz <em>como</em> ela oscila em torno desse valor quando <span class="math inline">\(n\)</span> é grande.</p>
 </div>
@@ -834,11 +831,11 @@ window.Quarto = {
 <div class="callout-body-container callout-body">
 <p><em>Observação importante: o gabarito atual está correto no raciocínio e nos números principais. No item (c), porém, convém explicitar que a equação leva a</em> <span class="math inline">\(n\approx 3{,}84\)</span><em>, de modo que, como</em> <span class="math inline">\(n\)</span> <em>precisa ser inteiro, escolhe-se</em> <span class="math inline">\(n=4\)</span> <em>como tamanho mínimo para obter probabilidade de pelo menos 95%.</em></p>
 <p>Sabemos que <span class="math display">\[X\sim N(100,10^2).\]</span></p>
-<p><strong>a) Calcular</strong> <span class="math inline">\(P(90&lt;X&lt;110)\)</span></p>
+<p><strong>a) Calcular <span class="math inline">\(P(90&lt;X&lt;110)\)</span></strong></p>
 <p>Padronizando, <span class="math display">\[P(90&lt;X&lt;110)=P\!\left(\frac{90-100}{10}&lt;Z&lt;\frac{110-100}{10}\right)=P(-1&lt;Z&lt;1).\]</span> Da tabela da normal padrão, <span class="math display">\[P(-1&lt;Z&lt;1)\approx 0{,}6827.\]</span> Portanto, <span class="math display">\[\boxed{P(90&lt;X&lt;110)\approx 0{,}6827.}\]</span></p>
-<p><strong>b) Se</strong> <span class="math inline">\(\bar X\)</span> <strong>é a média de uma amostra de 16 elementos, calcular</strong> <span class="math inline">\(P(90&lt;\bar X&lt;110)\)</span></p>
+<p><strong>b) Se <span class="math inline">\(\bar X\)</span> é a média de uma amostra de 16 elementos, calcular <span class="math inline">\(P(90&lt;\bar X&lt;110)\)</span></strong></p>
 <p>Se a população é normal, então a média amostral também é normal. Além disso, <span class="math display">\[E(\bar X)=100, \qquad \mathrm{Var}(\bar X)=\frac{10^2}{16}=\frac{100}{16}=6{,}25.\]</span> Logo, <span class="math display">\[\bar X\sim N(100,2{,}5^2).\]</span> Agora padronizamos: <span class="math display">\[P(90&lt;\bar X&lt;110)=P\!\left(\frac{90-100}{2{,}5}&lt;Z&lt;\frac{110-100}{2{,}5}\right)=P(-4&lt;Z&lt;4).\]</span> Da tabela, <span class="math display">\[P(-4&lt;Z&lt;4)\approx 0{,}99994.\]</span> Assim, <span class="math display">\[\boxed{P(90&lt;\bar X&lt;110)\approx 0{,}99994.}\]</span></p>
-<p><strong>c) Que tamanho deve ter a amostra para que</strong> <span class="math inline">\(P(90&lt;\bar X&lt;110)=0{,}95\)</span>?</p>
+<p><strong>c) Que tamanho deve ter a amostra para que <span class="math inline">\(P(90&lt;\bar X&lt;110)=0{,}95\)</span>?</strong></p>
 <p>Agora queremos determinar <span class="math inline">\(n\)</span> tal que <span class="math display">\[P(90&lt;\bar X&lt;110)=0{,}95.\]</span> Como <span class="math display">\[\bar X\sim N\!\left(100,\frac{10^2}{n}\right),\]</span> o desvio padrão de <span class="math inline">\(\bar X\)</span> é <span class="math display">\[\sigma_{\bar X}=\frac{10}{\sqrt n}.\]</span> Então, <span class="math display">\[P(90&lt;\bar X&lt;110)=P\left(\left|\bar X-100\right|&lt;10\right).\]</span> Padronizando, <span class="math display">\[P\left(\left|Z\right|&lt;\frac{10}{10/\sqrt n}\right)=P(|Z|&lt;\sqrt n)=0{,}95.\]</span> Sabemos que o intervalo central de 95% na normal padrão é aproximadamente <span class="math display">\[|Z|&lt;1{,}96.\]</span> Portanto, <span class="math display">\[\sqrt n=1{,}96 \quad \Longrightarrow \quad n=1{,}96^2\approx 3{,}84.\]</span> Como o tamanho da amostra deve ser inteiro, temos duas leituras possíveis:</p>
 <ul>
 <li>se o exercício aceitar um valor aproximado, então <span class="math inline">\(n\approx 4\)</span>;</li>
@@ -872,7 +869,7 @@ window.Quarto = {
 <div id="callout-16" class="callout-16-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>Temos <span class="math display">\[X\sim N(\mu,100),\]</span> portanto o desvio padrão é <span class="math display">\[\sigma=10.\]</span></p>
-<p><strong>a) Determinar</strong> <span class="math inline">\(\mu\)</span> <strong>para que apenas 10% dos pacotes tenham peso menor que 500 g</strong></p>
+<p><strong>a) Determinar <span class="math inline">\(\mu\)</span> para que apenas 10% dos pacotes tenham peso menor que 500 g</strong></p>
 <p>Queremos impor <span class="math display">\[P(X&lt;500)=0{,}10.\]</span> Padronizando, <span class="math display">\[P\!\left(Z&lt;\frac{500-\mu}{10}\right)=0{,}10.\]</span> O percentil de 10% da normal padrão é aproximadamente <span class="math display">\[z_{0{,}10}=-1{,}2816.\]</span> Logo, <span class="math display">\[\frac{500-\mu}{10}=-1{,}2816.\]</span> Multiplicando por 10, <span class="math display">\[500-\mu=-12{,}816.\]</span> Então, <span class="math display">\[\mu=500+12{,}816=512{,}816.\]</span> Portanto, <span class="math display">\[\boxed{\mu\approx 512{,}82\text{ g}.}\]</span></p>
 <p><strong>b) Com essa regulagem, qual a probabilidade de que o peso total de 4 pacotes seja inferior a 2 kg?</strong></p>
 <p>Sejam <span class="math inline">\(X_1,X_2,X_3,X_4\)</span> os pesos dos quatro pacotes, independentes e com a mesma distribuição. Considere a soma <span class="math display">\[S_4=X_1+X_2+X_3+X_4.\]</span> A soma de normais independentes também é normal. Assim, <span class="math display">\[S_4\sim N(4\mu,4\cdot 100)=N(4\mu,400).\]</span> Substituindo <span class="math inline">\(\mu\approx 512{,}82\)</span>: <span class="math display">\[E(S_4)=4\mu\approx 2051{,}28, \qquad \sigma_{S_4}=\sqrt{400}=20.\]</span> Queremos <span class="math display">\[P(S_4&lt;2000).\]</span> Padronizando, <span class="math display">\[P(S_4&lt;2000)=P\!\left(Z&lt;\frac{2000-2051{,}28}{20}\right)=P(Z&lt;-2{,}564).\]</span> Da tabela, <span class="math display">\[P(Z&lt;-2{,}564)\approx 0{,}0052.\]</span> Logo, <span class="math display">\[\boxed{P(S_4&lt;2000)\approx 0{,}0052.}\]</span></p>
@@ -960,7 +957,7 @@ window.Quarto = {
 <div id="callout-19" class="callout-19-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>Temos <span class="math display">\[X\sim N(10,4^2).\]</span> Se um participante escolhe uma amostra de tamanho <span class="math inline">\(n\)</span>, então a média amostral satisfaz <span class="math display">\[\bar X_n\sim N\!\left(10,\frac{4^2}{n}\right)=N\!\left(10,\frac{16}{n}\right).\]</span> O participante ganha prêmio quando <span class="math display">\[\bar X_n&gt;12.\]</span> Padronizando, <span class="math display">\[P(\bar X_n&gt;12)=P\!\left(Z&gt;\frac{12-10}{4/\sqrt n}\right)=P\!\left(Z&gt;\frac{\sqrt n}{2}\right).\]</span> Essa expressão já mostra a lógica do problema: quanto maior for <span class="math inline">\(n\)</span>, maior será o valor crítico <span class="math inline">\(\sqrt n/2\)</span> e, portanto, menor a probabilidade de ultrapassar 12.</p>
-<p><strong>a) Para</strong> <span class="math inline">\(n=16\)</span></p>
+<p><strong>a) Para <span class="math inline">\(n=16\)</span></strong></p>
 <p>Temos <span class="math display">\[P(\bar X_{16}&gt;12)=P\!\left(Z&gt;\frac{\sqrt{16}}{2}\right)=P(Z&gt;2).\]</span> Da tabela, <span class="math display">\[P(Z&gt;2)\approx 0{,}0228.\]</span> Logo, <span class="math display">\[\boxed{P(\bar X_{16}&gt;12)\approx 0{,}0228.}\]</span></p>
 <p><strong>b) Escolhendo um tamanho diferente de 16</strong></p>
 <p>Vamos escolher, por exemplo, <span class="math inline">\(n=1\)</span>.</p>

@@ -236,49 +236,51 @@ Seja $X_n$ um vetor de v.a. com númerp finito de elementos. Seja $g$ uma funç�
 $X_n \overset{P}{\rightarrow} \alpha \Rightarrow g(X_n) \overset{P}{\rightarrow} g(\alpha)$
 :::
 
-## Links
+## Links 
 
-::::::: grid
-::: g-col-3
-🎞️ [SLIDES]{style="font-size:20px; font-weight:bold;"}
+::: {.grid}
 
-```{=html}
+::: {.g-col-3}
+🎞️ <span style="font-size:20px; font-weight:bold;">SLIDES</span>  
+
 <!-- [Slides VA Multidi](https://drive.google.com/file/d/1LmwZ2DJQ1EF0awGGthYC1nYTBPiOBysM/view?usp=sharing)
 
 [Slides Marg. e Cond.](https://drive.google.com/file/d/1AeRgvXxchfQ91fwPS5APN2BAYZLLbPd1/view?usp=sharing)
 
 [Slides Correlação](https://drive.google.com/file/d/1qWVvjy75q6ABd31vl-8KE7LYdiYOeFuz/view?usp=sharing) -->
-```
+
 
 Arquivos em HTML (zip) das aulas.
 :::
 
-::: g-col-3
-📊 [MATERIAL APLICADO]{style="font-size:20px; font-weight:bold;"}
+::: {.g-col-3}
+📊 <span style="font-size:20px; font-weight:bold;">MATERIAL APLICADO</span>  
 
 <!-- [Acessar Material](https://docs.google.com/spreadsheets/d/1ho_UZXTqqTCUp2NGSMCfd6su5eIlEx7Z/edit?usp=sharing&ouid=113043354924613672342&rtpof=true&sd=true) -->
 
 Bases de dados e exercícios em Excel.
 :::
 
-::: g-col-3
-💻 [SCRIPT R]{style="font-size:20px; font-weight:bold;"}
+::: {.g-col-3}
+💻 <span style="font-size:20px; font-weight:bold;">SCRIPT R</span>  
 
 <!-- [Acessar Scripts R](https://SEU_LINK_R) -->
 
 Códigos utilizados nas aulas em R.
 :::
 
-::: g-col-3
-🐍 [SCRIPT PYTHON]{style="font-size:20px; font-weight:bold;"}
+::: {.g-col-3}
+🐍 <span style="font-size:20px; font-weight:bold;">SCRIPT PYTHON</span>  
 
 <!-- [Acessar Scripts Python](https://SEU_LINK_PYTHON) -->
 
 Códigos utilizados nas aulas em Python.
 :::
-:::::::
+
+:::
 
 ## Exercícios
+
 
 ### Exercício 1 (ANPEC 2012 --- item adaptado por ambiguidade do original)
 
@@ -286,44 +288,84 @@ Códigos utilizados nas aulas em Python.
 
 Julgue as afirmativas abaixo e demonstre os resultados:
 
-a)  Seja $\{X_n\}$ uma sequência de variáveis aleatórias tal que $$E(X_n)=0 \qquad \text{e} \qquad \operatorname{Var}(X_n)\to 0.$$ Então, $$X_n \xrightarrow{p} 0.$$
+a) Seja $\{X_n\}$ uma sequência de variáveis aleatórias tal que
+$$E(X_n)=0 \qquad \text{e} \qquad \operatorname{Var}(X_n)\to 0.$$
+Então,
+$$X_n \xrightarrow{p} 0.$$
 
-b)  Seja $\{X_n\}$ uma sequência de variáveis aleatórias e $\mu$ uma constante. Então $$X_n \xrightarrow{p} \mu \quad \Longleftrightarrow \quad X_n \xrightarrow{d} \mu.$$
+b) Seja $\{X_n\}$ uma sequência de variáveis aleatórias e $\mu$ uma constante. Então
+$$X_n \xrightarrow{p} \mu \quad \Longleftrightarrow \quad X_n \xrightarrow{d} \mu.$$
 
-c)  Seja $X_1,X_2,\ldots,X_n$ uma amostra aleatória i.i.d. com $$E(X_i)=\mu \qquad \text{e} \qquad \operatorname{Var}(X_i)=\sigma^2<\infty.$$ Se $\bar X_n$ é a média amostral e $c\in \mathbb{R}$ é constante, então $$\frac{\sqrt{n}\,\bigl(c\bar X_n-c\mu\bigr)}{|c|\sigma} \xrightarrow{d} N(0,1),$$ para $c\neq 0$.
+c) Seja $X_1,X_2,\ldots,X_n$ uma amostra aleatória i.i.d. com
+$$E(X_i)=\mu \qquad \text{e} \qquad \operatorname{Var}(X_i)=\sigma^2<\infty.$$
+Se $\bar X_n$ é a média amostral e $c\in \mathbb{R}$ é constante, então
+$$\frac{\sqrt{n}\,\bigl(c\bar X_n-c\mu\bigr)}{|c|\sigma} \xrightarrow{d} N(0,1),$$
+para $c\neq 0$.
 
 **Interpretação econômica pedida:** explique por que, em grandes amostras, médias amostrais tendem a se estabilizar e a admitir aproximação normal.
 
 ::: {.callout-caution icon="false" collapse="true" title="RESPOSTA"}
-**a) Se** $E(X_n)=0$ e $\mathrm{Var}(X_n)\to 0$, então $X_n \xrightarrow{p} 0$.
+**a) Se $E(X_n)=0$ e $\mathrm{Var}(X_n)\to 0$, então $X_n \xrightarrow{p} 0$.**
 
 A afirmação é **verdadeira**.
 
-Queremos provar que, para todo $\varepsilon>0$, $$P(|X_n-0|>\varepsilon)\to 0.$$ Como $E(X_n)=0$, temos $$\mathrm{Var}(X_n)=E[(X_n-0)^2].$$ Aplicamos a desigualdade de Chebyshev: $$P(|X_n-0|>\varepsilon)\leq \frac{\mathrm{Var}(X_n)}{\varepsilon^2}.$$ Como, por hipótese, $$\mathrm{Var}(X_n)\to 0,$$ segue que $$\frac{\mathrm{Var}(X_n)}{\varepsilon^2}\to 0.$$ Logo, $$P(|X_n|>\varepsilon)\to 0,$$ ou seja, $$\boxed{X_n \xrightarrow{p} 0.}$$
+Queremos provar que, para todo $\varepsilon>0$,
+$$P(|X_n-0|>\varepsilon)\to 0.$$
+Como $E(X_n)=0$, temos
+$$\mathrm{Var}(X_n)=E[(X_n-0)^2].$$
+Aplicamos a desigualdade de Chebyshev:
+$$P(|X_n-0|>\varepsilon)\leq \frac{\mathrm{Var}(X_n)}{\varepsilon^2}.$$
+Como, por hipótese,
+$$\mathrm{Var}(X_n)\to 0,$$
+segue que
+$$\frac{\mathrm{Var}(X_n)}{\varepsilon^2}\to 0.$$
+Logo,
+$$P(|X_n|>\varepsilon)\to 0,$$
+ou seja,
+$$\boxed{X_n \xrightarrow{p} 0.}$$
 
 **Conclusão:** **V**
 
-**b) Se** $X_n \xrightarrow{p} \mu$, então $X_n \xrightarrow{d} \mu$; e, se $X_n \xrightarrow{d} \mu$, então $X_n \xrightarrow{p} \mu$.
+**b) Se $X_n \xrightarrow{p} \mu$, então $X_n \xrightarrow{d} \mu$; e, se $X_n \xrightarrow{d} \mu$, então $X_n \xrightarrow{p} \mu$.**
 
 A afirmação é **verdadeira**.
 
 Vamos separar os dois sentidos.
 
-**Primeiro sentido:** se $$X_n \xrightarrow{p} \mu,$$ então sempre vale que $$X_n \xrightarrow{d} \mu.$$ Esse é um resultado geral: convergência em probabilidade implica convergência em distribuição.
+**Primeiro sentido:** se
+$$X_n \xrightarrow{p} \mu,$$
+então sempre vale que
+$$X_n \xrightarrow{d} \mu.$$
+Esse é um resultado geral: convergência em probabilidade implica convergência em distribuição.
 
-**Segundo sentido:** em geral, convergência em distribuição *não* implica convergência em probabilidade. Porém, quando o limite é uma **constante**, a equivalência vale. Assim, se $$X_n \xrightarrow{d} \mu,$$ então necessariamente $$X_n \xrightarrow{p} \mu.$$
+**Segundo sentido:** em geral, convergência em distribuição *não* implica convergência em probabilidade. Porém, quando o limite é uma **constante**, a equivalência vale. Assim, se
+$$X_n \xrightarrow{d} \mu,$$
+então necessariamente
+$$X_n \xrightarrow{p} \mu.$$
 
-Portanto, $$\boxed{X_n \xrightarrow{p} \mu \iff X_n \xrightarrow{d} \mu, \quad \text{quando } \mu \text{ é constante}.}$$
+Portanto,
+$$\boxed{X_n \xrightarrow{p} \mu \iff X_n \xrightarrow{d} \mu, \quad \text{quando } \mu \text{ é constante}.}$$
 
 **Conclusão:** **V**
 
-**c) Se** $\bar X_n$ é a média amostral e $c\in\mathbb R$ é constante, então $$\frac{\sqrt n\,(c\bar X_n-c\mu)}{|c|\sigma} \xrightarrow{d} N(0,1), \qquad c\neq 0.$$
+**c) Se $\bar X_n$ é a média amostral e $c\in\mathbb R$ é constante, então**
+$$\frac{\sqrt n\,(c\bar X_n-c\mu)}{|c|\sigma} \xrightarrow{d} N(0,1), \qquad c\neq 0.$$
 
 A afirmação é **verdadeira**.
 
-Como $X_1,\dots,X_n$ são i.i.d., com $$E(X_i)=\mu, \qquad \mathrm{Var}(X_i)=\sigma^2<\infty,$$ o Teorema Central do Limite afirma que $$\frac{\sqrt n\,(\bar X_n-\mu)}{\sigma} \xrightarrow{d} N(0,1).$$ Agora multiplique numerador e denominador por $c$. Se $c>0$, temos diretamente $$\frac{\sqrt n\,(c\bar X_n-c\mu)}{c\sigma} = \frac{\sqrt n\,(\bar X_n-\mu)}{\sigma} \xrightarrow{d} N(0,1).$$ Se $c<0$, aparece um sinal negativo no denominador. Para evitar isso, escrevemos $|c|$: $$\frac{\sqrt n\,(c\bar X_n-c\mu)}{|c|\sigma} = \operatorname{sgn}(c)\,\frac{\sqrt n\,(\bar X_n-\mu)}{\sigma}.$$ Como a normal padrão é simétrica em torno de zero, multiplicar por $-1$ não altera a distribuição limite $N(0,1)$. Logo, $$\boxed{\frac{\sqrt n\,(c\bar X_n-c\mu)}{|c|\sigma} \xrightarrow{d} N(0,1).}$$
+Como $X_1,\dots,X_n$ são i.i.d., com
+$$E(X_i)=\mu, \qquad \mathrm{Var}(X_i)=\sigma^2<\infty,$$
+o Teorema Central do Limite afirma que
+$$\frac{\sqrt n\,(\bar X_n-\mu)}{\sigma} \xrightarrow{d} N(0,1).$$
+Agora multiplique numerador e denominador por $c$. Se $c>0$, temos diretamente
+$$\frac{\sqrt n\,(c\bar X_n-c\mu)}{c\sigma} = \frac{\sqrt n\,(\bar X_n-\mu)}{\sigma} \xrightarrow{d} N(0,1).$$
+Se $c<0$, aparece um sinal negativo no denominador. Para evitar isso, escrevemos $|c|$:
+$$\frac{\sqrt n\,(c\bar X_n-c\mu)}{|c|\sigma} = \operatorname{sgn}(c)\,\frac{\sqrt n\,(\bar X_n-\mu)}{\sigma}.$$
+Como a normal padrão é simétrica em torno de zero, multiplicar por $-1$ não altera a distribuição limite $N(0,1)$. Logo,
+$$\boxed{\frac{\sqrt n\,(c\bar X_n-c\mu)}{|c|\sigma} \xrightarrow{d} N(0,1).}$$
 
-Uma forma equivalente de escrever isso é dizer que, para $n$ grande, $$c\bar X_n \approx N\!\left(c\mu,\frac{c^2\sigma^2}{n}\right).$$
+Uma forma equivalente de escrever isso é dizer que, para $n$ grande,
+$$c\bar X_n \approx N\!\left(c\mu,\frac{c^2\sigma^2}{n}\right).$$
 
 **Conclusão:** **V**
 
@@ -334,12 +376,23 @@ Uma forma equivalente de escrever isso é dizer que, para $n$ grande, $$c\bar X_
 
 **Tema:** Lei dos Grandes Números.
 
-Suponha que $X_1,X_2,\ldots,X_n$ sejam variáveis aleatórias independentes e identicamente distribuídas, com distribuição de Bernoulli de parâmetro $p$. Então, podemos afirmar que, pela Lei dos Grandes Números, à medida que $n\to\infty$, $$\bar X_n=\frac{1}{n}\sum_{i=1}^n X_i$$ converge para $p$?
+Suponha que $X_1,X_2,\ldots,X_n$ sejam variáveis aleatórias independentes e identicamente distribuídas, com distribuição de Bernoulli de parâmetro $p$. Então, podemos afirmar que, pela Lei dos Grandes Números, à medida que $n\to\infty$,
+$$\bar X_n=\frac{1}{n}\sum_{i=1}^n X_i$$
+converge para $p$?
 
 **Interpretação econômica pedida:** interprete $\bar X_n$ como frequência amostral de um evento econômico binário.
 
 ::: {.callout-caution icon="false" collapse="true" title="RESPOSTA"}
-Se $$X_i\sim \operatorname{Bernoulli}(p),$$ então cada $X_i$ assume valor 1 com probabilidade $p$ e valor 0 com probabilidade $1-p$. Logo, $$E(X_i)=p.$$ A média amostral é $$\bar X_n=\frac{1}{n}\sum_{i=1}^n X_i.$$ Pela Lei dos Grandes Números, $$\bar X_n \xrightarrow{p} E(X_i)=p.$$ Portanto, a resposta é: $$\boxed{\text{Sim, } \bar X_n \text{ converge para } p.}$$
+Se
+$$X_i\sim \operatorname{Bernoulli}(p),$$
+então cada $X_i$ assume valor 1 com probabilidade $p$ e valor 0 com probabilidade $1-p$. Logo,
+$$E(X_i)=p.$$
+A média amostral é
+$$\bar X_n=\frac{1}{n}\sum_{i=1}^n X_i.$$
+Pela Lei dos Grandes Números,
+$$\bar X_n \xrightarrow{p} E(X_i)=p.$$
+Portanto, a resposta é:
+$$\boxed{\text{Sim, } \bar X_n \text{ converge para } p.}$$
 
 **Por que isso faz sentido?** Como $X_i$ é binária, $\bar X_n$ nada mais é do que a **frequência relativa de sucessos** na amostra. A LGN diz que, quando a amostra cresce, essa frequência relativa se aproxima da probabilidade verdadeira do evento.
 
@@ -350,7 +403,10 @@ Se $$X_i\sim \operatorname{Bernoulli}(p),$$ então cada $X_i$ assume valor 1 com
 
 **Tema:** Lei dos Grandes Números versus Teorema Central do Limite.
 
-Seja $X_1,X_2,\ldots,X_n$ uma amostra aleatória com $$E(X_i)=\theta_1 \qquad \text{e} \qquad \operatorname{Var}(X_i)=\theta_2<\infty.$$ Defina $$T_n=\frac{1}{n}\sum_{i=1}^n X_i.$$
+Seja $X_1,X_2,\ldots,X_n$ uma amostra aleatória com
+$$E(X_i)=\theta_1 \qquad \text{e} \qquad \operatorname{Var}(X_i)=\theta_2<\infty.$$
+Defina
+$$T_n=\frac{1}{n}\sum_{i=1}^n X_i.$$
 
 Podemos afirmar que, **pela Lei dos Grandes Números**, $T_n$ converge em distribuição para uma distribuição normal com média $\theta_1$?
 
@@ -359,25 +415,29 @@ Podemos afirmar que, **pela Lei dos Grandes Números**, $T_n$ converge em distri
 ::: {.callout-caution icon="false" collapse="true" title="RESPOSTA"}
 A afirmativa é **falsa**.
 
-O enunciado define $$T_n=\frac{1}{n}\sum_{i=1}^n X_i,$$ ou seja, $T_n$ é a média amostral.
+O enunciado define
+$$T_n=\frac{1}{n}\sum_{i=1}^n X_i,$$
+ou seja, $T_n$ é a média amostral.
 
-Como $$E(X_i)=\theta_1 \qquad \text{e} \qquad \mathrm{Var}(X_i)=\theta_2<\infty,$$ a Lei dos Grandes Números afirma que $$T_n \xrightarrow{p} \theta_1.$$ Isso significa que a média amostral converge para a média populacional.
+Como
+$$E(X_i)=\theta_1 \qquad \text{e} \qquad \mathrm{Var}(X_i)=\theta_2<\infty,$$
+a Lei dos Grandes Números afirma que
+$$T_n \xrightarrow{p} \theta_1.$$
+Isso significa que a média amostral converge para a média populacional.
 
 Mas o enunciado pergunta se, **pela LGN**, $T_n$ converge em distribuição para uma normal com média $\theta_1$. Isso está errado por dois motivos:
 
-i)  a LGN fala em **convergência da média amostral para uma constante**, e não em normalidade assintótica;
-
+i) a LGN fala em **convergência da média amostral para uma constante**, e não em normalidade assintótica;
 ii) o resultado de normalidade assintótica é dado pelo **Teorema Central do Limite**, e não pela LGN.
 
-Pelo TCL, $$\frac{\sqrt n\,(T_n-\theta_1)}{\sqrt{\theta_2}} \xrightarrow{d} N(0,1).$$
-
+Pelo TCL,
+$$\frac{\sqrt n\,(T_n-\theta_1)}{\sqrt{\theta_2}} \xrightarrow{d} N(0,1).$$
 Equivalente a dizer que, para $n$ grande,
-
 $$T_n \approx N\!\left(\theta_1,\frac{\theta_2}{n}\right).$$
-
 Observe que essa normal depende de $n$ e sua variância vai para zero. Portanto, o limite final de $T_n$ não é uma normal não degenerada, mas sim a constante $\theta_1$.
 
-Assim, $$\boxed{\text{Não. Pela LGN, } T_n \xrightarrow{p} \theta_1, \text{ e não para uma normal.}}$$
+Assim,
+$$\boxed{\text{Não. Pela LGN, } T_n \xrightarrow{p} \theta_1, \text{ e não para uma normal.}}$$
 
 **Interpretação econômica:** consistência diz *para onde* a média amostral vai; normalidade assintótica diz *como* ela oscila em torno desse valor quando $n$ é grande.
 :::
@@ -386,34 +446,54 @@ Assim, $$\boxed{\text{Não. Pela LGN, } T_n \xrightarrow{p} \theta_1, \text{ e n
 
 **Tema:** Convergência em distribuição e em probabilidade.
 
-Seja $X\sim N(0,2)$ e, para cada $n$, $$X_n=\sqrt{1+\frac{1}{n}}\,X.$$ Note que então $$X_n \sim N\!\left(0,\,2+\frac{2}{n}\right).$$
+Seja $X\sim N(0,2)$ e, para cada $n$,
+$$X_n=\sqrt{1+\frac{1}{n}}\,X.$$
+Note que então
+$$X_n \sim N\!\left(0,\,2+\frac{2}{n}\right).$$
 
 Julgue as afirmativas e demonstre os resultados:
 
-a)  $X_n$ converge em distribuição para $X$;
+a) $X_n$ converge em distribuição para $X$;
 
-b)  $X_n$ converge em probabilidade para $X$.
+b) $X_n$ converge em probabilidade para $X$.
 
 **Interpretação econômica pedida:** explique por que duas sequências podem ter distribuições cada vez mais próximas e, neste caso específico, também ficarem próximas em probabilidade.
 
 ::: {.callout-caution icon="false" collapse="true" title="RESPOSTA"}
-Temos $$X\sim N(0,2)$$ e, para cada $n$, $$X_n=\sqrt{1+\frac{1}{n}}\,X.$$ Como multiplicar uma normal por uma constante apenas altera sua variância, $$X_n\sim N\!\left(0,\left(1+\frac{1}{n}\right)\cdot 2\right)=N\!\left(0,2+\frac{2}{n}\right).$$
+Temos
+$$X\sim N(0,2)$$
+e, para cada $n$,
+$$X_n=\sqrt{1+\frac{1}{n}}\,X.$$
+Como multiplicar uma normal por uma constante apenas altera sua variância,
+$$X_n\sim N\!\left(0,\left(1+\frac{1}{n}\right)\cdot 2\right)=N\!\left(0,2+\frac{2}{n}\right).$$
 
-**a)** $X_n$ converge em distribuição para $X$.
+**a) $X_n$ converge em distribuição para $X$.**
 
 Essa afirmação é **verdadeira**.
 
-De fato, $$2+\frac{2}{n}\to 2.$$ Logo, a distribuição de $X_n$ se aproxima da distribuição de uma normal com média 0 e variância 2, isto é, da distribuição de $X$.
+De fato,
+$$2+\frac{2}{n}\to 2.$$
+Logo, a distribuição de $X_n$ se aproxima da distribuição de uma normal com média 0 e variância 2, isto é, da distribuição de $X$.
 
-Portanto, $$\boxed{X_n \xrightarrow{d} X.}$$
+Portanto,
+$$\boxed{X_n \xrightarrow{d} X.}$$
 
 **Conclusão:** **V**
 
-**b)** $X_n$ converge em probabilidade para $X$.
+**b) $X_n$ converge em probabilidade para $X$.**
 
 Essa afirmação também é **verdadeira**.
 
-Vamos olhar a diferença: $$X_n-X=\left(\sqrt{1+\frac{1}{n}}-1\right)X.$$ Como $$\sqrt{1+\frac{1}{n}}-1 \to 0,$$ temos que o coeficiente que multiplica $X$ converge para zero. Como $X$ é uma variável aleatória finita quase certamente, segue que $$\left(\sqrt{1+\frac{1}{n}}-1\right)X \to 0$$ quase certamente. Então, $$X_n-X \xrightarrow{a.s.} 0.$$ E convergência quase certa implica convergência em probabilidade. Logo, $$\boxed{X_n \xrightarrow{p} X.}$$
+Vamos olhar a diferença:
+$$X_n-X=\left(\sqrt{1+\frac{1}{n}}-1\right)X.$$
+Como
+$$\sqrt{1+\frac{1}{n}}-1 \to 0,$$
+temos que o coeficiente que multiplica $X$ converge para zero. Como $X$ é uma variável aleatória finita quase certamente, segue que
+$$\left(\sqrt{1+\frac{1}{n}}-1\right)X \to 0$$
+quase certamente. Então,
+$$X_n-X \xrightarrow{a.s.} 0.$$
+E convergência quase certa implica convergência em probabilidade. Logo,
+$$\boxed{X_n \xrightarrow{p} X.}$$
 
 **Conclusão:** **V**
 
@@ -426,35 +506,70 @@ Vamos olhar a diferença: $$X_n-X=\left(\sqrt{1+\frac{1}{n}}-1\right)X.$$ Como $
 
 Uma variável aleatória $X$ tem distribuição normal, com média 100 e desvio padrão 10.
 
-a)  Qual a probabilidade de $$90<X<110?$$
+a) Qual a probabilidade de
+$$90<X<110?$$
 
-b)  Se $\bar X$ for a média de uma amostra de 16 elementos retirados dessa população, calcule $$P(90<\bar X<110).$$
+b) Se $\bar X$ for a média de uma amostra de 16 elementos retirados dessa população, calcule
+$$P(90<\bar X<110).$$
 
-c)  Que tamanho deveria ter a amostra para que $$P(90<\bar X<110)=0{,}95?$$
+c) Que tamanho deveria ter a amostra para que
+$$P(90<\bar X<110)=0{,}95?$$
 
 **Interpretação econômica pedida:** destaque como o aumento de $n$ reduz a incerteza sobre a média amostral.
 
 ::: {.callout-caution icon="false" collapse="true" title="RESPOSTA"}
 *Observação importante: o gabarito atual está correto no raciocínio e nos números principais. No item (c), porém, convém explicitar que a equação leva a* $n\approx 3{,}84$*, de modo que, como* $n$ *precisa ser inteiro, escolhe-se* $n=4$ *como tamanho mínimo para obter probabilidade de pelo menos 95%.*
 
-Sabemos que $$X\sim N(100,10^2).$$
+Sabemos que
+$$X\sim N(100,10^2).$$
 
-**a) Calcular** $P(90<X<110)$
+**a) Calcular $P(90<X<110)$**
 
-Padronizando, $$P(90<X<110)=P\!\left(\frac{90-100}{10}<Z<\frac{110-100}{10}\right)=P(-1<Z<1).$$ Da tabela da normal padrão, $$P(-1<Z<1)\approx 0{,}6827.$$ Portanto, $$\boxed{P(90<X<110)\approx 0{,}6827.}$$
+Padronizando,
+$$P(90<X<110)=P\!\left(\frac{90-100}{10}<Z<\frac{110-100}{10}\right)=P(-1<Z<1).$$
+Da tabela da normal padrão,
+$$P(-1<Z<1)\approx 0{,}6827.$$
+Portanto,
+$$\boxed{P(90<X<110)\approx 0{,}6827.}$$
 
-**b) Se** $\bar X$ **é a média de uma amostra de 16 elementos, calcular** $P(90<\bar X<110)$
+**b) Se $\bar X$ é a média de uma amostra de 16 elementos, calcular $P(90<\bar X<110)$**
 
-Se a população é normal, então a média amostral também é normal. Além disso, $$E(\bar X)=100, \qquad \mathrm{Var}(\bar X)=\frac{10^2}{16}=\frac{100}{16}=6{,}25.$$ Logo, $$\bar X\sim N(100,2{,}5^2).$$ Agora padronizamos: $$P(90<\bar X<110)=P\!\left(\frac{90-100}{2{,}5}<Z<\frac{110-100}{2{,}5}\right)=P(-4<Z<4).$$ Da tabela, $$P(-4<Z<4)\approx 0{,}99994.$$ Assim, $$\boxed{P(90<\bar X<110)\approx 0{,}99994.}$$
+Se a população é normal, então a média amostral também é normal. Além disso,
+$$E(\bar X)=100, \qquad \mathrm{Var}(\bar X)=\frac{10^2}{16}=\frac{100}{16}=6{,}25.$$
+Logo,
+$$\bar X\sim N(100,2{,}5^2).$$
+Agora padronizamos:
+$$P(90<\bar X<110)=P\!\left(\frac{90-100}{2{,}5}<Z<\frac{110-100}{2{,}5}\right)=P(-4<Z<4).$$
+Da tabela,
+$$P(-4<Z<4)\approx 0{,}99994.$$
+Assim,
+$$\boxed{P(90<\bar X<110)\approx 0{,}99994.}$$
 
-**c) Que tamanho deve ter a amostra para que** $P(90<\bar X<110)=0{,}95$?
+**c) Que tamanho deve ter a amostra para que $P(90<\bar X<110)=0{,}95$?**
 
-Agora queremos determinar $n$ tal que $$P(90<\bar X<110)=0{,}95.$$ Como $$\bar X\sim N\!\left(100,\frac{10^2}{n}\right),$$ o desvio padrão de $\bar X$ é $$\sigma_{\bar X}=\frac{10}{\sqrt n}.$$ Então, $$P(90<\bar X<110)=P\left(\left|\bar X-100\right|<10\right).$$ Padronizando, $$P\left(\left|Z\right|<\frac{10}{10/\sqrt n}\right)=P(|Z|<\sqrt n)=0{,}95.$$ Sabemos que o intervalo central de 95% na normal padrão é aproximadamente $$|Z|<1{,}96.$$ Portanto, $$\sqrt n=1{,}96 \quad \Longrightarrow \quad n=1{,}96^2\approx 3{,}84.$$ Como o tamanho da amostra deve ser inteiro, temos duas leituras possíveis:
+Agora queremos determinar $n$ tal que
+$$P(90<\bar X<110)=0{,}95.$$
+Como
+$$\bar X\sim N\!\left(100,\frac{10^2}{n}\right),$$
+o desvio padrão de $\bar X$ é
+$$\sigma_{\bar X}=\frac{10}{\sqrt n}.$$
+Então,
+$$P(90<\bar X<110)=P\left(\left|\bar X-100\right|<10\right).$$
+Padronizando,
+$$P\left(\left|Z\right|<\frac{10}{10/\sqrt n}\right)=P(|Z|<\sqrt n)=0{,}95.$$
+Sabemos que o intervalo central de 95% na normal padrão é aproximadamente
+$$|Z|<1{,}96.$$
+Portanto,
+$$\sqrt n=1{,}96 \quad \Longrightarrow \quad n=1{,}96^2\approx 3{,}84.$$
+Como o tamanho da amostra deve ser inteiro, temos duas leituras possíveis:
 
--   se o exercício aceitar um valor aproximado, então $n\approx 4$;
--   se quisermos o **menor inteiro** que garanta probabilidade de pelo menos 95%, então $n=4$.
+* se o exercício aceitar um valor aproximado, então $n\approx 4$;
+* se quisermos o **menor inteiro** que garanta probabilidade de pelo menos 95%, então $n=4$.
 
-De fato, com $n=4$: $$P(90<\bar X<110)=P(-2<Z<2)\approx 0{,}9545.$$ Logo, $$\boxed{n\approx 4 \quad \text{e, como inteiro mínimo, } n=4.}$$
+De fato, com $n=4$:
+$$P(90<\bar X<110)=P(-2<Z<2)\approx 0{,}9545.$$
+Logo,
+$$\boxed{n\approx 4 \quad \text{e, como inteiro mínimo, } n=4.}$$
 
 **Interpretação econômica:** quanto maior o tamanho da amostra, menor a variabilidade da média amostral e mais concentradas ficam as estimativas em torno da média verdadeira.
 :::
@@ -463,24 +578,54 @@ De fato, com $n=4$: $$P(90<\bar X<110)=P(-2<Z<2)\approx 0{,}9545.$$ Logo, $$\box
 
 **Tema:** Soma e média amostral sob normalidade.
 
-Uma empacotadora faz o enchimento de acordo com uma distribuição normal, $$X\sim N(\mu,100).$$
+Uma empacotadora faz o enchimento de acordo com uma distribuição normal,
+$$X\sim N(\mu,100).$$
 
-a)  Em quanto deve ser regulado o peso médio $\mu$ para que apenas 10% dos pacotes tenham peso menor do que 500 g?
+a) Em quanto deve ser regulado o peso médio $\mu$ para que apenas 10% dos pacotes tenham peso menor do que 500 g?
 
-b)  Com a máquina regulada dessa maneira, qual a probabilidade de que o peso total de 4 pacotes selecionados ao acaso seja inferior a 2 kg?
+b) Com a máquina regulada dessa maneira, qual a probabilidade de que o peso total de 4 pacotes selecionados ao acaso seja inferior a 2 kg?
 
 **Interpretação econômica pedida:** interprete os resultados como problema de regulação de processo produtivo.
 
 ::: {.callout-caution icon="false" collapse="true" title="RESPOSTA"}
-Temos $$X\sim N(\mu,100),$$ portanto o desvio padrão é $$\sigma=10.$$
+Temos
+$$X\sim N(\mu,100),$$
+portanto o desvio padrão é
+$$\sigma=10.$$
 
-**a) Determinar** $\mu$ **para que apenas 10% dos pacotes tenham peso menor que 500 g**
+**a) Determinar $\mu$ para que apenas 10% dos pacotes tenham peso menor que 500 g**
 
-Queremos impor $$P(X<500)=0{,}10.$$ Padronizando, $$P\!\left(Z<\frac{500-\mu}{10}\right)=0{,}10.$$ O percentil de 10% da normal padrão é aproximadamente $$z_{0{,}10}=-1{,}2816.$$ Logo, $$\frac{500-\mu}{10}=-1{,}2816.$$ Multiplicando por 10, $$500-\mu=-12{,}816.$$ Então, $$\mu=500+12{,}816=512{,}816.$$ Portanto, $$\boxed{\mu\approx 512{,}82\text{ g}.}$$
+Queremos impor
+$$P(X<500)=0{,}10.$$
+Padronizando,
+$$P\!\left(Z<\frac{500-\mu}{10}\right)=0{,}10.$$
+O percentil de 10% da normal padrão é aproximadamente
+$$z_{0{,}10}=-1{,}2816.$$
+Logo,
+$$\frac{500-\mu}{10}=-1{,}2816.$$
+Multiplicando por 10,
+$$500-\mu=-12{,}816.$$
+Então,
+$$\mu=500+12{,}816=512{,}816.$$
+Portanto,
+$$\boxed{\mu\approx 512{,}82\text{ g}.}$$
 
 **b) Com essa regulagem, qual a probabilidade de que o peso total de 4 pacotes seja inferior a 2 kg?**
 
-Sejam $X_1,X_2,X_3,X_4$ os pesos dos quatro pacotes, independentes e com a mesma distribuição. Considere a soma $$S_4=X_1+X_2+X_3+X_4.$$ A soma de normais independentes também é normal. Assim, $$S_4\sim N(4\mu,4\cdot 100)=N(4\mu,400).$$ Substituindo $\mu\approx 512{,}82$: $$E(S_4)=4\mu\approx 2051{,}28, \qquad \sigma_{S_4}=\sqrt{400}=20.$$ Queremos $$P(S_4<2000).$$ Padronizando, $$P(S_4<2000)=P\!\left(Z<\frac{2000-2051{,}28}{20}\right)=P(Z<-2{,}564).$$ Da tabela, $$P(Z<-2{,}564)\approx 0{,}0052.$$ Logo, $$\boxed{P(S_4<2000)\approx 0{,}0052.}$$
+Sejam $X_1,X_2,X_3,X_4$ os pesos dos quatro pacotes, independentes e com a mesma distribuição. Considere a soma
+$$S_4=X_1+X_2+X_3+X_4.$$
+A soma de normais independentes também é normal. Assim,
+$$S_4\sim N(4\mu,4\cdot 100)=N(4\mu,400).$$
+Substituindo $\mu\approx 512{,}82$:
+$$E(S_4)=4\mu\approx 2051{,}28, \qquad \sigma_{S_4}=\sqrt{400}=20.$$
+Queremos
+$$P(S_4<2000).$$
+Padronizando,
+$$P(S_4<2000)=P\!\left(Z<\frac{2000-2051{,}28}{20}\right)=P(Z<-2{,}564).$$
+Da tabela,
+$$P(Z<-2{,}564)\approx 0{,}0052.$$
+Logo,
+$$\boxed{P(S_4<2000)\approx 0{,}0052.}$$
 
 **Interpretação econômica:** ao regular a máquina acima de 500 g, a empresa reduz bastante o risco de subenchimento, tanto por unidade quanto no total de vários pacotes.
 :::
@@ -494,11 +639,31 @@ Um procedimento de controle de qualidade foi planejado para garantir um máximo 
 **Interpretação econômica pedida:** explique esse resultado como probabilidade de "falso alarme" em controle de qualidade.
 
 ::: {.callout-caution icon="false" collapse="true" title="RESPOSTA"}
-Se o processo está sob controle, a proporção de defeituosos é $$p=0{,}10.$$ Em cada inspeção, são sorteadas 20 peças. Seja $X$ o número de defeituosas na amostra. Então, $$X\sim \operatorname{Bin}(20,0{,}10).$$
+Se o processo está sob controle, a proporção de defeituosos é
+$$p=0{,}10.$$
+Em cada inspeção, são sorteadas 20 peças. Seja $X$ o número de defeituosas na amostra. Então,
+$$X\sim \operatorname{Bin}(20,0{,}10).$$
 
-A produção é interrompida se houver **mais de 15%** de defeituosas na amostra. Como $$15\%\times 20=3,$$ "mais de 15%" significa $$X>3,$$ ou seja, $$X\ge 4.$$
+A produção é interrompida se houver **mais de 15%** de defeituosas na amostra. Como
+$$15\%\times 20=3,$$
+"mais de 15%" significa
+$$X>3,$$
+ou seja,
+$$X\ge 4.$$
 
-Assim, a probabilidade de **parada desnecessária** é $$P(X\ge 4)=1-P(X\le 3).$$ Expandindo a soma: $$P(X\le 3)=\sum_{k=0}^{3}\binom{20}{k}(0{,}1)^k(0{,}9)^{20-k}.$$ Portanto, $$P(X\ge 4)=1-\sum_{k=0}^{3}\binom{20}{k}(0{,}1)^k(0{,}9)^{20-k}.$$ Calculando os termos: $$P(X=0)=\binom{20}{0}(0{,}1)^0(0{,}9)^{20}=0{,}9^{20},$$ $$P(X=1)=\binom{20}{1}(0{,}1)(0{,}9)^{19},$$ $$P(X=2)=\binom{20}{2}(0{,}1)^2(0{,}9)^{18},$$ $$P(X=3)=\binom{20}{3}(0{,}1)^3(0{,}9)^{17}.$$ Numericamente, $$\boxed{P(X\ge 4)\approx 0{,}1330.}$$
+Assim, a probabilidade de **parada desnecessária** é
+$$P(X\ge 4)=1-P(X\le 3).$$
+Expandindo a soma:
+$$P(X\le 3)=\sum_{k=0}^{3}\binom{20}{k}(0{,}1)^k(0{,}9)^{20-k}.$$
+Portanto,
+$$P(X\ge 4)=1-\sum_{k=0}^{3}\binom{20}{k}(0{,}1)^k(0{,}9)^{20-k}.$$
+Calculando os termos:
+$$P(X=0)=\binom{20}{0}(0{,}1)^0(0{,}9)^{20}=0{,}9^{20},$$
+$$P(X=1)=\binom{20}{1}(0{,}1)(0{,}9)^{19},$$
+$$P(X=2)=\binom{20}{2}(0{,}1)^2(0{,}9)^{18},$$
+$$P(X=3)=\binom{20}{3}(0{,}1)^3(0{,}9)^{17}.$$
+Numericamente,
+$$\boxed{P(X\ge 4)\approx 0{,}1330.}$$
 
 **Interpretação econômica:** esse valor mede a chance de um falso alarme: o processo está dentro do padrão, mas a amostra, por variação aleatória, sugere que houve deterioração da qualidade.
 :::
@@ -509,22 +674,37 @@ Assim, a probabilidade de **parada desnecessária** é $$P(X\ge 4)=1-P(X\le 3).$
 
 Supondo que a produção do exercício anterior esteja sob controle, isto é, $p=10\%$, e que os itens sejam vendidos em caixas com 100 unidades, qual a probabilidade de que uma caixa:
 
-a)  tenha mais do que 10% de defeituosos?
+a) tenha mais do que 10% de defeituosos?
 
-b)  não tenha itens defeituosos?
+b) não tenha itens defeituosos?
 
 **Interpretação econômica pedida:** discuta a diferença entre um evento relativamente comum e um evento extremamente raro em grandes lotes.
 
 ::: {.callout-caution icon="false" collapse="true" title="RESPOSTA"}
-Agora cada caixa tem 100 unidades, com probabilidade de defeito igual a 10%. Logo, se $X$ é o número de defeituosos na caixa, $$X\sim \operatorname{Bin}(100,0{,}10).$$
+Agora cada caixa tem 100 unidades, com probabilidade de defeito igual a 10%. Logo, se $X$ é o número de defeituosos na caixa,
+$$X\sim \operatorname{Bin}(100,0{,}10).$$
 
 **a) Probabilidade de a caixa ter mais do que 10% de defeituosos**
 
-Como 10% de 100 é 10, "mais do que 10%" significa $$X>10,$$ ou seja, $$X\ge 11.$$ Assim, $$P(X\ge 11)=1-P(X\le 10)=1-\sum_{k=0}^{10}\binom{100}{k}(0{,}1)^k(0{,}9)^{100-k}.$$ Numericamente, $$\boxed{P(X\ge 11)\approx 0{,}4168.}$$
+Como 10% de 100 é 10, "mais do que 10%" significa
+$$X>10,$$
+ou seja,
+$$X\ge 11.$$
+Assim,
+$$P(X\ge 11)=1-P(X\le 10)=1-\sum_{k=0}^{10}\binom{100}{k}(0{,}1)^k(0{,}9)^{100-k}.$$
+Numericamente,
+$$\boxed{P(X\ge 11)\approx 0{,}4168.}$$
 
 **b) Probabilidade de a caixa não ter itens defeituosos**
 
-"Não ter itens defeituosos" significa $$X=0.$$ Então, $$P(X=0)=\binom{100}{0}(0{,}1)^0(0{,}9)^{100}=(0{,}9)^{100}.$$ Numericamente, $$(0{,}9)^{100}\approx 0{,}0000266.$$ Logo, $$\boxed{P(X=0)\approx 0{,}0000266.}$$
+"Não ter itens defeituosos" significa
+$$X=0.$$
+Então,
+$$P(X=0)=\binom{100}{0}(0{,}1)^0(0{,}9)^{100}=(0{,}9)^{100}.$$
+Numericamente,
+$$(0{,}9)^{100}\approx 0{,}0000266.$$
+Logo,
+$$\boxed{P(X=0)\approx 0{,}0000266.}$$
 
 **Interpretação econômica:** em lotes grandes, é relativamente comum observar mais de 10 defeituosos mesmo quando a taxa média é 10%, mas é extremamente raro observar uma caixa inteiramente sem defeitos.
 :::
@@ -535,32 +715,55 @@ Como 10% de 100 é 10, "mais do que 10%" significa $$X>10,$$ ou seja, $$X\ge 11.
 
 Uma variável aleatória $X$ tem distribuição normal com média 10 e desvio padrão 4. Aos participantes de um jogo é permitido observar uma amostra de qualquer tamanho e calcular a média amostral. Ganha um prêmio aquele cuja média amostral for maior que 12.
 
-a)  Se um participante escolher uma amostra de tamanho 16, qual é a probabilidade de ele ganhar um prêmio?
+a) Se um participante escolher uma amostra de tamanho 16, qual é a probabilidade de ele ganhar um prêmio?
 
-b)  Escolha um tamanho de amostra diferente de 16 para participar do jogo. Qual é a probabilidade de você ganhar um prêmio?
+b) Escolha um tamanho de amostra diferente de 16 para participar do jogo. Qual é a probabilidade de você ganhar um prêmio?
 
-c)  Baseado nos resultados acima, qual o melhor tamanho de amostra para participar do jogo?
+c) Baseado nos resultados acima, qual o melhor tamanho de amostra para participar do jogo?
 
 **Interpretação econômica pedida:** relacione a resposta ao trade-off entre volatilidade e chance de superar um valor fixo acima da média.
 
 ::: {.callout-caution icon="false" collapse="true" title="RESPOSTA"}
-Temos $$X\sim N(10,4^2).$$ Se um participante escolhe uma amostra de tamanho $n$, então a média amostral satisfaz $$\bar X_n\sim N\!\left(10,\frac{4^2}{n}\right)=N\!\left(10,\frac{16}{n}\right).$$ O participante ganha prêmio quando $$\bar X_n>12.$$ Padronizando, $$P(\bar X_n>12)=P\!\left(Z>\frac{12-10}{4/\sqrt n}\right)=P\!\left(Z>\frac{\sqrt n}{2}\right).$$ Essa expressão já mostra a lógica do problema: quanto maior for $n$, maior será o valor crítico $\sqrt n/2$ e, portanto, menor a probabilidade de ultrapassar 12.
+Temos
+$$X\sim N(10,4^2).$$
+Se um participante escolhe uma amostra de tamanho $n$, então a média amostral satisfaz
+$$\bar X_n\sim N\!\left(10,\frac{4^2}{n}\right)=N\!\left(10,\frac{16}{n}\right).$$
+O participante ganha prêmio quando
+$$\bar X_n>12.$$
+Padronizando,
+$$P(\bar X_n>12)=P\!\left(Z>\frac{12-10}{4/\sqrt n}\right)=P\!\left(Z>\frac{\sqrt n}{2}\right).$$
+Essa expressão já mostra a lógica do problema: quanto maior for $n$, maior será o valor crítico $\sqrt n/2$ e, portanto, menor a probabilidade de ultrapassar 12.
 
-**a) Para** $n=16$
+**a) Para $n=16$**
 
-Temos $$P(\bar X_{16}>12)=P\!\left(Z>\frac{\sqrt{16}}{2}\right)=P(Z>2).$$ Da tabela, $$P(Z>2)\approx 0{,}0228.$$ Logo, $$\boxed{P(\bar X_{16}>12)\approx 0{,}0228.}$$
+Temos
+$$P(\bar X_{16}>12)=P\!\left(Z>\frac{\sqrt{16}}{2}\right)=P(Z>2).$$
+Da tabela,
+$$P(Z>2)\approx 0{,}0228.$$
+Logo,
+$$\boxed{P(\bar X_{16}>12)\approx 0{,}0228.}$$
 
 **b) Escolhendo um tamanho diferente de 16**
 
 Vamos escolher, por exemplo, $n=1$.
 
-Nesse caso, $$\bar X_1=X,$$ então $$P(\bar X_1>12)=P(X>12)=P\!\left(Z>\frac{12-10}{4}\right)=P(Z>0{,}5).$$ Da tabela, $$P(Z>0{,}5)\approx 0{,}3085.$$ Portanto, $$\boxed{P(\bar X_1>12)\approx 0{,}3085.}$$
+Nesse caso,
+$$\bar X_1=X,$$
+então
+$$P(\bar X_1>12)=P(X>12)=P\!\left(Z>\frac{12-10}{4}\right)=P(Z>0{,}5).$$
+Da tabela,
+$$P(Z>0{,}5)\approx 0{,}3085.$$
+Portanto,
+$$\boxed{P(\bar X_1>12)\approx 0{,}3085.}$$
 
 **c) Qual é o melhor tamanho de amostra?**
 
-Pela fórmula geral, $$P(\bar X_n>12)=P\!\left(Z>\frac{\sqrt n}{2}\right).$$ Como $\sqrt n/2$ cresce com $n$, a cauda à direita diminui. Portanto, a probabilidade de ganhar o prêmio **cai** quando a amostra aumenta.
+Pela fórmula geral,
+$$P(\bar X_n>12)=P\!\left(Z>\frac{\sqrt n}{2}\right).$$
+Como $\sqrt n/2$ cresce com $n$, a cauda à direita diminui. Portanto, a probabilidade de ganhar o prêmio **cai** quando a amostra aumenta.
 
-Logo, o melhor tamanho de amostra para maximizar a chance de obter média acima de 12 é o menor possível: $$\boxed{n=1.}$$
+Logo, o melhor tamanho de amostra para maximizar a chance de obter média acima de 12 é o menor possível:
+$$\boxed{n=1.}$$
 
 **Interpretação econômica:** quando o objetivo é superar um valor fixo acima da média populacional, maior variabilidade pode ser vantajosa; por isso, amostras menores aumentam a chance de "dar sorte" e ultrapassar o limite.
 :::
