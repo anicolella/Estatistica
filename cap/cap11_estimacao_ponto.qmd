@@ -529,6 +529,499 @@ Portanto, $\hat{\sigma^{2}}$ é um estimador **consistente**
 
 Esse resultado mostra o porque muitas vezes utilizamos os dois estimadores para estimar a variância populacional, pois para um $n$ grande ambos são consistentes. Além disso, a variância de $\hat{\sigma}^2$ é menor.
 
+## Exercícios
+
+### Exercício 1 (ANPEC 2006)
+
+**Tema:** Não-viesado, consistência e eficiência.
+
+Julgue as afirmativas:
+
+a) Um estimador não tendencioso pode não ser consistente.
+
+b) Um estimador consistente pode não ser eficiente.
+
+**Interpretação econômica pedida:** explique por que um estimador "correto em média" pode ser pouco útil se sua dispersão não diminuir com o tamanho da amostra.
+
+::: {.callout-caution icon="false" collapse="true" title="RESPOSTA"}
+O exercício pede para julgar duas afirmações conceituais sobre estimadores.
+
+**(a) "Um estimador pode ser não-viesado e ainda assim não ser consistente."**
+
+A afirmação é **verdadeira**.
+
+**Passo 1: lembrar as definições.**
+
+Um estimador $T_n$ de $\theta$ é:
+
+* **não-viesado** se $E(T_n)=\theta$;
+* **consistente** se $T_n\xrightarrow{p}\theta$ quando $n\to\infty$.
+
+Ou seja, ser não-viesado significa "acertar em média", enquanto ser consistente significa "concentrar-se no valor verdadeiro quando a amostra cresce".
+
+**Passo 2: dar um contraexemplo.**
+
+Considere uma amostra i.i.d. $X_1,X_2,\dots,X_n$ tal que
+$$E(X_i)=\theta \qquad\text{e}\qquad \mathrm{Var}(X_i)=\sigma^2<\infty.$$
+Defina o estimador
+$$T_n=X_1.$$
+
+Esse estimador usa apenas a primeira observação da amostra.
+
+**Passo 3: verificar se ele é não-viesado.**
+
+Temos
+$$E(T_n)=E(X_1)=\theta.$$
+Logo, $T_n$ é **não-viesado**.
+
+**Passo 4: verificar se ele é consistente.**
+
+Como
+$$\mathrm{Var}(T_n)=\mathrm{Var}(X_1)=\sigma^2,$$
+a variância de $T_n$ **não diminui** com o aumento de $n$. Em outras palavras, mesmo com amostras cada vez maiores, o estimador continua tendo a mesma dispersão, porque ignora todas as observações além da primeira.
+
+Assim, $T_n$ não se aproxima cada vez mais de $\theta$. Portanto, ele **não é consistente**.
+
+**Conclusão:**
+$$\boxed{\text{A afirmação (a) é verdadeira.}}$$
+
+**(b) "Um estimador pode ser consistente, mas não eficiente."**
+
+A afirmação também é **verdadeira**.
+
+**Passo 1: ideia central.**
+
+Um estimador pode convergir para o parâmetro verdadeiro quando $n$ cresce, mas, ainda assim, usar a informação disponível de forma pior do que outro estimador concorrente. Nesse caso, ele é consistente, porém menos eficiente.
+
+**Passo 2: construir um exemplo.**
+
+Considere novamente $X_1,\dots,X_n$ i.i.d. com média $\theta$ e variância $\sigma^2$. Defina
+$$\widetilde T_n = \frac{1}{\lfloor n/2\rfloor}\sum_{i=1}^{\lfloor n/2\rfloor}X_i.$$
+
+Ou seja, $\widetilde T_n$ é a média apenas da **metade inicial** da amostra.
+
+**Passo 3: verificar consistência.**
+
+Como $\lfloor n/2\rfloor\to\infty$ quando $n\to\infty$, pela Lei dos Grandes Números,
+$$\widetilde T_n \xrightarrow{p} \theta.$$
+Logo, $\widetilde T_n$ é **consistente**.
+
+**Passo 4: comparar a variância com a da média amostral usual.**
+
+A média amostral completa é
+$$\overline X_n = \frac{1}{n}\sum_{i=1}^n X_i,$$
+com variância
+$$\mathrm{Var}(\overline X_n)=\frac{\sigma^2}{n}.$$
+
+Já o estimador $\widetilde T_n$ usa aproximadamente $n/2$ observações, então sua variância é aproximadamente
+$$\mathrm{Var}(\widetilde T_n)\approx \frac{\sigma^2}{n/2}=\frac{2\sigma^2}{n}.$$
+
+Portanto,
+$$\mathrm{Var}(\widetilde T_n) > \mathrm{Var}(\overline X_n).$$
+
+Assim, embora ambos sejam consistentes, $\widetilde T_n$ é **menos eficiente** do que a média amostral completa.
+
+**Conclusão:**
+$$\boxed{\text{A afirmação (b) é verdadeira.}}$$
+
+**Interpretação econômica:** em aplicações empíricas, não basta um estimador acertar o alvo em média; também importa quão rapidamente ele ganha precisão conforme a amostra aumenta.
+:::
+
+### Exercício 2 (Morettin & Bussab, cap. 11)
+
+**Tema:** Distribuição, esperança e variância de $\hat p$.
+
+Obtenha a distribuição de $\hat p$ quando
+$$p=0{,}2 \qquad \text{e} \qquad n=5.$$
+Depois, calcule
+$$E(\hat p) \qquad \text{e} \qquad \operatorname{Var}(\hat p).$$
+
+**Interpretação econômica pedida:** interprete $\hat p$ como a proporção amostral de um evento econômico binário.
+
+::: {.callout-caution icon="false" collapse="true" title="RESPOSTA"}
+Seja $\widehat p$ a proporção amostral de sucessos em $n=5$ observações Bernoulli com
+$$p=0{,}2.$$
+
+**Passo 1: escrever a proporção amostral em função de uma binomial.**
+
+Se $X$ é o número de sucessos em 5 tentativas, então
+$$X\sim\mathrm{Bin}(5,0{,}2) \qquad\text{e}\qquad \widehat p=\frac{X}{5}.$$
+
+Como $X$ pode assumir os valores $0,1,2,3,4,5$, os valores possíveis de $\widehat p$ são
+$$0,\;0{,}2,\;0{,}4,\;0{,}6,\;0{,}8,\;1.$$
+
+**Passo 2: calcular a distribuição de $\widehat p$.**
+
+Usamos a fórmula da binomial:
+$$P(X=k)=\binom{5}{k}(0{,}2)^k(0{,}8)^{5-k}.$$
+
+Como $\widehat p = k/5$, obtemos a seguinte distribuição:
+
+| $\widehat p$ | $P(\widehat p)$ |
+|:---:|:---|
+| $0$ | $P(X=0)=\binom{5}{0}(0{,}2)^0(0{,}8)^5=0{,}32768$ |
+| $0{,}2$ | $P(X=1)=\binom{5}{1}(0{,}2)^1(0{,}8)^4=0{,}40960$ |
+| $0{,}4$ | $P(X=2)=\binom{5}{2}(0{,}2)^2(0{,}8)^3=0{,}20480$ |
+| $0{,}6$ | $P(X=3)=\binom{5}{3}(0{,}2)^3(0{,}8)^2=0{,}05120$ |
+| $0{,}8$ | $P(X=4)=\binom{5}{4}(0{,}2)^4(0{,}8)^1=0{,}00640$ |
+| $1$ | $P(X=5)=\binom{5}{5}(0{,}2)^5(0{,}8)^0=0{,}00032$ |
+
+**Checagem rápida:** a soma dessas probabilidades é igual a 1, como deve ocorrer em qualquer distribuição de probabilidade.
+
+**Passo 3: calcular a esperança de $\widehat p$.**
+
+Sabemos que, para uma proporção amostral baseada em Bernoulli,
+$$E(\widehat p)=p.$$
+Logo,
+$$\boxed{E(\widehat p)=0{,}2.}$$
+
+Se quisermos mostrar isso diretamente:
+$$E(\widehat p)=E\left(\frac{X}{5}\right)=\frac{1}{5}E(X).$$
+Como $X\sim\mathrm{Bin}(5,0{,}2)$,
+$$E(X)=np=5\cdot 0{,}2=1.$$
+Portanto,
+$$E(\widehat p)=\frac{1}{5}\cdot 1=0{,}2.$$
+
+**Passo 4: calcular a variância de $\widehat p$.**
+
+Usamos que
+$$\mathrm{Var}(\widehat p)=\mathrm{Var}\left(\frac{X}{5}\right)=\frac{1}{25}\mathrm{Var}(X).$$
+
+Como $X\sim\mathrm{Bin}(5,0{,}2)$,
+$$\mathrm{Var}(X)=np(1-p)=5\cdot 0{,}2\cdot 0{,}8=0{,}8.$$
+Então,
+$$\mathrm{Var}(\widehat p)=\frac{0{,}8}{25}=0{,}032.$$
+
+Equivalentemente,
+$$\mathrm{Var}(\widehat p)=\frac{p(1-p)}{n}=\frac{0{,}2\cdot 0{,}8}{5}=0{,}032.$$
+
+Logo,
+$$\boxed{\mathrm{Var}(\widehat p)=0{,}032.}$$
+
+**Conclusão final:**
+$$\boxed{E(\widehat p)=0{,}2 \quad\text{e}\quad \mathrm{Var}(\widehat p)=0{,}032.}$$
+
+**Interpretação econômica:** a proporção amostral é um estimador natural para frequências de eventos binários, como inadimplência, desemprego, default ou aprovação de crédito. A expressão $p(1-p)/n$ mostra que sua precisão melhora quando o tamanho da amostra cresce.
+:::
+
+### Exercício 3 (Morettin & Bussab, cap. 11)
+
+**Tema:** Limite superior da variância de $\hat p$.
+
+Encontre um limite superior para
+$$\operatorname{Var}(\hat p)$$
+quando
+$$n=10,\ 25,\ 100,\ 400.$$
+Faça o gráfico da função $\operatorname{Var}(\hat p)$ em função de $p$, para cada um desses valores de $n$.
+
+**Interpretação econômica pedida:** discuta como o aumento do tamanho amostral afeta a precisão do estimador da proporção.
+
+::: {.callout-caution icon="false" collapse="true" title="RESPOSTA"}
+Para uma amostra Bernoulli de tamanho $n$, a variância da proporção amostral é
+$$\mathrm{Var}(\widehat p)=\frac{p(1-p)}{n}.$$
+
+O exercício pede o **limite superior** dessa variância para diferentes valores de $n$.
+
+**Passo 1: descobrir qual é o maior valor possível de $p(1-p)$.**
+
+Considere a função
+$$f(p)=p(1-p)=p-p^2, \qquad 0\leq p\leq 1.$$
+
+Essa é uma parábola côncava. Podemos achar seu máximo de duas maneiras.
+
+**Maneira 1: por derivada.**
+$$f'(p)=1-2p.$$
+Igualando a zero:
+$$1-2p=0 \quad\Longrightarrow\quad p=\frac12.$$
+Como a parábola é côncava, esse ponto é de máximo.
+
+**Maneira 2: completando quadrado.**
+$$p(1-p)=p-p^2 = \frac14 - \left(p-\frac12\right)^2.$$
+Daí vemos imediatamente que o maior valor possível é
+$$\frac14,$$
+atingido quando
+$$p=\frac12.$$
+
+Portanto,
+$$p(1-p)\leq \frac14.$$
+
+**Passo 2: obter o limite superior de $\mathrm{Var}(\widehat p)$.**
+
+Substituindo esse máximo na fórmula da variância:
+$$\mathrm{Var}(\widehat p)=\frac{p(1-p)}{n} \leq \frac{1}{4n}.$$
+
+Esse é o pior caso possível para a variância da proporção amostral.
+
+**Passo 3: calcular para os valores pedidos de $n$.**
+
+| $n$ | Limite superior de $\mathrm{Var}(\widehat p)$ |
+|:---:|:---|
+| $10$  | $\dfrac{1}{40}=0{,}025$ |
+| $25$  | $\dfrac{1}{100}=0{,}01$ |
+| $100$ | $\dfrac{1}{400}=0{,}0025$ |
+| $400$ | $\dfrac{1}{1600}=0{,}000625$ |
+
+**Passo 4: interpretar os gráficos pedidos.**
+
+Para cada valor de $n$, o gráfico é a curva
+$$y=\frac{p(1-p)}{n}, \qquad 0\leq p\leq 1.$$
+
+Essas curvas têm as seguintes características:
+
+* são parábolas côncavas;
+* são simétricas em torno de $p=0{,}5$;
+* atingem o valor máximo em $p=0{,}5$;
+* ficam mais "achatadas" à medida que $n$ aumenta, porque a variância diminui.
+
+**Conclusão:**
+$$\boxed{\mathrm{Var}(\widehat p)\leq \frac{1}{4n}.}$$
+
+**Interpretação econômica:** o caso mais difícil para estimar uma proporção ocorre quando o evento é mais incerto, isto é, quando sua probabilidade está perto de 50%. Nessa situação, a variabilidade amostral é máxima.
+:::
+
+### Exercício 4 (Morettin & Bussab, cap. 11, ex. 49)
+
+**Tema:** Viés, variância, consistência e plausibilidade de um estimador.
+
+Considere a v.a. discreta $X$ com função de probabilidade dada por:
+$$p(x)=P(X=x)=\frac{1}{\theta}, \qquad x=1,2,\ldots,\theta,$$
+onde $\theta>0$ é um número inteiro desconhecido. Uma AAS $X_1,\ldots,X_n$ de tamanho $n$ é selecionada e considera-se o seguinte estimador de $\theta$:
+$$T=2\bar X-1, \qquad \text{onde } \bar X=\frac{1}{n}\sum_{i=1}^n X_i.$$
+
+a) Mostre que $T$ é um estimador não-viesado de $\theta$ e obtenha sua variância. $T$ é um estimador consistente de $\theta$? Por quê?
+
+b) Se $n=6$ e a amostra observada for
+$$x_1=x_2=x_3=x_4=x_5=1 \quad \text{e} \quad x_6=2,$$
+qual é a estimativa de $\theta$? Esta estimativa é um valor plausível para $\theta$? Sugira outro estimador para $\theta$ que somente conduza a valores plausíveis de $\theta$.
+
+**Observação útil.**
+$$\sum_{i=1}^{k} i = \frac{k(k+1)}{2}, \qquad \sum_{i=1}^{k} i^2 = \frac{k(k+1)(2k+1)}{6}.$$
+
+**Interpretação econômica pedida:** comente por que um estimador matematicamente bem comportado pode, em certas amostras, gerar valores economicamente ou logicamente implausíveis.
+
+::: {.callout-caution icon="false" collapse="true" title="RESPOSTA"}
+A variável aleatória $X$ tem distribuição uniforme discreta em
+$$\{1,2,\dots,\theta\},$$
+com
+$$P(X=x)=\frac{1}{\theta}, \qquad x=1,2,\dots,\theta.$$
+
+O estimador proposto é
+$$T=2\overline X-1.$$
+
+**(a) Mostrar que $T$ é não-viesado, calcular sua variância e verificar consistência.**
+
+**Passo 1: calcular $E(X)$.**
+
+Pela definição de esperança para variável discreta,
+$$E(X)=\sum_{x=1}^{\theta} x\,P(X=x)=\sum_{x=1}^{\theta}x\cdot \frac{1}{\theta} =\frac{1}{\theta}\sum_{x=1}^{\theta}x.$$
+
+Usando a soma dos primeiros inteiros positivos,
+$$\sum_{x=1}^{\theta}x = \frac{\theta(\theta+1)}{2},$$
+obtemos
+$$E(X)=\frac{1}{\theta}\cdot \frac{\theta(\theta+1)}{2}=\frac{\theta+1}{2}.$$
+
+**Passo 2: calcular $E(X^2)$.**
+
+Temos
+$$E(X^2)=\sum_{x=1}^{\theta}x^2P(X=x)=\frac{1}{\theta}\sum_{x=1}^{\theta}x^2.$$
+
+Como
+$$\sum_{x=1}^{\theta}x^2=\frac{\theta(\theta+1)(2\theta+1)}{6},$$
+segue que
+$$E(X^2)=\frac{1}{\theta}\cdot \frac{\theta(\theta+1)(2\theta+1)}{6} =\frac{(\theta+1)(2\theta+1)}{6}.$$
+
+**Passo 3: calcular $\mathrm{Var}(X)$.**
+
+Usamos
+$$\mathrm{Var}(X)=E(X^2)-[E(X)]^2.$$
+Substituindo:
+$$\mathrm{Var}(X)=\frac{(\theta+1)(2\theta+1)}{6} - \left(\frac{\theta+1}{2}\right)^2.$$
+
+Colocando em denominador comum e simplificando,
+$$\mathrm{Var}(X)=\frac{\theta^2-1}{12}.$$
+
+**Passo 4: calcular $E(T)$.**
+
+Como $T=2\overline X-1$,
+$$E(T)=2E(\overline X)-1.$$
+Mas $E(\overline X)=E(X)$, então
+$$E(T)=2\cdot \frac{\theta+1}{2}-1=\theta+1-1=\theta.$$
+
+Logo,
+$$\boxed{E(T)=\theta,}$$
+ou seja, $T$ é **não-viesado**.
+
+**Passo 5: calcular $\mathrm{Var}(T)$.**
+
+Usamos a propriedade da variância de combinação linear:
+$$\mathrm{Var}(aY+b)=a^2\mathrm{Var}(Y).$$
+
+Assim,
+$$\mathrm{Var}(T)=\mathrm{Var}(2\overline X-1)=4\,\mathrm{Var}(\overline X).$$
+
+Como
+$$\mathrm{Var}(\overline X)=\frac{\mathrm{Var}(X)}{n}=\frac{\theta^2-1}{12n},$$
+segue que
+$$\mathrm{Var}(T)=4\cdot \frac{\theta^2-1}{12n}=\frac{\theta^2-1}{3n}.$$
+
+Portanto,
+$$\boxed{\mathrm{Var}(T)=\frac{\theta^2-1}{3n}.}$$
+
+**Passo 6: verificar consistência.**
+
+Como $T$ é não-viesado, seu EQM coincide com sua variância:
+$$\mathrm{EQM}(T)=\mathrm{Var}(T)=\frac{\theta^2-1}{3n}.$$
+
+Quando $n\to\infty$,
+$$\frac{\theta^2-1}{3n}\to 0.$$
+
+Logo, o EQM vai a zero e, portanto, $T$ é **consistente**.
+
+**Conclusão do item (a):**
+$$\boxed{T=2\overline X-1 \text{ é não-viesado, tem variância } \frac{\theta^2-1}{3n} \text{ e é consistente.}}$$
+
+**(b) Calcular $T$ para a amostra observada e discutir plausibilidade.**
+
+A amostra observada é
+$$x_1=x_2=x_3=x_4=x_5=1, \qquad x_6=2.$$
+
+**Passo 1: calcular a média amostral.**
+
+Somando os valores:
+$$1+1+1+1+1+2=7.$$
+Como $n=6$,
+$$\overline x=\frac{7}{6}.$$
+
+**Passo 2: substituir na fórmula do estimador.**
+
+Temos
+$$T=2\overline x -1 = 2\cdot \frac{7}{6}-1 = \frac{14}{6}-1 = \frac{14}{6}-\frac{6}{6}=\frac{8}{6}=\frac{4}{3}.$$
+
+Logo,
+$$\boxed{T=\frac43.}$$
+
+**Passo 3: discutir se esse valor é plausível para $\theta$.**
+
+O parâmetro $\theta$ representa o maior valor possível da uniforme discreta em
+$$\{1,2,\dots,\theta\}.$$
+
+Portanto, $\theta$ deve ser um **inteiro positivo**. O valor
+$$\frac43$$
+não é inteiro, logo não é plausível como estimativa pontual literal do parâmetro.
+
+Além disso, como o valor 2 apareceu na amostra, necessariamente temos
+$$\theta\geq 2.$$
+Então a estimativa $4/3$ também é incompatível com essa informação básica.
+
+**Passo 4: sugerir um estimador alternativo plausível.**
+
+Uma alternativa natural é o **máximo amostral**:
+$$\widetilde\theta = X_{(n)} = \max\{X_1,\dots,X_n\}.$$
+
+Com a amostra observada,
+$$\widetilde\theta = 2.$$
+
+Esse valor é plausível porque respeita a natureza inteira do parâmetro e a restrição $\theta\geq 2$ imposta pela amostra.
+
+**Observação:** o fato de $T$ ter boas propriedades assintóticas não impede que, em amostras pequenas, ele produza valores pouco interpretáveis para o parâmetro.
+
+**Interpretação econômica:** isso ilustra que um estimador pode ser teoricamente bom em média e no longo prazo, mas ainda gerar estimativas estranhas em pequenas amostras, o que exige cautela na interpretação aplicada.
+:::
+
+### Exercício 5 (Morettin & Bussab)
+
+**Tema:** Escolha entre estimadores.
+
+Tem-se duas fórmulas distintas para estimar um parâmetro populacional $\theta$. Para ajudar a escolher a melhor, simulou-se uma situação em que
+$$\theta=100.$$
+Dessa população retiraram-se 1.000 amostras de 10 unidades cada, e aplicaram-se ambas as fórmulas às dez unidades de cada amostra. Desse modo, obtiveram-se 1.000 valores para a primeira fórmula, $t_1$, e outros 1.000 valores para a segunda fórmula, $t_2$, cujos estudos descritivos estão resumidos abaixo.
+
+| | Fórmula 1 | Fórmula 2 |
+|:---|:---:|:---:|
+| **Média** | 102 | 100 |
+| **Variância** | 5 | 10 |
+| **Mediana** | 100 | 100 |
+| **Moda** | 98 | 100 |
+
+Qual das duas fórmulas você considera mais conveniente para estimar $\theta$? Justifique com base nas propriedades dos estimadores.
+
+**Interpretação econômica pedida:** explique o trade-off entre viés e variância na escolha entre estimadores.
+
+::: {.callout-caution icon="false" collapse="true" title="RESPOSTA"}
+O exercício apresenta duas fórmulas para estimar $\theta=100$ e fornece o seguinte resumo:
+
+| | Fórmula 1 | Fórmula 2 |
+|:---|:---:|:---:|
+| **Média** | 102 | 100 |
+| **Variância** | 5 | 10 |
+| **Mediana** | 100 | 100 |
+| **Moda** | 98 | 100 |
+
+A pergunta é qual fórmula é mais conveniente.
+
+**Observação importante sobre a conferência do gabarito atual.** O raciocínio do gabarito está bom, mas há uma observação conceitual relevante: **sem um critério explícito, a expressão "mais conveniente" não determina uma única resposta obrigatória**. O que o gabarito faz é adotar implicitamente o **EQM** como critério de comparação, o que é plenamente razoável. Então o ajuste aqui é mais de **interpretação do critério** do que de conta.
+
+**Passo 1: analisar o viés de cada fórmula.**
+
+O viés é dado por
+$$\mathrm{Bias}(T)=E(T)-\theta.$$
+
+Como $\theta=100$:
+
+**Fórmula 1:**
+$$E(t_1)\approx 102.$$
+Logo,
+$$\mathrm{Bias}(t_1)=102-100=2.$$
+
+**Fórmula 2:**
+$$E(t_2)\approx 100.$$
+Logo,
+$$\mathrm{Bias}(t_2)=100-100=0.$$
+
+Portanto, a Fórmula 2 parece **não-viesada**, enquanto a Fórmula 1 apresenta **viés positivo** de 2 unidades.
+
+**Passo 2: analisar a dispersão.**
+
+As variâncias dadas são:
+$$\mathrm{Var}(t_1)=5, \qquad \mathrm{Var}(t_2)=10.$$
+
+Assim, a Fórmula 1 é **mais precisa** em termos de variabilidade, pois suas estimativas oscilam menos em torno da média.
+
+**Passo 3: comparar pelo erro quadrático médio (EQM).**
+
+Se adotarmos o critério global mais comum,
+$$\mathrm{EQM}(T)=\mathrm{Var}(T)+\bigl(\mathrm{Bias}(T)\bigr)^2,$$
+então temos:
+
+**Fórmula 1:**
+$$\mathrm{EQM}(t_1)=5+2^2=5+4=9.$$
+
+**Fórmula 2:**
+$$\mathrm{EQM}(t_2)=10+0^2=10.$$
+
+Logo,
+$$\mathrm{EQM}(t_1)=9 < 10 = \mathrm{EQM}(t_2).$$
+
+Pelo critério de EQM, a Fórmula 1 é **ligeiramente melhor**.
+
+**Passo 4: interpretar mediana e moda.**
+
+A mediana de ambas as fórmulas é 100, o que sugere que ambas estão centradas de forma razoável no parâmetro. Já a moda da Fórmula 2 coincide com 100, enquanto a da Fórmula 1 é 98. Esses indicadores sugerem que a Fórmula 2 é mais alinhada ao valor verdadeiro em termos de localização central. Ainda assim, eles não substituem critérios como viés, variância ou EQM.
+
+**Conclusão criteriosa.**
+
+* Se o critério principal for **ausência de viés**, a Fórmula 2 é preferível.
+* Se o critério principal for **desempenho global medido por EQM**, a Fórmula 1 é preferível.
+
+Como o enunciado não fixa o critério e o EQM é um critério bastante padrão para comparação de estimadores, a melhor resposta operacional é:
+$$\boxed{\text{Pelo critério de EQM, a Fórmula 1 é a mais conveniente.}}$$
+
+Mas é importante registrar que essa escolha depende do critério adotado.
+
+**Interpretação econômica:** em problemas aplicados, muitas vezes vale a pena aceitar um pequeno viés se isso vier acompanhado de um ganho suficiente de precisão. Em outras palavras, pode ser melhor errar um pouco na média e errar menos no conjunto das amostras.
+:::
+
+
 ## Métodos de Estimação
 
 Até agora "imitamos" o que acontece na população para a amostra com os estimadores $\overline{X}$ e $S^2$. Entretanto podemos ter modelos mais complexos e parâmetros populacionais que não conseguimos imitar o que acontece na população.
