@@ -318,3 +318,408 @@ Ou seja, o intervalo de confiança para a esperança populacional será:
 $$IC(\mu;\gamma)=\bigg( \bar{x}-t_{n-1,\alpha/2}\frac{S_n}{\sqrt{n}};\bar{x}+t_{n-1,\alpha/2}\frac{S_n}{\sqrt{n}}\bigg)$$
 
 Para um amostra suficientemente grande podemos aproximar a distribuição t-student por uma normal padrão e assim calculamos o intervalo de confiança com base na normal mesmo sendo utilizado o estimador da variância.
+
+
+## Exercícios
+
+### Exercício 1 (Morettin & Bussab, cap. 11, ex. 15)
+
+**Tema:** Intervalo de confiança para média e tamanho amostral.
+
+De 50.000 válvulas fabricadas por uma companhia, retira-se uma amostra de 400 válvulas, obtendo-se vida média de 800 horas e desvio padrão de 100 horas.
+
+a) Qual o intervalo de confiança de 99% para a vida média da população?
+
+b) Com que confiança poderíamos afirmar que a vida média é
+$$800 \pm 0{,}98?$$
+
+c) Que tamanho deve ter a amostra para que a estimativa
+$$800 \pm 7{,}84$$
+tenha 95% de confiança?
+
+**Interpretação econômica pedida:** interprete a largura do intervalo como medida da incerteza sobre a vida útil média do produto.
+
+::: {.callout-caution icon="false" collapse="true" title="RESPOSTA"}
+Temos:
+$$\bar x=800,\qquad s=100,\qquad n=400.$$
+
+Como $n=400$ é grande, podemos tratar o erro-padrão da média como
+$$\frac{\sigma}{\sqrt n}\approx \frac{s}{\sqrt n}=\frac{100}{\sqrt{400}}=\frac{100}{20}=5.$$
+
+**a)** Queremos um intervalo de confiança de 99% para a média populacional $\mu$.
+
+Para 99% de confiança,
+$$\alpha=0{,}01\quad\Rightarrow\quad \alpha/2=0{,}005,$$
+de modo que
+$$z_{0{,}995}\approx 2{,}576.$$
+
+A margem de erro é
+$$E=z_{0{,}995}\cdot \frac{\sigma}{\sqrt n}=2{,}576\cdot 5=12{,}88.$$
+
+Assim,
+$$IC_{99\%}(\mu)=800\pm 12{,}88.$$
+
+Escrevendo os extremos explicitamente,
+$$800-12{,}88=787{,}12, \qquad 800+12{,}88=812{,}88.$$
+
+Portanto,
+$$\boxed{IC_{99\%}(\mu)=(787{,}12,\ 812{,}88).}$$
+
+**b)** Agora o enunciado fixa a estimativa na forma
+$$800\pm 0{,}98.$$
+Isso significa que a margem de erro é
+$$E=0{,}98.$$
+
+Como o erro-padrão da média é igual a 5, o valor crítico correspondente deve satisfazer
+$$z\cdot 5=0{,}98.$$
+Logo,
+$$z=\frac{0{,}98}{5}=0{,}196.$$
+
+O coeficiente de confiança correspondente é a probabilidade central da normal padrão:
+$$\gamma=P(-0{,}196\le Z\le 0{,}196)=2\Phi(0{,}196)-1.$$
+
+Usando tabela da normal,
+$$\Phi(0{,}196)\approx 0{,}5777.$$
+
+Então,
+$$\gamma\approx 2(0{,}5777)-1=0{,}1554.$$
+
+Portanto, a confiança associada a esse intervalo é de aproximadamente
+$$\boxed{15{,}54\%.}$$
+
+**c)** Agora queremos descobrir qual deve ser o tamanho da amostra para que a margem de erro seja
+$$E=7{,}84$$
+com confiança de 95%.
+
+Para 95% de confiança,
+$$z_{0{,}975}=1{,}96.$$
+
+Aplicando a fórmula do tamanho amostral:
+$$n=\left(\frac{z_{\alpha/2}\sigma}{E}\right)^2 =\left(\frac{1{,}96\cdot 100}{7{,}84}\right)^2.$$
+
+Como
+$$1{,}96\cdot 100=196 \qquad\text{e}\qquad \frac{196}{7{,}84}=25,$$
+temos
+$$n=25^2=625.$$
+
+Logo,
+$$\boxed{n=625.}$$
+
+**Comentário econômico:** quanto menor a margem de erro desejada, menor a incerteza sobre a vida útil média das válvulas, mas maior precisa ser a amostra; portanto, mais precisão exige maior custo de coleta e inspeção.
+:::
+
+### Exercício 2 (Morettin & Bussab)
+
+**Tema:** Tamanho amostral para estimar uma média.
+
+Qual deve ser o tamanho de uma amostra cujo desvio padrão populacional é 10 para que a diferença entre a média amostral e a média populacional, em valor absoluto, seja menor do que 1, com coeficiente de confiança igual a:
+
+a) 95%;
+b) 99%.
+
+**Interpretação econômica pedida:** explique por que um maior nível de confiança exige uma amostra maior.
+
+::: {.callout-caution icon="false" collapse="true" title="RESPOSTA"}
+Agora queremos apenas o tamanho da amostra. O enunciado informa:
+$$\sigma=10, \qquad E=1.$$
+
+A fórmula é
+$$n=\left(\frac{z_{\alpha/2}\sigma}{E}\right)^2.$$
+
+**a)** Para 95% de confiança,
+$$z_{0{,}975}=1{,}96.$$
+
+Então,
+$$n=\left(\frac{1{,}96\cdot 10}{1}\right)^2=(19{,}6)^2=384{,}16.$$
+
+Como o tamanho amostral precisa ser inteiro e deve garantir a margem máxima pedida, arredondamos para cima:
+$$\boxed{n=385.}$$
+
+**b)** Para 99% de confiança,
+$$z_{0{,}995}\approx 2{,}576.$$
+
+Assim,
+$$n=\left(\frac{2{,}576\cdot 10}{1}\right)^2=(25{,}76)^2\approx 663{,}58.$$
+
+Arredondando para cima,
+$$\boxed{n=664.}$$
+
+**Comentário econômico:** aumentar o nível de confiança faz o pesquisador pedir mais "segurança estatística", e isso amplia o valor crítico $z_{\alpha/2}$; por isso, o tamanho da amostra necessário cresce.
+:::
+
+### Exercício 3 (Morettin & Bussab, cap. 11, ex. 23)
+
+**Tema:** Intervalo para média com desvio padrão conhecido.
+
+De experiências passadas, sabe-se que o desvio padrão da altura de crianças da 5ª série do ensino fundamental é 5 cm.
+
+a) Colhendo uma amostra de 36 dessas crianças, observou-se média de 150 cm. Qual o intervalo de confiança de 95% para a média populacional?
+
+b) Que tamanho deve ter uma amostra para que o intervalo
+$$150 \pm 0{,}98$$
+tenha 95% de confiança?
+
+**Interpretação econômica pedida:** comente o efeito do tamanho amostral na precisão da estimativa.
+
+::: {.callout-caution icon="false" collapse="true" title="RESPOSTA"}
+Temos:
+$$\sigma=5,\qquad n=36,\qquad \bar x=150.$$
+
+**a)** Para 95% de confiança, usamos
+$$IC_{95\%}(\mu)=\bar x\pm z_{0{,}975}\frac{\sigma}{\sqrt n}.$$
+
+Como
+$$z_{0{,}975}=1{,}96 \qquad\text{e}\qquad \frac{\sigma}{\sqrt n}=\frac{5}{\sqrt{36}}=\frac{5}{6},$$
+a margem de erro é
+$$E=1{,}96\cdot \frac{5}{6}=1{,}6333\dots$$
+
+Logo,
+$$IC_{95\%}(\mu)=150\pm 1{,}6333.$$
+
+Portanto,
+$$150-1{,}6333\approx 148{,}37, \qquad 150+1{,}6333\approx 151{,}63.$$
+
+Assim,
+$$\boxed{(148{,}37,\ 151{,}63).}$$
+
+**b)** Agora queremos um intervalo da forma
+$$150\pm 0{,}98$$
+com 95% de confiança. Isso significa margem de erro
+$$E=0{,}98.$$
+
+Pela fórmula do tamanho amostral,
+$$n=\left(\frac{1{,}96\cdot 5}{0{,}98}\right)^2.$$
+
+Como
+$$1{,}96\cdot 5=9{,}8 \qquad\text{e}\qquad \frac{9{,}8}{0{,}98}=10,$$
+segue que
+$$n=10^2=100.$$
+
+Portanto,
+$$\boxed{n=100.}$$
+
+**Comentário econômico:** quanto maior o tamanho amostral, menor o erro-padrão da média. Em termos práticos, isso significa uma estimativa mais precisa da média populacional.
+:::
+
+### Exercício 4 (Morettin & Bussab, cap. 11, ex. 14)
+
+**Tema:** Intervalos de confiança para a média de uma normal $N(\mu,\sigma^2)$.
+
+Calcule o intervalo de confiança para a média em cada um dos casos abaixo:
+
+| Média amostral | Tamanho da amostra | Desvio padrão da população | Coeficiente de confiança |
+|:---:|:---:|:---:|:---:|
+| 170 | 100 | 15 | 95% |
+| 165 | 184 | 30 | 85% |
+| 180 | 225 | 30 | 70% |
+
+**Interpretação econômica pedida:** compare como o intervalo muda quando variam $n$, $\sigma$ e o coeficiente de confiança.
+
+::: {.callout-caution icon="false" collapse="true" title="RESPOSTA"}
+Em todos os casos, usamos a mesma fórmula:
+$$IC(\mu)=\bar x\pm z_{\alpha/2}\frac{\sigma}{\sqrt n}.$$
+
+**a) Caso 1:**
+$$\bar x=170,\quad n=100,\quad \sigma=15,\quad \gamma=95\%.$$
+
+Como
+$$z_{0{,}975}=1{,}96 \qquad\text{e}\qquad \frac{\sigma}{\sqrt n}=\frac{15}{10}=1{,}5,$$
+a margem de erro é
+$$E=1{,}96\cdot 1{,}5=2{,}94.$$
+
+Portanto,
+$$IC(\mu)=170\pm 2{,}94,$$
+isto é,
+$$\boxed{(167{,}06,\ 172{,}94).}$$
+
+**b) Caso 2:**
+$$\bar x=165,\quad n=184,\quad \sigma=30,\quad \gamma=85\%.$$
+
+Aqui,
+$$\alpha=1-0{,}85=0{,}15, \qquad \alpha/2=0{,}075,$$
+então o valor crítico é
+$$z_{0{,}925}\approx 1{,}44.$$
+
+O erro-padrão é
+$$\frac{\sigma}{\sqrt n}=\frac{30}{\sqrt{184}}\approx 2{,}211.$$
+
+Logo, a margem de erro é
+$$E\approx 1{,}44\cdot 2{,}211\approx 3{,}18.$$
+
+Portanto,
+$$IC(\mu)=165\pm 3{,}18,$$
+isto é,
+$$\boxed{(161{,}82,\ 168{,}18).}$$
+
+**c) Caso 3:**
+$$\bar x=180,\quad n=225,\quad \sigma=30,\quad \gamma=70\%.$$
+
+Agora,
+$$\alpha=1-0{,}70=0{,}30, \qquad \alpha/2=0{,}15,$$
+de modo que
+$$z_{0{,}85}\approx 1{,}04.$$
+
+Como
+$$\frac{\sigma}{\sqrt n}=\frac{30}{15}=2,$$
+temos
+$$E\approx 1{,}04\cdot 2=2{,}08.$$
+
+Assim,
+$$IC(\mu)=180\pm 2{,}08,$$
+ou seja,
+$$\boxed{(177{,}92,\ 182{,}08).}$$
+
+**Comentário econômico:** intervalos de confiança ficam mais estreitos quando a amostra aumenta, quando a dispersão da variável diminui ou quando o pesquisador aceita um nível de confiança menor. Em sentido contrário, mais incerteza ou mais confiança geram intervalos mais largos.
+:::
+
+### Exercício 5 (Morettin & Bussab, cap. 11, ex. 24)
+
+**Tema:** Intervalo de confiança para média com desvio padrão conhecido e desconhecido.
+
+Um pesquisador está estudando a resistência de um determinado material sob determinadas condições. Sabe-se inicialmente que essa variável é normalmente distribuída com desvio padrão de 2 unidades.
+
+a) Utilizando os valores
+$$4{,}9;\ 7{,}0;\ 8{,}1;\ 4{,}5;\ 5{,}6;\ 6{,}8;\ 7{,}2;\ 5{,}7;\ 6{,}2,$$
+obtidos de uma amostra de tamanho 9, determine o intervalo de confiança para a resistência média com coeficiente de confiança de 95%.
+
+b) Qual o tamanho da amostra necessário para que o erro cometido ao estimarmos a resistência média não seja superior a 0{,}01 unidade com probabilidade 0{,}90?
+
+c) Suponha que no item (a) não fosse conhecido o desvio padrão. Como você procederia para determinar o intervalo de confiança, e que suposições faria para isso?
+
+**Interpretação econômica pedida:** explique por que conhecer ou não o desvio padrão afeta o método do intervalo.
+
+::: {.callout-caution icon="false" collapse="true" title="RESPOSTA"}
+Os dados observados são:
+$$4{,}9;\ 7{,}0;\ 8{,}1;\ 4{,}5;\ 5{,}6;\ 6{,}8;\ 7{,}2;\ 5{,}7;\ 6{,}2.$$
+
+Somando os valores,
+$$4{,}9+7{,}0+8{,}1+4{,}5+5{,}6+6{,}8+7{,}2+5{,}7+6{,}2=56{,}0.$$
+
+Como $n=9$, a média amostral é
+$$\bar x=\frac{56{,}0}{9}\approx 6{,}2222.$$
+
+**a)** Como o desvio padrão populacional é conhecido e vale $\sigma=2$, podemos usar diretamente o intervalo normal para a média.
+
+Para 95% de confiança,
+$$z_{0{,}975}=1{,}96.$$
+
+O erro-padrão da média é
+$$\frac{\sigma}{\sqrt n}=\frac{2}{\sqrt 9}=\frac{2}{3}.$$
+
+Então a margem de erro é
+$$E=1{,}96\cdot \frac{2}{3}=1{,}3067.$$
+
+Logo,
+$$IC_{95\%}(\mu)=6{,}2222\pm 1{,}3067.$$
+
+Portanto,
+$$6{,}2222-1{,}3067=4{,}9155, \qquad 6{,}2222+1{,}3067=7{,}5289.$$
+
+Assim,
+$$\boxed{(4{,}9155,\ 7{,}5289).}$$
+
+**b)** Agora queremos que o erro máximo seja de apenas
+$$E=0{,}01$$
+com probabilidade 0,90, isto é, com 90% de confiança.
+
+Para 90% de confiança,
+$$z_{0{,}95}\approx 1{,}645.$$
+
+Aplicando a fórmula do tamanho amostral:
+$$n=\left(\frac{1{,}645\cdot 2}{0{,}01}\right)^2.$$
+
+Como
+$$1{,}645\cdot 2=3{,}29 \qquad\text{e}\qquad \frac{3{,}29}{0{,}01}=329,$$
+segue que
+$$n=329^2=108241.$$
+
+Portanto,
+$$\boxed{n=108241.}$$
+
+**c)** Se o desvio padrão populacional **não** fosse conhecido, a fórmula do item (a) não poderia mais usar $\sigma$ nem o valor crítico da normal padrão.
+
+Nesse caso, substituiríamos $\sigma$ pelo desvio padrão amostral $s$ e usaríamos a distribuição $t$ de Student com $n-1$ graus de liberdade. O intervalo seria
+$$\bar X\pm t_{\alpha/2,\,n-1}\frac{s}{\sqrt n}.$$
+
+Como aqui a amostra é pequena ($n=9$), para que esse intervalo seja exato é preciso supor que a população de onde os dados vieram tenha distribuição normal. Se a amostra fosse grande, poderíamos usar resultados assintóticos como aproximação.
+
+**Comentário econômico:** conhecer o desvio padrão populacional simplifica a inferência e costuma produzir um procedimento mais direto. Quando ele é desconhecido, a incerteza adicional sobre a dispersão precisa ser incorporada, o que muda a distribuição crítica usada no intervalo.
+:::
+
+### Exercício 6 (Morettin & Bussab, cap. 11, ex. 29)
+
+**Tema:** Intervalo de confiança para proporção.
+
+Antes de uma eleição em que existiam dois candidatos, A e B, foi feita uma pesquisa com 400 eleitores escolhidos ao acaso, e verificou-se que 208 deles pretendiam votar no candidato A. Construa um intervalo de confiança, com coeficiente de confiança $\gamma=0{,}95$, para a porcentagem de eleitores favoráveis ao candidato A na época da pesquisa.
+
+**Interpretação econômica pedida:** interprete o intervalo como faixa plausível de apoio eleitoral no momento da coleta.
+
+::: {.callout-caution icon="false" collapse="true" title="RESPOSTA"}
+Temos:
+$$n=400, \qquad x=208, \qquad \hat p=\frac{208}{400}=0{,}52.$$
+
+Queremos um intervalo de confiança de 95% para a proporção populacional $p$ de eleitores favoráveis ao candidato A.
+
+Para 95% de confiança,
+$$z_{0{,}975}=1{,}96.$$
+
+O erro-padrão estimado da proporção é
+$$\sqrt{\frac{\hat p(1-\hat p)}{n}} = \sqrt{\frac{0{,}52\cdot 0{,}48}{400}} \approx 0{,}02498.$$
+
+A margem de erro é então
+$$E=1{,}96\cdot 0{,}02498\approx 0{,}04896.$$
+
+Logo,
+$$IC_{95\%}(p)=0{,}52\pm 0{,}04896.$$
+
+Calculando os extremos,
+$$0{,}52-0{,}04896\approx 0{,}4710, \qquad 0{,}52+0{,}04896\approx 0{,}5690.$$
+
+Portanto,
+$$\boxed{IC_{95\%}(p)=(0{,}4710,\ 0{,}5690).}$$
+
+Em termos percentuais,
+$$\boxed{47{,}10\%\ \text{a}\ 56{,}90\%.}$$
+
+**Comentário econômico:** embora a amostra indique 52% de apoio ao candidato A, o intervalo mostra a faixa de valores populacionais plausíveis no momento da pesquisa. Isso ajuda a avaliar quão “apertada” ou “folgada” está a disputa.
+:::
+
+### Exercício 7 (Morettin & Bussab, cap. 11, ex. 18)
+
+**Tema:** Intervalo de confiança para proporção em amostra grande.
+
+Uma amostra aleatória de 625 empresas de limpeza revela que 70% delas preferem a marca A de detergente. Construa um intervalo de confiança para
+$$p=\text{proporção das empresas que preferem A}$$
+com confiança de $\gamma=0{,}95$.
+
+**Interpretação econômica pedida:** explique o que o intervalo informa sobre a participação potencial da marca A nesse mercado.
+
+::: {.callout-caution icon="false" collapse="true" title="RESPOSTA"}
+Agora,
+$$n=625, \qquad \hat p=0{,}70.$$
+
+Queremos um intervalo de confiança de 95% para a proporção populacional de empresas que preferem a marca A.
+
+Para 95% de confiança,
+$$z_{0{,}975}=1{,}96.$$
+
+O erro-padrão estimado é
+$$\sqrt{\frac{\hat p(1-\hat p)}{n}} = \sqrt{\frac{0{,}70\cdot 0{,}30}{625}} = \sqrt{0{,}000336} \approx 0{,}01833.$$
+
+A margem de erro vale
+$$E=1{,}96\cdot 0{,}01833\approx 0{,}03593.$$
+
+Assim,
+$$IC_{95\%}(p)=0{,}70\pm 0{,}03593.$$
+
+Calculando os extremos,
+$$0{,}70-0{,}03593\approx 0{,}6641, \qquad 0{,}70+0{,}03593\approx 0{,}7359.$$
+
+Logo,
+$$\boxed{IC_{95\%}(p)=(0{,}6641,\ 0{,}7359).}$$
+
+Em porcentagem,
+$$\boxed{66{,}41\%\ \text{a}\ 73{,}59\%.}$$
+
+**Comentário econômico:** o intervalo mostra que, embora a estimativa pontual seja 70%, a verdadeira participação potencial da marca A no conjunto das empresas pode estar um pouco abaixo ou um pouco acima desse valor. O intervalo quantifica essa incerteza de mercado.
+:::
