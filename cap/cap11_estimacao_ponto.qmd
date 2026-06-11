@@ -141,11 +141,11 @@ x_normal<-rnorm(10000,mean=2000, sd= 400)
 # Criando os vetores numéricos 
 xbar50<-numeric()
 var_amostral50<-numeric()
-# Extraindo 100 mil amostras de 50 alunos e fazendo a média para cada uma. 
+# Extraindo 100 mil amostras de 50 alunos e fazendo a média para cada uma.  
 # Teremos 100.000 médias  
 for ( i in 1:100000){
   smp<-sample(x_normal,replace = TRUE,size = 50)
-  xbar50[i]<-mean(x_normal[smp])
+  xbar50[i]<-mean(smp)
 }
 
 # Plotando as médias obtidas
@@ -298,8 +298,8 @@ med50<-numeric()
 # variância. Teremos 2000 médias e 2000 variâncias 
 for ( i in 1:100000){
   smp<-sample(x_normal,replace = TRUE, size = 50)
-  xbar50[i]<-mean(x_normal[smp])
-  med50[i]<-median(x_normal[smp])
+  xbar50[i]<-mean(smp)
+  med50[i]<-median(smp)
 }
 par(mfrow=c(1,2))
 hist(xbar50, col="steelblue3",freq = FALSE, breaks = 25,main="",
@@ -389,9 +389,9 @@ e50md<-numeric()
 # variância. Teremos 2000 médias e 2000 variâncias 
 for ( i in 1:100000){
   smp<-sample(x_normal,replace = TRUE,size = 50)
-  xbar50[i]<-mean(x_normal[smp])
+  xbar50[i]<-mean(smp)
   e50[i]<-(xbar50[i]-2000)^2
-  med50[i]<-median(x_normal[smp])
+  med50[i]<-median(smp)
   e50md[i]<-(med50[i]-2000)^2
 }
 
@@ -432,11 +432,11 @@ xbar1500<-numeric()
 # variância. Teremos 2000 médias e 2000 variâncias 
 for ( i in 1:50000){
   smp<-sample(x_normal,replace = TRUE, size = 50)
-  xbar50[i]<-mean(x_normal[smp])
+  xbar50[i]<-mean(smp)
   smp1<-sample(x_normal,replace = TRUE,size = 500)
-  xbar500[i]<-mean(x_normal[smp1])
+  xbar500[i]<-mean(smp1)
   smp2<-sample(x_normal,replace = TRUE,size = 1500)
-  xbar1500[i]<-mean(x_normal[smp2])
+  xbar1500[i]<-mean(smp2)
 }
 hist(xbar50, col="wheat4",freq = FALSE, breaks = 25,main="",
      xlim=c(1800, 2200), ylab="Densidade da Média", xlab="Média de X", 
