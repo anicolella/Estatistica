@@ -813,3 +813,560 @@ Como $\hat{p}=0.52$ esse pertence a região crítica. Os resultados são análog
 **5 - Teste de hipótese**
 
 Assim, como -2.309 (ou 0.52) está na região crítica rejeitamos $H_0$. Há evidências de que a emissora não teve $60\%$ da audiência e sim menos.
+
+## Exercícios
+
+### Exercício 1 (Morettin & Bussab, cap. 12, ex. 7)
+
+**Tema:** Teste para média com desvio padrão conhecido.
+
+A associação dos proprietários de indústrias metalúrgicas está preocupada com o tempo perdido com acidentes de trabalho, cuja média, nos últimos tempos, tem sido da ordem de 60 horas/homem por ano, com desvio padrão de 20 horas/homem. Tentou-se um programa de prevenção de acidentes. Após sua implantação, foi tomada uma amostra de 9 indústrias, e a média observada de horas/homem perdidas foi 50.
+
+No nível de 5%, você diria que há evidência de melhoria?
+
+**Interpretação econômica pedida:** explique o que significa concluir, ou não, que o programa reduziu o tempo perdido com acidentes.
+
+::: {.callout-caution icon="false" collapse="true" title="RESPOSTA"}
+Queremos verificar se houve **melhoria**, isto é, se o programa reduziu o tempo médio perdido com acidentes.
+
+$$H_0:\mu=60 \qquad \text{contra} \qquad H_1:\mu<60$$
+
+**Passo 1: identificar o tipo de teste.**
+
+O enunciado informa que o desvio padrão populacional é conhecido:
+$$\sigma=20.$$
+Além disso,
+$$n=9 \qquad \text{e} \qquad \bar x=50.$$
+Portanto, usamos um **teste Z unilateral à esquerda**.
+
+**Passo 2: calcular a estatística de teste.**
+
+$$Z=\frac{\bar X-\mu_0}{\sigma/\sqrt n} = \frac{50-60}{20/\sqrt 9} = \frac{-10}{20/3} = \frac{-10}{20}\cdot 3 = -1{,}5.$$
+
+**Passo 3: comparar com a região crítica.**
+
+Ao nível de significância de 5%, em teste unilateral à esquerda, o valor crítico é
+$$z_{0{,}05}=-1{,}645.$$
+
+A regra de decisão é:
+$$\text{rejeitar } H_0 \quad \text{se} \quad Z<-1{,}645.$$
+
+Como
+$$-1{,}5>-1{,}645,$$
+**não rejeitamos $H_0$**.
+
+**Passo 4: interpretar pelo valor-p.**
+
+$$p\text{-valor}=P(Z\leq -1{,}5)\approx 0{,}0668.$$
+
+Como
+$$0{,}0668>0{,}05,$$
+chegamos à mesma conclusão: **não há evidência estatística suficiente, ao nível de 5%, para afirmar que o programa reduziu o tempo médio perdido com acidentes.**
+
+**Conclusão econômica:** a amostra aponta uma queda de 60 para 50 horas/homem, mas essa diferença ainda não é forte o bastante para concluir, estatisticamente, que o programa foi eficaz.
+
+:::
+
+### Exercício 2 (Morettin & Bussab, cap. 12, ex. 8)
+
+**Tema:** Teste unilateral para média com desvio padrão conhecido.
+
+O salário médio dos empregados das indústrias siderúrgicas de um país é de 2,5 salários mínimos, com desvio padrão de 0,5 salário mínimo. Uma indústria é escolhida ao acaso e, desta, toma-se uma amostra de 49 empregados, resultando salário médio de 2,3 salários mínimos.
+
+Podemos afirmar, ao nível de 5%, que essa indústria paga salários inferiores à média nacional?
+
+**Interpretação econômica pedida:** interprete a conclusão como evidência, ou não, de desvantagem salarial relativa.
+
+::: {.callout-caution icon="false" collapse="true" title="RESPOSTA"}
+Agora queremos saber se a indústria observada paga salários médios **inferiores** à média nacional.
+
+$$H_0:\mu=2{,}5 \qquad \text{contra} \qquad H_1:\mu<2{,}5$$
+
+**Passo 1: identificar os dados.**
+
+$$\mu_0=2{,}5, \qquad \sigma=0{,}5, \qquad n=49, \qquad \bar x=2{,}3.$$
+
+Como $\sigma$ é conhecido, usamos um **teste Z unilateral à esquerda**.
+
+**Passo 2: calcular a estatística de teste.**
+
+$$Z=\frac{\bar X-\mu_0}{\sigma/\sqrt n} = \frac{2{,}3-2{,}5}{0{,}5/\sqrt{49}} = \frac{-0{,}2}{0{,}5/7} = \frac{-0{,}2}{0{,}071428\ldots} \approx -2{,}8.$$
+
+**Passo 3: regra de decisão.**
+
+Ao nível de 5%, o valor crítico é
+$$z_{0{,}05}=-1{,}645.$$
+
+Como
+$$-2{,}8<-1{,}645,$$
+**rejeitamos $H_0$**.
+
+**Passo 4: valor-p.**
+
+$$p\text{-valor}=P(Z\leq -2{,}8)\approx 0{,}0026.$$
+
+Como
+$$0{,}0026<0{,}05,$$
+a evidência é forte contra $H_0$.
+
+**Conclusão econômica:** há evidência estatística de que a indústria paga salários médios inferiores à média nacional; portanto, existe indício de desvantagem salarial relativa.
+
+:::
+
+### Exercício 3 (Morettin & Bussab, cap. 12, ex. 11)
+
+**Tema:** Teste para proporção.
+
+O consumidor de certo produto acusou o fabricante, dizendo que mais de 20% das unidades fabricadas apresentam defeito. Para confirmar sua acusação, ele usou uma amostra de tamanho 50, em que 27% das peças eram defeituosas.
+
+Mostre como o fabricante poderia refutar a acusação, usando nível de significância de 10%.
+
+**Interpretação econômica pedida:** explique o que significa não rejeitar a hipótese do fabricante em termos de qualidade do produto.
+
+::: {.callout-caution icon="false" collapse="true" title="RESPOSTA"}
+A acusação do consumidor é que a proporção de defeituosos é **maior que 20%**. Portanto, o teste deve ser construído de forma a colocar essa acusação na hipótese alternativa.
+
+$$H_0:p=0{,}20 \qquad \text{contra} \qquad H_1:p>0{,}20$$
+
+**Passo 1: dados da amostra.**
+
+Temos
+$$n=50 \qquad \text{e} \qquad \hat p=0{,}27.$$
+
+**Passo 2: estatística de teste.**
+
+Sob $H_0$, usamos
+$$Z=\frac{\hat p-p_0}{\sqrt{p_0(1-p_0)/n}}.$$
+
+Substituindo:
+$$Z=\frac{0{,}27-0{,}20}{\sqrt{0{,}20\cdot 0{,}80/50}} = \frac{0{,}07}{\sqrt{0{,}16/50}} = \frac{0{,}07}{\sqrt{0{,}0032}} \approx \frac{0{,}07}{0{,}05657} \approx 1{,}237.$$
+
+**Passo 3: regra de decisão.**
+
+Como o teste é unilateral à direita e $\alpha=10\%$,
+$$z_{0{,}90}\approx 1{,}282.$$
+
+Rejeitaríamos $H_0$ se
+$$Z>1{,}282.$$
+
+Mas
+$$1{,}237<1{,}282.$$
+
+Logo, **não rejeitamos $H_0$**.
+
+**Passo 4: valor-p.**
+
+$$p\text{-valor}=P(Z\geq 1{,}237)\approx 0{,}108.$$
+
+Como
+$$0{,}108>0{,}10,$$
+a evidência não basta para sustentar a acusação do consumidor.
+
+**Conclusão econômica:** o fabricante pode responder que a amostra observada não fornece evidência estatística suficiente de que a taxa de defeitos seja superior a 20%.
+
+:::
+
+### Exercício 4 (Morettin & Bussab, cap. 12, ex. 12)
+
+**Tema:** Teste para proporção em dois níveis de significância.
+
+Um fabricante garante que 90% dos equipamentos que fornece a uma fábrica estão de acordo com as especificações exigidas. O exame de uma amostra de 200 peças revelou 25 defeituosas.
+
+Teste a afirmativa do fabricante nos níveis de 5% e 1%.
+
+**Interpretação econômica pedida:** compare a decisão do teste quando o critério de evidência é mais ou menos rigoroso.
+
+::: {.callout-caution icon="false" collapse="true" title="RESPOSTA"}
+O fabricante afirma que **90% das peças estão de acordo com as especificações**. Se 25 em 200 são defeituosas, então 175 em 200 são conformes.
+
+Logo,
+$$\hat p=\frac{175}{200}=0{,}875.$$
+
+Como queremos testar a **afirmativa do fabricante**, usamos:
+$$H_0:p=0{,}90 \qquad \text{contra} \qquad H_1:p\neq 0{,}90.$$
+
+Este é um **teste bilateral para proporção**.
+
+**Passo 1: calcular a estatística de teste.**
+
+$$Z=\frac{\hat p-p_0}{\sqrt{p_0(1-p_0)/n}} = \frac{0{,}875-0{,}90}{\sqrt{0{,}90\cdot 0{,}10/200}} = \frac{-0{,}025}{\sqrt{0{,}09/200}}$$
+$$=\frac{-0{,}025}{\sqrt{0{,}00045}} \approx \frac{-0{,}025}{0{,}02121} \approx -1{,}179.$$
+
+**Passo 2: decisão ao nível de 5%.**
+
+No teste bilateral com $\alpha=5\%$, os valores críticos são:
+$$\pm 1{,}96.$$
+
+Como
+$$|-1{,}179|<1{,}96,$$
+**não rejeitamos $H_0$** ao nível de 5%.
+
+**Passo 3: decisão ao nível de 1%.**
+
+No teste bilateral com $\alpha=1\%$, os valores críticos são:
+$$\pm 2{,}576.$$
+
+Como
+$$|-1{,}179|<2{,}576,$$
+**também não rejeitamos $H_0$** ao nível de 1%.
+
+**Passo 4: leitura pelo valor-p.**
+
+Como o teste é bilateral,
+$$p\text{-valor}=2P(Z\geq 1{,}179)\approx 0{,}239.$$
+
+Esse valor é maior que 5% e também maior que 1%.
+
+**Conclusão econômica:** a amostra não contradiz a garantia do fabricante. Além disso, quando o nível de significância cai de 5% para 1%, o critério fica mais rigoroso; mesmo assim, a conclusão continua a mesma.
+
+:::
+
+### Exercício 5 (Morettin & Bussab, cap. 12, ex. 16)
+
+**Tema:** Valor-p em teste unilateral para média.
+
+Suponha que queiramos testar
+$$H_0:\mu=50 \qquad \text{contra} \qquad H_1:\mu>50,$$
+onde $\mu$ é a média de uma normal $N(\mu,900)$. Extraída uma amostra de $n=36$ elementos da população, obtemos $\bar x=52$.
+
+Calcule o valor-p $\hat \alpha$ do teste.
+
+**Interpretação econômica pedida:** explique como o valor-p mede a evidência contra a hipótese nula.
+
+::: {.callout-caution icon="false" collapse="true" title="RESPOSTA"}
+O enunciado pede explicitamente o **valor-p** do teste.
+
+Temos:
+$$H_0:\mu=50 \qquad \text{contra} \qquad H_1:\mu>50.$$
+
+Além disso,
+$$X\sim N(\mu,900), \qquad \sigma=\sqrt{900}=30, \qquad n=36, \qquad \bar x=52.$$
+
+**Passo 1: estatística de teste.**
+
+$$Z=\frac{\bar X-\mu_0}{\sigma/\sqrt n} = \frac{52-50}{30/\sqrt{36}} = \frac{2}{30/6} = \frac{2}{5} = 0{,}4.$$
+
+**Passo 2: interpretar o valor observado.**
+
+Como o teste é unilateral à direita, o valor-p é a probabilidade, sob $H_0$, de observarmos uma estatística *tão grande quanto* ou *maior que* a obtida.
+
+Portanto,
+$$p\text{-valor}=P(Z\geq 0{,}4)=1-\Phi(0{,}4).$$
+
+Da tabela da normal padrão,
+$$\Phi(0{,}4)\approx 0{,}6554.$$
+
+Logo,
+$$\boxed{p\text{-valor}\approx 1-0{,}6554=0{,}3446.}$$
+
+**Conclusão econômica:** como o valor-p é alto, a evidência contra $H_0$ é fraca. Em termos práticos, o valor observado $\bar x=52$ não está suficientemente distante de 50 para sustentar a conclusão de que a média populacional seja maior.
+
+:::
+
+### Exercício 6 (Morettin & Bussab, cap. 12, ex. 22)
+
+**Tema:** Teste para média com desvio padrão desconhecido.
+
+O tempo médio, por operário, para executar uma tarefa, tem sido 100 minutos, com desvio padrão de 15 minutos. Introduziu-se uma modificação para diminuir esse tempo e, após certo período, sorteou-se uma amostra de 16 operários, medindo-se o tempo de execução de cada um. O tempo médio da amostra foi 85 minutos, e o desvio padrão amostral foi 12 minutos.
+
+Esses resultados trazem evidências estatísticas da melhora desejada? Em caso afirmativo, estime o novo tempo médio de execução. Apresente as suposições teóricas usadas para resolver o problema.
+
+**Interpretação econômica pedida:** comente o significado prático de reduzir o tempo médio de execução.
+
+::: {.callout-caution icon="false" collapse="true" title="RESPOSTA"}
+Queremos saber se a modificação **diminuiu** o tempo médio de execução. Logo, a alternativa é à esquerda.
+
+$$H_0:\mu=100 \qquad \text{contra} \qquad H_1:\mu<100$$
+
+**Passo 1: identificar o tipo de teste.**
+
+Agora o desvio padrão populacional após a mudança **não é conhecido**. O que temos é o desvio padrão *amostral*:
+$$s=12.$$
+
+Além disso,
+$$n=16, \qquad \bar x=85.$$
+
+Como $n$ é pequeno e $\sigma$ é desconhecido, usamos **teste t unilateral à esquerda**.
+
+**Passo 2: estatística de teste.**
+
+$$T=\frac{\bar X-\mu_0}{s/\sqrt n} = \frac{85-100}{12/\sqrt{16}} = \frac{-15}{12/4} = \frac{-15}{3} = -5.$$
+
+Os graus de liberdade são:
+$$gl=n-1=15.$$
+
+**Passo 3: regra de decisão.**
+
+Ao nível de 5%, em teste unilateral à esquerda,
+$$t_{0{,}05;15}\approx -1{,}753.$$
+
+Rejeitamos $H_0$ se
+$$T<-1{,}753.$$
+
+Como
+$$-5<-1{,}753,$$
+**rejeitamos $H_0$**.
+
+**Passo 4: conclusão substantiva.**
+
+Há evidência estatística de que a modificação reduziu o tempo médio de execução da tarefa.
+
+**Estimativa pontual do novo tempo médio:**
+
+Uma vez concluído que houve melhora, a melhor estimativa pontual para o novo tempo médio é a própria média amostral:
+$$\boxed{\hat\mu=\bar x=85 \text{ minutos}.}$$
+
+**Suposições teóricas usadas:**
+
+* a amostra foi obtida aleatoriamente;
+* os tempos observados são independentes;
+* a população dos tempos, após a mudança, é aproximadamente normal.
+
+**Comentário econômico:** reduzir o tempo médio de execução significa aumentar produtividade, economizar horas de trabalho e potencialmente reduzir custo unitário.
+
+:::
+
+### Exercício 7 (Morettin & Bussab, cap. 13, ex. 5)
+
+**Tema:** Comparação entre duas médias populacionais.
+
+Num estudo comparativo do tempo médio de adaptação, uma amostra aleatória de 50 homens e 50 mulheres de um grande complexo industrial produziu os seguintes resultados:
+
+| Estatísticas | Homens | Mulheres |
+|:---|:---:|:---:|
+| **Média** | 3,2 anos | 3,7 anos |
+| **Desvio padrão** | 0,8 anos | 0,9 anos |
+
+Ao nível de 5%, é possível afirmar que o tempo médio de adaptação difere entre homens e mulheres? Em caso afirmativo, interprete o sinal da diferença.
+
+**Interpretação econômica pedida:** discuta o que significa, em média, um grupo se adaptar mais rapidamente que o outro.
+
+::: {.callout-caution icon="false" collapse="true" title="RESPOSTA"}
+Queremos comparar os tempos médios de adaptação de homens e mulheres.
+
+$$H_0:\mu_H=\mu_M \qquad \text{contra} \qquad H_1:\mu_H\neq \mu_M$$
+
+**Passo 1: dados das amostras.**
+
+$$n_H=50,\qquad \bar x_H=3{,}2,\qquad s_H=0{,}8,$$
+$$n_M=50,\qquad \bar x_M=3{,}7,\qquad s_M=0{,}9.$$
+
+Como ambas as amostras são grandes, podemos usar a aproximação normal para a diferença entre médias.
+
+**Passo 2: erro padrão da diferença.**
+
+$$EP(\bar X_H-\bar X_M)=\sqrt{\frac{s_H^2}{n_H}+\frac{s_M^2}{n_M}} = \sqrt{\frac{0{,}8^2}{50}+\frac{0{,}9^2}{50}}$$
+$$=\sqrt{\frac{0{,}64}{50}+\frac{0{,}81}{50}} = \sqrt{\frac{1{,}45}{50}} = \sqrt{0{,}029} \approx 0{,}1703.$$
+
+**Passo 3: estatística de teste.**
+
+$$Z=\frac{\bar X_H-\bar X_M}{EP} = \frac{3{,}2-3{,}7}{0{,}1703} = \frac{-0{,}5}{0{,}1703} \approx -2{,}936.$$
+
+**Passo 4: decisão.**
+
+Ao nível de 5%, em teste bilateral, os valores críticos são
+$$\pm 1{,}96.$$
+
+Como
+$$|-2{,}936|>1{,}96,$$
+**rejeitamos $H_0$**.
+
+O valor-p bilateral é aproximadamente
+$$0{,}0033,$$
+o que reforça a mesma decisão.
+
+**Passo 5: interpretar o sinal da diferença.**
+
+Como
+$$\bar x_H-\bar x_M=3{,}2-3{,}7=-0{,}5<0,$$
+o tempo médio de adaptação dos homens é menor.
+
+**Conclusão econômica:** há evidência de diferença entre os grupos e, em média, os homens parecem se adaptar mais rapidamente que as mulheres nessa amostra.
+
+:::
+
+### Exercício 8 (Morettin & Bussab, cap. 13, ex. 6)
+
+**Tema:** Teste para diferença entre médias e intervalo de confiança.
+
+Diversas políticas em relação às filiais de uma rede de supermercados estão associadas ao gasto médio dos clientes em cada compra. Deseja-se comparar esse parâmetro para duas novas filiais, por meio de duas amostras de 50 clientes cada. As médias obtidas foram 62 e 71, respectivamente. Sabe-se que o desvio padrão, em ambos os casos, deve ser da ordem de 20 unidades.
+
+É possível afirmar que o gasto médio nas duas filiais seja o mesmo? Caso contrário, dê um intervalo de confiança para a diferença.
+
+**Interpretação econômica pedida:** interprete o teste como comparação de desempenho comercial entre as duas filiais.
+
+::: {.callout-caution icon="false" collapse="true" title="RESPOSTA"}
+Queremos comparar os gastos médios de clientes em duas filiais.
+
+$$H_0:\mu_1=\mu_2 \qquad \text{contra} \qquad H_1:\mu_1\neq \mu_2$$
+
+**Passo 1: dados do problema.**
+
+$$n_1=n_2=50, \qquad \bar x_1=62, \qquad \bar x_2=71, \qquad \sigma_1=\sigma_2=20.$$
+
+Como os desvios padrão populacionais são tratados como conhecidos, usamos um **teste Z bilateral**.
+
+**Passo 2: erro padrão da diferença.**
+
+$$EP(\bar X_1-\bar X_2)=\sqrt{\frac{\sigma_1^2}{n_1}+\frac{\sigma_2^2}{n_2}} = \sqrt{\frac{20^2}{50}+\frac{20^2}{50}}$$
+$$=\sqrt{\frac{400}{50}+\frac{400}{50}} = \sqrt{8+8} = \sqrt{16} = 4.$$
+
+**Passo 3: estatística de teste.**
+
+$$Z=\frac{\bar X_1-\bar X_2}{EP} = \frac{62-71}{4} = \frac{-9}{4} = -2{,}25.$$
+
+**Passo 4: decisão do teste.**
+
+Ao nível de 5%, em teste bilateral:
+$$\pm 1{,}96.$$
+
+Como
+$$|-2{,}25|>1{,}96,$$
+**rejeitamos $H_0$**.
+
+Logo, há evidência de que os gastos médios nas duas filiais não são iguais.
+
+**Passo 5: intervalo de confiança para $\mu_1-\mu_2$.**
+
+O intervalo de confiança de 95% para a diferença é:
+$$(\bar x_1-\bar x_2)\pm 1{,}96\cdot EP.$$
+
+Substituindo:
+$$-9\pm 1{,}96\cdot 4 = -9\pm 7{,}84.$$
+
+Assim,
+$$\boxed{(-16{,}84,\,-1{,}16).}$$
+
+Como o intervalo inteiro é negativo, concluímos que
+$$\mu_1-\mu_2<0.$$
+
+**Conclusão econômica:** a filial 1 apresenta gasto médio menor que a filial 2, sugerindo desempenho comercial inferior em valor médio por compra.
+
+:::
+
+### Exercício 9 (Morettin & Bussab, cap. 13, ex. 7)
+
+**Tema:** Comparação entre dois tratamentos.
+
+Uma fábrica de embalagens para produtos químicos está estudando dois processos para combater a corrosão de suas latas especiais. Para verificar o efeito dos tratamentos, foram usadas amostras cujos resultados estão no quadro abaixo (em porcentagem de corrosão eliminada):
+
+| Método | Tamanho da amostra | Média | Desvio padrão |
+|:---|:---:|:---:|:---:|
+| **A** | 15 | 48 | 10 |
+| **B** | 12 | 52 | 15 |
+
+Qual seria a conclusão sobre os dois tratamentos? Justifique estatisticamente.
+
+**Interpretação econômica pedida:** explique o que significa, do ponto de vista produtivo, concluir que os métodos são ou não diferentes.
+
+::: {.callout-caution icon="false" collapse="true" title="RESPOSTA"}
+Queremos comparar os dois tratamentos de combate à corrosão.
+
+$$H_0:\mu_A=\mu_B \qquad \text{contra} \qquad H_1:\mu_A\neq \mu_B$$
+
+**Passo 1: dados do problema.**
+
+$$n_A=15,\qquad \bar x_A=48,\qquad s_A=10,$$
+$$n_B=12,\qquad \bar x_B=52,\qquad s_B=15.$$
+
+**Passo 2: escolha do teste.**
+
+Como os tamanhos amostrais são moderados, os desvios padrão populacionais são desconhecidos e o enunciado não informa igualdade de variâncias, a escolha mais cautelosa é o **teste t de Welch**.
+
+**Passo 3: erro padrão da diferença.**
+
+$$EP=\sqrt{\frac{s_A^2}{n_A}+\frac{s_B^2}{n_B}} = \sqrt{\frac{10^2}{15}+\frac{15^2}{12}}$$
+$$=\sqrt{\frac{100}{15}+\frac{225}{12}} = \sqrt{6{,}6667+18{,}75} = \sqrt{25{,}4167} \approx 5{,}041.$$
+
+**Passo 4: estatística de teste.**
+
+$$T=\frac{\bar X_A-\bar X_B}{EP} = \frac{48-52}{5{,}041} \approx -0{,}793.$$
+
+Os graus de liberdade de Welch ficam aproximadamente:
+$$gl\approx 18{,}39.$$
+
+**Passo 5: decisão.**
+
+Ao nível de 5%, em teste bilateral, o valor crítico é aproximadamente
+$$t_{0{,}975;18{,}39}\approx 2{,}10.$$
+
+Como
+$$|-0{,}793|<2{,}10,$$
+**não rejeitamos $H_0$**.
+
+O valor-p bilateral é aproximadamente
+$$0{,}438.$$
+
+**Conclusão econômica:** não há evidência estatística de diferença entre os dois métodos. Do ponto de vista produtivo, isso significa que, com os dados observados, não se pode afirmar que um tratamento elimine mais corrosão do que o outro.
+
+:::
+
+### Exercício 10 (Morettin & Bussab, cap. 13, ex. 9)
+
+**Tema:** Comparação entre salários médios de dois grupos.
+
+Para investigar a influência da opção profissional sobre o salário inicial de recém-formados, investigaram-se dois grupos de profissionais: um de liberais em geral e outro de formados em Administração de Empresas. Com os resultados abaixo, expressos em salários mínimos, quais seriam suas conclusões?
+
+| | |
+|:---|:---|
+| **Liberais** | 6,6; 10,3; 10,8; 12,9; 9,2; 12,3; 7,0 |
+| **Administradores** | 8,1; 9,8; 8,7; 10,0; 10,2; 8,2; 8,7; 10,1 |
+
+**Interpretação econômica pedida:** discuta se há evidência de diferença sistemática entre os salários iniciais médios dos dois grupos.
+
+::: {.callout-caution icon="false" collapse="true" title="RESPOSTA"}
+Queremos comparar os salários iniciais médios dos dois grupos.
+
+$$H_0:\mu_L=\mu_A \qquad \text{contra} \qquad H_1:\mu_L\neq \mu_A$$
+
+onde $L$ representa liberais e $A$ representa administradores.
+
+**Passo 1: calcular as estatísticas amostrais.**
+
+Para os liberais:
+$$6{,}6,\ 10{,}3,\ 10{,}8,\ 12{,}9,\ 9{,}2,\ 12{,}3,\ 7{,}0$$
+
+$$n_L=7, \qquad \bar x_L=\frac{6{,}6+10{,}3+10{,}8+12{,}9+9{,}2+12{,}3+7{,}0}{7} \approx 9{,}871.$$
+
+A variância amostral é
+$$s_L^2\approx 5{,}919.$$
+
+Para os administradores:
+$$8{,}1,\ 9{,}8,\ 8{,}7,\ 10{,}0,\ 10{,}2,\ 8{,}2,\ 8{,}7,\ 10{,}1$$
+
+$$n_A=8, \qquad \bar x_A=\frac{8{,}1+9{,}8+8{,}7+10{,}0+10{,}2+8{,}2+8{,}7+10{,}1}{8} = 9{,}225.$$
+
+A variância amostral é
+$$s_A^2\approx 0{,}788.$$
+
+**Passo 2: escolher o teste.**
+
+Novamente, como o enunciado não afirma igualdade de variâncias, o procedimento mais prudente é o **teste t de Welch**.
+
+**Passo 3: erro padrão da diferença.**
+
+$$EP=\sqrt{\frac{s_L^2}{n_L}+\frac{s_A^2}{n_A}} = \sqrt{\frac{5{,}919}{7}+\frac{0{,}788}{8}}$$
+$$=\sqrt{0{,}8456+0{,}0985} = \sqrt{0{,}9441} \approx 0{,}9717.$$
+
+**Passo 4: estatística de teste.**
+
+$$T=\frac{\bar X_L-\bar X_A}{EP} = \frac{9{,}871-9{,}225}{0{,}9717} \approx \frac{0{,}646}{0{,}9717} \approx 0{,}665.$$
+
+Os graus de liberdade aproximados são
+$$gl\approx 7{,}39.$$
+
+**Passo 5: decisão.**
+
+Ao nível de 5%, em teste bilateral, o valor crítico é aproximadamente
+$$t_{0{,}975;7{,}39}\approx 2{,}34.$$
+
+Como
+$$|0{,}665|<2{,}34,$$
+**não rejeitamos $H_0$**.
+
+O valor-p bilateral é aproximadamente
+$$0{,}526.$$
+
+**Conclusão econômica:** não há evidência estatística suficiente de diferença sistemática entre os salários iniciais médios dos dois grupos.
+
+:::
