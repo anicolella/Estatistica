@@ -391,6 +391,16 @@ window.Quarto = {
   <li><a href="#estimador-de-máxima-verossimilhança" id="toc-estimador-de-máxima-verossimilhança" class="nav-link" data-scroll-target="#estimador-de-máxima-verossimilhança"><span class="header-section-number">13.5.2</span> Estimador de Máxima Verossimilhança</a></li>
   <li><a href="#máxima-verossimilhança-e-minimos-quadrados" id="toc-máxima-verossimilhança-e-minimos-quadrados" class="nav-link" data-scroll-target="#máxima-verossimilhança-e-minimos-quadrados"><span class="header-section-number">13.5.3</span> Máxima Verossimilhança e Minimos Quadrados</a></li>
   </ul></li>
+  <li><a href="#exercícios-1" id="toc-exercícios-1" class="nav-link" data-scroll-target="#exercícios-1"><span class="header-section-number">13.6</span> Exercícios</a>
+  <ul class="collapse">
+  <li><a href="#exercício-1-morettin-bussab-cap.-11-ex.-6" id="toc-exercício-1-morettin-bussab-cap.-11-ex.-6" class="nav-link" data-scroll-target="#exercício-1-morettin-bussab-cap.-11-ex.-6"><span class="header-section-number">13.6.1</span> Exercício 1 (Morettin &amp; Bussab, cap. 11, ex. 6)</a></li>
+  <li><a href="#exercício-2-morettin-bussab-cap.-11-ex.-7-com-redação-ajustada" id="toc-exercício-2-morettin-bussab-cap.-11-ex.-7-com-redação-ajustada" class="nav-link" data-scroll-target="#exercício-2-morettin-bussab-cap.-11-ex.-7-com-redação-ajustada"><span class="header-section-number">13.6.2</span> Exercício 2 (Morettin &amp; Bussab, cap. 11, ex. 7, com redação ajustada)</a></li>
+  <li><a href="#exercício-3-morettin-bussab-cap.-11-ex.-9" id="toc-exercício-3-morettin-bussab-cap.-11-ex.-9" class="nav-link" data-scroll-target="#exercício-3-morettin-bussab-cap.-11-ex.-9"><span class="header-section-number">13.6.3</span> Exercício 3 (Morettin &amp; Bussab, cap. 11, ex. 9)</a></li>
+  <li><a href="#exercício-4-morettin-bussab-cap.-11-ex.-10" id="toc-exercício-4-morettin-bussab-cap.-11-ex.-10" class="nav-link" data-scroll-target="#exercício-4-morettin-bussab-cap.-11-ex.-10"><span class="header-section-number">13.6.4</span> Exercício 4 (Morettin &amp; Bussab, cap. 11, ex. 10)</a></li>
+  <li><a href="#exercício-5-morettin-bussab-cap.-11-ex.-11" id="toc-exercício-5-morettin-bussab-cap.-11-ex.-11" class="nav-link" data-scroll-target="#exercício-5-morettin-bussab-cap.-11-ex.-11"><span class="header-section-number">13.6.5</span> Exercício 5 (Morettin &amp; Bussab, cap. 11, ex. 11)</a></li>
+  <li><a href="#exercício-6-morettin-bussab-cap.-11-ex.-12" id="toc-exercício-6-morettin-bussab-cap.-11-ex.-12" class="nav-link" data-scroll-target="#exercício-6-morettin-bussab-cap.-11-ex.-12"><span class="header-section-number">13.6.6</span> Exercício 6 (Morettin &amp; Bussab, cap. 11, ex. 12)</a></li>
+  <li><a href="#exercício-7-morettin-bussab-cap.-11-ex.-13" id="toc-exercício-7-morettin-bussab-cap.-11-ex.-13" class="nav-link" data-scroll-target="#exercício-7-morettin-bussab-cap.-11-ex.-13"><span class="header-section-number">13.6.7</span> Exercício 7 (Morettin &amp; Bussab, cap. 11, ex. 13)</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -1727,6 +1737,442 @@ l(\mu|x_1,...,x_n)= ln 1 - \frac{\mu}{2} ln 2 \pi - \frac{1}{2} \sum_i^n (X_i - 
 <p><span class="math display">\[L(\alpha, \beta, \sigma^2|Y_1,...,Y_n)= \frac{1}{(2 \pi) ^{n/2}\sigma^n} exp \bigg[ \frac{-1}{(2\sigma^2)} \sum_i^n (Y_i-\hat{\alpha}-\hat{\beta}.X_i)^2 \bigg]\]</span></p>
 <p>Como temos o exponencial de um número negativo maximizar <span class="math inline">\(L(\alpha, \beta, \sigma^2|Y_1,...,Y_n)\)</span> é equivalente e minimizar a seguinte parte da função de verossimilhança:</p>
 <p><span class="math display">\[S=\sum_i^n (Y_i-\hat{\alpha}-\hat{\beta}.X_i)^2\]</span> Que nada mais é do que minimizar os erros ao quadrados que vimos na seção de estimadores de mínimos quadrados. Portanto, podemos dizer que estimadores de mínimos quadrados são equivalentes aos estimadores de verossimilhança.Ou mais, que mínimos quadrados é um caso especial de máxima verossimilhançaa onde <span class="math inline">\(Y\)</span> e <span class="math inline">\(X\)</span> são linearmente relacionados e existe um erro <span class="math inline">\(e_i \sim N(0,\sigma^2)\)</span>.</p>
+</section>
+</section>
+<section id="exercícios-1" class="level2" data-number="13.6">
+<h2 data-number="13.6" class="anchored" data-anchor-id="exercícios-1"><span class="header-section-number">13.6</span> Exercícios</h2>
+<section id="exercício-1-morettin-bussab-cap.-11-ex.-6" class="level3" data-number="13.6.1">
+<h3 data-number="13.6.1" class="anchored" data-anchor-id="exercício-1-morettin-bussab-cap.-11-ex.-6"><span class="header-section-number">13.6.1</span> Exercício 1 (Morettin &amp; Bussab, cap. 11, ex. 6)</h3>
+<p><strong>Tema:</strong> Estimação por mínimos quadrados no modelo com média constante.</p>
+<p>Estamos estudando o modelo <span class="math display">\[y_t=\mu+\varepsilon_t,\]</span> para o qual uma amostra de cinco elementos produziu os seguintes valores para <span class="math inline">\(y_t\)</span>: 3, 5, 6, 8, 16.</p>
+<ol type="a">
+<li><p>Calcule os valores de <span class="math display">\[S(\mu)=\sum_t (y_t-\mu)^2\]</span> para <span class="math inline">\(\mu=6,7,8,9,10\)</span>, e faça o gráfico de <span class="math inline">\(S(\mu)\)</span> em relação a <span class="math inline">\(\mu\)</span>. Qual valor de <span class="math inline">\(\mu\)</span> parece tornar mínimo <span class="math inline">\(S(\mu)\)</span>?</p></li>
+<li><p>Derivando <span class="math inline">\(S(\mu)\)</span> em relação a <span class="math inline">\(\mu\)</span>, e igualando o resultado a zero, encontre o estimador de mínimos quadrados de <span class="math inline">\(\mu\)</span>. Usando os dados acima, obtenha a estimativa e compare com o resultado do item anterior.</p></li>
+</ol>
+<p><strong>Interpretação econômica pedida:</strong> interprete <span class="math inline">\(\mu\)</span> como o nível médio de uma variável econômica e explique por que MQ escolhe o valor que minimiza os desvios quadráticos.</p>
+<div class="callout callout-style-default callout-caution no-icon callout-titled" title="RESPOSTA">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-18-contents" aria-controls="callout-18" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Caution</span>RESPOSTA
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-18" class="callout-18-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Temos o modelo <span class="math display">\[y_t=\mu+\varepsilon_t,\]</span> e a amostra 3, 5, 6, 8, 16.</p>
+<p>A função da Soma dos Quadrados dos Resíduos (SQR) é <span class="math display">\[\operatorname{SQR}(\mu)=\sum_{t=1}^{5}(y_t-\mu)^2.\]</span></p>
+<p><strong>a) Cálculo de <span class="math inline">\(\operatorname{SQR}(\mu)\)</span> para os valores pedidos.</strong></p>
+<p>Vamos substituir cada valor de <span class="math inline">\(\mu\)</span> diretamente na função.</p>
+<p>Para <span class="math inline">\(\mu=6\)</span>: <span class="math display">\[\operatorname{SQR}(6)=(3-6)^2+(5-6)^2+(6-6)^2+(8-6)^2+(16-6)^2.\]</span> Calculando termo a termo: <span class="math display">\[\operatorname{SQR}(6)=9+1+0+4+100=114.\]</span></p>
+<p>Para <span class="math inline">\(\mu=7\)</span>: <span class="math display">\[\operatorname{SQR}(7)=(3-7)^2+(5-7)^2+(6-7)^2+(8-7)^2+(16-7)^2.\]</span> Logo, <span class="math display">\[\operatorname{SQR}(7)=16+4+1+1+81=103.\]</span></p>
+<p>Para <span class="math inline">\(\mu=8\)</span>: <span class="math display">\[\operatorname{SQR}(8)=(3-8)^2+(5-8)^2+(6-8)^2+(8-8)^2+(16-8)^2.\]</span> Assim, <span class="math display">\[\operatorname{SQR}(8)=25+9+4+0+64=102.\]</span></p>
+<p>Para <span class="math inline">\(\mu=9\)</span>: <span class="math display">\[\operatorname{SQR}(9)=(3-9)^2+(5-9)^2+(6-9)^2+(8-9)^2+(16-9)^2.\]</span> Portanto, <span class="math display">\[\operatorname{SQR}(9)=36+16+9+1+49=111.\]</span></p>
+<p>Para <span class="math inline">\(\mu=10\)</span>: <span class="math display">\[\operatorname{SQR}(10)=(3-10)^2+(5-10)^2+(6-10)^2+(8-10)^2+(16-10)^2.\]</span> Logo, <span class="math display">\[\operatorname{SQR}(10)=49+25+16+4+36=130.\]</span></p>
+<p>Podemos resumir os resultados:</p>
+<ul>
+<li><span class="math inline">\(\mu = 6 \implies \operatorname{SQR}(6) = 114\)</span></li>
+<li><span class="math inline">\(\mu = 7 \implies \operatorname{SQR}(7) = 103\)</span></li>
+<li><span class="math inline">\(\mu = 8 \implies \operatorname{SQR}(8) = 102\)</span></li>
+<li><span class="math inline">\(\mu = 9 \implies \operatorname{SQR}(9) = 111\)</span></li>
+<li><span class="math inline">\(\mu = 10 \implies \operatorname{SQR}(10) = 130\)</span></li>
+</ul>
+<p>Entre os valores testados, o menor valor da SQR é <span class="math display">\[\boxed{\operatorname{SQR}(8)=102.}\]</span> Portanto, olhando apenas para esses pontos, o valor de <span class="math inline">\(\mu\)</span> que <strong>parece</strong> minimizar a <span class="math inline">\(\operatorname{SQR}(\mu)\)</span> é <span class="math display">\[\boxed{\mu=8.}\]</span></p>
+<p>Se fosse feito o gráfico de <span class="math inline">\(\operatorname{SQR}(\mu)\)</span> contra <span class="math inline">\(\mu\)</span>, ele teria formato parabólico, com o ponto mínimo situado próximo de <span class="math inline">\(7{,}6\)</span>.</p>
+<p><strong>b) Minimização analítica da <span class="math inline">\(\operatorname{SQR}(\mu)\)</span>.</strong></p>
+<p>Agora vamos encontrar o mínimo de forma exata.</p>
+<p>Começamos expandindo a função: <span class="math display">\[\operatorname{SQR}(\mu)=\sum_{t=1}^{5}(y_t-\mu)^2=\sum_{t=1}^{5}y_t^2-2\mu\sum_{t=1}^{5}y_t+5\mu^2.\]</span></p>
+<p>Precisamos então de <span class="math inline">\(\sum y_t\)</span> e <span class="math inline">\(\sum y_t^2\)</span>.</p>
+<p><strong>Passo 1: calcular <span class="math inline">\(\sum y_t\)</span>.</strong> <span class="math display">\[\sum y_t = 3+5+6+8+16=38.\]</span></p>
+<p><strong>Passo 2: calcular <span class="math inline">\(\sum y_t^2\)</span>.</strong> <span class="math display">\[\sum y_t^2 = 3^2+5^2+6^2+8^2+16^2=9+25+36+64+256=390.\]</span></p>
+<p>Substituindo na expressão de <span class="math inline">\(\operatorname{SQR}(\mu)\)</span>: <span class="math display">\[\operatorname{SQR}(\mu)=390-76\mu+5\mu^2.\]</span></p>
+<p><strong>Passo 3: derivar.</strong> <span class="math display">\[\operatorname{SQR}'(\mu)=-76+10\mu.\]</span></p>
+<p><strong>Passo 4: igualar a zero.</strong> <span class="math display">\[-76+10\mu=0 \quad\Longrightarrow\quad 10\mu=76 \quad\Longrightarrow\quad \mu=7{,}6.\]</span></p>
+<p>Logo, o estimador de mínimos quadrados é <span class="math display">\[\boxed{\widehat\mu_{MQ}=7{,}6.}\]</span></p>
+<p><strong>Passo 5: verificar que esse ponto é mínimo.</strong></p>
+<p>A segunda derivada é <span class="math display">\[\operatorname{SQR}''(\mu)=10&gt;0.\]</span> Como a segunda derivada é positiva, o ponto crítico encontrado é realmente um <strong>mínimo global</strong>.</p>
+<p>Observe ainda que <span class="math display">\[\bar y=\frac{3+5+6+8+16}{5}=\frac{38}{5}=7{,}6.\]</span> Portanto, <span class="math display">\[\boxed{\widehat\mu_{MQ}=\bar y.}\]</span></p>
+<p>Isso é compatível com o item anterior: entre os valores inteiros testados, o melhor era <span class="math inline">\(8\)</span>, que é justamente o inteiro mais próximo de <span class="math inline">\(7{,}6\)</span>.</p>
+<p><strong>Interpretação econômica:</strong> se <span class="math inline">\(\mu\)</span> representa o nível médio de uma variável econômica, como vendas, renda ou inflação mensal, o método de MQ escolhe o valor central que minimiza a SQR. Como os desvios são elevados ao quadrado, observações mais distantes, como o valor 16, recebem peso maior.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="exercício-2-morettin-bussab-cap.-11-ex.-7-com-redação-ajustada" class="level3" data-number="13.6.2">
+<h3 data-number="13.6.2" class="anchored" data-anchor-id="exercício-2-morettin-bussab-cap.-11-ex.-7-com-redação-ajustada"><span class="header-section-number">13.6.2</span> Exercício 2 (Morettin &amp; Bussab, cap. 11, ex. 7, com redação ajustada)</h3>
+<p><strong>Tema:</strong> Ajuste linear por mínimos quadrados.</p>
+<p>Os dados abaixo referem-se ao índice de inflação <span class="math inline">\(y_t\)</span> nos anos observados:</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th style="text-align: center;">Ano (<span class="math inline">\(t\)</span>)</th>
+<th style="text-align: center;">Inflação (<span class="math inline">\(y_t\)</span>)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">1967</td>
+<td style="text-align: center;">128</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">1969</td>
+<td style="text-align: center;">192</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">1971</td>
+<td style="text-align: center;">277</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">1973</td>
+<td style="text-align: center;">373</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">1974</td>
+<td style="text-align: center;">613</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">1975</td>
+<td style="text-align: center;">1236</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">1976</td>
+<td style="text-align: center;">2639</td>
+</tr>
+</tbody>
+</table>
+<ol type="a">
+<li><p>Faça o gráfico de <span class="math inline">\(y_t\)</span> contra <span class="math inline">\(t\)</span>.</p></li>
+<li><p>Considere ajustar o modelo <span class="math display">\[y_t=\alpha+\beta t+\varepsilon_t\]</span> aos dados. Encontre as estimativas de mínimos quadrados de <span class="math inline">\(\alpha\)</span> e <span class="math inline">\(\beta\)</span>.</p></li>
+<li><p>Com base no ajuste linear obtido, qual seria a inflação prevista para 1981?</p></li>
+<li><p>Você teria alguma restrição em adotar o modelo linear nesse caso? Justifique.</p></li>
+</ol>
+<p><strong>Interpretação econômica pedida:</strong> discuta o risco de extrapolar uma tendência linear em um contexto de inflação acelerada.</p>
+<div class="callout callout-style-default callout-caution no-icon callout-titled" title="RESPOSTA">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-19-contents" aria-controls="callout-19" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Caution</span>RESPOSTA
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-19" class="callout-19-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Os dados observados são: <span class="math inline">\((1967,128),\ (1969,192),\ (1971,277),\ (1973,373),\ (1974,613),\ (1975,1236),\ (1976,2639).\)</span></p>
+<p>Queremos ajustar o modelo linear <span class="math display">\[y_t=\alpha+\beta t+\varepsilon_t.\]</span></p>
+<p><strong>a) Descrição do gráfico de <span class="math inline">\(y_t\)</span> contra <span class="math inline">\(t\)</span>.</strong></p>
+<p>Ainda que o enunciado peça um gráfico, no gabarito escrito o mais importante é descrever seu formato. Ao colocar <span class="math inline">\(y_t\)</span> no eixo vertical e <span class="math inline">\(t\)</span> no eixo horizontal, os pontos mostram crescimento crescente da inflação ao longo do tempo, mas não de forma aproximadamente linear: a elevação fica muito mais forte nos últimos anos, sobretudo entre 1974 e 1976.</p>
+<p>Assim, visualmente, o gráfico sugere <strong>forte curvatura</strong> e possível comportamento explosivo, e não uma tendência linear estável.</p>
+<p><strong>b) Cálculo das estimativas de mínimos quadrados de <span class="math inline">\(\alpha\)</span> e <span class="math inline">\(\beta\)</span>.</strong></p>
+<p>As fórmulas de MQ na regressão linear simples são <span class="math display">\[\widehat\beta=\frac{\sum (t_i-\bar t)(y_i-\bar y)}{\sum (t_i-\bar t)^2}, \qquad \widehat\alpha=\bar y-\widehat\beta\,\bar t.\]</span></p>
+<p><strong>Passo 1: calcular as médias.</strong></p>
+<p>A média dos anos é <span class="math display">\[\bar t=\frac{1967+1969+1971+1973+1974+1975+1976}{7}=1972{,}142857.\]</span></p>
+<p>A média das inflações é <span class="math display">\[\bar y=\frac{128+192+277+373+613+1236+2639}{7}=779{,}714286.\]</span></p>
+<p><strong>Passo 2: calcular os somatórios centrais.</strong></p>
+<p>A partir dos dados, obtém-se <span class="math display">\[\sum (t_i-\bar t)^2 \approx 64{,}857143,\]</span> e <span class="math display">\[\sum (t_i-\bar t)(y_i-\bar y) \approx 13590{,}285714.\]</span></p>
+<p><strong>Passo 3: calcular <span class="math inline">\(\widehat\beta\)</span>.</strong> <span class="math display">\[\widehat\beta =\frac{13590{,}285714}{64{,}857143} \approx 209{,}54185.\]</span></p>
+<p><strong>Passo 4: calcular <span class="math inline">\(\widehat\alpha\)</span>.</strong> <span class="math display">\[\widehat\alpha=\bar y-\widehat\beta\bar t \approx 779{,}714286-209{,}54185\cdot 1972{,}142857.\]</span> Portanto, <span class="math display">\[\widehat\alpha\approx -412466{,}75.\]</span></p>
+<p>Logo, a reta ajustada por mínimos quadrados é <span class="math display">\[\boxed{\widehat y_t=-412466{,}75+209{,}54\,t.}\]</span></p>
+<p><strong>c) Previsão para 1981.</strong></p>
+<p>Basta substituir <span class="math inline">\(t=1981\)</span> na reta ajustada: <span class="math display">\[\widehat y_{1981}=-412466{,}75+209{,}54\cdot 1981.\]</span></p>
+<p>Efetuando a conta, <span class="math display">\[\widehat y_{1981}\approx 2635{,}66.\]</span></p>
+<p>Assim, a previsão linear para 1981 é <span class="math display">\[\boxed{\widehat y_{1981}\approx 2635{,}66.}\]</span></p>
+<p><strong>d) Restrição ao uso do modelo linear.</strong></p>
+<p>Sim, há uma restrição importante. Embora a reta de MQ sempre possa ser calculada, isso <strong>não significa</strong> que ela seja um bom modelo substantivo.</p>
+<p>Neste caso, os dados mostram aceleração muito intensa da inflação, sobretudo no fim da amostra. Uma reta impõe crescimento a uma taxa marginal constante, isto é, o mesmo acréscimo esperado em <span class="math inline">\(y\)</span> para cada unidade adicional de tempo. Mas os dados sugerem que esse acréscimo cresce ao longo do tempo.</p>
+<p>Portanto, a extrapolação linear para 1981 é frágil. Um modelo não linear, ou alguma transformação como logaritmo, tenderia a ser mais plausível em um contexto de inflação acelerada.</p>
+<p><strong>Interpretação econômica:</strong> em contextos de inflação muito alta e crescente, extrapolar uma tendência linear pode subestimar ou distorcer fortemente a dinâmica real. O ponto central não é apenas ajustar uma reta, mas avaliar se a forma funcional faz sentido para o fenômeno econômico estudado.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="exercício-3-morettin-bussab-cap.-11-ex.-9" class="level3" data-number="13.6.3">
+<h3 data-number="13.6.3" class="anchored" data-anchor-id="exercício-3-morettin-bussab-cap.-11-ex.-9"><span class="header-section-number">13.6.3</span> Exercício 3 (Morettin &amp; Bussab, cap. 11, ex. 9)</h3>
+<p><strong>Tema:</strong> Derivação dos estimadores de mínimos quadrados em regressão simples.</p>
+<p>Considere o modelo <span class="math display">\[y_t=\alpha+\beta x_t+\varepsilon_t,\qquad t=1,\ldots,n,\]</span> em que <span class="math inline">\(x_1,\ldots,x_n\)</span> são valores fixos (não aleatórios).</p>
+<ol type="a">
+<li><p>Obtenha os estimadores de mínimos quadrados de <span class="math inline">\(\alpha\)</span> e <span class="math inline">\(\beta\)</span>.</p></li>
+<li><p>Usando os dados abaixo, encontre as estimativas de MQ de <span class="math inline">\(\alpha\)</span> e <span class="math inline">\(\beta\)</span>:</p></li>
+</ol>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th style="text-align: center;"><span class="math inline">\(y_t\)</span></th>
+<th style="text-align: center;"><span class="math inline">\(x_t\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">66,8</td>
+<td style="text-align: center;">1,5</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">67,0</td>
+<td style="text-align: center;">1,8</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">66,9</td>
+<td style="text-align: center;">1,6</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">67,6</td>
+<td style="text-align: center;">2,5</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">68,9</td>
+<td style="text-align: center;">4,0</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">68,7</td>
+<td style="text-align: center;">3,8</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">69,3</td>
+<td style="text-align: center;">4,5</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">69,8</td>
+<td style="text-align: center;">5,1</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">71,0</td>
+<td style="text-align: center;">6,5</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">70,6</td>
+<td style="text-align: center;">6,0</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Interpretação econômica pedida:</strong> interprete <span class="math inline">\(\beta\)</span> como o efeito marginal estimado de <span class="math inline">\(x\)</span> sobre <span class="math inline">\(y\)</span>.</p>
+<div class="callout callout-style-default callout-caution no-icon callout-titled" title="RESPOSTA">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-20-contents" aria-controls="callout-20" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Caution</span>RESPOSTA
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-20" class="callout-20-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Considere o modelo <span class="math display">\[y_t=\alpha+\beta x_t+\varepsilon_t, \qquad t=1,\dots,n,\]</span> em que os valores de <span class="math inline">\(x_t\)</span> são tratados como fixos.</p>
+<p><strong>a) Derivação dos estimadores de MQ.</strong></p>
+<p>O método de mínimos quadrados escolhe <span class="math inline">\(\alpha\)</span> e <span class="math inline">\(\beta\)</span> de modo a minimizar a Soma dos Quadrados dos Resíduos (SQR): <span class="math display">\[\operatorname{SQR}(\alpha,\beta)=\sum_{t=1}^n (y_t-\alpha-\beta x_t)^2.\]</span></p>
+<p><strong>Passo 1: derivar em relação a <span class="math inline">\(\alpha\)</span>.</strong> <span class="math display">\[\frac{\partial \operatorname{SQR}}{\partial \alpha} =-2\sum_{t=1}^n (y_t-\alpha-\beta x_t).\]</span> Igualando a zero, <span class="math display">\[\sum_{t=1}^n y_t=n\alpha+\beta\sum_{t=1}^n x_t.\]</span></p>
+<p><strong>Passo 2: derivar em relação a <span class="math inline">\(\beta\)</span>.</strong> <span class="math display">\[\frac{\partial \operatorname{SQR}}{\partial \beta} =-2\sum_{t=1}^n x_t(y_t-\alpha-\beta x_t).\]</span> Igualando a zero, <span class="math display">\[\sum_{t=1}^n x_ty_t=\alpha\sum_{t=1}^n x_t+\beta\sum_{t=1}^n x_t^2.\]</span></p>
+<p>Essas são as <strong>equações normais</strong>.</p>
+<p><strong>Passo 3: resolver o sistema.</strong></p>
+<p>A solução conhecida pode ser escrita como <span class="math display">\[\widehat\beta=\frac{\sum (x_t-\bar x)(y_t-\bar y)}{\sum (x_t-\bar x)^2}, \qquad \widehat\alpha=\bar y-\widehat\beta\bar x.\]</span></p>
+<p>Logo, os estimadores de mínimos quadrados são <span class="math display">\[\boxed{\widehat\beta=\frac{\sum (x_t-\bar x)(y_t-\bar y)}{\sum (x_t-\bar x)^2}} \qquad\text{e}\qquad \boxed{\widehat\alpha=\bar y-\widehat\beta\bar x.}\]</span></p>
+<p><strong>b) Aplicação aos dados.</strong></p>
+<p>Os pares <span class="math inline">\((x_t, y_t)\)</span> fornecidos são:</p>
+<ul>
+<li><span class="math inline">\(x_t=1{,}5 \implies y_t=66{,}8\)</span></li>
+<li><span class="math inline">\(x_t=1{,}8 \implies y_t=67{,}0\)</span></li>
+<li><span class="math inline">\(x_t=1{,}6 \implies y_t=66{,}9\)</span></li>
+<li><span class="math inline">\(x_t=2{,}5 \implies y_t=67{,}6\)</span></li>
+<li><span class="math inline">\(x_t=4{,}0 \implies y_t=68{,}9\)</span></li>
+<li><span class="math inline">\(x_t=3{,}8 \implies y_t=68{,}7\)</span></li>
+<li><span class="math inline">\(x_t=4{,}5 \implies y_t=69{,}3\)</span></li>
+<li><span class="math inline">\(x_t=5{,}1 \implies y_t=69{,}8\)</span></li>
+<li><span class="math inline">\(x_t=6{,}5 \implies y_t=71{,}0\)</span></li>
+<li><span class="math inline">\(x_t=6{,}0 \implies y_t=70{,}6\)</span></li>
+</ul>
+<p><strong>Passo 1: calcular as médias.</strong> <span class="math display">\[\bar x=3{,}73, \qquad \bar y=68{,}66.\]</span></p>
+<p><strong>Passo 2: calcular os somatórios centrais.</strong> <span class="math display">\[\sum (x_t-\bar x)^2=30{,}121,\]</span> <span class="math display">\[\sum (x_t-\bar x)(y_t-\bar y)=25{,}412.\]</span></p>
+<p><strong>Passo 3: calcular o coeficiente angular.</strong> <span class="math display">\[\widehat\beta=\frac{25{,}412}{30{,}121}\approx 0{,}8437.\]</span></p>
+<p><strong>Passo 4: calcular o intercepto.</strong> <span class="math display">\[\widehat\alpha=68{,}66-0{,}8437\cdot 3{,}73.\]</span> Logo, <span class="math display">\[\widehat\alpha\approx 65{,}5131.\]</span></p>
+<p>Portanto, a reta estimada é <span class="math display">\[\boxed{\widehat y=65{,}5131+0{,}8437x.}\]</span></p>
+<p><strong>Interpretação econômica:</strong> o coeficiente <span class="math inline">\(\widehat\beta\approx 0{,}8437\)</span> indica que um aumento de 1 unidade em <span class="math inline">\(x\)</span> está associado, em média, a um aumento aproximado de <span class="math inline">\(0{,}84\)</span> unidade em <span class="math inline">\(y\)</span>. Em linguagem econômica, ele mede o efeito marginal estimado de <span class="math inline">\(x\)</span> sobre <span class="math inline">\(y\)</span> dentro do ajuste linear proposto.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="exercício-4-morettin-bussab-cap.-11-ex.-10" class="level3" data-number="13.6.4">
+<h3 data-number="13.6.4" class="anchored" data-anchor-id="exercício-4-morettin-bussab-cap.-11-ex.-10"><span class="header-section-number">13.6.4</span> Exercício 4 (Morettin &amp; Bussab, cap. 11, ex. 10)</h3>
+<p><strong>Tema:</strong> Função de verossimilhança na binomial.</p>
+<p>Na função de verossimilhança <span class="math inline">\(L(p)\)</span> da binomial, suponha que <span class="math inline">\(n=5\)</span> e <span class="math inline">\(x=3\)</span>.</p>
+<ol type="a">
+<li><p>Construa o gráfico da função para os possíveis valores <span class="math display">\[p=\frac{1}{5},\ \frac{2}{5},\ \frac{3}{5},\ \frac{4}{5}.\]</span></p></li>
+<li><p>Verifique que o máximo ocorre realmente para <span class="math display">\[p=\frac{3}{5}.\]</span></p></li>
+</ol>
+<p><strong>Interpretação econômica pedida:</strong> explique por que a máxima verossimilhança escolhe o valor do parâmetro que torna os dados observados mais plausíveis.</p>
+<div class="callout callout-style-default callout-caution no-icon callout-titled" title="RESPOSTA">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-21-contents" aria-controls="callout-21" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Caution</span>RESPOSTA
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-21" class="callout-21-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Na distribuição binomial com <span class="math inline">\(n=5\)</span> e número observado de sucessos <span class="math inline">\(x=3\)</span>, a função de verossimilhança para <span class="math inline">\(p\)</span> é <span class="math display">\[L(p)=\binom{5}{3}p^3(1-p)^2.\]</span></p>
+<p>Como <span class="math display">\[\binom{5}{3}=10,\]</span> podemos escrever <span class="math display">\[L(p)=10p^3(1-p)^2.\]</span></p>
+<p><strong>a) Cálculo da verossimilhança nos valores pedidos.</strong></p>
+<p>Para <span class="math inline">\(p=\tfrac{1}{5}\)</span>: <span class="math display">\[L\!\left(\frac{1}{5}\right)=10\left(\frac{1}{5}\right)^3\left(\frac{4}{5}\right)^2 =10\cdot \frac{1}{125}\cdot \frac{16}{25} =\frac{160}{3125}=0{,}0512.\]</span></p>
+<p>Para <span class="math inline">\(p=\tfrac{2}{5}\)</span>: <span class="math display">\[L\!\left(\frac{2}{5}\right)=10\left(\frac{2}{5}\right)^3\left(\frac{3}{5}\right)^2 =10\cdot \frac{8}{125}\cdot \frac{9}{25} =\frac{720}{3125}=0{,}2304.\]</span></p>
+<p>Para <span class="math inline">\(p=\tfrac{3}{5}\)</span>: <span class="math display">\[L\!\left(\frac{3}{5}\right)=10\left(\frac{3}{5}\right)^3\left(\frac{2}{5}\right)^2 =10\cdot \frac{27}{125}\cdot \frac{4}{25} =\frac{1080}{3125}=0{,}3456.\]</span></p>
+<p>Para <span class="math inline">\(p=\tfrac{4}{5}\)</span>: <span class="math display">\[L\!\left(\frac{4}{5}\right)=10\left(\frac{4}{5}\right)^3\left(\frac{1}{5}\right)^2 =10\cdot \frac{64}{125}\cdot \frac{1}{25} =\frac{640}{3125}=0{,}2048.\]</span></p>
+<p>Resumindo:</p>
+<ul>
+<li><span class="math inline">\(p=\tfrac{1}{5} \implies L(p) = 0{,}0512\)</span></li>
+<li><span class="math inline">\(p=\tfrac{2}{5} \implies L(p) = 0{,}2304\)</span></li>
+<li><span class="math inline">\(p=\tfrac{3}{5} \implies L(p) = 0{,}3456\)</span></li>
+<li><span class="math inline">\(p=\tfrac{4}{5} \implies L(p) = 0{,}2048\)</span></li>
+</ul>
+<p>Entre esses valores, o maior é <span class="math display">\[\boxed{L\!\left(\frac{3}{5}\right)=0{,}3456.}\]</span></p>
+<p><strong>b) Verificação de que o máximo ocorre em <span class="math inline">\(p=\tfrac{3}{5}\)</span>.</strong></p>
+<p>Há duas formas de justificar isso.</p>
+<p><strong>Forma 1: comparação direta</strong> com os valores do item anterior. Como <span class="math inline">\(0{,}3456\)</span> é o maior valor calculado, o máximo entre os pontos pedidos ocorre em <span class="math display">\[\boxed{p=\frac{3}{5}.}\]</span></p>
+<p><strong>Forma 2: argumento analítico.</strong></p>
+<p>Para a binomial, o EMV de <span class="math inline">\(p\)</span> é <span class="math display">\[\widehat p=\frac{x}{n}.\]</span> Como aqui <span class="math inline">\(x=3\)</span> e <span class="math inline">\(n=5\)</span>, <span class="math display">\[\widehat p=\frac{3}{5}.\]</span></p>
+<p>Se quisermos ver isso pela derivada, podemos maximizar o logaritmo da verossimilhança: <span class="math display">\[\ell(p)=\ln L(p)=\ln 10 + 3\ln p + 2\ln(1-p).\]</span></p>
+<p>Derivando: <span class="math display">\[\ell'(p)=\frac{3}{p}-\frac{2}{1-p}.\]</span></p>
+<p>Igualando a zero: <span class="math display">\[\frac{3}{p}=\frac{2}{1-p} \quad\Longrightarrow\quad 3(1-p)=2p \quad\Longrightarrow\quad 3=5p \quad\Longrightarrow\quad p=\frac{3}{5}.\]</span></p>
+<p>A segunda derivada é <span class="math display">\[\ell''(p)=-\frac{3}{p^2}-\frac{2}{(1-p)^2}&lt;0,\]</span> para todo <span class="math inline">\(p\in(0,1)\)</span>. Logo, o ponto crítico encontrado é realmente um <strong>máximo</strong>.</p>
+<p><strong>Interpretação econômica:</strong> a máxima verossimilhança escolhe o valor do parâmetro que torna os dados observados mais plausíveis. Em termos intuitivos, entre vários valores possíveis de <span class="math inline">\(p\)</span>, escolhemos aquele que “explica melhor” a amostra efetivamente observada.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="exercício-5-morettin-bussab-cap.-11-ex.-11" class="level3" data-number="13.6.5">
+<h3 data-number="13.6.5" class="anchored" data-anchor-id="exercício-5-morettin-bussab-cap.-11-ex.-11"><span class="header-section-number">13.6.5</span> Exercício 5 (Morettin &amp; Bussab, cap. 11, ex. 11)</h3>
+<p><strong>Tema:</strong> EMV na distribuição geométrica.</p>
+<p>Observa-se uma sequência de ensaios de Bernoulli, independentes, com parâmetro <span class="math inline">\(p\)</span>, até a ocorrência do primeiro sucesso. Se <span class="math inline">\(X\)</span> indicar o número de ensaios necessários e <span class="math display">\[P(X=x)=(1-p)^{x-1}p,\]</span> responda:</p>
+<ol type="a">
+<li><p>Repetiu-se esse experimento <span class="math inline">\(n\)</span> vezes e, em cada repetição, os números de ensaios necessários foram <span class="math inline">\(x_1,x_2,\ldots,x_n\)</span>. Encontre o estimador de máxima verossimilhança para <span class="math inline">\(p\)</span>.</p></li>
+<li><p>Usando uma moeda, repetiu-se esse experimento 5 vezes, e os números de ensaios necessários até a ocorrência da primeira coroa foram 2, 3, 1, 4, 1. Qual é a estimativa de máxima verossimilhança para <span class="math inline">\(p\)</span>, a probabilidade de ocorrência de coroa nessa moeda? Existiria outra maneira de estimar <span class="math inline">\(p\)</span>?</p></li>
+</ol>
+<p><strong>Interpretação econômica pedida:</strong> relacione <span class="math inline">\(p\)</span> à probabilidade de ocorrência de um evento de interesse em tentativas repetidas.</p>
+<div class="callout callout-style-default callout-caution no-icon callout-titled" title="RESPOSTA">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-22-contents" aria-controls="callout-22" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Caution</span>RESPOSTA
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-22" class="callout-22-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>A distribuição geométrica é dada por <span class="math display">\[P(X=x)=(1-p)^{x-1}p, \qquad x=1,2,3,\dots\]</span></p>
+<p><strong>a) Derivação do EMV de <span class="math inline">\(p\)</span>.</strong></p>
+<p>Suponha uma amostra <span class="math inline">\(x_1,x_2,\dots,x_n\)</span> de observações independentes com essa distribuição.</p>
+<p><strong>Passo 1: escrever a verossimilhança.</strong> <span class="math display">\[L(p)=\prod_{i=1}^n (1-p)^{x_i-1}p.\]</span></p>
+<p>Como cada observação contribui com um fator <span class="math inline">\(p\)</span> e com uma potência de <span class="math inline">\((1-p)\)</span>, podemos reorganizar: <span class="math display">\[L(p)=p^n(1-p)^{\sum_{i=1}^n x_i-n}.\]</span></p>
+<p><strong>Passo 2: tomar logaritmo.</strong> <span class="math display">\[\ell(p)=\ln L(p)=n\ln p + \left(\sum_{i=1}^n x_i-n\right)\ln(1-p).\]</span></p>
+<p><strong>Passo 3: derivar.</strong> <span class="math display">\[\ell'(p)=\frac{n}{p}-\frac{\sum x_i-n}{1-p}.\]</span></p>
+<p><strong>Passo 4: igualar a zero.</strong> <span class="math display">\[\frac{n}{p}=\frac{\sum x_i-n}{1-p}.\]</span></p>
+<p>Multiplicando em cruz: <span class="math display">\[n(1-p)=p\left(\sum x_i-n\right).\]</span></p>
+<p>Desenvolvendo o lado esquerdo: <span class="math display">\[n-np=p\sum x_i-pn.\]</span></p>
+<p>Somando <span class="math inline">\(np\)</span> aos dois lados, obtemos: <span class="math display">\[n=p\sum x_i.\]</span></p>
+<p>Portanto, <span class="math display">\[\widehat p_{MV}=\frac{n}{\sum_{i=1}^n x_i}.\]</span></p>
+<p>Como <span class="math display">\[\bar x=\frac{1}{n}\sum_{i=1}^n x_i,\]</span> também podemos escrever <span class="math display">\[\boxed{\widehat p_{MV}=\frac{1}{\bar x}.}\]</span></p>
+<p><strong>Passo 5: verificar que é máximo.</strong></p>
+<p>A segunda derivada é <span class="math display">\[\ell''(p)=-\frac{n}{p^2}-\frac{\sum x_i-n}{(1-p)^2}&lt;0,\]</span> para <span class="math inline">\(0&lt;p&lt;1\)</span>. Logo, o ponto crítico encontrado é realmente um <strong>máximo</strong>.</p>
+<p><strong>b) Aplicação aos dados observados.</strong></p>
+<p>Os valores observados são 2, 3, 1, 4, 1.</p>
+<p>Assim, <span class="math display">\[\sum x_i=2+3+1+4+1=11, \qquad n=5.\]</span></p>
+<p>Logo, <span class="math display">\[\widehat p_{MV}=\frac{5}{11}\approx 0{,}4545.\]</span></p>
+<p>Portanto, <span class="math display">\[\boxed{\widehat p_{MV}=\frac{5}{11}\approx 0{,}4545.}\]</span></p>
+<p><strong>Outra forma de estimar <span class="math inline">\(p\)</span>.</strong></p>
+<p>Sim. Podemos usar o <strong>método dos momentos</strong>. Para a geométrica definida como número de ensaios até o primeiro sucesso, <span class="math display">\[E(X)=\frac{1}{p}.\]</span></p>
+<p>Igualando a esperança teórica à média amostral: <span class="math display">\[\bar X=\frac{1}{p} \quad\Longrightarrow\quad \widehat p_{MM}=\frac{1}{\bar X}.\]</span></p>
+<p>Como aqui <span class="math display">\[\bar X=\frac{11}{5},\]</span> temos <span class="math display">\[\widehat p_{MM}=\frac{1}{11/5}=\frac{5}{11}.\]</span></p>
+<p>Logo, neste caso, <span class="math display">\[\boxed{\widehat p_{MM}=\widehat p_{MV}=\frac{5}{11}.}\]</span></p>
+<p><strong>Interpretação econômica:</strong> em aplicações econômicas, esse tipo de modelo aparece quando se conta quantas tentativas são necessárias até ocorrer um evento, como uma venda, a adesão a um produto, o primeiro inadimplente ou a chegada de uma operação. O parâmetro <span class="math inline">\(p\)</span> mede a chance de ocorrência do evento em cada tentativa.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="exercício-6-morettin-bussab-cap.-11-ex.-12" class="level3" data-number="13.6.6">
+<h3 data-number="13.6.6" class="anchored" data-anchor-id="exercício-6-morettin-bussab-cap.-11-ex.-12"><span class="header-section-number">13.6.6</span> Exercício 6 (Morettin &amp; Bussab, cap. 11, ex. 12)</h3>
+<p><strong>Tema:</strong> EMV na distribuição normal com variância conhecida.</p>
+<p>Suponha que <span class="math inline">\(X\)</span> seja uma v.a. com distribuição normal, com média <span class="math inline">\(\mu\)</span> e variância 1. Obtenha o estimador de máxima verossimilhança de <span class="math inline">\(\mu\)</span>, para uma amostra de tamanho <span class="math inline">\(n\)</span>, <span class="math display">\[(x_1,\ldots,x_n).\]</span></p>
+<p><strong>Interpretação econômica pedida:</strong> explique por que a média amostral aparece naturalmente como estimador central nesse contexto.</p>
+<div class="callout callout-style-default callout-caution no-icon callout-titled" title="RESPOSTA">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-23-contents" aria-controls="callout-23" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Caution</span>RESPOSTA
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-23" class="callout-23-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Seja uma amostra <span class="math display">\[X_1,\dots,X_n\sim N(\mu,1),\]</span> isto é, distribuição normal com média desconhecida <span class="math inline">\(\mu\)</span> e variância conhecida igual a 1.</p>
+<p>Queremos obter o estimador de máxima verossimilhança de <span class="math inline">\(\mu\)</span>.</p>
+<p><strong>Passo 1: escrever a densidade de cada observação.</strong></p>
+<p>Para cada <span class="math inline">\(X_i\)</span>, <span class="math display">\[f(x_i;\mu)=\frac{1}{\sqrt{2\pi}}\exp\left[-\frac{(x_i-\mu)^2}{2}\right].\]</span></p>
+<p><strong>Passo 2: escrever a verossimilhança conjunta.</strong></p>
+<p>Como as observações são independentes, <span class="math display">\[L(\mu)=\prod_{i=1}^n \frac{1}{\sqrt{2\pi}}\exp\left[-\frac{(x_i-\mu)^2}{2}\right].\]</span></p>
+<p>Logo, <span class="math display">\[L(\mu)=(2\pi)^{-n/2}\exp\left[-\frac{1}{2}\sum_{i=1}^n (x_i-\mu)^2\right].\]</span></p>
+<p><strong>Passo 3: tomar logaritmo.</strong></p>
+<p>O logaritmo da verossimilhança é <span class="math display">\[\ell(\mu)=-\frac{n}{2}\ln(2\pi)-\frac{1}{2}\sum_{i=1}^n (x_i-\mu)^2.\]</span></p>
+<p>Como o primeiro termo não depende de <span class="math inline">\(\mu\)</span>, maximizar <span class="math inline">\(\ell(\mu)\)</span> equivale a minimizar <span class="math display">\[\sum_{i=1}^n (x_i-\mu)^2.\]</span></p>
+<p>Mas essa é exatamente a mesma função da SQR que aparece no problema de mínimos quadrados com intercepto apenas.</p>
+<p><strong>Passo 4: derivar em relação a <span class="math inline">\(\mu\)</span>.</strong></p>
+<p>Derivando a log-verossimilhança: <span class="math display">\[\ell'(\mu)=\sum_{i=1}^n (x_i-\mu).\]</span></p>
+<p>Igualando a zero: <span class="math display">\[\sum_{i=1}^n (x_i-\mu)=0 \quad\Longrightarrow\quad \sum_{i=1}^n x_i-n\mu=0.\]</span></p>
+<p>Daí, <span class="math display">\[\mu=\frac{1}{n}\sum_{i=1}^n x_i=\bar x.\]</span></p>
+<p>Portanto, o estimador de máxima verossimilhança é <span class="math display">\[\boxed{\widehat\mu_{MV}=\bar X.}\]</span></p>
+<p><strong>Passo 5: verificar que se trata de máximo.</strong></p>
+<p>A segunda derivada da log-verossimilhança é <span class="math display">\[\ell''(\mu)=-n&lt;0.\]</span></p>
+<p>Como a segunda derivada é negativa, o ponto crítico encontrado é de fato um <strong>máximo</strong>.</p>
+<p><strong>Interpretação econômica:</strong> quando os dados são aproximadamente normais, a média amostral surge de forma natural como o valor central que melhor resume a amostra. Ela minimiza os desvios quadráticos (SQR) e, ao mesmo tempo, maximiza a plausibilidade da amostra sob o modelo normal.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="exercício-7-morettin-bussab-cap.-11-ex.-13" class="level3" data-number="13.6.7">
+<h3 data-number="13.6.7" class="anchored" data-anchor-id="exercício-7-morettin-bussab-cap.-11-ex.-13"><span class="header-section-number">13.6.7</span> Exercício 7 (Morettin &amp; Bussab, cap. 11, ex. 13)</h3>
+<p><strong>Tema:</strong> EMV na distribuição de Poisson.</p>
+<p>Considere <span class="math inline">\(Y\)</span> uma v.a. com distribuição de Poisson, com parâmetro <span class="math inline">\(\lambda&gt;0\)</span>. Obtenha o estimador de máxima verossimilhança de <span class="math inline">\(\lambda\)</span>, baseado em uma amostra de tamanho <span class="math inline">\(n\)</span>.</p>
+<p><strong>Interpretação econômica pedida:</strong> interprete <span class="math inline">\(\lambda\)</span> como intensidade média de ocorrência de eventos em um intervalo.</p>
+<div class="callout callout-style-default callout-caution no-icon callout-titled" title="RESPOSTA">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-24-contents" aria-controls="callout-24" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Caution</span>RESPOSTA
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-24" class="callout-24-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Seja uma amostra <span class="math display">\[Y_1,\dots,Y_n\sim \mathrm{Poisson}(\lambda), \qquad \lambda&gt;0.\]</span></p>
+<p>Queremos obter o estimador de máxima verossimilhança de <span class="math inline">\(\lambda\)</span>.</p>
+<p><strong>Passo 1: escrever a função de probabilidade de cada observação.</strong></p>
+<p>Para cada <span class="math inline">\(Y_i\)</span>, <span class="math display">\[P(Y_i=y_i)=\frac{e^{-\lambda}\lambda^{y_i}}{y_i!}.\]</span></p>
+<p><strong>Passo 2: escrever a verossimilhança conjunta.</strong></p>
+<p>Pela independência, <span class="math display">\[L(\lambda)=\prod_{i=1}^n \frac{e^{-\lambda}\lambda^{y_i}}{y_i!}.\]</span></p>
+<p>Agrupando os termos que dependem de <span class="math inline">\(\lambda\)</span>: <span class="math display">\[L(\lambda)=e^{-n\lambda}\lambda^{\sum_{i=1}^n y_i}\prod_{i=1}^n\frac{1}{y_i!}.\]</span></p>
+<p><strong>Passo 3: tomar logaritmo.</strong></p>
+<p>A log-verossimilhança é <span class="math display">\[\ell(\lambda)=-n\lambda+\left(\sum_{i=1}^n y_i\right)\ln \lambda-\sum_{i=1}^n \ln(y_i!).\]</span></p>
+<p><strong>Passo 4: derivar.</strong></p>
+<p>Derivando em relação a <span class="math inline">\(\lambda\)</span>: <span class="math display">\[\ell'(\lambda)=-n+\frac{\sum y_i}{\lambda}.\]</span></p>
+<p>Igualando a zero: <span class="math display">\[-n+\frac{\sum y_i}{\lambda}=0.\]</span></p>
+<p>Logo, <span class="math display">\[\frac{\sum y_i}{\lambda}=n \quad\Longrightarrow\quad \lambda=\frac{1}{n}\sum_{i=1}^n y_i.\]</span></p>
+<p>Portanto, <span class="math display">\[\boxed{\widehat\lambda_{MV}=\bar Y.}\]</span></p>
+<p><strong>Passo 5: verificar que se trata de máximo.</strong></p>
+<p>A segunda derivada é <span class="math display">\[\ell''(\lambda)=-\frac{\sum y_i}{\lambda^2}&lt;0,\]</span> sempre que <span class="math inline">\(\lambda&gt;0\)</span> e a amostra não seja identicamente nula. Mesmo no caso extremo em que todos os <span class="math inline">\(y_i=0\)</span>, a verossimilhança é decrescente em <span class="math inline">\(\lambda\)</span> e o máximo ocorre no limite em <span class="math inline">\(\lambda=0\)</span>, coerente com a média amostral nula.</p>
+<p>Assim, no caso usual, o ponto crítico encontrado corresponde a um <strong>máximo</strong>.</p>
+<p><strong>Interpretação econômica:</strong> em modelos de contagem, <span class="math inline">\(\lambda\)</span> representa a intensidade média de ocorrência de eventos por unidade de tempo, espaço ou grupo. Por isso, é natural que o EMV seja simplesmente a média observada de ocorrências na amostra.</p>
+</div>
+</div>
+</div>
 
 
 </section>
