@@ -84,7 +84,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-6f4c31e05982fe9d7c1d5110dfef5365.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-bada4888e1821ca98fecbe3e3df07ffb.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-1d629359a716e699c141289dfd6753d2.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -308,7 +308,7 @@ window.Quarto = {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../cap/cap9_convergencia.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">—</span></span></a>
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Modos de Convergência</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -545,6 +545,14 @@ Figura&nbsp;10.3: Tipos de amostragem aleatórias
 <span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>     <span class="at">xlab=</span><span class="st">"x"</span>,<span class="at">main=</span><span class="st">""</span>, <span class="at">xlim=</span><span class="fu">c</span>(<span class="dv">150</span>, <span class="dv">190</span>), <span class="at">breaks=</span><span class="dv">20</span>)</span>
 <span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(xi, <span class="at">col=</span><span class="st">"wheat4"</span>, <span class="at">border=</span><span class="st">"white"</span>,<span class="at">freq =</span> <span class="cn">FALSE</span>, <span class="at">ylab=</span><span class="st">"Densidade"</span>,</span>
 <span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>     <span class="at">xlab=</span><span class="st">"xi"</span>,<span class="at">main=</span><span class="st">""</span>, <span class="at">xlim=</span><span class="fu">c</span>(<span class="dv">150</span>, <span class="dv">190</span>),<span class="at">breaks=</span><span class="dv">20</span>)</span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="cap8_inferencia_files/figure-html/unnamed-chunk-1-1.png" class="img-fluid figure-img" style="width:70.0%"></p>
+<figcaption>Distribui&lt;U+00E7&gt;&lt;U+00E3&gt;o de probabilidade de X e da primeira medi&lt;U+00E7&gt;&lt;U+00E3&gt;o de X, ou seja, Xi</figcaption>
+</figure>
+</div>
+</div>
 </div>
 <div class="callout callout-style-default callout-tip no-icon callout-titled" title="EXEMPLO">
 <div class="callout-header d-flex align-content-center">
@@ -773,63 +781,97 @@ Figura&nbsp;10.3: Tipos de amostragem aleatórias
 <span id="cb2-48"><a href="#cb2-48" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(var_amostral150, <span class="at">col=</span><span class="st">"palegreen3"</span>, <span class="at">freq =</span> <span class="cn">FALSE</span>, <span class="at">breaks =</span> <span class="dv">25</span>, <span class="at">main=</span><span class="st">""</span>,</span>
 <span id="cb2-49"><a href="#cb2-49" aria-hidden="true" tabindex="-1"></a>     <span class="at">xlim=</span><span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">50</span>), <span class="at">ylab=</span><span class="st">"Densidade"</span>, <span class="at">xlab=</span><span class="st">"Variância para n=150"</span>,</span>
 <span id="cb2-50"><a href="#cb2-50" aria-hidden="true" tabindex="-1"></a>     <span class="at">border=</span><span class="st">"palegreen3"</span>)</span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="cap8_inferencia_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid figure-img" style="width:70.0%"></p>
+<figcaption>Distribui&lt;U+00E7&gt;&lt;U+00E3&gt;o amostral da m&lt;U+00E9&gt;dia para diferentes tamanos amostrais</figcaption>
+</figure>
+</div>
+</div>
 </div>
 <p>Vamos agora calcular as médias para cada uma das variáveis que criamos. Ou seja, vamos fazer a <span class="math inline">\(E(\overline{X})\)</span></p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Vamos fazer a media das medias calculadas para 15, 50 e 150 com </span></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>  <span class="co"># 2 mil rodadas de amostragem</span></span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(xbar15)</span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(xbar50)</span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(xbar150)</span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(xbar15)</span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 166.2559</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(xbar50)</span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 166.2715</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(xbar150)</span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 166.2765</code></pre>
+</div>
 </div>
 <p>Observe que todas ficaram muito próximas da verdadeira esperança da população, mostrando empiricamente o teorema apresentado. Pode-se verificar também a variância amostral <span class="math inline">\(Var(\overline{X})=\frac{\sigma^{2}}{n}\)</span>. Vejamos:</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Vamos fazer a variância das médias calculadas para 15, 50 e 150 com </span></span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>  <span class="co"># 2 mil rodadas de amostragem</span></span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="fu">var</span>(xbar15)</span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="fu">var</span>(xbar50)</span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="fu">var</span>(xbar150)</span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Vamos fazer a variância das médias calculadas para 15, 50 e 150 com </span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>  <span class="co"># 2 mil rodadas de amostragem</span></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="fu">var</span>(xbar15)</span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 1.228884</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">var</span>(xbar50)</span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.3513157</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">var</span>(xbar150)</span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.1216317</code></pre>
+</div>
 </div>
 <p>Percebemos que a partir que o tamanho amostral vai aumentando o resultado vai convergindo para <span class="math inline">\(Var(\overline{X})=\frac{\sigma^{2}}{n}\)</span>, lembre-se que <span class="math inline">\(\sigma^{2}=25\)</span> para a simulação feita.</p>
 <p>Importante ressaltar que esse resultado para a distribuição da média, ou seja <span class="math inline">\(\overline{X}\)</span> é valido para qualquer distribuição de <span class="math inline">\(X\)</span>. Veja o caso abaixo onde temos <span class="math inline">\(X\)</span> que possui uma distribuiçõ <span class="math inline">\(\chi^2\)</span> com 3 graus de liberdade.</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Distribuição amostral da média quando X tem dist Chi-Quadrado. </span></span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Simulando uma distribuição chiquadrado</span></span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>x_chisq<span class="ot">&lt;-</span><span class="fu">rchisq</span>(<span class="dv">100000</span>,<span class="at">df=</span><span class="dv">3</span>)</span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="co">#Inicializando as variaveis como vetores numericos</span></span>
-<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a><span class="do">## Media e variancia para amostras de tam 15</span></span>
-<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>x_chi4<span class="ot">&lt;-</span><span class="fu">numeric</span>()</span>
-<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a><span class="do">## Media e variancia para amostras de tam 300</span></span>
-<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>x_chi30<span class="ot">&lt;-</span><span class="fu">numeric</span>()</span>
-<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a><span class="do">## Media e variancia para amostras de tam 1000</span></span>
-<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>x_chi1000<span class="ot">&lt;-</span><span class="fu">numeric</span>()</span>
-<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> ( i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">2000</span>){</span>
-<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a>  smp<span class="ot">&lt;-</span><span class="fu">sample</span>(x_chisq,<span class="at">size =</span> <span class="dv">4</span>)</span>
-<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a>  x_chi4[i]<span class="ot">&lt;-</span><span class="fu">mean</span>(x_chisq[smp])</span>
-<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb5-17"><a href="#cb5-17" aria-hidden="true" tabindex="-1"></a>  smp<span class="ot">&lt;-</span><span class="fu">sample</span>(x_chisq,<span class="at">size =</span> <span class="dv">30</span>)</span>
-<span id="cb5-18"><a href="#cb5-18" aria-hidden="true" tabindex="-1"></a>  x_chi30[i]<span class="ot">&lt;-</span><span class="fu">mean</span>(x_chisq[smp])</span>
-<span id="cb5-19"><a href="#cb5-19" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-20"><a href="#cb5-20" aria-hidden="true" tabindex="-1"></a>  smp<span class="ot">&lt;-</span><span class="fu">sample</span>(x_chisq,<span class="at">size =</span> <span class="dv">1000</span>)</span>
-<span id="cb5-21"><a href="#cb5-21" aria-hidden="true" tabindex="-1"></a>  x_chi1000[i]<span class="ot">&lt;-</span><span class="fu">mean</span>(x_chisq[smp])</span>
-<span id="cb5-22"><a href="#cb5-22" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-23"><a href="#cb5-23" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb5-24"><a href="#cb5-24" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-25"><a href="#cb5-25" aria-hidden="true" tabindex="-1"></a><span class="do">##  Figura </span></span>
-<span id="cb5-26"><a href="#cb5-26" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mfrow=</span><span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">4</span>))</span>
-<span id="cb5-27"><a href="#cb5-27" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(x_chisq, <span class="at">col=</span><span class="st">"gray"</span>, <span class="at">border=</span><span class="st">"gray"</span>,<span class="at">freq =</span> <span class="cn">FALSE</span>, <span class="at">main=</span><span class="st">""</span>,</span>
-<span id="cb5-28"><a href="#cb5-28" aria-hidden="true" tabindex="-1"></a>     <span class="at">ylab=</span><span class="st">"Densidade de X"</span>, <span class="at">xlab=</span><span class="st">"x"</span>)</span>
-<span id="cb5-29"><a href="#cb5-29" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(x_chi4, <span class="at">col=</span><span class="st">"steelblue3"</span>, <span class="at">freq =</span> <span class="cn">FALSE</span>, <span class="at">breaks =</span> <span class="dv">20</span>, <span class="at">main=</span><span class="st">""</span>,</span>
-<span id="cb5-30"><a href="#cb5-30" aria-hidden="true" tabindex="-1"></a>      <span class="at">ylab=</span><span class="st">"Densidade Média"</span>, <span class="at">xlab=</span><span class="st">"Média para n=4"</span>,</span>
-<span id="cb5-31"><a href="#cb5-31" aria-hidden="true" tabindex="-1"></a>     <span class="at">border=</span><span class="st">"steelblue3"</span>)</span>
-<span id="cb5-32"><a href="#cb5-32" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(x_chi30, <span class="at">col=</span><span class="st">"wheat4"</span>, <span class="at">freq =</span> <span class="cn">FALSE</span>, <span class="at">breaks =</span> <span class="dv">20</span>, <span class="at">main=</span><span class="st">""</span>,</span>
-<span id="cb5-33"><a href="#cb5-33" aria-hidden="true" tabindex="-1"></a>      <span class="at">ylab=</span><span class="st">"Densidade Média"</span>, <span class="at">xlab=</span><span class="st">"Média para n=30"</span>, </span>
-<span id="cb5-34"><a href="#cb5-34" aria-hidden="true" tabindex="-1"></a>     <span class="at">border=</span><span class="st">"wheat4"</span>)</span>
-<span id="cb5-35"><a href="#cb5-35" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(x_chi1000, <span class="at">col=</span><span class="st">"palegreen3"</span>, <span class="at">freq =</span> <span class="cn">FALSE</span>, <span class="at">breaks =</span> <span class="dv">20</span>, <span class="at">main=</span><span class="st">""</span>,</span>
-<span id="cb5-36"><a href="#cb5-36" aria-hidden="true" tabindex="-1"></a>      <span class="at">ylab=</span><span class="st">"Densidade Média"</span>, <span class="at">xlab=</span><span class="st">"Média para n=300"</span>,</span>
-<span id="cb5-37"><a href="#cb5-37" aria-hidden="true" tabindex="-1"></a>     <span class="at">border=</span><span class="st">"palegreen3"</span>)</span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Distribuição amostral da média quando X tem dist Chi-Quadrado. </span></span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Simulando uma distribuição chiquadrado</span></span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>x_chisq<span class="ot">&lt;-</span><span class="fu">rchisq</span>(<span class="dv">100000</span>,<span class="at">df=</span><span class="dv">3</span>)</span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a><span class="co">#Inicializando as variaveis como vetores numericos</span></span>
+<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a><span class="do">## Media e variancia para amostras de tam 15</span></span>
+<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a>x_chi4<span class="ot">&lt;-</span><span class="fu">numeric</span>()</span>
+<span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a><span class="do">## Media e variancia para amostras de tam 300</span></span>
+<span id="cb15-9"><a href="#cb15-9" aria-hidden="true" tabindex="-1"></a>x_chi30<span class="ot">&lt;-</span><span class="fu">numeric</span>()</span>
+<span id="cb15-10"><a href="#cb15-10" aria-hidden="true" tabindex="-1"></a><span class="do">## Media e variancia para amostras de tam 1000</span></span>
+<span id="cb15-11"><a href="#cb15-11" aria-hidden="true" tabindex="-1"></a>x_chi1000<span class="ot">&lt;-</span><span class="fu">numeric</span>()</span>
+<span id="cb15-12"><a href="#cb15-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-13"><a href="#cb15-13" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> ( i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">2000</span>){</span>
+<span id="cb15-14"><a href="#cb15-14" aria-hidden="true" tabindex="-1"></a>  smp<span class="ot">&lt;-</span><span class="fu">sample</span>(x_chisq,<span class="at">size =</span> <span class="dv">4</span>)</span>
+<span id="cb15-15"><a href="#cb15-15" aria-hidden="true" tabindex="-1"></a>  x_chi4[i]<span class="ot">&lt;-</span><span class="fu">mean</span>(x_chisq[smp])</span>
+<span id="cb15-16"><a href="#cb15-16" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb15-17"><a href="#cb15-17" aria-hidden="true" tabindex="-1"></a>  smp<span class="ot">&lt;-</span><span class="fu">sample</span>(x_chisq,<span class="at">size =</span> <span class="dv">30</span>)</span>
+<span id="cb15-18"><a href="#cb15-18" aria-hidden="true" tabindex="-1"></a>  x_chi30[i]<span class="ot">&lt;-</span><span class="fu">mean</span>(x_chisq[smp])</span>
+<span id="cb15-19"><a href="#cb15-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-20"><a href="#cb15-20" aria-hidden="true" tabindex="-1"></a>  smp<span class="ot">&lt;-</span><span class="fu">sample</span>(x_chisq,<span class="at">size =</span> <span class="dv">1000</span>)</span>
+<span id="cb15-21"><a href="#cb15-21" aria-hidden="true" tabindex="-1"></a>  x_chi1000[i]<span class="ot">&lt;-</span><span class="fu">mean</span>(x_chisq[smp])</span>
+<span id="cb15-22"><a href="#cb15-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-23"><a href="#cb15-23" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb15-24"><a href="#cb15-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-25"><a href="#cb15-25" aria-hidden="true" tabindex="-1"></a><span class="do">##  Figura </span></span>
+<span id="cb15-26"><a href="#cb15-26" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mfrow=</span><span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">4</span>))</span>
+<span id="cb15-27"><a href="#cb15-27" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(x_chisq, <span class="at">col=</span><span class="st">"gray"</span>, <span class="at">border=</span><span class="st">"gray"</span>,<span class="at">freq =</span> <span class="cn">FALSE</span>, <span class="at">main=</span><span class="st">""</span>,</span>
+<span id="cb15-28"><a href="#cb15-28" aria-hidden="true" tabindex="-1"></a>     <span class="at">ylab=</span><span class="st">"Densidade de X"</span>, <span class="at">xlab=</span><span class="st">"x"</span>)</span>
+<span id="cb15-29"><a href="#cb15-29" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(x_chi4, <span class="at">col=</span><span class="st">"steelblue3"</span>, <span class="at">freq =</span> <span class="cn">FALSE</span>, <span class="at">breaks =</span> <span class="dv">20</span>, <span class="at">main=</span><span class="st">""</span>,</span>
+<span id="cb15-30"><a href="#cb15-30" aria-hidden="true" tabindex="-1"></a>      <span class="at">ylab=</span><span class="st">"Densidade Média"</span>, <span class="at">xlab=</span><span class="st">"Média para n=4"</span>,</span>
+<span id="cb15-31"><a href="#cb15-31" aria-hidden="true" tabindex="-1"></a>     <span class="at">border=</span><span class="st">"steelblue3"</span>)</span>
+<span id="cb15-32"><a href="#cb15-32" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(x_chi30, <span class="at">col=</span><span class="st">"wheat4"</span>, <span class="at">freq =</span> <span class="cn">FALSE</span>, <span class="at">breaks =</span> <span class="dv">20</span>, <span class="at">main=</span><span class="st">""</span>,</span>
+<span id="cb15-33"><a href="#cb15-33" aria-hidden="true" tabindex="-1"></a>      <span class="at">ylab=</span><span class="st">"Densidade Média"</span>, <span class="at">xlab=</span><span class="st">"Média para n=30"</span>, </span>
+<span id="cb15-34"><a href="#cb15-34" aria-hidden="true" tabindex="-1"></a>     <span class="at">border=</span><span class="st">"wheat4"</span>)</span>
+<span id="cb15-35"><a href="#cb15-35" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(x_chi1000, <span class="at">col=</span><span class="st">"palegreen3"</span>, <span class="at">freq =</span> <span class="cn">FALSE</span>, <span class="at">breaks =</span> <span class="dv">20</span>, <span class="at">main=</span><span class="st">""</span>,</span>
+<span id="cb15-36"><a href="#cb15-36" aria-hidden="true" tabindex="-1"></a>      <span class="at">ylab=</span><span class="st">"Densidade Média"</span>, <span class="at">xlab=</span><span class="st">"Média para n=300"</span>,</span>
+<span id="cb15-37"><a href="#cb15-37" aria-hidden="true" tabindex="-1"></a>     <span class="at">border=</span><span class="st">"palegreen3"</span>)</span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="cap8_inferencia_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid figure-img" style="width:70.0%"></p>
+<figcaption>Distribui&lt;U+00E7&gt;&lt;U+00E3&gt;o amostral da m&lt;U+00E9&gt;dia para diferentes tamanos amostrais</figcaption>
+</figure>
+</div>
+</div>
 </div>
 <p>Podemos observar na figura acima que X é bastante assimétrico. Para o primeiro gráfico tiramos amostra de tamanho 4 e perceba que ainda é assimétrica, mas a partir do momento que vamos aumentando o tamanho da amostra, a distribuição de <span class="math inline">\(\overline{X}\)</span> vai ficando mais próxima de uma normal.</p>
 </section>
@@ -1301,8 +1343,8 @@ document.addEventListener("DOMContentLoaded", () => {
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../cap/cap9_convergencia.html" class="pagination-link" aria-label="---">
-        <span class="nav-page-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">—</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../cap/cap9_convergencia.html" class="pagination-link" aria-label="Modos de Convergência">
+        <span class="nav-page-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Modos de Convergência</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

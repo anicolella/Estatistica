@@ -84,7 +84,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-6f4c31e05982fe9d7c1d5110dfef5365.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-bada4888e1821ca98fecbe3e3df07ffb.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-1d629359a716e699c141289dfd6753d2.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -308,7 +308,7 @@ window.Quarto = {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../cap/cap9_convergencia.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">—</span></span></a>
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Modos de Convergência</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -483,6 +483,14 @@ window.Quarto = {
 <span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>                                alpha, <span class="st">"/2"</span>, <span class="st">"=2.5"</span>, <span class="st">"%"</span>)))</span>
 <span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a><span class="fu">text</span>(<span class="sc">-</span><span class="fl">2.5</span>, <span class="fl">0.1</span>, <span class="fu">expression</span>(<span class="fu">paste</span>(<span class="st">"(1-"</span>, gamma , <span class="st">")/2"</span> , <span class="st">"="</span>,</span>
 <span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>                                 alpha, <span class="st">"/2"</span>, <span class="st">"=2.5"</span>, <span class="st">"%"</span>)))</span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="cap12_estimacao_intervalo_files/figure-html/unnamed-chunk-1-1.png" class="img-fluid figure-img" style="width:70.0%"></p>
+<figcaption>Intervalo de confian&lt;U+00E7&gt;a para Normal com n&lt;U+00ED&gt;vel de confian&lt;U+00E7&gt;a de 0.95</figcaption>
+</figure>
+</div>
+</div>
 </div>
 <p>Assim, temos no exemplo <span class="math inline">\(\gamma=0.95\)</span> e <span class="math inline">\(\alpha=1-\gamma\)</span>. Como visto, data a simetria da distribuição dividimos <span class="math inline">\(\alpha\)</span> igualmente entre as duas caldas da distribuição, ou seja, <span class="math inline">\(\frac{\alpha}{2}=0.025\)</span>. De uma maneira genérica podemos proceder da seguinte maneira:</p>
 <p><span class="math display">\[\begin{array}{clc}
@@ -567,14 +575,32 @@ Figura&nbsp;14.1: Intervalo de Confiança para a Esperança
 <span id="cb2-44"><a href="#cb2-44" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">""</span>) <span class="sc">+</span> <span class="fu">scale_y_continuous</span>(<span class="at">breaks =</span> <span class="cn">NULL</span>)<span class="sc">+</span></span>
 <span id="cb2-45"><a href="#cb2-45" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_vline</span>(<span class="at">xintercept =</span> <span class="dv">51960</span>, <span class="at">linetype =</span> <span class="st">"dashed"</span>, <span class="at">color =</span> <span class="st">"blue"</span>)<span class="sc">+</span></span>
 <span id="cb2-46"><a href="#cb2-46" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_vline</span>(<span class="at">xintercept =</span> <span class="dv">48040</span>, <span class="at">linetype =</span> <span class="st">"dashed"</span>, <span class="at">color =</span> <span class="st">"blue"</span>)<span class="sc">+</span></span>
-<span id="cb2-47"><a href="#cb2-47" aria-hidden="true" tabindex="-1"></a>   <span class="fu">labs</span>(<span class="at">y =</span> <span class="fu">expression</span>(<span class="fu">paste</span>(<span class="st">"f("</span>, <span class="st">"x"</span>[média], <span class="st">")"</span>)), <span class="at">x=</span><span class="fu">element_blank</span>())</span>
+<span id="cb2-47"><a href="#cb2-47" aria-hidden="true" tabindex="-1"></a>   <span class="fu">labs</span>(<span class="at">y =</span> <span class="fu">expression</span>(<span class="fu">paste</span>(<span class="st">"f("</span>, <span class="st">"x"</span>[media], <span class="st">")"</span>)), <span class="at">x=</span><span class="fu">element_blank</span>())</span>
 <span id="cb2-48"><a href="#cb2-48" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb2-49"><a href="#cb2-49" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb2-50"><a href="#cb2-50" aria-hidden="true" tabindex="-1"></a><span class="fu">ggarrange</span>(dist_med, ci_plot_95, <span class="at">heights =</span> <span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">5</span>),</span>
 <span id="cb2-51"><a href="#cb2-51" aria-hidden="true" tabindex="-1"></a>          <span class="at">ncol =</span> <span class="dv">1</span>, <span class="at">nrow =</span> <span class="dv">2</span>, <span class="at">align =</span> <span class="st">"v"</span>)</span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="cap12_estimacao_intervalo_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid figure-img" style="width:70.0%"></p>
+<figcaption>50 Intervalos de confian&lt;U+00E7&gt;a de 0.95</figcaption>
+</figure>
+</div>
+</div>
 </div>
 <p>As linhas em azul representam o intervalo do nível de confiança, ou seja, <span class="math inline">\(\gamma=0.95\)</span> para a distribuição da média. As barras em preto são intervalos que contêm a verdadeira média e os intervalos em vermelho são aqueles que não contêm a verdadeira média. Perceba que em poucos casos isso ocorre, apenas para os casos onde a estimativa pontual da média sai fora da linha azul. Isso acontece em apenas 5% das vezes, afinal garantimos isso quanto escolhemos o <span class="math inline">\(z_c\)</span> para o nível de confiança desejado.</p>
 <p>Dessa forma, observe que para níveis de confiança menores, a linha azul estará mais próximo a média e portanto mais valores de intervalos não conterão o parâmetro populacional, pois agora utilizamos um <span class="math inline">\(z_c\)</span> mais próximo da média, o qual produzirá intervalos de amplitudes menores. Com isso, encontraremos mais intervalos que não contêm o parâmetro populacional. Vejamos o gráfico abaixo:</p>
+<div class="cell">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="cap12_estimacao_intervalo_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid figure-img" style="width:70.0%"></p>
+<figcaption>Comparando Intervalos de confian&lt;U+00E7&gt;a de 0.90 e 0.95</figcaption>
+</figure>
+</div>
+</div>
+</div>
 <p>A linha azul representa o intervalo para 0.95 de confiança e a linha vermelha o intervalo para 0.90 de confiança, esses representam a amplitude do intervalo aplicados para <span class="math inline">\(\bar{X}=\mu\)</span> pra cada nível de confiança. Essa amplitude é replicadanas demais estimativas. Observe que temos barras de amplitude menores no gráfico inferior (0.90) e isso implica que temos uma quantidade maior de intervalos que não contêm o parâmetro populacional (em vermelho). Logo, a chance de você construir um intervalo e esse não conter o verdadeiro parâmetro é maior para níveis menores de confiança.</p>
 <p>Vejamos agora uma aplicação desse resultado.</p>
 <div class="callout callout-style-default callout-tip no-icon callout-titled" title="EXEMPLO">

@@ -49,7 +49,7 @@ ul.task-list li input[type="checkbox"] {
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-6f4c31e05982fe9d7c1d5110dfef5365.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-bada4888e1821ca98fecbe3e3df07ffb.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-1d629359a716e699c141289dfd6753d2.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -273,7 +273,7 @@ window.Quarto = {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../cap/cap9_convergencia.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">—</span></span></a>
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Modos de Convergência</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -420,6 +420,16 @@ window.Quarto = {
 <p><span class="math display">\[p(x_{i},y_{j})=P(X=x_{i},Y=y_{j})=1/36 \]</span></p>
 <p>para <span class="math inline">\(i=1,...,6\)</span> e <span class="math inline">\(j=1,...6\)</span>.</p>
 <p>Assim como no caso unidimensional pode-se construir um histograma. Com base no exemplo acima, podemos fazer o seguinte histograma tridimensional para o par de dados <span class="math inline">\(X\)</span> e <span class="math inline">\(Y\)</span>, ou seja, a distribuição conjunta de <span class="math inline">\((X,Y)\)</span>:</p>
+<div class="cell">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="cap6_va_bidimensional_files/figure-html/unnamed-chunk-1-1.png" class="img-fluid figure-img" style="width:45.0%"></p>
+<figcaption>Distribuição conjunta uniforme discreta</figcaption>
+</figure>
+</div>
+</div>
+</div>
 <p>Com base nessa ideia podemos fazer a seguinte definição:</p>
 <div class="callout callout-style-default callout-note no-icon callout-titled" title="DEFINIÇÃO">
 <div class="callout-header d-flex align-content-center">
@@ -570,8 +580,28 @@ window.Quarto = {
 <p>Vejamos agora alguns gráficos de variáveis aleaórias bidimensionais:</p>
 <p><strong>BINOMIAL:</strong></p>
 <p>Considere a variável aleatória <span class="math inline">\((X,Y)\)</span> com distribuição binomial e a probabilidade de sucesso de <span class="math inline">\(X\)</span> é igual a 0.75 e de <span class="math inline">\(Y\)</span> igual a 0.25 com 10 rodadas:</p>
+<div class="cell">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="cap6_va_bidimensional_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid figure-img" style="width:70.0%"></p>
+<figcaption>Distribui&lt;U+00E7&gt;&lt;U+00E3&gt;o conjunta Binomial</figcaption>
+</figure>
+</div>
+</div>
+</div>
 <p><strong>POISSON</strong><br>
 Considere a variável aleatória <span class="math inline">\((X,Y)\)</span> com distribuição de poisson e o valor esperado de <span class="math inline">\(X\)</span> igual a 7, de <span class="math inline">\(Y\)</span> igual a 4 e a covariância é 3 (a frente veremos esse conceito):</p>
+<div class="cell">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="cap6_va_bidimensional_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid figure-img" style="width:70.0%"></p>
+<figcaption>Distribui&lt;U+00E7&gt;&lt;U+00E3&gt;o conjunta de Poisson</figcaption>
+</figure>
+</div>
+</div>
+</div>
 </section>
 <section id="variáveis-aleatórias-contínuas" class="level3" data-number="8.2.2">
 <h3 data-number="8.2.2" class="anchored" data-anchor-id="variáveis-aleatórias-contínuas"><span class="header-section-number">8.2.2</span> Variáveis Aleatórias Contínuas</h3>
@@ -652,8 +682,28 @@ Considere a variável aleatória <span class="math inline">\((X,Y)\)</span> com 
 <p>Vejamos agora alguns gráficos de variáveis aleaórias bidimensionais:</p>
 <p><strong>NORMAL BIVARIADA:</strong></p>
 <p>Considere a variável aleatória <span class="math inline">\((X,Y)\)</span> com distribuição normal bivariada com a esperança de <span class="math inline">\(X\)</span> igual a 10, de <span class="math inline">\(Y\)</span> igual a 4, o desvio-padrões iguais a 3 e 2 respectivamente. Aqui consideremaos a correlação de 0.7 (veremos mais a frente esse conceito).</p>
+<div class="cell">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="cap6_va_bidimensional_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid figure-img" style="width:70.0%"></p>
+<figcaption>Distribui&lt;U+00E7&gt;&lt;U+00E3&gt;o conjunta normal bivariada</figcaption>
+</figure>
+</div>
+</div>
+</div>
 <p><strong>NORMAL BIVARIADA PADRÃO:</strong></p>
 <p>Considere a variável aleatória <span class="math inline">\((X,Y)\)</span> com distribuição normal bivariada padrão, ou seja, a esperança de <span class="math inline">\(X\)</span> e <span class="math inline">\(Y\)</span> igual a a 1, o desvio-padrões iguais a 1 e sem covariancia.</p>
+<div class="cell">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="cap6_va_bidimensional_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid figure-img" style="width:70.0%"></p>
+<figcaption>Distribui&lt;U+00E7&gt;&lt;U+00E3&gt;o conjunta normal padr&lt;U+00E3&gt;o bivariada</figcaption>
+</figure>
+</div>
+</div>
+</div>
 </section>
 </section>
 <section id="distribuição-acumulada" class="level2" data-number="8.3">
@@ -694,6 +744,16 @@ Considere a variável aleatória <span class="math inline">\((X,Y)\)</span> com 
 <p>O gráfico segue abaixo.</p>
 </div>
 </div>
+<div class="cell">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="cap6_va_bidimensional_files/figure-html/unnamed-chunk-6-1.png" class="img-fluid figure-img" style="width:45.0%"></p>
+<figcaption>Distribuição acumulada conjunta uniforme discreta</figcaption>
+</figure>
+</div>
+</div>
+</div>
 <div class="callout callout-style-default callout-tip no-icon callout-titled" title="EXEMPLO">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -715,8 +775,28 @@ F(1.5,2) &amp;= P(X \leq 1.5, Y \leq 2) \\
 </div>
 <p><strong>BINOMIAL:</strong></p>
 <p>Considere a variável aleatória <span class="math inline">\((X,Y)\)</span> com distribuição binomial e a probabilidade de sucesso de <span class="math inline">\(X\)</span> é igual a 0.75 e de <span class="math inline">\(Y\)</span> igual a 0.25 com 10 rodadas, sua função distribuição acumulada será:</p>
+<div class="cell">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="cap6_va_bidimensional_files/figure-html/unnamed-chunk-7-1.png" class="img-fluid figure-img" style="width:45.0%"></p>
+<figcaption>Distribuição conjunta Binomial</figcaption>
+</figure>
+</div>
+</div>
+</div>
 <p><strong>POISSON</strong><br>
 Considere a variável aleatória <span class="math inline">\((X,Y)\)</span> com distribuição de poisson e o valor esperado de <span class="math inline">\(X\)</span> igual a 7, de <span class="math inline">\(Y\)</span> igual a 4 e a covariância é 3 (a frente veremos esse conceito). Assim a função distribuição acumulada será:</p>
+<div class="cell">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="cap6_va_bidimensional_files/figure-html/unnamed-chunk-8-1.png" class="img-fluid figure-img" style="width:45.0%"></p>
+<figcaption>Distribuição conjunta de Poisson</figcaption>
+</figure>
+</div>
+</div>
+</div>
 </section>
 <section id="variável-aleatória-contínua" class="level3" data-number="8.3.2">
 <h3 data-number="8.3.2" class="anchored" data-anchor-id="variável-aleatória-contínua"><span class="header-section-number">8.3.2</span> Variável Aleatória Contínua</h3>
@@ -775,7 +855,27 @@ Considere a variável aleatória <span class="math inline">\((X,Y)\)</span> com 
 <p>Vejamos agora alguns gráficos de variáveis aleaórias bidimensionais:</p>
 <p><strong>NORMAL BIVARIADA:</strong></p>
 <p>Considere a variável aleatória <span class="math inline">\((X,Y)\)</span> com distribuição normal bivariada com a esperança de <span class="math inline">\(X\)</span> igual a 10, de <span class="math inline">\(Y\)</span> igual a 4, o desvio-padrões iguais a 3 e 2 respectivamente. Aqui consideremaos a correlação de 0.7 (veremos mais a frente esse conceito). Assim a função distribuição acumulada conjunta terá o seguinte formato:</p>
+<div class="cell">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="cap6_va_bidimensional_files/figure-html/unnamed-chunk-9-1.png" class="img-fluid figure-img" style="width:45.0%"></p>
+<figcaption>Distribuição acumulada conjunta normal</figcaption>
+</figure>
+</div>
+</div>
+</div>
 <p><strong>NORMAL BIVARIADA PADRÃO:</strong> Considere a variável aleatória <span class="math inline">\((X,Y)\)</span> com distribuição normal bivariada padrão, ou seja, a esperança de <span class="math inline">\(X\)</span> e <span class="math inline">\(Y\)</span> igual a a 1, o desvio-padrões iguais a 1 e sem covariância. Assim a função distribuição acumulada conjunta terá o seguinte formato:</p>
+<div class="cell">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="cap6_va_bidimensional_files/figure-html/unnamed-chunk-10-1.png" class="img-fluid figure-img" style="width:45.0%"></p>
+<figcaption>Distribuição acumulada conjunta normal padrão</figcaption>
+</figure>
+</div>
+</div>
+</div>
 </section>
 </section>
 <section id="distribuição-de-probabilidade-marginal-e-condicional" class="level2" data-number="8.4">
@@ -1082,6 +1182,16 @@ Considere a variável aleatória <span class="math inline">\((X,Y)\)</span> com 
 </div>
 <p>Assim, com base no exposto, temos que o coeficiente de correlação é uma medida do grau de linearidade entre X e Y. Dessa forma, <span class="math inline">\(\rho\)</span> próximo a 1 e -1 indicam alto grau de linearidade e <span class="math inline">\(\rho\)</span> próximo a zero indica ausência de relação linear - mas não diz nada sobre relações não-lineares.</p>
 <p>Aqui, apresensemtamos um correlograma com base em variáveis simuladas:</p>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="cap6_va_bidimensional_files/figure-html/unnamed-chunk-11-1.png" class="img-fluid figure-img" style="width:70.0%"></p>
+<figcaption>Gr&lt;U+00E1&gt;fico de correla&lt;U+00E7&gt;&lt;U+00E3&gt;o para vari&lt;U+00E1&gt;veis simuladas v1 a v5</figcaption>
+</figure>
+</div>
+</div>
+</div>
 <p>Vamos começar pelas variáveis v5 e v4, elas tem um comportantamento conjunto totalmente linear, ou seja, saber de v4 te informa corretmente o que acontecerá com v5. Aqui quando v5 sobe, v4 desce. Vejamos agora as variáveis v3 e v2, observe como os dados estão disperso, sem nenhum padrão de comportamento linear. Nesse caso a correlação é próxima a zero (-0.0135). Perceba que a relação não-linear entre v1 e v4 e v1 e v5, faz com que a correlação seja menor que 1 e não perfeita. Já as variáveis v1 e v2 mostram comportamento conjunto positivo, mas não perfeito, reativamente disperso. Quando v1 sobe, v2 também sobe, entretanto não cosneguimos prever esse comportamento perfeitamente.</p>
 </section>
 <section id="links" class="level2" data-number="8.6">

@@ -84,7 +84,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-6f4c31e05982fe9d7c1d5110dfef5365.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-bada4888e1821ca98fecbe3e3df07ffb.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-1d629359a716e699c141289dfd6753d2.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -308,7 +308,7 @@ window.Quarto = {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../cap/cap9_convergencia.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">—</span></span></a>
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Modos de Convergência</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -499,6 +499,14 @@ Figura&nbsp;15.1: Teste de Hipótese - intuição
 <span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="fu">polygon</span>(cord.x,cord.y,<span class="at">col=</span><span class="st">'lightgray'</span>)</span>
 <span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a><span class="fu">abline</span>(<span class="at">v=</span><span class="dv">600</span>, <span class="at">col=</span><span class="st">"steelblue4"</span>, <span class="at">lty=</span><span class="dv">2</span>, <span class="at">lwd=</span><span class="dv">2</span>)</span>
 <span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a><span class="fu">text</span>(<span class="dv">602</span>, <span class="fl">0.001</span>, <span class="fu">expression</span>(mu))</span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="cap13_teste_hip_files/figure-html/unnamed-chunk-1-1.png" class="img-fluid figure-img" style="width:70.0%"></p>
+<figcaption>Valores t&lt;U+00ED&gt;picos da distribui&lt;U+00E7&gt;ao da m&lt;U+00E9&gt;dia sob H0</figcaption>
+</figure>
+</div>
+</div>
 </div>
 <p>Observe a simulação da distribuição do teste estatístico, <span class="math inline">\(\bar{X}\)</span> a qual foi extraída de uma população que possui as características <span class="math inline">\(H_0\)</span>. No centro temos a <span class="math inline">\(E(\bar{X})=\mu=600\)</span>. Observamos que para o tamanho amostral que retiramos e sob <span class="math inline">\(H_0\)</span> os valores típicos oscilam mais ou menos entre 560 e 640 - dois desvios padrão para cima e para baixo (lembrem-se que nesse intervalo temos mais de 95% das observaçoes).</p>
 <p>Quanto retiramos a amostra e calculamos o valor da média obtivemos <span class="math inline">\(\bar{x}=700\)</span>. Observe no gráfico acima onde está o valor de 700, muita a frente e notamos claramente que a probabilidade de obtermos esse valor de média com uma amostra retirada da população <span class="math inline">\(N(600,100^2)\)</span>, é praticamente 0.</p>
@@ -566,6 +574,14 @@ Figura&nbsp;15.1: Teste de Hipótese - intuição
 <span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a><span class="fu">abline</span>(<span class="at">v=</span><span class="dv">633</span>, <span class="at">col=</span><span class="st">"steelblue4"</span>, <span class="at">lty=</span><span class="dv">2</span>, <span class="at">lwd=</span><span class="dv">2</span>)</span>
 <span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a><span class="fu">text</span>(<span class="dv">600</span>, <span class="fl">0.001</span>, <span class="fu">expression</span>(mu))</span>
 <span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a><span class="fu">text</span>(<span class="dv">660</span>, <span class="fl">0.005</span>, <span class="fu">expression</span>(<span class="fu">paste</span>(<span class="st">"EI="</span>, alpha, <span class="st">"=0.05"</span>)))</span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="cap13_teste_hip_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid figure-img" style="width:70.0%"></p>
+<figcaption>Erro Tipo I e a Regi&lt;U+00E3&gt;o Cr&lt;U+00ED&gt;tica</figcaption>
+</figure>
+</div>
+</div>
 </div>
 <p>Vemos em cinza a região crítica descrita acima. Logo todos os valores calculados de <span class="math inline">\(\bar{X}\)</span> que cairem acima de 633, dizemos que rejeitamos <span class="math inline">\(H_0\)</span>. Entretanto percebam que poderiam fazer parte desta distribuição, apesar da chance ser pequena, 5%.</p>
 <p>Como não sabemos a distribuição sob <span class="math inline">\(H_1\)</span> não conseguimos calcular a probabilidade de não rejeitar <span class="math inline">\(H_0\)</span> e na verdade ela pertencer a distribuição de <span class="math inline">\(H_1\)</span>.</p>
@@ -610,6 +626,14 @@ P(E II)=P(\overline{X} \notin R C |H_1 \quad \text { verdadeiro })=\beta
 <span id="cb3-22"><a href="#cb3-22" aria-hidden="true" tabindex="-1"></a>cord.y <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">0</span>,<span class="fu">dnorm</span>(regiao,<span class="at">mean=</span><span class="dv">660</span>, <span class="at">sd=</span><span class="dv">20</span>),<span class="dv">0</span>)</span>
 <span id="cb3-23"><a href="#cb3-23" aria-hidden="true" tabindex="-1"></a><span class="fu">polygon</span>(cord.x,cord.y,<span class="at">col=</span><span class="st">'steelblue4'</span>)</span>
 <span id="cb3-24"><a href="#cb3-24" aria-hidden="true" tabindex="-1"></a><span class="fu">text</span>(<span class="dv">600</span>, <span class="fl">0.005</span>, <span class="fu">expression</span>(<span class="fu">paste</span>(<span class="st">"EII="</span>, beta, <span class="st">"=0.088"</span>)))</span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="cap13_teste_hip_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid figure-img" style="width:70.0%"></p>
+<figcaption>Erro Tipo I e a Regi&lt;U+00E3&gt;o Cr&lt;U+00ED&gt;tica</figcaption>
+</figure>
+</div>
+</div>
 </div>
 <p>Importante notar que se mudamos o ponto de corte de 633 para 640, por exemplo, o valor do EI diminui e o valor do EII aumenta. Se mudarmos o ponto de corte de 633 para 620 aumentamos o EI e diminuimos o erro EII.</p>
 <p>Importante notar que em geral não conhecemos qual a distribuição está sob <span class="math inline">\(H_1\)</span>, lembre-se que o que tinhamos era apenas uma afirmativa que era maior, ou seja, que era diferente de 600. Isso é a prática mais comum e controlamos então o EI o qual conseguimos calcular e a partir desse controle encontramos os valores da nossa região crítica e montamos nosso teste de hipótese.</p>
@@ -706,6 +730,14 @@ P(E II)=P(\overline{X} \notin R C |H_1 \quad \text { verdadeiro })=\beta
 <span id="cb4-23"><a href="#cb4-23" aria-hidden="true" tabindex="-1"></a><span class="fu">polygon</span>(cord.x,cord.y,<span class="at">col=</span><span class="st">'steelblue4'</span>)</span>
 <span id="cb4-24"><a href="#cb4-24" aria-hidden="true" tabindex="-1"></a><span class="fu">abline</span>(<span class="at">v=</span><span class="dv">645</span>, <span class="at">col=</span><span class="st">"steelblue4"</span>, <span class="at">lty=</span><span class="dv">2</span>, <span class="at">lwd=</span><span class="dv">2</span>)</span>
 <span id="cb4-25"><a href="#cb4-25" aria-hidden="true" tabindex="-1"></a><span class="fu">text</span>(<span class="dv">665</span>, <span class="fl">0.002</span>, <span class="fu">expression</span>(<span class="fu">paste</span>(<span class="st">"p-value=0.0122"</span>)))</span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="cap13_teste_hip_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid figure-img" style="width:70.0%"></p>
+<figcaption>N&lt;U+00ED&gt;vel de signific&lt;U+00E2&gt;ncia e p-valor</figcaption>
+</figure>
+</div>
+</div>
 </div>
 <p>Em marrom, linha mais a esquerda, temos o limite da região crítica, ou seja, o valor a partir do qual rejeitariamos <span class="math inline">\(H_0\)</span>. Note que podemos montar essa região sem efetivamente retiramos uma amostra, somente com base na teoria e no tamanho amostral que poderiamos coletar. Ela especifica todas os valores sob os quais rejeitamos <span class="math inline">\(H_0\)</span>. O p-valor está indicado pela linha azul no gráfico e nos fornece a ideia de quão forte é essa rejeição, observa-se que quanto menor o p-valor (valores mais extremos) mais evidências temos de que a hipótese nula <span class="math inline">\(H_0\)</span> não é adequada, ou seja, mais forte são as evidências para a rejeição.</p>
 </section>

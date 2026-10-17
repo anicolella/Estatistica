@@ -127,7 +127,7 @@ regiao2<- final_fem_22 |>
 Ou ter um banco sem a região norte
 
 ```{r}
-região3 <- final_fem_22 |> 
+regiao3 <- final_fem_22 |> 
   filter(regiao!="N")
 ```
 
@@ -261,7 +261,7 @@ Vamos agrupar os feminicídios por região e calcular a taxa média por região:
 
 feminic_agrupado <- final_fem_22 |> 
   group_by(regiao) |> 
- summarize(média_feminic = mean(feminic_tx), 
+ summarize(media_feminic = mean(feminic_tx), 
            DP_feminic=sd(feminic_tx,na.rm=TRUE)
            )
 ```

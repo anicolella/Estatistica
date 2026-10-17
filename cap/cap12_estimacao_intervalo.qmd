@@ -181,7 +181,7 @@ dist_med <- ggplot(data = data.frame(x = c(45000, 55000)), aes(x)) +
   ylab("") + scale_y_continuous(breaks = NULL)+
   geom_vline(xintercept = 51960, linetype = "dashed", color = "blue")+
   geom_vline(xintercept = 48040, linetype = "dashed", color = "blue")+
-   labs(y = expression(paste("f(", "x"[média], ")")), x=element_blank())
+   labs(y = expression(paste("f(", "x"[media], ")")), x=element_blank())
 
 
 ggarrange(dist_med, ci_plot_95, heights = c(2, 5),
