@@ -546,15 +546,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>Podemos inserir vetores de texto, por exemplo, iremos inserir os estados brasileiros na mesma ordem do homicídio acima.</p>
 <div class="cell">
 <div class="cell-output cell-output-stdout">
-<pre><code> [1] "Acre"                  "Alagoas"               "Amap&lt;U+00E1&gt;"         
- [4] "Amazonas"              "Bahia"                 "Cear&lt;U+00E1&gt;"         
- [7] "Distrito Federal "     "Esp&lt;U+00ED&gt;rito Santo" "Goi&lt;U+00E1&gt;s"         
-[10] "Maranh&lt;U+00E3&gt;o"       "Mato Grosso"           "Mato Grosso do Sul"   
-[13] "Minas Gerais"          "Par&lt;U+00E1&gt;"           "Para&lt;U+00ED&gt;ba"       
-[16] "Paran&lt;U+00E1&gt;"         "Pernambuco"            "Piau&lt;U+00ED&gt;"         
-[19] "Rio de Janeiro"        "Rio Grande do Norte"   "Rio Grande do Sul"    
-[22] "Rond&lt;U+00F4&gt;nia"       "Roraima"               "Santa Catarina"       
-[25] "S&lt;U+00E3&gt;o Paulo"      "Sergipe"               "Tocantins"            </code></pre>
+<pre><code> [1] "Acre"                "Alagoas"             "Amapá"              
+ [4] "Amazonas"            "Bahia"               "Ceará"              
+ [7] "Distrito Federal "   "Espírito Santo"      "Goiás"              
+[10] "Maranhão"            "Mato Grosso"         "Mato Grosso do Sul" 
+[13] "Minas Gerais"        "Pará"                "Paraíba"            
+[16] "Paraná"              "Pernambuco"          "Piauí"              
+[19] "Rio de Janeiro"      "Rio Grande do Norte" "Rio Grande do Sul"  
+[22] "Rondônia"            "Roraima"             "Santa Catarina"     
+[25] "São Paulo"           "Sergipe"             "Tocantins"          </code></pre>
 </div>
 </div>
 <p>Algumas manipulações importantes que podemos fazer com os vetores. Renomeando e removendo o vetor antigo:</p>
@@ -672,34 +672,34 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb41-2"><a href="#cb41-2" aria-hidden="true" tabindex="-1"></a>data_feminic22 <span class="ot">&lt;-</span> <span class="fu">rename</span>(data_feminic22, <span class="fu">c</span>(<span class="at">estado=</span><span class="st">"estados"</span>, <span class="at">regioa=</span><span class="st">"regiao"</span>))</span>
 <span id="cb41-3"><a href="#cb41-3" aria-hidden="true" tabindex="-1"></a>data_feminic22</span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>                 estados regiao homic_abs feminic_abs
-1                   Acre      N        22          11
-2                Alagoas     NE        73          31
-3           Amap&lt;U+00E1&gt;      N        22           8
-4               Amazonas      N        88          21
-5                  Bahia     NE       406         107
-6           Cear&lt;U+00E1&gt;     NE       264          28
-7      Distrito Federal      CO        32          19
-8  Esp&lt;U+00ED&gt;rito Santo     SD        95          33
-9           Goi&lt;U+00E1&gt;s     CO       137          56
-10       Maranh&lt;U+00E3&gt;o     NE       127          69
-11           Mato Grosso     CO       101          47
-12    Mato Grosso do Sul     CO        75          40
-13          Minas Gerais     SD       309         171
-14           Par&lt;U+00E1&gt;      N       200          49
-15        Para&lt;U+00ED&gt;ba     NE        86          26
-16         Paran&lt;U+00E1&gt;      S       256          77
-17            Pernambuco     NE       219          72
-18          Piau&lt;U+00ED&gt;     NE        70          24
-19        Rio de Janeiro     SD       283         111
-20   Rio Grande do Norte     NE        60          16
-21     Rio Grande do Sul      S       281         110
-22       Rond&lt;U+00F4&gt;nia      N        88          24
-23               Roraima      N        33           3
-24        Santa Catarina      S       101          56
-25      S&lt;U+00E3&gt;o Paulo     SD       423         195
-26               Sergipe     NE        37          19
-27             Tocantins      N        36          14</code></pre>
+<pre><code>               estados regiao homic_abs feminic_abs
+1                 Acre      N        22          11
+2              Alagoas     NE        73          31
+3                Amapá      N        22           8
+4             Amazonas      N        88          21
+5                Bahia     NE       406         107
+6                Ceará     NE       264          28
+7    Distrito Federal      CO        32          19
+8       Espírito Santo     SD        95          33
+9                Goiás     CO       137          56
+10            Maranhão     NE       127          69
+11         Mato Grosso     CO       101          47
+12  Mato Grosso do Sul     CO        75          40
+13        Minas Gerais     SD       309         171
+14                Pará      N       200          49
+15             Paraíba     NE        86          26
+16              Paraná      S       256          77
+17          Pernambuco     NE       219          72
+18               Piauí     NE        70          24
+19      Rio de Janeiro     SD       283         111
+20 Rio Grande do Norte     NE        60          16
+21   Rio Grande do Sul      S       281         110
+22            Rondônia      N        88          24
+23             Roraima      N        33           3
+24      Santa Catarina      S       101          56
+25           São Paulo     SD       423         195
+26             Sergipe     NE        37          19
+27           Tocantins      N        36          14</code></pre>
 </div>
 </div>
 <p>Podemos também listar variáveis do banco de dados, por exemplo, listar colunas de 1 a 2 ou listar por nome das variáveis, conforme apresentado abaixo:</p>

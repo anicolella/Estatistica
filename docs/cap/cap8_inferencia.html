@@ -549,7 +549,7 @@ Figura&nbsp;10.3: Tipos de amostragem aleatórias
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="cap8_inferencia_files/figure-html/unnamed-chunk-1-1.png" class="img-fluid figure-img" style="width:70.0%"></p>
-<figcaption>Distribui&lt;U+00E7&gt;&lt;U+00E3&gt;o de probabilidade de X e da primeira medi&lt;U+00E7&gt;&lt;U+00E3&gt;o de X, ou seja, Xi</figcaption>
+<figcaption>Distribuição de probabilidade de X e da primeira medição de X, ou seja, Xi</figcaption>
 </figure>
 </div>
 </div>
@@ -785,7 +785,7 @@ Figura&nbsp;10.3: Tipos de amostragem aleatórias
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="cap8_inferencia_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid figure-img" style="width:70.0%"></p>
-<figcaption>Distribui&lt;U+00E7&gt;&lt;U+00E3&gt;o amostral da m&lt;U+00E9&gt;dia para diferentes tamanos amostrais</figcaption>
+<figcaption>Distribuição amostral da média para diferentes tamanos amostrais</figcaption>
 </figure>
 </div>
 </div>
@@ -796,15 +796,15 @@ Figura&nbsp;10.3: Tipos de amostragem aleatórias
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>  <span class="co"># 2 mil rodadas de amostragem</span></span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(xbar15)</span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 166.2559</code></pre>
+<pre><code>[1] 165.2992</code></pre>
 </div>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(xbar50)</span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 166.2715</code></pre>
+<pre><code>[1] 165.2987</code></pre>
 </div>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(xbar150)</span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 166.2765</code></pre>
+<pre><code>[1] 165.2923</code></pre>
 </div>
 </div>
 <p>Observe que todas ficaram muito próximas da verdadeira esperança da população, mostrando empiricamente o teorema apresentado. Pode-se verificar também a variância amostral <span class="math inline">\(Var(\overline{X})=\frac{\sigma^{2}}{n}\)</span>. Vejamos:</p>
@@ -813,15 +813,15 @@ Figura&nbsp;10.3: Tipos de amostragem aleatórias
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>  <span class="co"># 2 mil rodadas de amostragem</span></span>
 <span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="fu">var</span>(xbar15)</span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 1.228884</code></pre>
+<pre><code>[1] 0.7053802</code></pre>
 </div>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">var</span>(xbar50)</span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 0.3513157</code></pre>
+<pre><code>[1] 0.2020595</code></pre>
 </div>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">var</span>(xbar150)</span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 0.1216317</code></pre>
+<pre><code>[1] 0.06856666</code></pre>
 </div>
 </div>
 <p>Percebemos que a partir que o tamanho amostral vai aumentando o resultado vai convergindo para <span class="math inline">\(Var(\overline{X})=\frac{\sigma^{2}}{n}\)</span>, lembre-se que <span class="math inline">\(\sigma^{2}=25\)</span> para a simulação feita.</p>
@@ -868,7 +868,7 @@ Figura&nbsp;10.3: Tipos de amostragem aleatórias
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="cap8_inferencia_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid figure-img" style="width:70.0%"></p>
-<figcaption>Distribui&lt;U+00E7&gt;&lt;U+00E3&gt;o amostral da m&lt;U+00E9&gt;dia para diferentes tamanos amostrais</figcaption>
+<figcaption>Distribuição amostral da média para diferentes tamanos amostrais</figcaption>
 </figure>
 </div>
 </div>
