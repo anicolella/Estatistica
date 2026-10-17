@@ -2,11 +2,14 @@ project:
   type: book
   output-dir: docs
 
+lang: pt-BR
+
 book:
   title: "Inferência Estatística Aplicada à Economia"
   subtitle: "Notas de Aula"
+  favicon: figuras/marca/monograma-positivo.svg
   navbar:
-    background: "#818f81"
+    background: "#071739"
     logo: figuras/usp.png
     search: true
     left:
@@ -17,17 +20,22 @@ book:
       #- pesquisa.qmd
       #- interpretando.qmd
     right:
+      - text: '<img class="navbar-marca-autoral" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMDAgMTAwIiB3aWR0aD0iMTAwIiBoZWlnaHQ9IjEwMCI+CiAgPHJlY3Qgd2lkdGg9IjEwMCIgaGVpZ2h0PSIxMDAiIHJ4PSIxOCIgZmlsbD0iIzA3MTczOSIvPgogIDxwYXRoIGQ9Ik0xMiA4NiBDNDYgODggNzIgNzggODggNTAiIGZpbGw9Im5vbmUiIHN0cm9rZT0iIzRCNjM4MiIgc3Ryb2tlLXdpZHRoPSIzLjUiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIvPgogIDxwYXRoIGQ9Ik0xMiA4NiBDNDIgODYgNzAgNjYgODIgMjYiIGZpbGw9Im5vbmUiIHN0cm9rZT0iI0ZGRkZGRiIgc3Ryb2tlLXdpZHRoPSI3IiBzdHJva2UtbGluZWNhcD0icm91bmQiLz4KICA8Y2lyY2xlIGN4PSI4NCIgY3k9IjE5IiByPSI3IiBmaWxsPSIjRTNDMzlEIi8+Cjwvc3ZnPgo=" alt="Alexandre Nicolella">'
+        file: cap/cap1_autores.qmd
       - icon: github
-        href: https://github.com/
+        href: https://github.com/anicolella
         aria-label: GitHub
   sidebar:
-    background: "#F4F6F6"
+    background: "#F7F6F3"
     search: true
     style: "docked"
+    collapse-level: 1
   page-navigation: true
+  page-footer:
+    center: '<span class="credito-autoral"><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMDAgMTAwIiB3aWR0aD0iMTAwIiBoZWlnaHQ9IjEwMCI+CiAgPHJlY3Qgd2lkdGg9IjEwMCIgaGVpZ2h0PSIxMDAiIHJ4PSIxOCIgZmlsbD0iIzA3MTczOSIvPgogIDxwYXRoIGQ9Ik0xMiA4NiBDNDYgODggNzIgNzggODggNTAiIGZpbGw9Im5vbmUiIHN0cm9rZT0iIzRCNjM4MiIgc3Ryb2tlLXdpZHRoPSIzLjUiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIvPgogIDxwYXRoIGQ9Ik0xMiA4NiBDNDIgODYgNzAgNjYgODIgMjYiIGZpbGw9Im5vbmUiIHN0cm9rZT0iI0ZGRkZGRiIgc3Ryb2tlLXdpZHRoPSI3IiBzdHJva2UtbGluZWNhcD0icm91bmQiLz4KICA8Y2lyY2xlIGN4PSI4NCIgY3k9IjE5IiByPSI3IiBmaWxsPSIjRTNDMzlEIi8+Cjwvc3ZnPgo=" alt=""> <span>Criação e Design: <strong>Alexandre Nicolella</strong> — FEA-RP/USP</span></span>'
   author:
   - name: "Alexandre Nicolella"
-    affiliation: "Unversidade de São Paulo (USP)"
+    affiliation: "Universidade de São Paulo (USP)"
   date: "03/13/2026"
   chapters:
     - index.qmd
@@ -66,8 +74,16 @@ bibliography: references.bib
 
 format:
   html:
-    theme: cosmo
+    theme:
+      - cosmo
+      - tema-estatistica.scss
+    css: estilos.css
+    include-after-body: tema-componentes.html
     toc: true
+    toc-title: "Neste capítulo"
+    toc-depth: 3
+    code-copy: true
+    smooth-scroll: true
     fontsize: 16px
     #linestretch: 1.7
   #pdf:

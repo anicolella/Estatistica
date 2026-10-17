@@ -1,10 +1,17 @@
 # Prefácio
 
+::: {.hero-apostila}
+<img src="figuras/marca/marca-horizontal-negativa.svg" class="assinatura-autoral" alt="Alexandre Nicolella — Economia Aplicada · FEA-RP/USP">
+
 ## Bem-vindos ao curso
 
 Este curso introduz os fundamentos de **probabilidade e inferência estatística** aplicados à análise econômica. A disciplina fornece a base conceitual necessária para compreender métodos quantitativos utilizados em economia, econometria e análise de dados.
 
 Ao longo do semestre, desenvolveremos as ferramentas estatísticas que permitem **transformar dados em evidência empírica**, elemento central na pesquisa acadêmica e na tomada de decisão em organizações públicas e privadas.
+
+<p class="vinculo-institucional">Material didático · Universidade de São Paulo</p>
+
+:::
 
 ---
 

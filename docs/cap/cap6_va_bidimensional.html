@@ -1,20 +1,25 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="pt-BR" xml:lang="pt-BR"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.8.25">
+<meta name="generator" content="quarto-1.10.18">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Alexandre Nicolella">
-<meta name="dcterms.date" content="2026-03-12">
 
 <title>8&nbsp; Variáveis Aleatórias Multidimensionais – Inferência Estatística Aplicada à Economia</title>
 <style>
-code{white-space: pre-wrap;}
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
 span.smallcaps{font-variant: small-caps;}
-div.columns{display: flex; gap: min(4vw, 1.5em);}
-div.column{flex: auto; overflow-x: auto;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
 div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 ul.task-list{list-style: none;}
 ul.task-list li input[type="checkbox"] {
@@ -34,17 +39,17 @@ ul.task-list li input[type="checkbox"] {
 <meta name="quarto:offset" content="../">
 <link href="../cap/cap7_dist_normal.html" rel="next">
 <link href="../cap/cap5_estatistica.html" rel="prev">
+<link href="../figuras/marca/monograma-positivo.svg" rel="icon" type="image/svg+xml">
 <script src="../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-7b89279ff1a6dce999919e0e67d4d9ec.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-6f4c31e05982fe9d7c1d5110dfef5365.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-b743810cd4f3cadd9c36b491d3d9683b.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-bada4888e1821ca98fecbe3e3df07ffb.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -59,22 +64,23 @@ ul.task-list li input[type="checkbox"] {
   ],
   "show-item-context": false,
   "language": {
-    "search-no-results-text": "No results",
-    "search-matching-documents-text": "matching documents",
-    "search-copy-link-title": "Copy link to search",
-    "search-hide-matches-text": "Hide additional matches",
-    "search-more-match-text": "more match in this document",
-    "search-more-matches-text": "more matches in this document",
-    "search-clear-button-title": "Clear",
+    "search-no-results-text": "Nenhum resultado",
+    "search-matching-documents-text": "documentos correspondentes",
+    "search-copy-link-title": "Copiar link para a busca",
+    "search-hide-matches-text": "Esconder correspondências adicionais",
+    "search-more-match-text": "mais correspondência neste documento",
+    "search-more-matches-text": "mais correspondências neste documento",
+    "search-clear-button-title": "Limpar",
     "search-text-placeholder": "",
-    "search-detached-cancel-button-title": "Cancel",
-    "search-submit-button-title": "Submit",
-    "search-label": "Search"
+    "search-detached-cancel-button-title": "Cancelar",
+    "search-submit-button-title": "Enviar",
+    "search-label": "Procurar"
   }
 }</script>
+<style>html{ scroll-behavior: smooth; }</style>
 
   <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml.js" type="text/javascript"></script>
 
 <script type="text/javascript">
 const typesetMath = (el) => {
@@ -103,6 +109,7 @@ window.Quarto = {
 };
 </script>
 
+<link rel="stylesheet" href="../estilos.css">
 </head>
 
 <body class="nav-sidebar docked nav-fixed quarto-light">
@@ -120,8 +127,8 @@ window.Quarto = {
     <span class="navbar-title">Inferência Estatística Aplicada à Economia</span>
     </a>
   </div>
-            <div id="quarto-search" class="" title="Search"></div>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+            <div id="quarto-search" class="" title="Procurar"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Alternar de navegação" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
@@ -132,8 +139,12 @@ window.Quarto = {
   </li>  
 </ul>
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../cap/cap1_autores.html"> 
+<span class="menu-text"><img class="navbar-marca-autoral" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMDAgMTAwIiB3aWR0aD0iMTAwIiBoZWlnaHQ9IjEwMCI+CiAgPHJlY3Qgd2lkdGg9IjEwMCIgaGVpZ2h0PSIxMDAiIHJ4PSIxOCIgZmlsbD0iIzA3MTczOSIvPgogIDxwYXRoIGQ9Ik0xMiA4NiBDNDYgODggNzIgNzggODggNTAiIGZpbGw9Im5vbmUiIHN0cm9rZT0iIzRCNjM4MiIgc3Ryb2tlLXdpZHRoPSIzLjUiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIvPgogIDxwYXRoIGQ9Ik0xMiA4NiBDNDIgODYgNzAgNjYgODIgMjYiIGZpbGw9Im5vbmUiIHN0cm9rZT0iI0ZGRkZGRiIgc3Ryb2tlLXdpZHRoPSI3IiBzdHJva2UtbGluZWNhcD0icm91bmQiLz4KICA8Y2lyY2xlIGN4PSI4NCIgY3k9IjE5IiByPSI3IiBmaWxsPSIjRTNDMzlEIi8+Cjwvc3ZnPgo=" alt="Alexandre Nicolella"></span></a>
+  </li>  
   <li class="nav-item compact">
-    <a class="nav-link" href="https://github.com/"> <i class="bi bi-github" role="img" aria-label="GitHub">
+    <a class="nav-link" href="https://github.com/anicolella"> <i class="bi bi-github" role="img" aria-label="GitHub">
 </i> 
 <span class="menu-text"></span></a>
   </li>  
@@ -145,13 +156,13 @@ window.Quarto = {
     </nav>
   <nav class="quarto-secondary-nav">
     <div class="container-fluid d-flex">
-      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
         <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../cap/cap5_estatistica.html">Motivando e Relembrando</a></li><li class="breadcrumb-item"><a href="../cap/cap6_va_bidimensional.html"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Variáveis Aleatórias Multidimensionais</span></a></li></ol></nav>
-        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
-      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+      <button type="button" class="btn quarto-search-button" aria-label="Procurar" onclick="window.quartoOpenSearch();">
         <i class="bi bi-search"></i>
       </button>
     </div>
@@ -161,13 +172,9 @@ window.Quarto = {
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
-    <div class="pt-lg-2 mt-2 text-left sidebar-header sidebar-header-stacked">
-      <a href="../index.html" class="sidebar-logo-link">
-      </a>
-      </div>
         <div class="mt-2 flex-shrink-0 align-items-center">
         <div class="sidebar-search">
-        <div id="quarto-search" class="" title="Search"></div>
+        <div id="quarto-search" class="" title="Procurar"></div>
         </div>
         </div>
     <div class="sidebar-menu-container"> 
@@ -192,13 +199,13 @@ window.Quarto = {
 </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="false">
  <span class="menu-text">Manipulando os Dados</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="false" aria-label="Alternar seção">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../cap/cap3_int_R.html" class="sidebar-item-text sidebar-link">
@@ -223,7 +230,7 @@ window.Quarto = {
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
  <span class="menu-text">Motivando e Relembrando</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Alternar seção">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
@@ -250,13 +257,13 @@ window.Quarto = {
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true">
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="false">
  <span class="menu-text">Inferência Estatística</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="false" aria-label="Alternar seção">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../cap/cap8_inferencia.html" class="sidebar-item-text sidebar-link">
@@ -266,7 +273,7 @@ window.Quarto = {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../cap/cap9_convergencia.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Modos de Convergência</span></span></a>
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">—</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -279,13 +286,13 @@ window.Quarto = {
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true">
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="false">
  <span class="menu-text">Estimação</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="false" aria-label="Alternar seção">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../cap/cap11_estimacao_ponto.html" class="sidebar-item-text sidebar-link">
@@ -302,13 +309,13 @@ window.Quarto = {
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true">
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="false">
  <span class="menu-text">Teste de Hipótese</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="false" aria-label="Alternar seção">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">  
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../cap/cap13_teste_hip.html" class="sidebar-item-text sidebar-link">
@@ -330,7 +337,7 @@ window.Quarto = {
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">Table of contents</h2>
+    <h2 id="toc-title">Neste capítulo</h2>
    
   <ul>
   <li><a href="#introdução" id="toc-introdução" class="nav-link active" data-scroll-target="#introdução"><span class="header-section-number">8.1</span> Introdução</a></li>
@@ -382,16 +389,16 @@ window.Quarto = {
 <div class="quarto-title-meta">
 
     <div>
-    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-heading">Autor</div>
     <div class="quarto-title-meta-contents">
              <p>Alexandre Nicolella </p>
           </div>
   </div>
     
     <div>
-    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-heading">Data de Publicação</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">March 12, 2026</p>
+      <p class="date">12 de março de 2026</p>
     </div>
   </div>
   
@@ -413,16 +420,6 @@ window.Quarto = {
 <p><span class="math display">\[p(x_{i},y_{j})=P(X=x_{i},Y=y_{j})=1/36 \]</span></p>
 <p>para <span class="math inline">\(i=1,...,6\)</span> e <span class="math inline">\(j=1,...6\)</span>.</p>
 <p>Assim como no caso unidimensional pode-se construir um histograma. Com base no exemplo acima, podemos fazer o seguinte histograma tridimensional para o par de dados <span class="math inline">\(X\)</span> e <span class="math inline">\(Y\)</span>, ou seja, a distribuição conjunta de <span class="math inline">\((X,Y)\)</span>:</p>
-<div class="cell">
-<div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="cap6_va_bidimensional_files/figure-html/unnamed-chunk-1-1.png" class="img-fluid figure-img" style="width:45.0%"></p>
-<figcaption>Distribuição conjunta uniforme discreta</figcaption>
-</figure>
-</div>
-</div>
-</div>
 <p>Com base nessa ideia podemos fazer a seguinte definição:</p>
 <div class="callout callout-style-default callout-note no-icon callout-titled" title="DEFINIÇÃO">
 <div class="callout-header d-flex align-content-center">
@@ -430,7 +427,7 @@ window.Quarto = {
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Note</span>DEFINIÇÃO
+<span class="screen-reader-only">Nota</span>DEFINIÇÃO
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -451,7 +448,7 @@ window.Quarto = {
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Note</span>DEFINIÇÃO
+<span class="screen-reader-only">Nota</span>DEFINIÇÃO
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -469,7 +466,7 @@ window.Quarto = {
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Note</span>DEFINIÇÃO
+<span class="screen-reader-only">Nota</span>DEFINIÇÃO
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -486,7 +483,7 @@ window.Quarto = {
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Tip</span>EXEMPLO
+<span class="screen-reader-only">Dica</span>EXEMPLO
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -499,7 +496,7 @@ window.Quarto = {
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Caution</span>RESPOSTA
+<span class="screen-reader-only">Cuidado</span>RESPOSTA
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
@@ -515,7 +512,7 @@ window.Quarto = {
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Tip</span>EXEMPLO
+<span class="screen-reader-only">Dica</span>EXEMPLO
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -528,7 +525,7 @@ window.Quarto = {
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Caution</span>RESPOSTA
+<span class="screen-reader-only">Cuidado</span>RESPOSTA
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
@@ -573,28 +570,8 @@ window.Quarto = {
 <p>Vejamos agora alguns gráficos de variáveis aleaórias bidimensionais:</p>
 <p><strong>BINOMIAL:</strong></p>
 <p>Considere a variável aleatória <span class="math inline">\((X,Y)\)</span> com distribuição binomial e a probabilidade de sucesso de <span class="math inline">\(X\)</span> é igual a 0.75 e de <span class="math inline">\(Y\)</span> igual a 0.25 com 10 rodadas:</p>
-<div class="cell">
-<div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="cap6_va_bidimensional_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid figure-img" style="width:70.0%"></p>
-<figcaption>Distribuição conjunta Binomial</figcaption>
-</figure>
-</div>
-</div>
-</div>
 <p><strong>POISSON</strong><br>
 Considere a variável aleatória <span class="math inline">\((X,Y)\)</span> com distribuição de poisson e o valor esperado de <span class="math inline">\(X\)</span> igual a 7, de <span class="math inline">\(Y\)</span> igual a 4 e a covariância é 3 (a frente veremos esse conceito):</p>
-<div class="cell">
-<div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="cap6_va_bidimensional_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid figure-img" style="width:70.0%"></p>
-<figcaption>Distribuição conjunta de Poisson</figcaption>
-</figure>
-</div>
-</div>
-</div>
 </section>
 <section id="variáveis-aleatórias-contínuas" class="level3" data-number="8.2.2">
 <h3 data-number="8.2.2" class="anchored" data-anchor-id="variáveis-aleatórias-contínuas"><span class="header-section-number">8.2.2</span> Variáveis Aleatórias Contínuas</h3>
@@ -605,7 +582,7 @@ Considere a variável aleatória <span class="math inline">\((X,Y)\)</span> com 
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Note</span>DEFINIÇÃO
+<span class="screen-reader-only">Nota</span>DEFINIÇÃO
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -631,7 +608,7 @@ Considere a variável aleatória <span class="math inline">\((X,Y)\)</span> com 
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Tip</span>EXEMPLO
+<span class="screen-reader-only">Dica</span>EXEMPLO
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -653,7 +630,7 @@ Considere a variável aleatória <span class="math inline">\((X,Y)\)</span> com 
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Caution</span>RESPOSTA
+<span class="screen-reader-only">Cuidado</span>RESPOSTA
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
@@ -675,28 +652,8 @@ Considere a variável aleatória <span class="math inline">\((X,Y)\)</span> com 
 <p>Vejamos agora alguns gráficos de variáveis aleaórias bidimensionais:</p>
 <p><strong>NORMAL BIVARIADA:</strong></p>
 <p>Considere a variável aleatória <span class="math inline">\((X,Y)\)</span> com distribuição normal bivariada com a esperança de <span class="math inline">\(X\)</span> igual a 10, de <span class="math inline">\(Y\)</span> igual a 4, o desvio-padrões iguais a 3 e 2 respectivamente. Aqui consideremaos a correlação de 0.7 (veremos mais a frente esse conceito).</p>
-<div class="cell">
-<div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="cap6_va_bidimensional_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid figure-img" style="width:70.0%"></p>
-<figcaption>Distribuição conjunta normal bivariada</figcaption>
-</figure>
-</div>
-</div>
-</div>
 <p><strong>NORMAL BIVARIADA PADRÃO:</strong></p>
 <p>Considere a variável aleatória <span class="math inline">\((X,Y)\)</span> com distribuição normal bivariada padrão, ou seja, a esperança de <span class="math inline">\(X\)</span> e <span class="math inline">\(Y\)</span> igual a a 1, o desvio-padrões iguais a 1 e sem covariancia.</p>
-<div class="cell">
-<div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="cap6_va_bidimensional_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid figure-img" style="width:70.0%"></p>
-<figcaption>Distribuição conjunta normal padrão bivariada</figcaption>
-</figure>
-</div>
-</div>
-</div>
 </section>
 </section>
 <section id="distribuição-acumulada" class="level2" data-number="8.3">
@@ -710,7 +667,7 @@ Considere a variável aleatória <span class="math inline">\((X,Y)\)</span> com 
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Note</span>DEFINIÇÃO
+<span class="screen-reader-only">Nota</span>DEFINIÇÃO
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -727,7 +684,7 @@ Considere a variável aleatória <span class="math inline">\((X,Y)\)</span> com 
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Tip</span>EXEMPLO
+<span class="screen-reader-only">Dica</span>EXEMPLO
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -737,23 +694,13 @@ Considere a variável aleatória <span class="math inline">\((X,Y)\)</span> com 
 <p>O gráfico segue abaixo.</p>
 </div>
 </div>
-<div class="cell">
-<div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="cap6_va_bidimensional_files/figure-html/unnamed-chunk-6-1.png" class="img-fluid figure-img" style="width:45.0%"></p>
-<figcaption>Distribuição acumulada conjunta uniforme discreta</figcaption>
-</figure>
-</div>
-</div>
-</div>
 <div class="callout callout-style-default callout-tip no-icon callout-titled" title="EXEMPLO">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Tip</span>EXEMPLO
+<span class="screen-reader-only">Dica</span>EXEMPLO
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -768,28 +715,8 @@ F(1.5,2) &amp;= P(X \leq 1.5, Y \leq 2) \\
 </div>
 <p><strong>BINOMIAL:</strong></p>
 <p>Considere a variável aleatória <span class="math inline">\((X,Y)\)</span> com distribuição binomial e a probabilidade de sucesso de <span class="math inline">\(X\)</span> é igual a 0.75 e de <span class="math inline">\(Y\)</span> igual a 0.25 com 10 rodadas, sua função distribuição acumulada será:</p>
-<div class="cell">
-<div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="cap6_va_bidimensional_files/figure-html/unnamed-chunk-7-1.png" class="img-fluid figure-img" style="width:45.0%"></p>
-<figcaption>Distribuição conjunta Binomial</figcaption>
-</figure>
-</div>
-</div>
-</div>
 <p><strong>POISSON</strong><br>
 Considere a variável aleatória <span class="math inline">\((X,Y)\)</span> com distribuição de poisson e o valor esperado de <span class="math inline">\(X\)</span> igual a 7, de <span class="math inline">\(Y\)</span> igual a 4 e a covariância é 3 (a frente veremos esse conceito). Assim a função distribuição acumulada será:</p>
-<div class="cell">
-<div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="cap6_va_bidimensional_files/figure-html/unnamed-chunk-8-1.png" class="img-fluid figure-img" style="width:45.0%"></p>
-<figcaption>Distribuição conjunta de Poisson</figcaption>
-</figure>
-</div>
-</div>
-</div>
 </section>
 <section id="variável-aleatória-contínua" class="level3" data-number="8.3.2">
 <h3 data-number="8.3.2" class="anchored" data-anchor-id="variável-aleatória-contínua"><span class="header-section-number">8.3.2</span> Variável Aleatória Contínua</h3>
@@ -801,7 +728,7 @@ Considere a variável aleatória <span class="math inline">\((X,Y)\)</span> com 
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Tip</span>EXEMPLO
+<span class="screen-reader-only">Dica</span>EXEMPLO
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -814,7 +741,7 @@ Considere a variável aleatória <span class="math inline">\((X,Y)\)</span> com 
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Caution</span>RESPOSTA
+<span class="screen-reader-only">Cuidado</span>RESPOSTA
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
@@ -834,7 +761,7 @@ Considere a variável aleatória <span class="math inline">\((X,Y)\)</span> com 
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Note</span>TEOREMA
+<span class="screen-reader-only">Nota</span>TEOREMA
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -848,27 +775,7 @@ Considere a variável aleatória <span class="math inline">\((X,Y)\)</span> com 
 <p>Vejamos agora alguns gráficos de variáveis aleaórias bidimensionais:</p>
 <p><strong>NORMAL BIVARIADA:</strong></p>
 <p>Considere a variável aleatória <span class="math inline">\((X,Y)\)</span> com distribuição normal bivariada com a esperança de <span class="math inline">\(X\)</span> igual a 10, de <span class="math inline">\(Y\)</span> igual a 4, o desvio-padrões iguais a 3 e 2 respectivamente. Aqui consideremaos a correlação de 0.7 (veremos mais a frente esse conceito). Assim a função distribuição acumulada conjunta terá o seguinte formato:</p>
-<div class="cell">
-<div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="cap6_va_bidimensional_files/figure-html/unnamed-chunk-9-1.png" class="img-fluid figure-img" style="width:45.0%"></p>
-<figcaption>Distribuição acumulada conjunta normal</figcaption>
-</figure>
-</div>
-</div>
-</div>
 <p><strong>NORMAL BIVARIADA PADRÃO:</strong> Considere a variável aleatória <span class="math inline">\((X,Y)\)</span> com distribuição normal bivariada padrão, ou seja, a esperança de <span class="math inline">\(X\)</span> e <span class="math inline">\(Y\)</span> igual a a 1, o desvio-padrões iguais a 1 e sem covariância. Assim a função distribuição acumulada conjunta terá o seguinte formato:</p>
-<div class="cell">
-<div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="cap6_va_bidimensional_files/figure-html/unnamed-chunk-10-1.png" class="img-fluid figure-img" style="width:45.0%"></p>
-<figcaption>Distribuição acumulada conjunta normal padrão</figcaption>
-</figure>
-</div>
-</div>
-</div>
 </section>
 </section>
 <section id="distribuição-de-probabilidade-marginal-e-condicional" class="level2" data-number="8.4">
@@ -905,7 +812,7 @@ Considere a variável aleatória <span class="math inline">\((X,Y)\)</span> com 
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Tip</span>EXEMPLO
+<span class="screen-reader-only">Dica</span>EXEMPLO
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -971,7 +878,7 @@ Considere a variável aleatória <span class="math inline">\((X,Y)\)</span> com 
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Note</span>DEFINIÇÃO
+<span class="screen-reader-only">Nota</span>DEFINIÇÃO
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -990,7 +897,7 @@ Considere a variável aleatória <span class="math inline">\((X,Y)\)</span> com 
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Note</span>DEFINIÇÃO
+<span class="screen-reader-only">Nota</span>DEFINIÇÃO
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -1006,7 +913,7 @@ Considere a variável aleatória <span class="math inline">\((X,Y)\)</span> com 
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Note</span>TEOREMA
+<span class="screen-reader-only">Nota</span>TEOREMA
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -1024,7 +931,7 @@ Considere a variável aleatória <span class="math inline">\((X,Y)\)</span> com 
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Tip</span>EXEMPLO
+<span class="screen-reader-only">Dica</span>EXEMPLO
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -1041,7 +948,7 @@ Considere a variável aleatória <span class="math inline">\((X,Y)\)</span> com 
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Caution</span>RESPOSTA
+<span class="screen-reader-only">Cuidado</span>RESPOSTA
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
@@ -1067,7 +974,7 @@ Considere a variável aleatória <span class="math inline">\((X,Y)\)</span> com 
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Note</span>DEFINIÇÃO
+<span class="screen-reader-only">Nota</span>DEFINIÇÃO
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -1082,7 +989,7 @@ Considere a variável aleatória <span class="math inline">\((X,Y)\)</span> com 
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Note</span>DEFINIÇÃO
+<span class="screen-reader-only">Nota</span>DEFINIÇÃO
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -1097,7 +1004,7 @@ Considere a variável aleatória <span class="math inline">\((X,Y)\)</span> com 
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Note</span>TEOREMA
+<span class="screen-reader-only">Nota</span>TEOREMA
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -1115,7 +1022,7 @@ Considere a variável aleatória <span class="math inline">\((X,Y)\)</span> com 
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Note</span>TEOREMA
+<span class="screen-reader-only">Nota</span>TEOREMA
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -1135,7 +1042,7 @@ Considere a variável aleatória <span class="math inline">\((X,Y)\)</span> com 
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Note</span>TEOREMA
+<span class="screen-reader-only">Nota</span>TEOREMA
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -1159,7 +1066,7 @@ Considere a variável aleatória <span class="math inline">\((X,Y)\)</span> com 
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Note</span>TEOREMA
+<span class="screen-reader-only">Nota</span>TEOREMA
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -1175,16 +1082,6 @@ Considere a variável aleatória <span class="math inline">\((X,Y)\)</span> com 
 </div>
 <p>Assim, com base no exposto, temos que o coeficiente de correlação é uma medida do grau de linearidade entre X e Y. Dessa forma, <span class="math inline">\(\rho\)</span> próximo a 1 e -1 indicam alto grau de linearidade e <span class="math inline">\(\rho\)</span> próximo a zero indica ausência de relação linear - mas não diz nada sobre relações não-lineares.</p>
 <p>Aqui, apresensemtamos um correlograma com base em variáveis simuladas:</p>
-<div class="cell" data-layout-align="center">
-<div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="cap6_va_bidimensional_files/figure-html/unnamed-chunk-11-1.png" class="img-fluid figure-img" style="width:70.0%"></p>
-<figcaption>Gráfico de correlação para variáveis simuladas v1 a v5</figcaption>
-</figure>
-</div>
-</div>
-</div>
 <p>Vamos começar pelas variáveis v5 e v4, elas tem um comportantamento conjunto totalmente linear, ou seja, saber de v4 te informa corretmente o que acontecerá com v5. Aqui quando v5 sobe, v4 desce. Vejamos agora as variáveis v3 e v2, observe como os dados estão disperso, sem nenhum padrão de comportamento linear. Nesse caso a correlação é próxima a zero (-0.0135). Perceba que a relação não-linear entre v1 e v4 e v1 e v5, faz com que a correlação seja menor que 1 e não perfeita. Já as variáveis v1 e v2 mostram comportamento conjunto positivo, mas não perfeito, reativamente disperso. Quando v1 sobe, v2 também sobe, entretanto não cosneguimos prever esse comportamento perfeitamente.</p>
 </section>
 <section id="links" class="level2" data-number="8.6">
@@ -1228,7 +1125,7 @@ Considere a variável aleatória <span class="math inline">\((X,Y)\)</span> com 
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Caution</span>RESPOSTA
+<span class="screen-reader-only">Cuidado</span>RESPOSTA
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
@@ -1274,7 +1171,7 @@ Considere a variável aleatória <span class="math inline">\((X,Y)\)</span> com 
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Caution</span>RESPOSTA
+<span class="screen-reader-only">Cuidado</span>RESPOSTA
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
@@ -1322,7 +1219,7 @@ Considere a variável aleatória <span class="math inline">\((X,Y)\)</span> com 
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Caution</span>RESPOSTA
+<span class="screen-reader-only">Cuidado</span>RESPOSTA
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
@@ -1366,7 +1263,7 @@ Considere a variável aleatória <span class="math inline">\((X,Y)\)</span> com 
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Caution</span>RESPOSTA
+<span class="screen-reader-only">Cuidado</span>RESPOSTA
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
@@ -1408,7 +1305,7 @@ Considere a variável aleatória <span class="math inline">\((X,Y)\)</span> com 
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Caution</span>RESPOSTA
+<span class="screen-reader-only">Cuidado</span>RESPOSTA
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
@@ -1466,7 +1363,7 @@ Considere a variável aleatória <span class="math inline">\((X,Y)\)</span> com 
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Caution</span>RESPOSTA
+<span class="screen-reader-only">Cuidado</span>RESPOSTA
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
@@ -1514,7 +1411,7 @@ Considere a variável aleatória <span class="math inline">\((X,Y)\)</span> com 
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Caution</span>RESPOSTA
+<span class="screen-reader-only">Cuidado</span>RESPOSTA
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
@@ -1579,7 +1476,7 @@ Considere a variável aleatória <span class="math inline">\((X,Y)\)</span> com 
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Caution</span>RESPOSTA
+<span class="screen-reader-only">Cuidado</span>RESPOSTA
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
@@ -1650,7 +1547,7 @@ Considere a variável aleatória <span class="math inline">\((X,Y)\)</span> com 
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Caution</span>RESPOSTA
+<span class="screen-reader-only">Cuidado</span>RESPOSTA
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
@@ -1720,7 +1617,7 @@ Considere a variável aleatória <span class="math inline">\((X,Y)\)</span> com 
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Caution</span>RESPOSTA
+<span class="screen-reader-only">Cuidado</span>RESPOSTA
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
@@ -1828,6 +1725,18 @@ Considere a variável aleatória <span class="math inline">\((X,Y)\)</span> com 
 </section>
 
 </main> <!-- /main -->
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  document.querySelectorAll(".callout").forEach((box) => {
+    const title = box.querySelector(".callout-title-container, .callout-title")
+      ?.textContent.trim().normalize("NFD").replace(/[\u0300-\u036f]/g, "").toUpperCase() || "";
+    if (title.includes("DEFINICAO")) box.classList.add("caixa-definicao");
+    else if (title.includes("TEOREMA")) box.classList.add("caixa-teorema");
+    else if (title.includes("EXEMPLO")) box.classList.add("caixa-exemplo");
+    else if (title.includes("RESPOSTA")) box.classList.add("caixa-resposta");
+  });
+});
+</script>
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     const icon = "";
@@ -1853,12 +1762,12 @@ Considere a variável aleatória <span class="math inline">\((X,Y)\)</span> com 
       // flash "checked"
       button.classList.add('code-copy-button-checked');
       var currentTitle = button.getAttribute("title");
-      button.setAttribute("title", "Copied!");
+      button.setAttribute("title", "Copiada");
       let tooltip;
       if (window.bootstrap) {
         button.setAttribute("data-bs-toggle", "tooltip");
         button.setAttribute("data-bs-placement", "left");
-        button.setAttribute("data-bs-title", "Copied!");
+        button.setAttribute("data-bs-title", "Copiada");
         tooltip = new bootstrap.Tooltip(button, 
           { trigger: "manual", 
             customClass: "code-copy-button-tooltip",
@@ -2241,8 +2150,22 @@ Considere a variável aleatória <span class="math inline">\((X,Y)\)</span> com 
   </div>
 </nav>
 </div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+      &nbsp;
+    </div>   
+    <div class="nav-footer-center">
+<p><span class="credito-autoral"><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMDAgMTAwIiB3aWR0aD0iMTAwIiBoZWlnaHQ9IjEwMCI+CiAgPHJlY3Qgd2lkdGg9IjEwMCIgaGVpZ2h0PSIxMDAiIHJ4PSIxOCIgZmlsbD0iIzA3MTczOSIvPgogIDxwYXRoIGQ9Ik0xMiA4NiBDNDYgODggNzIgNzggODggNTAiIGZpbGw9Im5vbmUiIHN0cm9rZT0iIzRCNjM4MiIgc3Ryb2tlLXdpZHRoPSIzLjUiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIvPgogIDxwYXRoIGQ9Ik0xMiA4NiBDNDIgODYgNzAgNjYgODIgMjYiIGZpbGw9Im5vbmUiIHN0cm9rZT0iI0ZGRkZGRiIgc3Ryb2tlLXdpZHRoPSI3IiBzdHJva2UtbGluZWNhcD0icm91bmQiLz4KICA8Y2lyY2xlIGN4PSI4NCIgY3k9IjE5IiByPSI3IiBmaWxsPSIjRTNDMzlEIi8+Cjwvc3ZnPgo=" alt=""> <span>Criação e Design: <strong>Alexandre Nicolella</strong> — FEA-RP/USP</span></span></p>
+</div>
+    <div class="nav-footer-right">
+      &nbsp;
+    </div>
+  </div>
+</footer>
 
 
 
 
+<script src="../site_libs/quarto-html/zenscroll-min.js"></script>
 </body></html>

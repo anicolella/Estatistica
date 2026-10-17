@@ -1,20 +1,25 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="pt-BR" xml:lang="pt-BR"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.8.25">
+<meta name="generator" content="quarto-1.10.18">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Alexandre Nicolella">
-<meta name="dcterms.date" content="2026-03-31">
 
 <title>13&nbsp; Estimação no Ponto – Inferência Estatística Aplicada à Economia</title>
 <style>
-code{white-space: pre-wrap;}
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
 span.smallcaps{font-variant: small-caps;}
-div.columns{display: flex; gap: min(4vw, 1.5em);}
-div.column{flex: auto; overflow-x: auto;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
 div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 ul.task-list{list-style: none;}
 ul.task-list li input[type="checkbox"] {
@@ -69,17 +74,17 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <meta name="quarto:offset" content="../">
 <link href="../cap/cap12_estimacao_intervalo.html" rel="next">
 <link href="../cap/cap10_amostragem.html" rel="prev">
+<link href="../figuras/marca/monograma-positivo.svg" rel="icon" type="image/svg+xml">
 <script src="../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-7b89279ff1a6dce999919e0e67d4d9ec.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-6f4c31e05982fe9d7c1d5110dfef5365.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-b743810cd4f3cadd9c36b491d3d9683b.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-bada4888e1821ca98fecbe3e3df07ffb.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -94,22 +99,23 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   ],
   "show-item-context": false,
   "language": {
-    "search-no-results-text": "No results",
-    "search-matching-documents-text": "matching documents",
-    "search-copy-link-title": "Copy link to search",
-    "search-hide-matches-text": "Hide additional matches",
-    "search-more-match-text": "more match in this document",
-    "search-more-matches-text": "more matches in this document",
-    "search-clear-button-title": "Clear",
+    "search-no-results-text": "Nenhum resultado",
+    "search-matching-documents-text": "documentos correspondentes",
+    "search-copy-link-title": "Copiar link para a busca",
+    "search-hide-matches-text": "Esconder correspondências adicionais",
+    "search-more-match-text": "mais correspondência neste documento",
+    "search-more-matches-text": "mais correspondências neste documento",
+    "search-clear-button-title": "Limpar",
     "search-text-placeholder": "",
-    "search-detached-cancel-button-title": "Cancel",
-    "search-submit-button-title": "Submit",
-    "search-label": "Search"
+    "search-detached-cancel-button-title": "Cancelar",
+    "search-submit-button-title": "Enviar",
+    "search-label": "Procurar"
   }
 }</script>
+<style>html{ scroll-behavior: smooth; }</style>
 
   <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml.js" type="text/javascript"></script>
 
 <script type="text/javascript">
 const typesetMath = (el) => {
@@ -138,6 +144,7 @@ window.Quarto = {
 };
 </script>
 
+<link rel="stylesheet" href="../estilos.css">
 </head>
 
 <body class="nav-sidebar docked nav-fixed quarto-light">
@@ -155,8 +162,8 @@ window.Quarto = {
     <span class="navbar-title">Inferência Estatística Aplicada à Economia</span>
     </a>
   </div>
-            <div id="quarto-search" class="" title="Search"></div>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+            <div id="quarto-search" class="" title="Procurar"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Alternar de navegação" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
@@ -167,8 +174,12 @@ window.Quarto = {
   </li>  
 </ul>
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../cap/cap1_autores.html"> 
+<span class="menu-text"><img class="navbar-marca-autoral" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMDAgMTAwIiB3aWR0aD0iMTAwIiBoZWlnaHQ9IjEwMCI+CiAgPHJlY3Qgd2lkdGg9IjEwMCIgaGVpZ2h0PSIxMDAiIHJ4PSIxOCIgZmlsbD0iIzA3MTczOSIvPgogIDxwYXRoIGQ9Ik0xMiA4NiBDNDYgODggNzIgNzggODggNTAiIGZpbGw9Im5vbmUiIHN0cm9rZT0iIzRCNjM4MiIgc3Ryb2tlLXdpZHRoPSIzLjUiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIvPgogIDxwYXRoIGQ9Ik0xMiA4NiBDNDIgODYgNzAgNjYgODIgMjYiIGZpbGw9Im5vbmUiIHN0cm9rZT0iI0ZGRkZGRiIgc3Ryb2tlLXdpZHRoPSI3IiBzdHJva2UtbGluZWNhcD0icm91bmQiLz4KICA8Y2lyY2xlIGN4PSI4NCIgY3k9IjE5IiByPSI3IiBmaWxsPSIjRTNDMzlEIi8+Cjwvc3ZnPgo=" alt="Alexandre Nicolella"></span></a>
+  </li>  
   <li class="nav-item compact">
-    <a class="nav-link" href="https://github.com/"> <i class="bi bi-github" role="img" aria-label="GitHub">
+    <a class="nav-link" href="https://github.com/anicolella"> <i class="bi bi-github" role="img" aria-label="GitHub">
 </i> 
 <span class="menu-text"></span></a>
   </li>  
@@ -180,13 +191,13 @@ window.Quarto = {
     </nav>
   <nav class="quarto-secondary-nav">
     <div class="container-fluid d-flex">
-      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
         <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../cap/cap11_estimacao_ponto.html">Estimação</a></li><li class="breadcrumb-item"><a href="../cap/cap11_estimacao_ponto.html"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Estimação no Ponto</span></a></li></ol></nav>
-        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
-      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+      <button type="button" class="btn quarto-search-button" aria-label="Procurar" onclick="window.quartoOpenSearch();">
         <i class="bi bi-search"></i>
       </button>
     </div>
@@ -196,13 +207,9 @@ window.Quarto = {
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
-    <div class="pt-lg-2 mt-2 text-left sidebar-header sidebar-header-stacked">
-      <a href="../index.html" class="sidebar-logo-link">
-      </a>
-      </div>
         <div class="mt-2 flex-shrink-0 align-items-center">
         <div class="sidebar-search">
-        <div id="quarto-search" class="" title="Search"></div>
+        <div id="quarto-search" class="" title="Procurar"></div>
         </div>
         </div>
     <div class="sidebar-menu-container"> 
@@ -227,13 +234,13 @@ window.Quarto = {
 </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="false">
  <span class="menu-text">Manipulando os Dados</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="false" aria-label="Alternar seção">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../cap/cap3_int_R.html" class="sidebar-item-text sidebar-link">
@@ -256,13 +263,13 @@ window.Quarto = {
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="false">
  <span class="menu-text">Motivando e Relembrando</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="false" aria-label="Alternar seção">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../cap/cap5_estatistica.html" class="sidebar-item-text sidebar-link">
@@ -285,13 +292,13 @@ window.Quarto = {
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true">
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="false">
  <span class="menu-text">Inferência Estatística</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="false" aria-label="Alternar seção">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../cap/cap8_inferencia.html" class="sidebar-item-text sidebar-link">
@@ -301,7 +308,7 @@ window.Quarto = {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../cap/cap9_convergencia.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Modos de Convergência</span></span></a>
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">—</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -316,7 +323,7 @@ window.Quarto = {
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true">
  <span class="menu-text">Estimação</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true" aria-label="Alternar seção">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
@@ -337,13 +344,13 @@ window.Quarto = {
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true">
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="false">
  <span class="menu-text">Teste de Hipótese</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="false" aria-label="Alternar seção">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">  
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../cap/cap13_teste_hip.html" class="sidebar-item-text sidebar-link">
@@ -365,7 +372,7 @@ window.Quarto = {
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">Table of contents</h2>
+    <h2 id="toc-title">Neste capítulo</h2>
    
   <ul>
   <li><a href="#introdução" id="toc-introdução" class="nav-link active" data-scroll-target="#introdução"><span class="header-section-number">13.1</span> Introdução</a></li>
@@ -417,16 +424,16 @@ window.Quarto = {
 <div class="quarto-title-meta">
 
     <div>
-    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-heading">Autor</div>
     <div class="quarto-title-meta-contents">
              <p>Alexandre Nicolella </p>
           </div>
   </div>
     
     <div>
-    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-heading">Data de Publicação</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">March 31, 2026</p>
+      <p class="date">31 de março de 2026</p>
     </div>
   </div>
   
@@ -464,7 +471,7 @@ window.Quarto = {
 <img src="../figuras/capitulos/preciso.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:60.0%">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-particula-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;13.1: Exatidão e precisão
+Figura&nbsp;13.1: Exatidão e precisão
 </figcaption>
 </figure>
 </div>
@@ -475,7 +482,7 @@ Figure&nbsp;13.1: Exatidão e precisão
 <img src="../figuras/capitulos/alvo.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:60.0%">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-particula-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;13.2: Alvo e os conceitos de Exatidão e precisão
+Figura&nbsp;13.2: Alvo e os conceitos de Exatidão e precisão
 </figcaption>
 </figure>
 </div>
@@ -497,7 +504,7 @@ Figure&nbsp;13.2: Alvo e os conceitos de Exatidão e precisão
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Note</span>DEFINIÇÃO
+<span class="screen-reader-only">Nota</span>DEFINIÇÃO
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -511,7 +518,7 @@ Figure&nbsp;13.2: Alvo e os conceitos de Exatidão e precisão
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Note</span>DEFINIÇÃO
+<span class="screen-reader-only">Nota</span>DEFINIÇÃO
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -533,15 +540,7 @@ Figure&nbsp;13.2: Alvo e os conceitos de Exatidão e precisão
 <span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>     <span class="at">cex.axis=</span><span class="fl">0.65</span>, <span class="at">cex.lab=</span><span class="fl">0.8</span> ) </span>
 <span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="fu">axis</span>(<span class="dv">1</span>,<span class="at">at=</span><span class="fu">c</span>(<span class="dv">0</span>),<span class="at">labels =</span><span class="fu">c</span>(<span class="fu">expression</span>(Theta)),<span class="at">cex.axis=</span><span class="fl">0.65</span>, <span class="at">cex.lab=</span><span class="fl">0.8</span>) </span>
 <span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a><span class="fu">legend</span>(<span class="st">"topleft"</span>, <span class="at">legend=</span><span class="fu">c</span>(<span class="st">"T1"</span>, <span class="st">"T2"</span>),<span class="at">col=</span><span class="fu">c</span>(<span class="st">"steelblue3"</span>, <span class="st">"wheat4"</span>), </span>
-<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>       <span class="at">lty=</span><span class="dv">1</span><span class="sc">:</span><span class="dv">1</span>, <span class="at">box.lty=</span><span class="dv">0</span>,<span class="at">cex=</span><span class="fl">0.8</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="cap11_estimacao_ponto_files/figure-html/unnamed-chunk-1-1.png" class="img-fluid figure-img" style="width:70.0%"></p>
-<figcaption>Função Distribuição de Probabilidade Normal e Função Distribuição Acumulada Normal</figcaption>
-</figure>
-</div>
-</div>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>       <span class="at">lty=</span><span class="dv">1</span><span class="sc">:</span><span class="dv">1</span>, <span class="at">box.lty=</span><span class="dv">0</span>,<span class="at">cex=</span><span class="fl">0.8</span>)</span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p><strong>Questão</strong></p>
 <p>Definir uma função <span class="math inline">\(T_i= h(X_1, ..., X_n)\)</span> que seja próxima de <span class="math inline">\(\Theta\)</span> segundo algum critério. Ou seja, que acerte em média o parâmetro e que não seja muito dispersa!</p>
@@ -573,15 +572,7 @@ Figure&nbsp;13.2: Alvo e os conceitos de Exatidão e precisão
 <span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a><span class="fu">abline</span>(<span class="at">v=</span><span class="dv">2000</span>, <span class="at">col=</span><span class="st">"black"</span>, <span class="at">lty=</span><span class="dv">2</span>)</span>
 <span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a><span class="fu">text</span>(<span class="dv">2000</span>, <span class="fl">0.0003</span>, <span class="fu">expression</span>(Theta))</span>
 <span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a><span class="fu">axis</span>(<span class="dv">1</span>,<span class="at">at=</span><span class="fu">c</span>(<span class="dv">1800</span>, <span class="fu">mean</span>(xbar50), <span class="dv">2200</span>),<span class="at">labels =</span><span class="fu">c</span>(<span class="dv">1800</span>, <span class="fu">round</span>(<span class="fu">mean</span>(xbar50)),</span>
-<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a>    <span class="dv">2200</span>),<span class="at">cex.axis=</span><span class="fl">0.65</span>, <span class="at">cex.lab=</span><span class="fl">0.8</span>) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="cap11_estimacao_ponto_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid figure-img" style="width:70.0%"></p>
-<figcaption>Distribuição do estimador da Esperança da Nota do ENEM</figcaption>
-</figure>
-</div>
-</div>
+<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a>    <span class="dv">2200</span>),<span class="at">cex.axis=</span><span class="fl">0.65</span>, <span class="at">cex.lab=</span><span class="fl">0.8</span>) </span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>Observa-se que neste caso o valor númerico central representa <span class="math inline">\(\mathbb{E}(\bar{X})\)</span> e a linha pontilhada mostra <span class="math inline">\(\mathbb{E}(X)=2000=\Theta\)</span>. Ainda pode-se observar que encontramos diversos valores para <span class="math inline">\(\bar{X}\)</span>, variando de 1800 a 2200, mas com grande concentração ao redor de 2000.</p>
 <p>Com base na figura 3 que apresenta dois estimadores e na figura 4 que mostra o resultado para uma estimativa da Esperança, temos a seguinte definição:</p>
@@ -591,7 +582,7 @@ Figure&nbsp;13.2: Alvo e os conceitos de Exatidão e precisão
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Note</span>DEFINIÇÃO
+<span class="screen-reader-only">Nota</span>DEFINIÇÃO
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -703,15 +694,7 @@ S^2=\frac{1}{n-1}\sum_{i=1}^{n}(X_i - \overline{X})^2
 <span id="cb3-25"><a href="#cb3-25" aria-hidden="true" tabindex="-1"></a><span class="fu">abline</span>(<span class="at">v=</span><span class="dv">2000</span>, <span class="at">col=</span><span class="st">"black"</span>, <span class="at">lty=</span><span class="dv">2</span>)</span>
 <span id="cb3-26"><a href="#cb3-26" aria-hidden="true" tabindex="-1"></a><span class="fu">axis</span>(<span class="dv">1</span>,<span class="at">at=</span><span class="fu">c</span>(<span class="dv">1800</span>, <span class="fu">mean</span>(xbar50), <span class="dv">2200</span>),<span class="at">labels =</span><span class="fu">c</span>(<span class="dv">1800</span>, <span class="fu">round</span>(<span class="fu">mean</span>(xbar50)),</span>
 <span id="cb3-27"><a href="#cb3-27" aria-hidden="true" tabindex="-1"></a>    <span class="dv">2200</span>),<span class="at">cex.axis=</span><span class="fl">0.65</span>) </span>
-<span id="cb3-28"><a href="#cb3-28" aria-hidden="true" tabindex="-1"></a><span class="fu">text</span>(<span class="dv">2000</span>, <span class="fl">0.0003</span>, <span class="fu">expression</span>(Theta))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="cap11_estimacao_ponto_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid figure-img" style="width:70.0%"></p>
-<figcaption>Distribuição de dois estimadores não viesádos para a Esperança da População , média e mediana</figcaption>
-</figure>
-</div>
-</div>
+<span id="cb3-28"><a href="#cb3-28" aria-hidden="true" tabindex="-1"></a><span class="fu">text</span>(<span class="dv">2000</span>, <span class="fl">0.0003</span>, <span class="fu">expression</span>(Theta))</span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>A figura 5 mostra a distribuição de dois estimadores da esperança populacional das notas do ENEN, a média e a mediana. Observa-se que elas não são viesadas. Qual das duas seria a melhor? Poderia utilizar as duas?</p>
 <p>Visualmente notamos que a precisão do gráfico do estimador que utiliza a mediana amostral é maior do que a do gráfico do estimador que uriliza a méia amostral. Matematicamente temos o seguinte:</p>
@@ -724,7 +707,7 @@ S^2=\frac{1}{n-1}\sum_{i=1}^{n}(X_i - \overline{X})^2
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Note</span>DEFINIÇÃO
+<span class="screen-reader-only">Nota</span>DEFINIÇÃO
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -742,7 +725,7 @@ S^2=\frac{1}{n-1}\sum_{i=1}^{n}(X_i - \overline{X})^2
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Note</span>DEFINIÇÃO
+<span class="screen-reader-only">Nota</span>DEFINIÇÃO
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -791,15 +774,7 @@ EQM(T;\Theta) &amp;= E(e^{2})=E(T-\Theta)^{2}
 <span id="cb4-25"><a href="#cb4-25" aria-hidden="true" tabindex="-1"></a>     <span class="at">yaxt=</span><span class="st">"n"</span>, <span class="at">xlim=</span><span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">15000</span>), <span class="at">ylab=</span><span class="st">"Densidade do EQM"</span>, <span class="at">xlab=</span><span class="st">"EQM"</span>,</span>
 <span id="cb4-26"><a href="#cb4-26" aria-hidden="true" tabindex="-1"></a>     <span class="at">border=</span><span class="st">"steelblue3"</span>)</span>
 <span id="cb4-27"><a href="#cb4-27" aria-hidden="true" tabindex="-1"></a><span class="fu">legend</span>(<span class="st">"topright"</span>, <span class="at">legend=</span><span class="fu">c</span>(<span class="st">"EQM- mediana"</span>, <span class="st">"EQM - média"</span>),<span class="at">col=</span><span class="fu">c</span>(<span class="st">"wheat4"</span>,</span>
-<span id="cb4-28"><a href="#cb4-28" aria-hidden="true" tabindex="-1"></a>      <span class="st">"steelblue3"</span>), <span class="at">lty=</span><span class="dv">1</span><span class="sc">:</span><span class="dv">1</span>, <span class="at">box.lty=</span><span class="dv">0</span>,<span class="at">cex=</span><span class="fl">0.8</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="cap11_estimacao_ponto_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid figure-img" style="width:70.0%"></p>
-<figcaption>Erro Quadrático Médio de dois estimadores não viesádos para a Esperança da População , média e mediana</figcaption>
-</figure>
-</div>
-</div>
+<span id="cb4-28"><a href="#cb4-28" aria-hidden="true" tabindex="-1"></a>      <span class="st">"steelblue3"</span>), <span class="at">lty=</span><span class="dv">1</span><span class="sc">:</span><span class="dv">1</span>, <span class="at">box.lty=</span><span class="dv">0</span>,<span class="at">cex=</span><span class="fl">0.8</span>)</span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
 <section id="consistência" class="level3" data-number="13.3.4">
@@ -835,15 +810,7 @@ EQM(T;\Theta) &amp;= E(e^{2})=E(T-\Theta)^{2}
 <span id="cb5-25"><a href="#cb5-25" aria-hidden="true" tabindex="-1"></a>     <span class="at">yaxt=</span><span class="st">"n"</span>, <span class="at">xlim=</span><span class="fu">c</span>(<span class="dv">1800</span>, <span class="dv">2200</span>), <span class="at">ylab=</span><span class="st">""</span>, <span class="at">xlab=</span><span class="st">""</span>,<span class="at">border=</span><span class="st">"gray"</span>)</span>
 <span id="cb5-26"><a href="#cb5-26" aria-hidden="true" tabindex="-1"></a><span class="fu">text</span>(<span class="dv">2000</span>, <span class="fl">0.0008</span>, <span class="fu">expression</span>(mu))</span>
 <span id="cb5-27"><a href="#cb5-27" aria-hidden="true" tabindex="-1"></a><span class="fu">legend</span>(<span class="st">"topright"</span>, <span class="at">legend=</span><span class="fu">c</span>(<span class="st">"Amostra"</span>,<span class="st">"n=50"</span>,<span class="st">"n=500"</span>,<span class="st">"n=1500"</span>),<span class="at">col=</span><span class="fu">c</span>(<span class="st">"white"</span>, </span>
-<span id="cb5-28"><a href="#cb5-28" aria-hidden="true" tabindex="-1"></a>      <span class="st">"wheat4"</span>,<span class="st">"steelblue3"</span>,<span class="st">"gray"</span>), <span class="at">lty=</span><span class="dv">1</span><span class="sc">:</span><span class="dv">1</span>, <span class="at">box.lty=</span><span class="dv">0</span>,<span class="at">cex=</span><span class="fl">0.8</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="cap11_estimacao_ponto_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid figure-img" style="width:70.0%"></p>
-<figcaption>Consistência do estimador não viesados para a Esperança da População , média</figcaption>
-</figure>
-</div>
-</div>
+<span id="cb5-28"><a href="#cb5-28" aria-hidden="true" tabindex="-1"></a>      <span class="st">"wheat4"</span>,<span class="st">"steelblue3"</span>,<span class="st">"gray"</span>), <span class="at">lty=</span><span class="dv">1</span><span class="sc">:</span><span class="dv">1</span>, <span class="at">box.lty=</span><span class="dv">0</span>,<span class="at">cex=</span><span class="fl">0.8</span>)</span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>Observe que ao aumentar o tamanho amostral a distribuição vai se concentrando ao redor do parâmetro populacional. Ou seja, <span class="math inline">\(\bar{X}\)</span> é consistente. Assim tem-se a seguinte definição:</p>
 <div class="callout callout-style-default callout-note no-icon callout-titled" title="DEFINIÇÃO">
@@ -852,7 +819,7 @@ EQM(T;\Theta) &amp;= E(e^{2})=E(T-\Theta)^{2}
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Note</span>DEFINIÇÃO
+<span class="screen-reader-only">Nota</span>DEFINIÇÃO
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -869,7 +836,7 @@ EQM(T;\Theta) &amp;= E(e^{2})=E(T-\Theta)^{2}
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Note</span>TEOREMA
+<span class="screen-reader-only">Nota</span>TEOREMA
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -891,7 +858,7 @@ EQM(T;\Theta) &amp;= E(e^{2})=E(T-\Theta)^{2}
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Tip</span>EXEMPLO
+<span class="screen-reader-only">Dica</span>EXEMPLO
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -908,7 +875,7 @@ EQM(T;\Theta) &amp;= E(e^{2})=E(T-\Theta)^{2}
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Tip</span>EXEMPLO
+<span class="screen-reader-only">Dica</span>EXEMPLO
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -942,7 +909,7 @@ Var(\hat{\sigma^{2}})= (\frac{n-1}{n})^{2} Var(S^{2}) = \frac{(n-1)^2}{n^{2}} \f
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Caution</span>RESPOSTA
+<span class="screen-reader-only">Cuidado</span>RESPOSTA
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
@@ -998,7 +965,7 @@ Var(\hat{\sigma^{2}})= (\frac{n-1}{n})^{2} Var(S^{2}) = \frac{(n-1)^2}{n^{2}} \f
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Caution</span>RESPOSTA
+<span class="screen-reader-only">Cuidado</span>RESPOSTA
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
@@ -1071,7 +1038,7 @@ Var(\hat{\sigma^{2}})= (\frac{n-1}{n})^{2} Var(S^{2}) = \frac{(n-1)^2}{n^{2}} \f
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Caution</span>RESPOSTA
+<span class="screen-reader-only">Cuidado</span>RESPOSTA
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
@@ -1146,7 +1113,7 @@ Var(\hat{\sigma^{2}})= (\frac{n-1}{n})^{2} Var(S^{2}) = \frac{(n-1)^2}{n^{2}} \f
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Caution</span>RESPOSTA
+<span class="screen-reader-only">Cuidado</span>RESPOSTA
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
@@ -1241,7 +1208,7 @@ Var(\hat{\sigma^{2}})= (\frac{n-1}{n})^{2} Var(S^{2}) = \frac{(n-1)^2}{n^{2}} \f
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Caution</span>RESPOSTA
+<span class="screen-reader-only">Cuidado</span>RESPOSTA
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
@@ -1346,15 +1313,7 @@ Var(\hat{\sigma^{2}})= (\frac{n-1}{n})^{2} Var(S^{2}) = \frac{(n-1)^2}{n^{2}} \f
 <span id="cb6-26"><a href="#cb6-26" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb6-27"><a href="#cb6-27" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(bd<span class="sc">$</span>educa, bd<span class="sc">$</span>ln_salario, <span class="at">xlab=</span><span class="st">"Anos de Estudo"</span>, </span>
 <span id="cb6-28"><a href="#cb6-28" aria-hidden="true" tabindex="-1"></a>     <span class="at">ylab=</span><span class="st">"ln PIB pc "</span>, <span class="at">pch=</span><span class="dv">20</span>, <span class="at">col=</span><span class="st">"wheat4"</span>,<span class="at">ylim=</span><span class="fu">c</span>(<span class="dv">5</span>,<span class="dv">12</span>))</span>
-<span id="cb6-29"><a href="#cb6-29" aria-hidden="true" tabindex="-1"></a><span class="fu">abline</span>(<span class="fu">lm</span>(bd<span class="sc">$</span>ln_salario<span class="sc">~</span>bd<span class="sc">$</span>educa), <span class="at">col=</span><span class="st">"steelblue3"</span>, <span class="at">lwd =</span> <span class="dv">2</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="cap11_estimacao_ponto_files/figure-html/unnamed-chunk-6-1.png" class="img-fluid figure-img" style="width:70.0%"></p>
-<figcaption>Anos de estudos e ln do PIB pc de diversos países em 2010</figcaption>
-</figure>
-</div>
-</div>
+<span id="cb6-29"><a href="#cb6-29" aria-hidden="true" tabindex="-1"></a><span class="fu">abline</span>(<span class="fu">lm</span>(bd<span class="sc">$</span>ln_salario<span class="sc">~</span>bd<span class="sc">$</span>educa), <span class="at">col=</span><span class="st">"steelblue3"</span>, <span class="at">lwd =</span> <span class="dv">2</span>)</span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>Observe que existe uma relação ascendente, ou seja, quanto maior a educação maior renda per capita. Entretanto, observa-se também uma imprecisão, ou algum componente aleatório que não nos permite determinar precisamente a renda dada a escolaridade. Para países com 10 anos de estudos as rendas variam mais ou menos entre 8,5 e 10,5. Dessa forma um possível modelo para tratarmos essa problema seria:</p>
 <p>A questão é qual a função que descreveria essa relação entre escolaridade de rend? O que podemos assumir é que h é uma função crescente e parece razoável que possamos assumir uma função linear como representada pela linha vermelha. Podemos dizer que existe uma correlação entre renda e educação, ou seja, uma dependência linear. Um possível e mais comum modelo seria uma função linear que relaciona renda e educação e que considere as flutuações, ou seja:</p>
@@ -1377,7 +1336,7 @@ Var(\hat{\sigma^{2}})= (\frac{n-1}{n})^{2} Var(S^{2}) = \frac{(n-1)^2}{n^{2}} \f
 <img src="../figuras/capitulos/reg.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:60.0%">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-particula-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;13.3: Valores observados e estimados para y
+Figura&nbsp;13.3: Valores observados e estimados para y
 </figcaption>
 </figure>
 </div>
@@ -1450,26 +1409,12 @@ S( \beta)=&amp;\sum_{i=1}^{n}(y_i-\beta.x_i)^2
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>B<span class="ot">&lt;-</span>((<span class="fu">sum</span>(educa<span class="sc">*</span>ln_salario)<span class="sc">-</span><span class="dv">105</span><span class="sc">*</span>(<span class="fu">mean</span>(educa)<span class="sc">*</span><span class="fu">mean</span>(ln_salario))))<span class="sc">/</span></span>
 <span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>  ((<span class="fu">sum</span>(educa<span class="sc">^</span><span class="dv">2</span>)<span class="sc">-</span><span class="dv">105</span><span class="sc">*</span>(<span class="fu">mean</span>(educa)<span class="sc">^</span><span class="dv">2</span>)))</span>
 <span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>A<span class="ot">&lt;-</span><span class="fu">mean</span>(ln_salario<span class="sc">-</span>B<span class="sc">*</span><span class="fu">mean</span>(educa))</span>
-<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>B</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 0.3568401</code></pre>
-</div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>A</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 6.092204</code></pre>
-</div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Usando a rotina do R para Mínimos Quadrados</span></span>
-<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>reg<span class="ot">&lt;-</span><span class="fu">lm</span>(ln_salario<span class="sc">~</span>educa)</span>
-<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>reg</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>
-Call:
-lm(formula = ln_salario ~ educa)
-
-Coefficients:
-(Intercept)        educa  
-     6.0922       0.3568  </code></pre>
-</div>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>B</span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>A</span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Usando a rotina do R para Mínimos Quadrados</span></span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a>reg<span class="ot">&lt;-</span><span class="fu">lm</span>(ln_salario<span class="sc">~</span>educa)</span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a>reg</span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>Observe que cada ano a mais de educação que um pais consegue, aumenta em 0.357 o ln da renda per capita. Mostrando que renda e educaçao estão correlacionado! Dessa forma, nossa equação para achar <span class="math inline">\(\hat{Y}\)</span> será:</p>
 <p><span class="math display">\[\hat{Y}=\hat{\alpha}+\hat{\beta}x\]</span> ou seja,</p>
@@ -1482,85 +1427,69 @@ Coefficients:
 <h4 data-number="13.5.2.1" class="anchored" data-anchor-id="intuição"><span class="header-section-number">13.5.2.1</span> Intuição:</h4>
 <p>Suponha que gostaríamos de saber qual seria uma boa estimativa da esperança da nota do IDEB nos município brasileiros para os primeiros anos do fundamental em 2017. Vamos coletar 500 municipios e vamos plotar o histograma conforme figura 3 abaixo.</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Distribuição da nota dos alunos que fizeram ENEM, X. </span></span>
-<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>smp<span class="ot">&lt;-</span><span class="fu">sample</span>(<span class="fu">rnorm</span>(<span class="dv">5500</span>,<span class="at">mean=</span><span class="fl">5.6</span>, <span class="at">sd=</span> <span class="fl">1.0139</span>),<span class="at">replace =</span> <span class="cn">TRUE</span>,<span class="at">size =</span> <span class="dv">500</span>)</span>
-<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Plotando as médias obtidas</span></span>
-<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(smp, <span class="at">col=</span><span class="st">"steelblue3"</span>,<span class="at">freq =</span> <span class="cn">FALSE</span>, <span class="at">breaks =</span> <span class="dv">25</span>,<span class="at">main=</span><span class="st">""</span>,</span>
-<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a>     <span class="at">xlim=</span><span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">10</span>), <span class="at">ylab=</span><span class="st">"Dist. das notas IDEB"</span>, <span class="at">xlab=</span><span class="st">"notas IDEB "</span>,</span>
-<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a>     <span class="at">border=</span><span class="st">"steelblue3"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="cap11_estimacao_ponto_files/figure-html/unnamed-chunk-8-1.png" class="img-fluid figure-img" style="width:70.0%"></p>
-<figcaption>Distribuição da amostra das notas do IDEB 2017, para os primeiros anos do fundamental de 500 municípios</figcaption>
-</figure>
-</div>
-</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Distribuição da nota dos alunos que fizeram ENEM, X. </span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>smp<span class="ot">&lt;-</span><span class="fu">sample</span>(<span class="fu">rnorm</span>(<span class="dv">5500</span>,<span class="at">mean=</span><span class="fl">5.6</span>, <span class="at">sd=</span> <span class="fl">1.0139</span>),<span class="at">replace =</span> <span class="cn">TRUE</span>,<span class="at">size =</span> <span class="dv">500</span>)</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Plotando as médias obtidas</span></span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(smp, <span class="at">col=</span><span class="st">"steelblue3"</span>,<span class="at">freq =</span> <span class="cn">FALSE</span>, <span class="at">breaks =</span> <span class="dv">25</span>,<span class="at">main=</span><span class="st">""</span>,</span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>     <span class="at">xlim=</span><span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">10</span>), <span class="at">ylab=</span><span class="st">"Dist. das notas IDEB"</span>, <span class="at">xlab=</span><span class="st">"notas IDEB "</span>,</span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>     <span class="at">border=</span><span class="st">"steelblue3"</span>)</span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>Esse são os dados que observamos, ou seja, uma amostra de 500 elementos onde temos <span class="math inline">\(X_1, X_2,...,X_{500}\)</span> as 500 medições sendo que todas elas tem a mesma distribuição de e igual a de <span class="math inline">\(X\)</span>, <span class="math inline">\(f(x;\mu)\)</span>. O gráfico acima apresenta os valores observados das medições, <span class="math inline">\(x_1,x_2,...,x_{500}\)</span>. Dessa forma temos os valores observados mas não temos ideia de qual distribuição eles vieram, ou seja, de qual <span class="math inline">\(f(x;\mu)\)</span> esses dados foram extraídos.</p>
 <p>Supondo que a distribuição populacional é uma normal e que temos os dados acima já observados, a questão é achar qual a fdp de <span class="math inline">\(X\)</span> entre todas as possíveis (alterando o valor do parâmetro) que é a mais provável de ter gerado os dados que observamos.</p>
 <p>Vejamos a simulação abaixo, figura 4, que considera os dados coletados e diversas distribuições normais para diferentes valores do parâmetro <span class="math inline">\(\mu\)</span>.</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Distribuição da nota dos alunos que fizeram ENEM, X. </span></span>
-<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>smp<span class="ot">&lt;-</span><span class="fu">sample</span>(<span class="fu">rnorm</span>(<span class="dv">5500</span>,<span class="at">mean=</span><span class="fl">5.6</span>, <span class="at">sd=</span> <span class="fl">1.0139</span>),<span class="at">replace =</span> <span class="cn">TRUE</span>,<span class="at">size =</span> <span class="dv">500</span>)</span>
-<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a><span class="co">#Desvio padrão e diversas possibilidades de esperança:</span></span>
-<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a>sd<span class="ot">&lt;-</span><span class="fl">1.0139</span></span>
-<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a>e1<span class="ot">&lt;-</span><span class="fl">2.5</span></span>
-<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a>e2<span class="ot">&lt;-</span><span class="fl">3.5</span></span>
-<span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a>e3<span class="ot">&lt;-</span><span class="fl">5.6</span></span>
-<span id="cb14-9"><a href="#cb14-9" aria-hidden="true" tabindex="-1"></a>e4<span class="ot">&lt;-</span><span class="fl">7.5</span></span>
-<span id="cb14-10"><a href="#cb14-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-11"><a href="#cb14-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Valores de x que vão de 0 até 10</span></span>
-<span id="cb14-12"><a href="#cb14-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-13"><a href="#cb14-13" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="dv">0</span>, <span class="dv">10</span>, <span class="at">length =</span> <span class="dv">1000</span>) </span>
-<span id="cb14-14"><a href="#cb14-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-15"><a href="#cb14-15" aria-hidden="true" tabindex="-1"></a><span class="co"># Distribuição de probabilidade</span></span>
-<span id="cb14-16"><a href="#cb14-16" aria-hidden="true" tabindex="-1"></a>y1 <span class="ot">&lt;-</span> <span class="fu">dnorm</span>(x, e1, sd)</span>
-<span id="cb14-17"><a href="#cb14-17" aria-hidden="true" tabindex="-1"></a>y2 <span class="ot">&lt;-</span> <span class="fu">dnorm</span>(x, e2, sd)</span>
-<span id="cb14-18"><a href="#cb14-18" aria-hidden="true" tabindex="-1"></a>y3 <span class="ot">&lt;-</span> <span class="fu">dnorm</span>(x, e3, sd)</span>
-<span id="cb14-19"><a href="#cb14-19" aria-hidden="true" tabindex="-1"></a>y4 <span class="ot">&lt;-</span> <span class="fu">dnorm</span>(x, e4, sd)</span>
-<span id="cb14-20"><a href="#cb14-20" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-21"><a href="#cb14-21" aria-hidden="true" tabindex="-1"></a><span class="co"># Plotando as médias obtidas</span></span>
-<span id="cb14-22"><a href="#cb14-22" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(smp, <span class="at">col=</span><span class="st">"steelblue3"</span>,<span class="at">freq =</span> <span class="cn">FALSE</span>, <span class="at">breaks =</span> <span class="dv">25</span>,<span class="at">main=</span><span class="st">""</span>,</span>
-<span id="cb14-23"><a href="#cb14-23" aria-hidden="true" tabindex="-1"></a>     <span class="at">xlim=</span><span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">10</span>), <span class="at">ylim=</span><span class="fu">c</span>(<span class="dv">0</span>, <span class="fl">0.39</span>), <span class="at">ylab=</span><span class="st">"Dist. das notas IDEB"</span>, </span>
-<span id="cb14-24"><a href="#cb14-24" aria-hidden="true" tabindex="-1"></a>     <span class="at">xlab=</span><span class="st">"notas IDEB "</span>,<span class="at">border=</span><span class="st">"steelblue3"</span>)</span>
-<span id="cb14-25"><a href="#cb14-25" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">new=</span><span class="cn">TRUE</span>)</span>
-<span id="cb14-26"><a href="#cb14-26" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(x, y1, <span class="at">type=</span><span class="st">"n"</span>, <span class="at">xlab =</span> <span class="st">""</span>, <span class="at">ylab =</span> <span class="st">""</span>, <span class="at">axes =</span> <span class="cn">FALSE</span>)</span>
-<span id="cb14-27"><a href="#cb14-27" aria-hidden="true" tabindex="-1"></a><span class="fu">lines</span>(x, y1, <span class="at">col=</span><span class="st">"thistle4"</span>,<span class="at">lwd =</span> <span class="dv">2</span>)</span>
-<span id="cb14-28"><a href="#cb14-28" aria-hidden="true" tabindex="-1"></a><span class="fu">abline</span>(<span class="at">v=</span><span class="fl">2.5</span>, <span class="at">col=</span><span class="st">"black"</span>, <span class="at">lty=</span><span class="dv">2</span>)</span>
-<span id="cb14-29"><a href="#cb14-29" aria-hidden="true" tabindex="-1"></a><span class="fu">text</span>(<span class="fl">2.5</span>, <span class="fl">0.03</span>, <span class="fu">expression</span>(Theta[<span class="dv">1</span>]))</span>
-<span id="cb14-30"><a href="#cb14-30" aria-hidden="true" tabindex="-1"></a><span class="fu">text</span>(<span class="fl">1.9</span>, <span class="fl">0.39</span>, <span class="fu">expression</span>(<span class="fu">paste</span>(<span class="st">"f(x"</span> , <span class="st">";"</span> ,Theta[<span class="dv">1</span>],<span class="st">")"</span>)))</span>
-<span id="cb14-31"><a href="#cb14-31" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-32"><a href="#cb14-32" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">new=</span><span class="cn">TRUE</span>)</span>
-<span id="cb14-33"><a href="#cb14-33" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(x, y2, <span class="at">type=</span><span class="st">"n"</span>, <span class="at">xlab =</span> <span class="st">""</span>, <span class="at">ylab =</span> <span class="st">""</span>, <span class="at">axes =</span> <span class="cn">FALSE</span>)</span>
-<span id="cb14-34"><a href="#cb14-34" aria-hidden="true" tabindex="-1"></a><span class="fu">lines</span>(x, y2, <span class="at">col=</span><span class="st">"slategray4"</span>,<span class="at">lwd =</span> <span class="dv">2</span>)</span>
-<span id="cb14-35"><a href="#cb14-35" aria-hidden="true" tabindex="-1"></a><span class="fu">abline</span>(<span class="at">v=</span><span class="fl">3.5</span>, <span class="at">col=</span><span class="st">"black"</span>, <span class="at">lty=</span><span class="dv">2</span>)</span>
-<span id="cb14-36"><a href="#cb14-36" aria-hidden="true" tabindex="-1"></a><span class="fu">text</span>(<span class="fl">3.5</span>, <span class="fl">0.03</span>, <span class="fu">expression</span>(Theta[<span class="dv">2</span>]))</span>
-<span id="cb14-37"><a href="#cb14-37" aria-hidden="true" tabindex="-1"></a><span class="fu">text</span>(<span class="fl">4.1</span>, <span class="fl">0.39</span>, <span class="fu">expression</span>(<span class="fu">paste</span>(<span class="st">"f(x"</span> , <span class="st">";"</span> ,Theta[<span class="dv">2</span>],<span class="st">")"</span>)))</span>
-<span id="cb14-38"><a href="#cb14-38" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-39"><a href="#cb14-39" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">new=</span><span class="cn">TRUE</span>)</span>
-<span id="cb14-40"><a href="#cb14-40" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(x, y3, <span class="at">type=</span><span class="st">"n"</span>, <span class="at">xlab =</span> <span class="st">""</span>, <span class="at">ylab =</span> <span class="st">""</span>, <span class="at">axes =</span> <span class="cn">FALSE</span>)</span>
-<span id="cb14-41"><a href="#cb14-41" aria-hidden="true" tabindex="-1"></a><span class="fu">lines</span>(x, y3, <span class="at">col=</span><span class="st">"tomato4"</span>, <span class="at">lwd =</span> <span class="dv">2</span>)</span>
-<span id="cb14-42"><a href="#cb14-42" aria-hidden="true" tabindex="-1"></a><span class="fu">abline</span>(<span class="at">v=</span><span class="fl">5.6</span>, <span class="at">col=</span><span class="st">"black"</span>, <span class="at">lty=</span><span class="dv">2</span>)</span>
-<span id="cb14-43"><a href="#cb14-43" aria-hidden="true" tabindex="-1"></a><span class="fu">text</span>(<span class="fl">5.6</span>, <span class="fl">0.03</span>, <span class="fu">expression</span>(Theta[<span class="dv">3</span>]))</span>
-<span id="cb14-44"><a href="#cb14-44" aria-hidden="true" tabindex="-1"></a><span class="fu">text</span>(<span class="fl">6.2</span>, <span class="fl">0.39</span>, <span class="fu">expression</span>(<span class="fu">paste</span>(<span class="st">"f(x"</span> , <span class="st">";"</span> ,Theta[<span class="dv">3</span>],<span class="st">")"</span>)))</span>
-<span id="cb14-45"><a href="#cb14-45" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-46"><a href="#cb14-46" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">new=</span><span class="cn">TRUE</span>)</span>
-<span id="cb14-47"><a href="#cb14-47" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(x, y4, <span class="at">type=</span><span class="st">"n"</span>, <span class="at">xlab =</span> <span class="st">""</span>, <span class="at">ylab =</span> <span class="st">""</span>, <span class="at">axes =</span> <span class="cn">FALSE</span>)</span>
-<span id="cb14-48"><a href="#cb14-48" aria-hidden="true" tabindex="-1"></a><span class="fu">lines</span>(x, y4, <span class="at">col=</span><span class="st">"wheat4"</span>, <span class="at">lwd =</span> <span class="dv">2</span>)</span>
-<span id="cb14-49"><a href="#cb14-49" aria-hidden="true" tabindex="-1"></a><span class="fu">abline</span>(<span class="at">v=</span><span class="fl">7.5</span>, <span class="at">col=</span><span class="st">"black"</span>, <span class="at">lty=</span><span class="dv">2</span>)</span>
-<span id="cb14-50"><a href="#cb14-50" aria-hidden="true" tabindex="-1"></a><span class="fu">text</span>(<span class="fl">7.5</span>, <span class="fl">0.03</span>, <span class="fu">expression</span>(Theta[<span class="dv">4</span>]))</span>
-<span id="cb14-51"><a href="#cb14-51" aria-hidden="true" tabindex="-1"></a><span class="fu">text</span>(<span class="fl">8.1</span>, <span class="fl">0.39</span>, <span class="fu">expression</span>(<span class="fu">paste</span>(<span class="st">"f(x"</span> , <span class="st">";"</span> ,Theta[<span class="dv">4</span>],<span class="st">")"</span>)))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="cap11_estimacao_ponto_files/figure-html/unnamed-chunk-9-1.png" class="img-fluid figure-img" style="width:70.0%"></p>
-<figcaption>Distribuição da amostra das notas do IDEB 2017, e diversas possibilidades fdp do ideb populacional</figcaption>
-</figure>
-</div>
-</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Distribuição da nota dos alunos que fizeram ENEM, X. </span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>smp<span class="ot">&lt;-</span><span class="fu">sample</span>(<span class="fu">rnorm</span>(<span class="dv">5500</span>,<span class="at">mean=</span><span class="fl">5.6</span>, <span class="at">sd=</span> <span class="fl">1.0139</span>),<span class="at">replace =</span> <span class="cn">TRUE</span>,<span class="at">size =</span> <span class="dv">500</span>)</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a><span class="co">#Desvio padrão e diversas possibilidades de esperança:</span></span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>sd<span class="ot">&lt;-</span><span class="fl">1.0139</span></span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>e1<span class="ot">&lt;-</span><span class="fl">2.5</span></span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>e2<span class="ot">&lt;-</span><span class="fl">3.5</span></span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>e3<span class="ot">&lt;-</span><span class="fl">5.6</span></span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a>e4<span class="ot">&lt;-</span><span class="fl">7.5</span></span>
+<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Valores de x que vão de 0 até 10</span></span>
+<span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-13"><a href="#cb9-13" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="dv">0</span>, <span class="dv">10</span>, <span class="at">length =</span> <span class="dv">1000</span>) </span>
+<span id="cb9-14"><a href="#cb9-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-15"><a href="#cb9-15" aria-hidden="true" tabindex="-1"></a><span class="co"># Distribuição de probabilidade</span></span>
+<span id="cb9-16"><a href="#cb9-16" aria-hidden="true" tabindex="-1"></a>y1 <span class="ot">&lt;-</span> <span class="fu">dnorm</span>(x, e1, sd)</span>
+<span id="cb9-17"><a href="#cb9-17" aria-hidden="true" tabindex="-1"></a>y2 <span class="ot">&lt;-</span> <span class="fu">dnorm</span>(x, e2, sd)</span>
+<span id="cb9-18"><a href="#cb9-18" aria-hidden="true" tabindex="-1"></a>y3 <span class="ot">&lt;-</span> <span class="fu">dnorm</span>(x, e3, sd)</span>
+<span id="cb9-19"><a href="#cb9-19" aria-hidden="true" tabindex="-1"></a>y4 <span class="ot">&lt;-</span> <span class="fu">dnorm</span>(x, e4, sd)</span>
+<span id="cb9-20"><a href="#cb9-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-21"><a href="#cb9-21" aria-hidden="true" tabindex="-1"></a><span class="co"># Plotando as médias obtidas</span></span>
+<span id="cb9-22"><a href="#cb9-22" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(smp, <span class="at">col=</span><span class="st">"steelblue3"</span>,<span class="at">freq =</span> <span class="cn">FALSE</span>, <span class="at">breaks =</span> <span class="dv">25</span>,<span class="at">main=</span><span class="st">""</span>,</span>
+<span id="cb9-23"><a href="#cb9-23" aria-hidden="true" tabindex="-1"></a>     <span class="at">xlim=</span><span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">10</span>), <span class="at">ylim=</span><span class="fu">c</span>(<span class="dv">0</span>, <span class="fl">0.39</span>), <span class="at">ylab=</span><span class="st">"Dist. das notas IDEB"</span>, </span>
+<span id="cb9-24"><a href="#cb9-24" aria-hidden="true" tabindex="-1"></a>     <span class="at">xlab=</span><span class="st">"notas IDEB "</span>,<span class="at">border=</span><span class="st">"steelblue3"</span>)</span>
+<span id="cb9-25"><a href="#cb9-25" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">new=</span><span class="cn">TRUE</span>)</span>
+<span id="cb9-26"><a href="#cb9-26" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(x, y1, <span class="at">type=</span><span class="st">"n"</span>, <span class="at">xlab =</span> <span class="st">""</span>, <span class="at">ylab =</span> <span class="st">""</span>, <span class="at">axes =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb9-27"><a href="#cb9-27" aria-hidden="true" tabindex="-1"></a><span class="fu">lines</span>(x, y1, <span class="at">col=</span><span class="st">"thistle4"</span>,<span class="at">lwd =</span> <span class="dv">2</span>)</span>
+<span id="cb9-28"><a href="#cb9-28" aria-hidden="true" tabindex="-1"></a><span class="fu">abline</span>(<span class="at">v=</span><span class="fl">2.5</span>, <span class="at">col=</span><span class="st">"black"</span>, <span class="at">lty=</span><span class="dv">2</span>)</span>
+<span id="cb9-29"><a href="#cb9-29" aria-hidden="true" tabindex="-1"></a><span class="fu">text</span>(<span class="fl">2.5</span>, <span class="fl">0.03</span>, <span class="fu">expression</span>(Theta[<span class="dv">1</span>]))</span>
+<span id="cb9-30"><a href="#cb9-30" aria-hidden="true" tabindex="-1"></a><span class="fu">text</span>(<span class="fl">1.9</span>, <span class="fl">0.39</span>, <span class="fu">expression</span>(<span class="fu">paste</span>(<span class="st">"f(x"</span> , <span class="st">";"</span> ,Theta[<span class="dv">1</span>],<span class="st">")"</span>)))</span>
+<span id="cb9-31"><a href="#cb9-31" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-32"><a href="#cb9-32" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">new=</span><span class="cn">TRUE</span>)</span>
+<span id="cb9-33"><a href="#cb9-33" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(x, y2, <span class="at">type=</span><span class="st">"n"</span>, <span class="at">xlab =</span> <span class="st">""</span>, <span class="at">ylab =</span> <span class="st">""</span>, <span class="at">axes =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb9-34"><a href="#cb9-34" aria-hidden="true" tabindex="-1"></a><span class="fu">lines</span>(x, y2, <span class="at">col=</span><span class="st">"slategray4"</span>,<span class="at">lwd =</span> <span class="dv">2</span>)</span>
+<span id="cb9-35"><a href="#cb9-35" aria-hidden="true" tabindex="-1"></a><span class="fu">abline</span>(<span class="at">v=</span><span class="fl">3.5</span>, <span class="at">col=</span><span class="st">"black"</span>, <span class="at">lty=</span><span class="dv">2</span>)</span>
+<span id="cb9-36"><a href="#cb9-36" aria-hidden="true" tabindex="-1"></a><span class="fu">text</span>(<span class="fl">3.5</span>, <span class="fl">0.03</span>, <span class="fu">expression</span>(Theta[<span class="dv">2</span>]))</span>
+<span id="cb9-37"><a href="#cb9-37" aria-hidden="true" tabindex="-1"></a><span class="fu">text</span>(<span class="fl">4.1</span>, <span class="fl">0.39</span>, <span class="fu">expression</span>(<span class="fu">paste</span>(<span class="st">"f(x"</span> , <span class="st">";"</span> ,Theta[<span class="dv">2</span>],<span class="st">")"</span>)))</span>
+<span id="cb9-38"><a href="#cb9-38" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-39"><a href="#cb9-39" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">new=</span><span class="cn">TRUE</span>)</span>
+<span id="cb9-40"><a href="#cb9-40" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(x, y3, <span class="at">type=</span><span class="st">"n"</span>, <span class="at">xlab =</span> <span class="st">""</span>, <span class="at">ylab =</span> <span class="st">""</span>, <span class="at">axes =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb9-41"><a href="#cb9-41" aria-hidden="true" tabindex="-1"></a><span class="fu">lines</span>(x, y3, <span class="at">col=</span><span class="st">"tomato4"</span>, <span class="at">lwd =</span> <span class="dv">2</span>)</span>
+<span id="cb9-42"><a href="#cb9-42" aria-hidden="true" tabindex="-1"></a><span class="fu">abline</span>(<span class="at">v=</span><span class="fl">5.6</span>, <span class="at">col=</span><span class="st">"black"</span>, <span class="at">lty=</span><span class="dv">2</span>)</span>
+<span id="cb9-43"><a href="#cb9-43" aria-hidden="true" tabindex="-1"></a><span class="fu">text</span>(<span class="fl">5.6</span>, <span class="fl">0.03</span>, <span class="fu">expression</span>(Theta[<span class="dv">3</span>]))</span>
+<span id="cb9-44"><a href="#cb9-44" aria-hidden="true" tabindex="-1"></a><span class="fu">text</span>(<span class="fl">6.2</span>, <span class="fl">0.39</span>, <span class="fu">expression</span>(<span class="fu">paste</span>(<span class="st">"f(x"</span> , <span class="st">";"</span> ,Theta[<span class="dv">3</span>],<span class="st">")"</span>)))</span>
+<span id="cb9-45"><a href="#cb9-45" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-46"><a href="#cb9-46" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">new=</span><span class="cn">TRUE</span>)</span>
+<span id="cb9-47"><a href="#cb9-47" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(x, y4, <span class="at">type=</span><span class="st">"n"</span>, <span class="at">xlab =</span> <span class="st">""</span>, <span class="at">ylab =</span> <span class="st">""</span>, <span class="at">axes =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb9-48"><a href="#cb9-48" aria-hidden="true" tabindex="-1"></a><span class="fu">lines</span>(x, y4, <span class="at">col=</span><span class="st">"wheat4"</span>, <span class="at">lwd =</span> <span class="dv">2</span>)</span>
+<span id="cb9-49"><a href="#cb9-49" aria-hidden="true" tabindex="-1"></a><span class="fu">abline</span>(<span class="at">v=</span><span class="fl">7.5</span>, <span class="at">col=</span><span class="st">"black"</span>, <span class="at">lty=</span><span class="dv">2</span>)</span>
+<span id="cb9-50"><a href="#cb9-50" aria-hidden="true" tabindex="-1"></a><span class="fu">text</span>(<span class="fl">7.5</span>, <span class="fl">0.03</span>, <span class="fu">expression</span>(Theta[<span class="dv">4</span>]))</span>
+<span id="cb9-51"><a href="#cb9-51" aria-hidden="true" tabindex="-1"></a><span class="fu">text</span>(<span class="fl">8.1</span>, <span class="fl">0.39</span>, <span class="fu">expression</span>(<span class="fu">paste</span>(<span class="st">"f(x"</span> , <span class="st">";"</span> ,Theta[<span class="dv">4</span>],<span class="st">")"</span>)))</span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>Na figura acima observa-se em azul, o histograma das observações coletadas, ou seja, a amostra de 500 municípios. Foram simuladas diversas distribuições POPULACIONAIS normais cada uma com o mesmo valor de desvio padrão mas diversos valores para a esperança que chamamos de <span class="math inline">\(\Theta\)</span>. A questão que temos é qual seria a distribuição que torna mais provável termos tirado essa amostra? De qual distribuição <span class="math inline">\(f(x;\Theta_1)\)</span>, <span class="math inline">\(f(x;\Theta_2)\)</span>, <span class="math inline">\(f(x;\Theta_3)\)</span> ou <span class="math inline">\(f(x;\Theta_4)\)</span> essa amostra pode ter vindo?</p>
 <p>Para resolver esse problema utilizamos a função de verossimilhança que representa a verossimilhança de um parâmetro <span class="math inline">\(\Theta\)</span> condicional aos valores observados. Dessa forma é função do parâmetro.</p>
@@ -1577,30 +1506,22 @@ L(\Theta|X_1,...,X_n)= f(x_1|\Theta)f(x_2|\Theta)...f(x_n|\Theta)
 <p><span class="math display">\[L(\mu| x_1,...,x_n)= \frac{1}{2 \pi ^{n/2}} exp \bigg[-\frac{1}{2} \sum_i^n (x_i - \mu)^2 \bigg]\]</span></p>
 <p>Agora vamos simular diversos valores para os parâmetros populacionais e encontrar a função de verossimilhança, veja figura 5.</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co"># amostra da nota dos alunos que fizeram ENEM, X. Valores da esperança </span></span>
-<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">149</span>)</span>
-<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>xi<span class="ot">&lt;-</span><span class="fu">sample</span>(<span class="fu">rnorm</span>(<span class="dv">5500</span>,<span class="at">mean=</span><span class="fl">5.6</span>, <span class="at">sd=</span> <span class="dv">1</span>),<span class="at">replace =</span> <span class="cn">TRUE</span>,<span class="at">size =</span> <span class="dv">500</span>)</span>
-<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>mu <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="dv">0</span>, <span class="dv">10</span>, <span class="at">length =</span> <span class="dv">1000</span>) </span>
-<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a>L_mu<span class="ot">&lt;-</span><span class="fu">numeric</span>()</span>
-<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> ( i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">1000</span>){</span>
-<span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a>  <span class="cf">for</span> (j <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">500</span> ){</span>
-<span id="cb15-9"><a href="#cb15-9" aria-hidden="true" tabindex="-1"></a>  L_mu[i]<span class="ot">&lt;-</span>(<span class="dv">1</span><span class="sc">/</span>((<span class="dv">2</span><span class="sc">*</span>pi)<span class="sc">^</span>(<span class="dv">500</span><span class="sc">/</span><span class="dv">2</span>)))<span class="sc">*</span><span class="fu">exp</span>(<span class="sc">-</span><span class="fl">0.5</span><span class="sc">*</span>(<span class="fu">sum</span>((xi[j]<span class="sc">-</span>mu[i])<span class="sc">^</span><span class="dv">2</span>)))</span>
-<span id="cb15-10"><a href="#cb15-10" aria-hidden="true" tabindex="-1"></a>}}</span>
-<span id="cb15-11"><a href="#cb15-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-12"><a href="#cb15-12" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(mu, L_mu, <span class="at">type=</span><span class="st">"n"</span>, <span class="at">xlab =</span> <span class="st">"Valores de Esperanças - E(X)"</span> ,</span>
-<span id="cb15-13"><a href="#cb15-13" aria-hidden="true" tabindex="-1"></a>     <span class="at">ylab =</span> <span class="st">"Verossimilhança"</span>)</span>
-<span id="cb15-14"><a href="#cb15-14" aria-hidden="true" tabindex="-1"></a><span class="fu">lines</span>(mu, L_mu, <span class="at">col=</span><span class="st">"wheat4"</span>, <span class="at">lwd =</span> <span class="dv">3</span>)</span>
-<span id="cb15-15"><a href="#cb15-15" aria-hidden="true" tabindex="-1"></a><span class="fu">abline</span>(<span class="at">v=</span><span class="fl">5.6</span>, <span class="at">col=</span><span class="st">"black"</span>, <span class="at">lty=</span><span class="dv">2</span>)</span>
-<span id="cb15-16"><a href="#cb15-16" aria-hidden="true" tabindex="-1"></a><span class="fu">text</span>(<span class="fl">5.5</span>, <span class="fl">0.00</span>, <span class="fu">expression</span>(mu))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="cap11_estimacao_ponto_files/figure-html/unnamed-chunk-10-1.png" class="img-fluid figure-img" style="width:70.0%"></p>
-<figcaption>Simulação da Função de Verossimilhança</figcaption>
-</figure>
-</div>
-</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># amostra da nota dos alunos que fizeram ENEM, X. Valores da esperança </span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">149</span>)</span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>xi<span class="ot">&lt;-</span><span class="fu">sample</span>(<span class="fu">rnorm</span>(<span class="dv">5500</span>,<span class="at">mean=</span><span class="fl">5.6</span>, <span class="at">sd=</span> <span class="dv">1</span>),<span class="at">replace =</span> <span class="cn">TRUE</span>,<span class="at">size =</span> <span class="dv">500</span>)</span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>mu <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="dv">0</span>, <span class="dv">10</span>, <span class="at">length =</span> <span class="dv">1000</span>) </span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>L_mu<span class="ot">&lt;-</span><span class="fu">numeric</span>()</span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> ( i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">1000</span>){</span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a>  <span class="cf">for</span> (j <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">500</span> ){</span>
+<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a>  L_mu[i]<span class="ot">&lt;-</span>(<span class="dv">1</span><span class="sc">/</span>((<span class="dv">2</span><span class="sc">*</span>pi)<span class="sc">^</span>(<span class="dv">500</span><span class="sc">/</span><span class="dv">2</span>)))<span class="sc">*</span><span class="fu">exp</span>(<span class="sc">-</span><span class="fl">0.5</span><span class="sc">*</span>(<span class="fu">sum</span>((xi[j]<span class="sc">-</span>mu[i])<span class="sc">^</span><span class="dv">2</span>)))</span>
+<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a>}}</span>
+<span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-12"><a href="#cb10-12" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(mu, L_mu, <span class="at">type=</span><span class="st">"n"</span>, <span class="at">xlab =</span> <span class="st">"Valores de Esperanças - E(X)"</span> ,</span>
+<span id="cb10-13"><a href="#cb10-13" aria-hidden="true" tabindex="-1"></a>     <span class="at">ylab =</span> <span class="st">"Verossimilhança"</span>)</span>
+<span id="cb10-14"><a href="#cb10-14" aria-hidden="true" tabindex="-1"></a><span class="fu">lines</span>(mu, L_mu, <span class="at">col=</span><span class="st">"wheat4"</span>, <span class="at">lwd =</span> <span class="dv">3</span>)</span>
+<span id="cb10-15"><a href="#cb10-15" aria-hidden="true" tabindex="-1"></a><span class="fu">abline</span>(<span class="at">v=</span><span class="fl">5.6</span>, <span class="at">col=</span><span class="st">"black"</span>, <span class="at">lty=</span><span class="dv">2</span>)</span>
+<span id="cb10-16"><a href="#cb10-16" aria-hidden="true" tabindex="-1"></a><span class="fu">text</span>(<span class="fl">5.5</span>, <span class="fl">0.00</span>, <span class="fu">expression</span>(mu))</span></code></pre></div><button title="Copiar para a área de transferência" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>O que fizemos? Condicional a amostra que obtivemos simulamos diversos valores de <span class="math inline">\(\mathbb{E}(X)=\mu\)</span> e calculamos a função para cada um dos 1000 valores simulados do parâmetro populacional. Ou seja, obtivemos 1000 valores da função de verossimilhança que está plotada acima. Assim, essa função nos fornece a probabilidade de encontrarmos certo valor de parâmetro condicional aos valores observados de <span class="math inline">\(x_i\)</span>. Observe que o ponto de máximo da função de verossimilhança está localizado bem próximo do verdadeiro parâmetro populacional.</p>
 <p>A maximização da função de verossimilhança nos indicará qual a formulação do estimador que nos levará próximo ao parâmetro populacional como podemos observar na figura acima. Portanto, buscamos o</p>
@@ -1612,7 +1533,7 @@ L(\Theta|X_1,...,X_n)= f(x_1|\Theta)f(x_2|\Theta)...f(x_n|\Theta)
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Note</span>DEFINIÇÃO
+<span class="screen-reader-only">Nota</span>DEFINIÇÃO
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -1650,7 +1571,7 @@ L(\Theta|X_1,...,X_n)= f(x_1|\Theta)f(x_2|\Theta)...f(x_n|\Theta)
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Tip</span>EXEMPLO
+<span class="screen-reader-only">Dica</span>EXEMPLO
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -1690,7 +1611,7 @@ ln L(\beta|t_1,...,t_n) = l(\beta|t_1,...,t_n) = n .ln \beta - \beta \sum T_i
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Tip</span>EXEMPLO
+<span class="screen-reader-only">Dica</span>EXEMPLO
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -1756,7 +1677,7 @@ l(\mu|x_1,...,x_n)= ln 1 - \frac{\mu}{2} ln 2 \pi - \frac{1}{2} \sum_i^n (X_i - 
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Caution</span>RESPOSTA
+<span class="screen-reader-only">Cuidado</span>RESPOSTA
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
@@ -1855,7 +1776,7 @@ l(\mu|x_1,...,x_n)= ln 1 - \frac{\mu}{2} ln 2 \pi - \frac{1}{2} \sum_i^n (X_i - 
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Caution</span>RESPOSTA
+<span class="screen-reader-only">Cuidado</span>RESPOSTA
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
@@ -1954,7 +1875,7 @@ l(\mu|x_1,...,x_n)= ln 1 - \frac{\mu}{2} ln 2 \pi - \frac{1}{2} \sum_i^n (X_i - 
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Caution</span>RESPOSTA
+<span class="screen-reader-only">Cuidado</span>RESPOSTA
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
@@ -2008,7 +1929,7 @@ l(\mu|x_1,...,x_n)= ln 1 - \frac{\mu}{2} ln 2 \pi - \frac{1}{2} \sum_i^n (X_i - 
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Caution</span>RESPOSTA
+<span class="screen-reader-only">Cuidado</span>RESPOSTA
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
@@ -2058,7 +1979,7 @@ l(\mu|x_1,...,x_n)= ln 1 - \frac{\mu}{2} ln 2 \pi - \frac{1}{2} \sum_i^n (X_i - 
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Caution</span>RESPOSTA
+<span class="screen-reader-only">Cuidado</span>RESPOSTA
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
@@ -2105,7 +2026,7 @@ l(\mu|x_1,...,x_n)= ln 1 - \frac{\mu}{2} ln 2 \pi - \frac{1}{2} \sum_i^n (X_i - 
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Caution</span>RESPOSTA
+<span class="screen-reader-only">Cuidado</span>RESPOSTA
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
@@ -2146,7 +2067,7 @@ l(\mu|x_1,...,x_n)= ln 1 - \frac{\mu}{2} ln 2 \pi - \frac{1}{2} \sum_i^n (X_i - 
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Caution</span>RESPOSTA
+<span class="screen-reader-only">Cuidado</span>RESPOSTA
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
@@ -2187,6 +2108,18 @@ l(\mu|x_1,...,x_n)= ln 1 - \frac{\mu}{2} ln 2 \pi - \frac{1}{2} \sum_i^n (X_i - 
 </section>
 
 </main> <!-- /main -->
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  document.querySelectorAll(".callout").forEach((box) => {
+    const title = box.querySelector(".callout-title-container, .callout-title")
+      ?.textContent.trim().normalize("NFD").replace(/[\u0300-\u036f]/g, "").toUpperCase() || "";
+    if (title.includes("DEFINICAO")) box.classList.add("caixa-definicao");
+    else if (title.includes("TEOREMA")) box.classList.add("caixa-teorema");
+    else if (title.includes("EXEMPLO")) box.classList.add("caixa-exemplo");
+    else if (title.includes("RESPOSTA")) box.classList.add("caixa-resposta");
+  });
+});
+</script>
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     const icon = "";
@@ -2212,12 +2145,12 @@ l(\mu|x_1,...,x_n)= ln 1 - \frac{\mu}{2} ln 2 \pi - \frac{1}{2} \sum_i^n (X_i - 
       // flash "checked"
       button.classList.add('code-copy-button-checked');
       var currentTitle = button.getAttribute("title");
-      button.setAttribute("title", "Copied!");
+      button.setAttribute("title", "Copiada");
       let tooltip;
       if (window.bootstrap) {
         button.setAttribute("data-bs-toggle", "tooltip");
         button.setAttribute("data-bs-placement", "left");
-        button.setAttribute("data-bs-title", "Copied!");
+        button.setAttribute("data-bs-title", "Copiada");
         tooltip = new bootstrap.Tooltip(button, 
           { trigger: "manual", 
             customClass: "code-copy-button-tooltip",
@@ -2600,8 +2533,22 @@ l(\mu|x_1,...,x_n)= ln 1 - \frac{\mu}{2} ln 2 \pi - \frac{1}{2} \sum_i^n (X_i - 
   </div>
 </nav>
 </div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+      &nbsp;
+    </div>   
+    <div class="nav-footer-center">
+<p><span class="credito-autoral"><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMDAgMTAwIiB3aWR0aD0iMTAwIiBoZWlnaHQ9IjEwMCI+CiAgPHJlY3Qgd2lkdGg9IjEwMCIgaGVpZ2h0PSIxMDAiIHJ4PSIxOCIgZmlsbD0iIzA3MTczOSIvPgogIDxwYXRoIGQ9Ik0xMiA4NiBDNDYgODggNzIgNzggODggNTAiIGZpbGw9Im5vbmUiIHN0cm9rZT0iIzRCNjM4MiIgc3Ryb2tlLXdpZHRoPSIzLjUiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIvPgogIDxwYXRoIGQ9Ik0xMiA4NiBDNDIgODYgNzAgNjYgODIgMjYiIGZpbGw9Im5vbmUiIHN0cm9rZT0iI0ZGRkZGRiIgc3Ryb2tlLXdpZHRoPSI3IiBzdHJva2UtbGluZWNhcD0icm91bmQiLz4KICA8Y2lyY2xlIGN4PSI4NCIgY3k9IjE5IiByPSI3IiBmaWxsPSIjRTNDMzlEIi8+Cjwvc3ZnPgo=" alt=""> <span>Criação e Design: <strong>Alexandre Nicolella</strong> — FEA-RP/USP</span></span></p>
+</div>
+    <div class="nav-footer-right">
+      &nbsp;
+    </div>
+  </div>
+</footer>
 
 
 
 
+<script src="../site_libs/quarto-html/zenscroll-min.js"></script>
 </body></html>
